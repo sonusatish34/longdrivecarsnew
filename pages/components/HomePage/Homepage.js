@@ -219,8 +219,11 @@ export default function Homepage({ data }) {
       <div>
       <div className='text-center'>
           <h2 id='explore' className="px-3 font-bold text-2xl font-jakarta pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Long Drive Car Rentals</h2>
+          <div className='py-3'>
+          <Link href={'/test'} className='p-2 bg-blue-400 text-lg rounded-full'>Get Near By Cars</Link>
+          </div>
         </div>
-        <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center'>
+        <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center pt-3'>
           <input
             placeholder='Search for the cars'
             className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full max-w-56 md:max-w-96 lg:max-w-2xl'
