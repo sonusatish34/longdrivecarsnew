@@ -68,26 +68,24 @@ const HamburgerMenu = () => {
           </ul>
         </div>
       </div>
-     
+
       <div className="flex w-full lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20">
         <div className="flex">
           <Link href={'/'}>
             <div className='rounded-md flex cursor-pointer items-center pl-5'>
-              <Image
-                className="lg:w-32 w-20"
-                src={logo2}
-                alt="carrr"
-                width={192}
-                height={192}
-                priority
+              <div className='flex items-center gap-2 w-full'>
+                <Image
+                  className="lg:w-32 w-10"
+                  src={logo2}
+                  alt="carrr"
+                  width={192}
+                  height={192}
+                  priority
                 // placeholder="blur"
-              />
+                />
+                <p className='font-semibold text-[#0456e8] text-lg'>Long Drive Cars</p>
+              </div>
               <div className='w-40 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-                {/* <h1 className='font-semibold xl:text-xl lg:text-xl text-xs'>Long Drive Cars <span className='text-orange-500'>Hyderabad</span></h1> */}
-                {/* <p className='xs:text-xs lg:text-lg lg:pl-8 xs:pl-9'>
-                  <span className='xs:text-[7px] lg:text-[10px]'>Powered By</span>
-                  <span className='lg:text-[17px] font-bold text-blue-700 text-[10px] xs:text-[8px] pl-1'>Long Drive CARS</span>
-                </p> */}
               </div>
 
             </div>
@@ -104,7 +102,7 @@ const HamburgerMenu = () => {
         <div className='lg:hidden block'>
           <button
             ref={buttonRef}
-            className="fixed top-[3.8rem] right-5 z-40 text-blue-400"
+            className="fixed top-[2.8rem] right-5 z-40 text-blue-400"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -135,7 +133,7 @@ const HamburgerMenu = () => {
                 width={192}
                 height={192}
                 priority
-                // placeholder="blur"
+              // placeholder="blur"
               />
               <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
                 {/* <h1 className='font-semibold xl:text-xl lg:text-xl text-xs'>Long Drive Cars <span className='text-orange-500'>Hyderabad</span></h1> */}
