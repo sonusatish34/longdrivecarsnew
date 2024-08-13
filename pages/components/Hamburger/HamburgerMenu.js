@@ -68,21 +68,13 @@ const HamburgerMenu = () => {
           </ul>
         </div>
       </div>
-      <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
-        <div className="flex items-center gap-1">
-          <LuPhoneCall size={20} />
-          <h2 className='lg:text-2xl lg:font-bold'>
-            <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
-          </h2>
-        </div>
-      </div>
+     
       <div className="flex w-full lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20">
         <div className="flex">
           <Link href={'/'}>
-            <div className='rounded-md flex cursor-pointer items-center pl-10'>
+            <div className='rounded-md flex cursor-pointer items-center pl-5'>
               <Image
-                className="w-32 "
+                className="lg:w-32 w-20"
                 src={logo2}
                 alt="carrr"
                 width={192}
@@ -112,12 +104,12 @@ const HamburgerMenu = () => {
         <div className='lg:hidden block'>
           <button
             ref={buttonRef}
-            className="fixed top-[6.4rem] right-5 z-40 text-orange-400"
+            className="fixed top-[3.8rem] right-5 z-40 text-blue-400"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6 fill-current text-orange-400"
+              className="w-6 h-6 fill-current text-blue-400"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -160,23 +152,6 @@ const HamburgerMenu = () => {
             <li className="w-32 text-start"><Link href={''}>Blog</Link></li>
             <li className="w-32 text-start"><Link href={''}>Reviews</Link></li>
           </ul>
-          <div className="flex flex-col border-t-2 text-orange-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
-            <p>For Booking Help Call</p>
-            <div className="flex items-center">
-              <ul>
-                <li>Telangana, AP</li>
-                <li className="font-bold text-2xl text-black">
-                  <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="flex items-center">
-              <ul>
-                <li>Bangalore</li>
-                <li className="font-bold text-2xl text-black">912-912-25-25</li>
-              </ul>
-            </div>
-          </div>
         </nav>
       </div>
     </div>

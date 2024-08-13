@@ -30,7 +30,7 @@ const ImageChange = () => {
 
     <div className='mt-28 xl:mt-0 2xl:mt-0 lg:mt-0'>
       <div className='h-full xs:pt-8 lg:pt-2 xl:pl-4 lg:pl-10  lg:justify-between xs:justify-end flex flex-wrap md:justify-end justify-between bg-white'>
-        <div className='lg:w-6/12 md:w-2/4 xl:pt-20 xs:pt-20 pl-12'>
+        <div className='lg:w-6/12 md:w-2/4 xl:pt-20 xs:pt-10 pr-8'>
           <h2 className="lg:text-left text-black font-[500] xl:text-base text-xl font-opensans " data-wow-delay="50ms" data-wow-duration="200ms">
             <p className='xl:text-5xl lg:text-4xl xs:text-2xl font-jakarta lg:pb-2 font-bold pb-1'>Long Drive Car Rental </p>
             <p className='xl:text-5xl lg:text-4xl xs:text-2xl font-jakarta font-bold'>Starting at <span className='pl-2 text-blue-500'>₹ 62/hr</span></p>
@@ -43,28 +43,27 @@ const ImageChange = () => {
                 <FaCar className="bg-orange-200 rounded-md p-1 xs:size-8" size={40} />
                 <p className="ml-2">Check Original Car Photo</p>
               </div> */}
-              <div className="flex items-center gap-1 p-2 bg-[#ffffff]">
+              <div className="flex flex-col items-center gap-1 p-2 bg-[#ffffff]">
                 <Image
                   priority
                   height={500}
                   width={500}
                   alt='apple'
-                  className='w-36'
+                  className='w-[7.7rem]'
                   src={apple}
                 >
                 </Image>
-              </div>
-              <div className="flex items-center gap-1 p-2 bg-[#ffffff]  shadow-sm  rounded-md">
-              <Image
+                <Image
                   priority
                   height={500}
                   width={500}
                   alt='google'
-                  className='w-44'
+                  className='w-36'
                   src={google}
                 >
                 </Image>
               </div>
+              
             </div>
           </h2>
         </div>

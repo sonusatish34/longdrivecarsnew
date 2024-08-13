@@ -23,7 +23,8 @@ import styles from './HomePage.module.css';
 import { FaSearch } from 'react-icons/fa';
 const DynCallBackForm = dynamic(() => import('../CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../NearYou/NearYou'));
-const DynWhyChooseUs = dynamic(() => import('../WhyChooseUs/WhyChooseUs'));
+// const DynWhyChooseUs = dynamic(() => import('../WhyChooseUs/WhyChooseUs'));
+import DynWhyChooseUs from '../WhyChooseUs/WhyChooseUs'
 const DynImageChange = dynamic(() => import('../ImageChange/ImageChange'));
 
 import './HomePage.module.css'
