@@ -1,17 +1,45 @@
 
   .brandlogo{
-    /* background-color: red; */
+    background-color: red;
     /* margin-left: 10px;
     margin-right: 10px; */
   }
+  
   .widthscreenset
   {
     /* width: 80vw; */
 
   }
- 
+  slick-slide slick-active slick-current
 .triangleElement {
   /* width: 760px; */
   /* height: 500px; */
   background: linear-gradient(to bottom right, #fff 0%, #fff 50%, orange 50%, orange 80%);
+}
+
+/* styles/Carousel.module.css */
+.slick-slide {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+.slide img {
+  width: 50% !important;
+  height: auto;
+  transition: opacity 0.5s ease;
+}
+
+.slide.previous {
+  transform: scale(0.7);
+  opacity: 0.5;
+}
+
+.slide.active {
+  z-index: 2;
+}
+
+.slide:not(.active) {
+  z-index: 1;
 }

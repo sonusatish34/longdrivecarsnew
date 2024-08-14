@@ -19,7 +19,7 @@ function Footer() {
                         <h2 className='text-left mb-1 xs:pt-3 text-xl font-bold'>Contact Info</h2>
                         <div className='flex md:flex-col xs:flex-row text-left text-lg xs:gap-4 xs:pb-4'>
                             <div className='flex justify-center items-center'>
-                                <ul >
+                                <ul>
                                     <li className='text-base'>Telangana, AP</li>
                                     <li className='text-xl font-bold'><Link href="tel:9666677405" target='_blank'>9666-677-405</Link></li>
                                 </ul>

@@ -9,7 +9,7 @@ import skoda from '../../images/skoda1.webp';
 import toyota from '../../images/toyota1.webp';
 import mg from '../../images/mg.webp';
 import kia from '../../images/kia.webp';
-import mahindra from '../../images/mahindra.webp';
+import mahindra from '../../images/mhlogo.webp';
 import suzuki from '../../images/suz.webp';
 
 import renault from '../../images/renault.webp'
@@ -80,17 +80,17 @@ export default function Homepage({ data }) {
         settings: {
           pauseOnFocus: true,
           pauseOnHover: true,
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          // rows: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          // rows: 2,1
           slidesPerRow: 2, // 2 slides per row (2 columns)
           pauseOnHover: true,
-          autoplay: true,
+          autoplay: false,
           speed: 2000,
-          vertical: true,
-          verticalSwiping: true, // Enable vertical swiping
+          // vertical: true,
+          // verticalSwiping: true, // Enable vertical swiping
           swipeToSlide: true,
-          arrows: false
+          arrows: true
 
         }
       }
@@ -105,125 +105,24 @@ export default function Homepage({ data }) {
   return (
     <div className="min-h-screen">
       <DynImageChange />
-      <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 py-20'>
-        <div className='text-center'>
-          <p className='py-3 md:text-5xl xs:text-3xl mb-7 text-white  font-bold'>Browse By Brand</p>
-          <div className="flex items-center text-black justify-center">
-
-            <div className="slider-container my-2 ">
-              <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
-
-                <div>
-                  <div onClick={() => { setSearchQuery("mahindra"); scrollToTarget() }} className='my-2 p-6 bg-white rounded-lg  lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2  hover:border-blue-700 cursor-pointer '>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-lg"
-                    />
-                    <p className='pt-2 font-bold'>Mahindra</p>
-                  </div>
-                </div>
-                <div>
-                  <div onClick={() => { setSearchQuery("tata"); scrollToTarget() }} className='p-6 my-2 bg-white rounded-lg  lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer  '>
-                    <Image
-                      src={tata}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-lg lg:mb-5"
-                    />
-                    <p className='pt-2 font-bold'>Tata</p>
-                  </div>
-                </div>
-                <div>
-                  <div onClick={() => { setSearchQuery("skoda"); scrollToTarget() }} className='lg:p-6 my-2 bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer  '>
-                    <Image
-                      src={skoda}
-                      alt="Car"
-                      width={100}
-                      height={100}
-                      className="rounded-lg w-16"
-                    />
-                    <p className='pt-2 font-bold'>Skoda</p>
-                  </div>
-                </div>
-                <div>
-                  <div onClick={() => { setSearchQuery("toyota"); scrollToTarget() }} className='my-2 lg:p-6 bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer  '>
-                    <Image
-                      src={toyota}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded w-20"
-
-                    />
-                    <p className='pt-2 font-bold'>Toyota</p>
-                  </div>
-                </div>
-                <div >
-                  <div onClick={() => { setSearchQuery("mg"); scrollToTarget() }} className='my-2 lg:p-6 bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer  '>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={200}
-                      height={220}
-                      className="rounded lg:h-24 lg:w-36"
-                    />
-                    <p className='pt-2 font-bold'>MG</p>
-                  </div>
-                </div>
-                <div >
-                  <div onClick={() => { setSearchQuery("kia"); scrollToTarget() }} className='my-2 lg:p-6 bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer  '>
-                    <Image
-                      src={kia}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded"
-
-                    />
-                    <p className='pt-2 font-bold'>Kia</p>
-                  </div>
-                </div>
-                <div >
-                  <div onClick={() => { setSearchQuery("maruthi"); scrollToTarget() }} className='my-2 lg:p-6 bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center  items-center flex-col hover:border-2 hover:border-blue-700 hover: -105 cursor-pointer'>
-                    <Image
-                      src={suzuki}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded hover:bg-red-500"
-                    />
-                    <p className='pt-2 font-bold'>Suzuki</p>
-                  </div>
-                </div>
-                <div >
-                  <div onClick={() => { setSearchQuery("renault"); scrollToTarget() }} className='p- bg-white rounded-lg lg:w-28 md:w-24 h-32 w-24 flex justify-center items-center flex-col hover:border-2  mt-2 hover:border-blue-700 hover: -105 cursor-pointer'>
-                    <Image
-                      src={renault}
-                      alt="Car"
-                      className="rounded hover:bg-red-500 xs:h-24 lg:h-16"
-                    />
-                    <p className='pt- font-bold'>Renault</p>
-                  </div>
-                </div>
-
-              </Slider>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div><DynNearYou /></div>
+      
+      
       <div>
-      <div className='text-center'>
+        {/* <div className='text-center'>
           <h2 id='explore' className="px-3 font-bold text-2xl font-jakarta pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Long Drive Car Rentals</h2>
           <div className='py-3'>
-          <Link href={'/test'} className='p-2 bg-blue-400 text-lg rounded-full'>Get Near By Cars</Link>
+            <Link href={'/test'} className='p-2 bg-blue-700 text-lg rounded'>Get Near By Cars</Link>
           </div>
-        </div>
+        </div> */}
+        <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] xs:mx-7 rounded-md justify-center bg-blue-700  items-center pb-5 lg:pt-5 text-white shadow-md'>
+                <div className=''>
+                    <div className='  xl:px-6 lg:py-3 flex flex-col text-center'>
+                    <p className="text-lg font-bold">Explore Long Drive Car Rentals</p>
+                    <span className='pt-3'><Link href={'/test'} className='p-1 bg-black text-center text-lg rounded'>Get Near By Cars</Link></span>
+                    </div>
+                    
+                </div>
+            </div>
         <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center pt-3'>
           <input
             placeholder='Search for the cars'
@@ -235,8 +134,74 @@ export default function Homepage({ data }) {
           <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
         </div>
       </div>
-      <CarProducts data={data2} searchQuery={searchQuery}/>
+      <CarProducts data={data2} searchQuery={searchQuery} />
+      <div><DynNearYou /></div>
+      <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 py-20'>
+        <div className='text-center'>
+          <p className='py-3 md:text-5xl xs:text-3xl mb-7 text-white  font-bold'>Our Fleet</p>
+          <div className="flex items-center text-black justify-center">
 
+            <div className="slider-container my-2 ">
+              <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
+
+                {/*  */}
+                
+                <div className='pr-4'>
+                  <div className='w-32 h-32 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32 h-16"
+                    />
+                    <p className='text-black'>Morris</p>
+                  </div>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-32 h-32 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mahindra}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32 h-16"
+                    />
+                    <p className='text-black'>Mahindra</p>
+                  </div>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-28 h-28 bg-red-600 rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32"
+                    />
+                    <p className='text-white'>Morris</p>
+                  </div>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-28 h-28 bg-red-600 rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32"
+                    />
+                    <p className='text-white'>Morris</p>
+                  </div>
+                </div>
+              
+
+              </Slider>
+
+            </div>
+          </div>
+        </div>
+      </div>
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white text-black rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
