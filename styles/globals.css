@@ -57,6 +57,7 @@ body {
   position: relative !important;
   transition: transform 0.5s ease !important;
 }
+
 .slick-track {
   display: flex !important;
   justify-content: center !important;
@@ -107,3 +108,9 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+.roboto-text {
+  font-family: "Roboto", sans-serif;
+}
+.mont-text {
+  font-family: "Montserrat", sans-serif;
+}

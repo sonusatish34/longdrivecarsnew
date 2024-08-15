@@ -105,8 +105,8 @@ export default function Homepage({ data }) {
   return (
     <div className="min-h-screen">
       <DynImageChange />
-      
-      
+
+
       <div>
         {/* <div className='text-center'>
           <h2 id='explore' className="px-3 font-bold text-2xl font-jakarta pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Long Drive Car Rentals</h2>
@@ -114,19 +114,19 @@ export default function Homepage({ data }) {
             <Link href={'/test'} className='p-2 bg-blue-700 text-lg rounded'>Get Near By Cars</Link>
           </div>
         </div> */}
-        <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] xs:mx-7 rounded-md justify-center bg-blue-700  items-center pb-5 lg:pt-5 text-white shadow-md'>
-                <div className=''>
-                    <div className='  xl:px-6 lg:py-3 flex flex-col text-center'>
-                    <p className="text-lg font-bold">Explore Long Drive Car Rentals</p>
-                    <span className='pt-3'><Link href={'/test'} className='p-1 bg-black text-center text-lg rounded'>Get Near By Cars</Link></span>
-                    </div>
-                    
-                </div>
+        <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] xs:mx-7 rounded-md justify-center bg-[#402f68]  items-center pb-5 lg:pt-5 text-white shadow-md'>
+          <div className=''>
+            <div className='  xl:px-6 lg:py-3 flex flex-col text-center'>
+              <p className="text-lg font-bold">Explore Long Drive Car Rentals</p>
+              <span className='pt-3'><Link href={'/test'} className='p-1 bg-black text-center text-lg rounded'>Get Near By Cars</Link></span>
             </div>
+
+          </div>
+        </div>
         <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center pt-3'>
           <input
             placeholder='Search for the cars'
-            className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full max-w-56 md:max-w-96 lg:max-w-2xl'
+            className='placeholder-black  px-4 py-3 rounded-full bg-gray-200 w-full max-w-56 md:max-w-96 lg:max-w-2xl'
             type='search'
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -136,18 +136,18 @@ export default function Homepage({ data }) {
       </div>
       <CarProducts data={data2} searchQuery={searchQuery} />
       <div><DynNearYou /></div>
-      <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 py-20'>
+      <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 lg:py-20'>
         <div className='text-center'>
           <p className='py-3 md:text-5xl xs:text-3xl mb-7 text-white  font-bold'>Our Fleet</p>
-          <div className="flex items-center text-black justify-center">
+          <div className="flex items-center  justify-center">
 
-            <div className="slider-container my-2 ">
+            <div className="slider-container my-2 text-white ">
               <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
 
                 {/*  */}
-                
+
                 <div className='pr-4'>
-                  <div className='w-32 h-32 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
                     <Image
                       src={mg}
                       alt="Car"
@@ -155,60 +155,82 @@ export default function Homepage({ data }) {
                       height={180}
                       className="rounded-full w-32 h-16"
                     />
-                    <p className='text-black'>Morris</p>
                   </div>
+                  <p className=''>Morris</p>
                 </div>
                 <div className='pr-4'>
-                  <div className='w-32 h-32 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
                     <Image
                       src={mahindra}
                       alt="Car"
                       width={180}
                       height={180}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <p className=''>Mahindra</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
                       className="rounded-full w-32 h-16"
                     />
-                    <p className='text-black'>Mahindra</p>
                   </div>
+                  <p className=''>Morris</p>
                 </div>
                 <div className='pr-4'>
-                  <div className='w-28 h-28 bg-red-600 rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mahindra}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <p className=''>Mahindra</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
                     <Image
                       src={mg}
                       alt="Car"
                       width={180}
                       height={180}
-                      className="rounded-full w-32"
+                      className="rounded-full w-32 h-16"
                     />
-                    <p className='text-white'>Morris</p>
                   </div>
+                  <p className=''>Morris</p>
                 </div>
                 <div className='pr-4'>
-                  <div className='w-28 h-28 bg-red-600 rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
                     <Image
-                      src={mg}
+                      src={mahindra}
                       alt="Car"
                       width={180}
                       height={180}
-                      className="rounded-full w-32"
+                      className="rounded-full"
                     />
-                    <p className='text-white'>Morris</p>
                   </div>
+                  <p className=''>Mahindra</p>
                 </div>
-              
-
+                
               </Slider>
-
             </div>
           </div>
         </div>
       </div>
       <DynCallBackForm />
       <DynWhyChooseUs />
-      <div className='bg-white text-black rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
+      <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
         <h2 className='uppercase p-2 mb-4 text-center font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
         <DynamicFaqComponent />
       </div>
-      <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-orange-500 rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
+      <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#402f68] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
         <div className='xl:w-5/12 xl:text-left xs:w-full xs:text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-left text-lg  lg:p-4 lg:pl-14 font-semibold'>
           Get in touch with us to arrange your booking
         </div>

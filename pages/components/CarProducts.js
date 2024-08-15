@@ -20,7 +20,7 @@ import { TbManualGearbox } from "react-icons/tb";
 function CarProducts({ data, searchQuery }) {
     // console.log(data,"dasya");
 
-    const [visibleItems, setVisibleItems] = useState(9);
+    const [visibleItems, setVisibleItems] = useState(8);
     // const [searchQuery, setSearchQuery] = useState('');
 
     const handleLoadMore = () => {
@@ -60,14 +60,14 @@ function CarProducts({ data, searchQuery }) {
                
                 {filteredData?.slice(0, visibleItems).map((item, index) => (
                     <React.Fragment key={index}>
-                        <div className="bg-white  shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[500px] lg:hover:scale-105">
+                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[500px] lg:hover:scale-105">
                             <div className="relative h-[500px]">
                                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                        <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
+                                        <p className='capitalize p-1 mont-text font-semibold text-white bg-[#402f68] rounded-md  z-50  text-sm pt- '>{item?.maker_model.toLowerCase()}</p>
                                         {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span><IoLocationSharp className="text-orange-400"/></span><span>12kms</span></p>
+                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-[#402f68] rounded-md '> <span><IoLocationSharp className="text-orange-400"/></span><span>12kms</span></p>
                                         
                                         {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
@@ -75,8 +75,8 @@ function CarProducts({ data, searchQuery }) {
                                 </div>
                                 <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                                     <Image
-                                        // src={replaceText(item?.car_image_car_right_view)}
-                                        src={carphoto}
+                                        src={replaceText(item?.car_image_car_right_view)}
+                                        // src={carphoto}
                                         // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                                         // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                                         layout="fill"
@@ -86,12 +86,12 @@ function CarProducts({ data, searchQuery }) {
                                         loading='lazy'
                                     />
                                 </Link>
-                                <div className="relative z-20 top-64 bg-gradient-to-t from-black opacity-90">
+                                <div className="relative z-20 top-[16.7rem] bg-gradient-to-t from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                                    <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
-                                        <p className='font-bold text-lg shadow-black'>Book Now</p>
+                                    <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
+                                        <p className='font-bold text-lg shadow-black lg:pl-4 pl-6'>Book Now</p>
                                         {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                        <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
+                                        <p className='capitalize p-1 font-bold text-white bg-[#402f68] rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                                         {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
                                     <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
@@ -157,8 +157,8 @@ function CarProducts({ data, searchQuery }) {
                 ))}
             </div>
             {visibleItems < filteredData?.length && (
-                <div className="text-center md:pb-10 pb-6">
-                    <button className="bg-blue-500 text-lg font-bold text-white px-9 py-2 rounded-full">
+                <div className="text-center md:pb-10 py-6 ">
+                    <button className="bg-[#402f68] text-lg font-bold text-white px-9 py-2 rounded-full">
                         <Link href={"/explore-self-drive-cars"}>View all cars</Link>
                     </button>
                 </div>

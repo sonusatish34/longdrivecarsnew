@@ -34,14 +34,14 @@ const FaqAccordion = () => {
   return (
     <div className=" mx-auto">
       {faqData.map((item, index) => (
-        <div key={index} className="border-b-[2px] border-gray-300 rounded mb-2">
+        <div key={index} className="border-b-[2px] border-gray-300 rounded mb-2 text-black">
           <div
             className="flex justify-between items-center px-4 py-3 cursor-pointer"
             onClick={() => toggleAccordion(index)}
           >
             <span className=" lg:w-full lg:text-lg xs:text-xs font-semibold font-sans capitalize text-base w-64">{item.question}</span>
             <svg
-              className={`lg:w-6 lg:h-6 w-4 h-4 rounded bg-orange-400 text-white transition-transform ${
+              className={`lg:w-6 lg:h-6 w-4 h-4 rounded bg-[#402f68] text-white transition-transform ${
                 activeIndex === index ? 'transform rotate-180' : ''
               }`}
               xmlns="http://www.w3.org/2000/svg"

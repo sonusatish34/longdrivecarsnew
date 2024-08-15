@@ -4,6 +4,18 @@ import Link from 'next/link';
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Image from 'next/image';
+import { IoReload } from "react-icons/io5";
+import { BsFuelPump } from 'react-icons/bs';
+import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
+import { SlSpeedometer } from "react-icons/sl";
+import disc from './images/discountonbook.webp'
+import { FaSearch } from 'react-icons/fa';
+import carphoto from './images/car_image.jpeg'
+import { IoLocationSharp } from "react-icons/io5";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { GrGroup } from "react-icons/gr";
+import { TbManualGearbox } from "react-icons/tb";
 
 const LocationFetcher = () => {
   const [location, setLocation] = useState(null);
@@ -34,7 +46,6 @@ const LocationFetcher = () => {
 
   // };
 
-  // console.log(getCurrentDate()); // Output: e.g., "2024-08-12"
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -46,20 +57,20 @@ const LocationFetcher = () => {
         },
         (err) => {
           setError(err.message);
-          setLoading(false); // Set loading to false if there's an error
+          setLoading(false); 
         }
       );
     } else {
       setError('Geolocation is not supported by this browser.');
-      setLoading(false); // Set loading to false if geolocation is not supported
+      setLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    if (!location) return; // Exit early if location is not available
+    if (!location) return; 
 
     const fetchData = async () => {
-      setLoading(true); // Set loading to true before starting fetch
+      setLoading(true);
       const myHeaders = new Headers();
       myHeaders.append("accept", "application/json");
 
@@ -83,88 +94,126 @@ const LocationFetcher = () => {
         
       }
     };
-    console.log(lat,"lat");
-    console.log(lon,"lon");
-    
+   
     fetchData();
   }, [location]);
 
   return (
-    <div className='text-red-800 pt-60 lg:pt-48 flex flex-col lg:flex-row flex-wrap gap-12'>
+    <div className=' pt-60 lg:pt-48 flex flex-col lg:flex-row flex-wrap gap-12'>
       {loading && <div className="text-center py-4">
         <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
           <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
         </div></div>}
       {error && <p>Error: {error}</p>}
-      {data?.map((item, index) => (
-        <React.Fragment key={index}>
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full">
-            <div className="relative rounded-lg overflow-hidden cursor-pointer">
-              <div className="relative lg:h-[533px] h-[333px]">
-                <Image fill alt='cars' className="object-cover" src={replaceText(item?.car_image_car_right_view)}></Image>
-              </div>
-            </div>
-            <div className="px-2 flex flex-col gap-4 p-1">
-              <div className="flex items-baseline justify-between px-2">
-                <div>
-                  <Link href={`/${item.maker_model.toLowerCase()}`}>
-                    {/* <p className="text-gray-700 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p> */}
-                  </Link>
-                  <Link href={`/${item.maker_model.toLowerCase()}`}>
-                    <p className="text-[#556EE6] font-semibold text-xl hover:text-red-600 w-fit">
-                      {item.maker_model}
-                    </p>
-                  </Link>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <p>{item?.address_area_name}</p>
-                </div>
-              </div>
-              <div className="font-normal text-sm">
-                <div className="flex items-baseline justify-between px-2">
-                  <p className="text-black">Mon-Thu</p>
-                  <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p>
-                </div>
-                <div className="flex items-baseline justify-between px-2">
-                  <p className="text-black">Fri-Sun</p>
-                  <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p>
-                </div>
-              </div>
+      <div className=' bg-white'>
+            <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center">
+               
+                {data?.map((item, index) => (
+                    <React.Fragment key={index}>
+                        <div className="bg-white  shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[500px] lg:hover:scale-105">
+                            <div className="relative h-[500px]">
+                                <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
+                                    {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                                    <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                                        <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
+                                        {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
+                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>12kms</span></p>
+                                        
+                                        {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
+                                    </div>
 
-              <div className="text-black flex justify-center font-semibold">
-                For Booking
-              </div>
-              <div className="flex justify-between gap-1 text-white ">
-                <ul className="text-black flex w-full justify-between gap-5">
-                  <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
-                    <Link
-                      href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
-                      target="_blank"
-                    >
-                      <p className="flex gap-1 text-sm justify-center">
-                        <span>
-                          <FaWhatsapp size={20} />
-                        </span>{" "}
-                        <span>Whatsapp</span>
-                      </p>
-                    </Link>
-                  </li>
-                  <li className="bg-blue-500 w-full p-2 rounded-br-md text-white border-[1px] border-black">
-                    <Link href="tel:9111911162" target="_blank">
-                      <p className="flex gap-1 text-sm justify-center">
-                        <span>
-                          <BiPhoneCall size={20} />
-                        </span>{" "}
-                        <span>Call Us</span>
-                      </p>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+                                </div>
+                                <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                                    <Image
+                                        // src={replaceText(item?.car_image_car_right_view)}
+                                        src={carphoto}
+                                        // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className=" "
+                                        // priority
+                                        loading='lazy'
+                                    />
+                                </Link>
+                                <div className="relative z-20 top-64 bg-gradient-to-t from-black opacity-90">
+                                    {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                                    <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
+                                        <p className='font-bold text-lg shadow-black'>Book Now</p>
+                                        {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
+                                        <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
+                                        {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
+                                    </div>
+                                    <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
+                                        <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500"/></span><span>{item?.fuel_type}</span></li>
+                                        <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500"/></span><span>{item?.seater} Seater</span></li>
+                                        <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600"/></span><span>{item?.transmission_type}</span></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                {/* <div className="relative text-black flex justify-center font-semibold">
+                                        For Booking
+                                    </div> */}
+                                    
+                                    <div className=" relative flex justify-between  text-white ">
+                                        <ul className="text-black flex w-full justify-between">
+                                            <li className="bg-green-500 w-full p-2  text-center text-white">
+                                                {" "}
+                                                <Link
+                                                    href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    target="_blank"
+                                                >
+                                                    <p className=" flex gap-1 text-sm justify-center">
+                                                        <span>
+                                                            <FaWhatsapp size={20} />
+                                                        </span>{" "}
+                                                        <span>Whatsapp</span>
+                                                    </p>
+                                                </Link>
+                                            </li>
+                                            <li className="bg-blue-500 w-full p-2  text-white">
+                                                {" "}
+                                                <Link href="tel:9111911162" target="_blank">
+                                                    <p className=" flex gap-1 text-sm justify-center">
+                                                        <span>
+                                                            <BiPhoneCall size={20} />
+                                                        </span>{" "}
+                                                        <span>Call Us</span>
+                                                    </p>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </div>
+
+                            {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
+                        </div>
+                        {/* {(index + 1) % 5 === 0 && (
+                            <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[529px] lg:hover:scale-105">
+                                <div>
+                                    <Image
+                                        src={disc}
+                                        height={400}
+                                        width={400}
+                                        alt='discount'
+                                    />
+                                </div>
+                            </div>
+
+                        )} */}
+                    </React.Fragment>
+                ))}
             </div>
-          </div>
-        </React.Fragment>
-      ))}
+            {/* {visibleItems < filteredData?.length && (
+                <div className="text-center md:pb-10 pb-6">
+                    <button className="bg-blue-500 text-lg font-bold text-white px-9 py-2 rounded-full">
+                        <Link href={"/explore-self-drive-cars"}>View all cars</Link>
+                    </button>
+                </div>
+            )} */}
+        </div>
     </div>
   );
 };
