@@ -117,7 +117,7 @@ const LocationFetcher = () => {
                                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                         <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
                                         {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>12kms</span></p>
+                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{item?.address_area_name}</span></p>
                                         
                                         {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
