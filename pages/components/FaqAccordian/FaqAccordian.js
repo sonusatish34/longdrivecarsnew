@@ -41,7 +41,7 @@ const FaqAccordion = () => {
           >
             <span className=" lg:w-full lg:text-lg xs:text-xs font-semibold font-sans capitalize text-base w-64">{item.question}</span>
             <svg
-              className={`lg:w-6 lg:h-6 w-4 h-4 rounded bg-[#402f68] text-white transition-transform ${
+              className={`lg:w-6 lg:h-6 w-4 h-4 rounded bg-[#660066] text-white transition-transform ${
                 activeIndex === index ? 'transform rotate-180' : ''
               }`}
               xmlns="http://www.w3.org/2000/svg"

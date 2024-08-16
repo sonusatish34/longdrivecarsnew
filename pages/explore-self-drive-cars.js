@@ -16,6 +16,9 @@ import img2 from './changeimg/ertiga.webp'
 import img3 from './changeimg/polo.webp'
 import img4 from './changeimg/swift.webp'
 import img5 from './changeimg/i20.webp'
+import { IoLocationSharp } from "react-icons/io5";
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import { GrGroup } from "react-icons/gr";
 export default function car_products({ cars }) {
 
     const [mobile, setmobile] = useState("");
@@ -297,102 +300,103 @@ export default function car_products({ cars }) {
                     <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
                 </div>
                 <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 gap-x-8 gap-y-8 flex flex-col gap-2 items-center justify-center lg:max-w-7xl py-4">
-                    {filteredData?.map((item, index) => (
-                        <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] lg:w-72 xl:w-80 h-[529px] lg:hover:scale-105">
-                                <div className="relative h-80">
-                                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                                        <Image
-                                            src={replaceText(item?.car_image_car_right_view)}
-                                            alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
-                                            title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="rounded-t-lg relative"
-                                            // priority
-                                            loading='lazy'
-                                        />
-                                    </Link>
-                                </div>
+                {filteredData.map((item, index) => (
+                    <React.Fragment key={index}>
+                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[500px] lg:hover:scale-105">
+                            <div className="relative h-[500px]">
+                                <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
+                                    {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                                    <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                                        <p className='capitalize p-1 mont-text font-semibold text-white bg-[#660066] rounded-md  z-50  text-sm pt- '>{item?.maker_model.toLowerCase()}</p>
+                                        {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
+                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-[#660066] rounded-md '> <span><IoLocationSharp className="text-orange-400"/></span><span>12kms</span></p>
+                                        
+                                        {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
+                                    </div>
 
-                                <div className="px-2 pt-4 flex flex-col gap-4 p-1">
-                                    <div className='flex items-baseline justify-between px-2'>
-                                        <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                                            <p className="text-gray-700 cursor-pointer font-semibold text-[10px] hover:text-red-600 w-fit">{item.maker_model}</p>
-                                        </Link>
-                                        <p className="text-blue-500 font-bold">₹ {item.price_24_hours * 24}/day</p>
+                                </div>
+                                <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                                    <Image
+                                        src={replaceText(item?.car_image_car_right_view)}
+                                        // src={carphoto}
+                                        // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className=" "
+                                        // priority
+                                        loading='lazy'
+                                    />
+                                </Link>
+                                <div className="relative z-20 top-[16.7rem] bg-gradient-to-t from-black opacity-90">
+                                    {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                                    <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
+                                        <p className='font-bold text-lg shadow-black lg:pl-4 pl-6'>Book Now</p>
+                                        {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
+                                        <p className='capitalize p-1 font-bold text-white bg-[#660066] rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
+                                        {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
-                                    <div className="flex items-center justify-around border-b border-gray-300 text-black font-normal text-base">
-                                        <div className="flex items-center">
-                                            <BsFuelPump size={15} className="mr-1" />
-                                            <span>{item.fuel_type}</span>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <TbManualGearbox size={15} className="mr-1" />
-                                            <span>{item.transmission_type}</span>
-                                        </div>
-                                        <div className="flex items-center">
-                                            <MdOutlineAirlineSeatReclineExtra size={15} className="mr-1" />
-                                            <span>{item.seater}</span>
-                                        </div>
-                                    </div>
-                                    <div className='text-black flex justify-center font-semibold'>For Booking</div>
-                                    <div className='flex justify-around gap-1 pb-2 text-white'>
-                                        <button className='bg-green-500 rounded-full p-2'>
-                                            <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
-                                                <p className=' flex gap-1 text-sm'><span><FaWhatsapp size={20} /></span> <span>Whatsapp</span></p>
-                                            </Link>
-                                        </button>
-                                        <button className='bg-blue-500 rounded-full p-2'>
-                                            <Link href="tel:9666677405" target='_blank'>
-                                                <p className=' flex gap-1 text-sm'><span><BiPhoneCall size={20} /></span> <span>Call Us</span></p>
-                                            </Link>
-                                        </button>
-                                    </div>
+                                    <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
+                                        <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500"/></span><span>{item?.fuel_type}</span></li>
+                                        <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500"/></span><span>{item?.seater} Seater</span></li>
+                                        <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600"/></span><span>{item?.transmission_type}</span></li>
+                                        
+                                    </ul>
                                 </div>
                             </div>
-                            {[2,8, 15, 20, 25, 32, 38, 43].includes(index) && (
-                                <div className="bg-orange-400 rounded-lg shadow-lg overflow-hidden flex flex-col xs:w-[90%] justify-center lg:w-72 xl:w-80 h-[529px]  lg:hover:scale-105">
-                                    <div className="flex flex-col justify-center items-center">
-                                        <h2 className='text-center '>Can't find the perfect car? </h2>
-                                        <p className='text-center'>Let us help you on a quick call</p>
-                                        <form onSubmit={handleSubmit} className='rounded-lg  text-xs flex p-7'>
-                                            <input
-                                                value={mobile}
-                                                type="text"
-                                                placeholder="Enter mobile number"
-                                                onChange={(e) => {
-                                                    setmobile(e.target.value);
-                                                    if (!pattern.test(e.target.value))
-                                                        setIsError(true);
-                                                    else setIsError(false);
-                                                }}
-                                                maxLength={10}
-                                                className='lg:rounded-md lg:w-full lg:p-3 xs:w-40 xs:rounded-sm xs:p-1'
-                                            />
-
-                                            <button className='bg-green-400 ml-0 border-2 xs:ml-1 xs:p-1  border-gray-400 lg:p-2 lg:text-[10px] text-white lg:w-28  w-fit xs:text-[8px] rounded' type="submit">Get Callback</button>
-                                        </form>
-                                        <div>{isError && mobile.length > 1 && <p className='text-sm text-center '>Please enter a valid number</p>}</div>
+                            <div>
+                                {/* <div className="relative text-black flex justify-center font-semibold">
+                                        For Booking
+                                    </div> */}
+                                    
+                                    <div className=" relative flex justify-between  text-white ">
+                                        <ul className="text-black flex w-full justify-between">
+                                            <li className="bg-green-500 w-full p-2  text-center text-white">
+                                                {" "}
+                                                <Link
+                                                    href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    target="_blank"
+                                                >
+                                                    <p className=" flex gap-1 text-sm justify-center">
+                                                        <span>
+                                                            <FaWhatsapp size={20} />
+                                                        </span>{" "}
+                                                        <span>Whatsapp</span>
+                                                    </p>
+                                                </Link>
+                                            </li>
+                                            <li className="bg-blue-500 w-full p-2  text-white">
+                                                {" "}
+                                                <Link href="tel:9111911162" target="_blank">
+                                                    <p className=" flex gap-1 text-sm justify-center">
+                                                        <span>
+                                                            <BiPhoneCall size={20} />
+                                                        </span>{" "}
+                                                        <span>Call Us</span>
+                                                    </p>
+                                                </Link>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </div>
-                            )}
-                           {(index + 1) % 10 === 0 && (
-                                <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center lg:w-72 xl:w-80 h-[529px]  lg:hover:scale-105">
-                                    <div>
-                                        <Image
-                                            src={disc}
-                                            height={400}
-                                            width={400}
-                                            alt='discount'
-                                            loading='lazy'
-                                        />
-                                    </div>
-                                </div>
+                            </div>
 
-                            )}
-                        </React.Fragment>
-                    ))}
+                            {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
+                        </div>
+                        {/* {(index + 1) % 5 === 0 && (
+                            <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[529px] lg:hover:scale-105">
+                                <div>
+                                    <Image
+                                        src={disc}
+                                        height={400}
+                                        width={400}
+                                        alt='discount'
+                                    />
+                                </div>
+                            </div>
+
+                        )} */}
+                    </React.Fragment>
+                ))}
                 </div>
             </div>
         </div>

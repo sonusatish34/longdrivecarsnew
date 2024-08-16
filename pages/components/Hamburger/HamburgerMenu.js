@@ -124,7 +124,7 @@ const HamburgerMenu = () => {
         </div>
         <nav
           ref={menuRef}
-          className={`${isOpen ? 'block overflow-auto' : 'hidden'} w-11/12 h-fit absolute top-24 bg-orange-50 rounded-md p-2 pt-6 lg:pr-16 right-0 z-50 transition-transform delay-2000 ease-out text-black`}
+          className={`${isOpen ? 'block overflow-auto' : 'hidden'} w-11/12 h-fit absolute top-12 bg-orange-50 rounded-md p-2 pt-6 lg:pr-16 right-0 z-50 transition-transform delay-2000 ease-out text-black`}
           style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}
         >
           <Link href={'/'}>
@@ -139,11 +139,7 @@ const HamburgerMenu = () => {
               // placeholder="blur"
               />
               <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-                {/* <h1 className='font-semibold xl:text-xl lg:text-xl text-xs'>Long Drive Cars <span className='text-orange-500'>Hyderabad</span></h1> */}
-                {/* <p className='xs:text-xs lg:text-lg flex lg:pl-10 xs:pl-9'>
-                  <span className='xs:text-[7px] lg:text-[10px]'>Powered By</span>
-                  <span className='lg:text-[17px] font-bold text-blue-700 text-[10px] xs:text-[8px] pl-1'>Long Drive CARS</span>
-                </p> */}
+               
               </div>
             </div>
           </Link>

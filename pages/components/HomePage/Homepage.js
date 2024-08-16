@@ -15,7 +15,7 @@ import suzuki from '../../images/suz.webp';
 import renault from '../../images/renault.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
-
+import left from '../../images/left.png'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -114,13 +114,21 @@ export default function Homepage({ data }) {
             <Link href={'/test'} className='p-2 bg-blue-700 text-lg rounded'>Get Near By Cars</Link>
           </div>
         </div> */}
-        <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] xs:mx-7 rounded-md justify-center bg-[#402f68]  items-center pb-5 lg:pt-5 text-white shadow-md'>
-          <div className=''>
+        <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
+          <div className='flex items-center lg:gap-14'>
+            <div>
+              <Image
+                src={left}
+                alt="Car"
+                // width={500}
+                // height={500}
+                className="rounded-full w-52 h-52 lg:scale-110"
+              />
+            </div>
             <div className='  xl:px-6 lg:py-3 flex flex-col text-center'>
-              <p className="text-lg font-bold">Explore Long Drive Car Rentals</p>
+              <p className="text-2xl font-bold">Explore Long Drive Car Rentals</p>
               <span className='pt-3'><Link href={'/test'} className='p-1 bg-black text-center text-lg rounded'>Get Near By Cars</Link></span>
             </div>
-
           </div>
         </div>
         <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center pt-3'>
@@ -139,86 +147,83 @@ export default function Homepage({ data }) {
       <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 lg:py-20'>
         <div className='text-center'>
           <p className='py-3 md:text-5xl xs:text-3xl mb-7 text-white  font-bold'>Our Fleet</p>
-          <div className="flex items-center  justify-center">
-
+          <div className="flex items-center justify-center">
             <div className="slider-container my-2 text-white ">
               <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
 
-                {/*  */}
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32 h-16"
+                    />
+                  </div>
+                  <p className=''>Morris11</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mahindra}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <p className=''>Mahindra</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32 h-16"
+                    />
+                  </div>
+                  <p className=''>Morris</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mahindra}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <p className=''>Mahindra</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mg}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full w-32 h-16"
+                    />
+                  </div>
+                  <p className=''>Morris</p>
+                </div>
+                <div className='pr-4'>
+                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
+                    <Image
+                      src={mahindra}
+                      alt="Car"
+                      width={180}
+                      height={180}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <p className=''>Mahindra</p>
+                </div>
 
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
-                  </div>
-                  <p className=''>Morris</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className=''>Mahindra</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
-                  </div>
-                  <p className=''>Morris</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className=''>Mahindra</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
-                  </div>
-                  <p className=''>Morris</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className=''>Mahindra</p>
-                </div>
-                
               </Slider>
             </div>
           </div>
@@ -230,7 +235,7 @@ export default function Homepage({ data }) {
         <h2 className='uppercase p-2 mb-4 text-center font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
         <DynamicFaqComponent />
       </div>
-      <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#402f68] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
+      <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#660066] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
         <div className='xl:w-5/12 xl:text-left xs:w-full xs:text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-left text-lg  lg:p-4 lg:pl-14 font-semibold'>
           Get in touch with us to arrange your booking
         </div>

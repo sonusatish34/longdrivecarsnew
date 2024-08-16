@@ -65,9 +65,9 @@ function CarProducts({ data, searchQuery }) {
                                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                        <p className='capitalize p-1 mont-text font-semibold text-white bg-[#402f68] rounded-md  z-50  text-sm pt- '>{item?.maker_model.toLowerCase()}</p>
+                                        <p className='capitalize p-1 mont-text font-semibold text-white bg-[#660066] rounded-md  z-50  text-sm pt- '>{item?.maker_model.toLowerCase()}</p>
                                         {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-[#402f68] rounded-md '> <span><IoLocationSharp className="text-orange-400"/></span><span>12kms</span></p>
+                                        <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-[#660066] rounded-md '> <span><IoLocationSharp className="text-orange-400"/></span><span>12kms</span></p>
                                         
                                         {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
@@ -91,7 +91,7 @@ function CarProducts({ data, searchQuery }) {
                                     <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
                                         <p className='font-bold text-lg shadow-black lg:pl-4 pl-6'>Book Now</p>
                                         {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                        <p className='capitalize p-1 font-bold text-white bg-[#402f68] rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
+                                        <p className='capitalize p-1 font-bold text-white bg-[#660066] rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                                         {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                     </div>
                                     <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
@@ -158,7 +158,7 @@ function CarProducts({ data, searchQuery }) {
             </div>
             {visibleItems < filteredData?.length && (
                 <div className="text-center md:pb-10 py-6 ">
-                    <button className="bg-[#402f68] text-lg font-bold text-white px-9 py-2 rounded-full">
+                    <button className="bg-[#660066] text-lg font-bold text-white px-9 py-2 rounded-full">
                         <Link href={"/explore-self-drive-cars"}>View all cars</Link>
                     </button>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
-import rightimg from '../../images/creta.webp'
+import rightimg from '../../images/xuv700.webp'
 import Image from 'next/image';
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { SlSpeedometer } from "react-icons/sl";
@@ -47,8 +47,8 @@ function WhyChooseUs() {
                 className='lg:w-[320px] lg:h-[400px] xl:w-[600px] xl:h-[600px] '
                 alt="creta"
                 src={rightimg}
-                width={1000}
-                height={1000}
+                width={2000}
+                height={2000}
             />}
         </div>
     )
