@@ -106,7 +106,7 @@ const LocationFetcher = () => {
         </div></div>}
       {error && <p>Error: {error}</p>}
       <div className=' bg-white'>
-        <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center">
+        <div className="flex flex-wrap gap-7 gap-y-24 lg:items-start justify-center lg:pl-12 items-center">
 
           {data?.map((item, index) => (
             <React.Fragment key={index}>

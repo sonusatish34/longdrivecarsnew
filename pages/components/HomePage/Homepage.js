@@ -26,8 +26,10 @@ const DynNearYou = dynamic(() => import('../NearYou/NearYou'));
 // const DynWhyChooseUs = dynamic(() => import('../WhyChooseUs/WhyChooseUs'));
 import DynWhyChooseUs from '../WhyChooseUs/WhyChooseUs'
 const DynImageChange = dynamic(() => import('../ImageChange/ImageChange'));
-
+import { IoLocationSharp } from "react-icons/io5";
+import rightimg from '../../images/iii.png'
 import './HomePage.module.css'
+import Marquee from 'react-fast-marquee';
 
 
 const DynamicFaqComponent = dynamic(() => import('../FaqAccordian/FaqAccordian'));
@@ -96,17 +98,17 @@ export default function Homepage({ data }) {
       }
     ]
   };
+  
   function scrollToTarget() {
     const element = document.getElementById('explore');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
   return (
     <div className="min-h-screen">
       <DynImageChange />
-
-
       <div>
         {/* <div className='text-center'>
           <h2 id='explore' className="px-3 font-bold text-2xl font-jakarta pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Long Drive Car Rentals</h2>
@@ -115,19 +117,37 @@ export default function Homepage({ data }) {
           </div>
         </div> */}
         <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
-          <div className='flex items-center lg:gap-14'>
+          <div className='flex justify-around items-center lg:gap-0'>
             <div>
               <Image
                 src={left}
                 alt="Car"
                 // width={500}
                 // height={500}
-                className="rounded-full w-52 h-52 lg:scale-110"
+                className="rounded-full w-52 h-52 lg:scale-125"
               />
             </div>
-            <div className='  xl:px-6 lg:py-3 flex flex-col text-center'>
-              <p className="text-2xl font-bold">Explore Long Drive Car Rentals</p>
-              <span className='pt-3'><Link href={'/test'} className='p-1 bg-black text-center text-lg rounded'>Get Near By Cars</Link></span>
+            <div className='w-[560px] pl-20'>
+              <p className="text-2xl font-bold w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
+              <div className='flex flex-col pl-14 pt-4'>
+                {/* <p className='pt-6'><Link href={'/test'} className={`${styles.glitterButton} p-2 bg-white w-fit text-lg font-semibold text-black rounded flex items-center gap-2 hover:scale- shadow-md`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link></p> */}
+                {/* <Marquee className='pl-4 w-48' speed={50}>
+                  <span className=''> click here to get list of near by cars list. </span>
+                </Marquee> */}
+                <button className={`${styles.sparkleButton} `}>
+                <span className={styles.sparkle}></span>
+                <Link href={'/test'} className={` w-fit text-lg font-semibold text-black flex items-center gap-2`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
+              </button>
+              </div>
+            </div>
+            <div>
+              <Image
+                src={rightimg}
+                alt="Car"
+                width={1000}
+                height={1000}
+                className=" w-52 h-52"
+              />
             </div>
           </div>
         </div>
@@ -150,7 +170,6 @@ export default function Homepage({ data }) {
           <div className="flex items-center justify-center">
             <div className="slider-container my-2 text-white ">
               <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
-
                 <div className='pr-4'>
                   <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
                     <Image
