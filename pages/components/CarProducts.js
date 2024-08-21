@@ -60,8 +60,8 @@ function CarProducts({ data, searchQuery }) {
                
                 {filteredData?.slice(0, visibleItems).map((item, index) => (
                     <React.Fragment key={index}>
-                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[600px] lg:hover:scale-105">
-                            <div className="relative h-[600px]">
+                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
+                            <div className="relative h-[630px]">
                                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">

@@ -129,7 +129,7 @@ export default function Homepage({ data }) {
             </div>
             <div className='lg:w-[560px] lg:pl-20'>
               <p className="lg:text-2xl text-sm font-bold lg:w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
-              <div className='pl-12 py-4'>
+              <div className='flex flex-col justify-center items-center py-4'>
                 {/* <p className='pt-6'><Link href={'/test'} className={`${styles.glitterButton} p-2 bg-white w-fit text-lg font-semibold text-black rounded flex items-center gap-2 hover:scale- shadow-md`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link></p> */}
                 {/* <Marquee className='pl-4 w-48' speed={50}>
                   <span className=''> click here to get list of near by cars list. </span>
