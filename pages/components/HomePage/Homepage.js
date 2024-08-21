@@ -98,7 +98,7 @@ export default function Homepage({ data }) {
       }
     ]
   };
-  
+
   function scrollToTarget() {
     const element = document.getElementById('explore');
     if (element) {
@@ -117,7 +117,7 @@ export default function Homepage({ data }) {
           </div>
         </div> */}
         <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
-          <div className='flex justify-around items-center lg:gap-0'>
+          <div className='flex lg:flex-row flex-col lg:justify-around justify-center items-center lg:gap-0'>
             <div>
               <Image
                 src={left}
@@ -127,17 +127,16 @@ export default function Homepage({ data }) {
                 className="rounded-full w-52 h-52 lg:scale-125"
               />
             </div>
-            <div className='w-[560px] pl-20'>
-              <p className="text-2xl font-bold w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
-              <div className='flex flex-col pl-14 pt-4'>
+            <div className='lg:w-[560px] lg:pl-20'>
+              <p className="lg:text-2xl text-sm font-bold lg:w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
+              <div className='pl-12 py-4'>
                 {/* <p className='pt-6'><Link href={'/test'} className={`${styles.glitterButton} p-2 bg-white w-fit text-lg font-semibold text-black rounded flex items-center gap-2 hover:scale- shadow-md`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link></p> */}
                 {/* <Marquee className='pl-4 w-48' speed={50}>
                   <span className=''> click here to get list of near by cars list. </span>
                 </Marquee> */}
-                <button className={`${styles.sparkleButton} `}>
-                <span className={styles.sparkle}></span>
-                <Link href={'/test'} className={` w-fit text-lg font-semibold text-black flex items-center gap-2`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
-              </button>
+                <button className='p-1 bg-white rounded '>
+                  <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
+                </button>
               </div>
             </div>
             <div>
