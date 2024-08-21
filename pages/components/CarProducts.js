@@ -86,7 +86,7 @@ function CarProducts({ data, searchQuery }) {
                                         loading='lazy'
                                     />
                                 </Link>
-                                <div className="relative z-20 top-[22.7rem] bg-gradient-to-t from-black opacity-90">
+                                <div className="relative z-20 top-[24.5rem] bg-gradient-to-t from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
                                         <p className='font-bold text-lg shadow-black lg:pl-4 pl-6'>Book Now</p>
