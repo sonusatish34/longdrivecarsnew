@@ -110,8 +110,8 @@ const LocationFetcher = () => {
 
           {data?.map((item, index) => (
             <React.Fragment key={index}>
-              <div className="bg-white  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[500px] lg:hover:scale-105">
-                <div className="relative h-[500px]">
+              <div className="bg-white  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
+                <div className="relative h-[630px]">
                   <div className="relative z-20 bg-gradient-to-b from-black opacity-90 top-24">
                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">
@@ -143,27 +143,27 @@ const LocationFetcher = () => {
                     showStatus={false}
                     showArrows={true}
                     transitionTime={1000}
-                    className="z-0"
+                    className="z-0 h-[617px]"
                   >
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_left_view_duplicate)}></Image>
+                      <Image className='h-[600px]' width={1000} height={1000}src={replaceText(item?.car_image_car_left_view_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image width={1000} height={1000}src={replaceText(item?.car_image_back_inner_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_back_inner_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
                     </div>
                   </Carousel>
                   {/* </Link> */}
@@ -188,7 +188,7 @@ const LocationFetcher = () => {
                                         For Booking
                                     </div> */}
 
-                  <div className="z-20 relative flex justify-between  text-black ">
+                  <div className="z-20 relative flex justify-between  text-black top-16">
                     <ul className="text-black flex w-full justify-between">
                       <li className="bg-green-500 w-full p-2  text-center text-black">
                         {" "}

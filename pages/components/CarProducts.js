@@ -15,7 +15,8 @@ import { IoLocationSharp } from "react-icons/io5";
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { TbManualGearbox } from "react-icons/tb";
-
+import { Carousel } from "react-responsive-carousel";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 function CarProducts({ data, searchQuery }) {
     // console.log(data,"dasya");
@@ -73,19 +74,37 @@ function CarProducts({ data, searchQuery }) {
                                     </div>
 
                                 </div>
-                                <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                                    <Image
-                                        src={replaceText(item?.car_image_car_right_view)}
-                                        // src={carphoto}
-                                        // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
-                                        // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
-                                        layout="fill"
-                                        objectFit="cover"
-                                        className=""
-                                        // priority
-                                        loading='lazy'
-                                    />
-                                </Link>
+                                <Carousel
+                    autoPlay={false}
+                    interval={2000}
+                    infiniteLoop={true}
+                    showThumbs={false}
+                    showStatus={false}
+                    showArrows={true}
+                    transitionTime={1000}
+                    className="z-0 h-[630px]"
+                  >
+                    <div onClick={() => {
+                      // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                    }}>
+                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_left_view)}></Image>
+                    </div>
+                    <div onClick={() => {
+                      // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                    }}>
+                      <Image width={1000} height={1000}src={replaceText(item?.car_image_back_inner)}></Image>
+                    </div>
+                    <div onClick={() => {
+                      // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                    }}>
+                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_right_view)}></Image>
+                    </div>
+                    <div onClick={() => {
+                      // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                    }}>
+                      <Image width={1000} height={1000}src={replaceText(item?.car_image_car_right_view)}></Image>
+                    </div>
+                  </Carousel>
                                 <div className="relative z-20 top-[24.5rem] bg-gradient-to-t from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
@@ -107,7 +126,7 @@ function CarProducts({ data, searchQuery }) {
                                         For Booking
                                     </div> */}
                                     
-                                    <div className=" relative flex justify-between ">
+                                    <div className=" relative flex justify-between bottom-12">
                                         <ul className="flex w-full justify-between">
                                             <li className="bg-green-500 w-full p-2  text-center">
                                                 {" "}
