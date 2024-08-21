@@ -302,7 +302,7 @@ function CarProducts({ data, searchQuery }) {
                 ))}
             </div>
             {visibleItems < filteredData?.length && (
-                <div className="text-center md:pb-10 py-6 ">
+                <div className="text-center md:pb-10 py-6 -z-50 pt-28">
                     <button className="bg-[#660066] text-lg font-bold text-white px-9 py-2 rounded-full">
                         <Link href={"/explore-self-drive-cars"}>View all cars</Link>
                     </button>

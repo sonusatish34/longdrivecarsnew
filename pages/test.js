@@ -114,10 +114,12 @@ const LocationFetcher = () => {
                 <div className="relative h-[630px]">
                   <div className="relative z-20 bg-gradient-to-b from-black opacity-90 top-24">
                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                    <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                      <p className='capitalize px-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base '>{item?.maker_model.toLowerCase()}</p>
+                    <div className="flex flex-col gap-2 items-end pt-5">
+                      <div className='pr-5'>
+                        <p className='capitalize px-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base '>{item?.maker_model.toLowerCase()}</p>
+                      </div>
                       {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                      <p className='flex justify-center items-center px-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100}km Near You</span></p>
+                      <p className='flex justify-center items-center px-1 font-bold z-50 text-sm bg-blue-700 text rounded-bl-sm rounded-tl-sm '> <span></span><span>{Math.round((item?.distance) * 100) / 100}km Near You</span></p>
                       <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{item?.address_area_name}</span></p>
 
                       {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
@@ -149,22 +151,22 @@ const LocationFetcher = () => {
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[600px]' width={1000} height={1000}src={replaceText(item?.car_image_car_left_view_duplicate)}></Image>
+                      <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_back_inner_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_back_inner_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000}src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
                     </div>
                   </Carousel>
                   {/* </Link> */}
