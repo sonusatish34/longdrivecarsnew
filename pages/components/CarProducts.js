@@ -60,8 +60,8 @@ function CarProducts({ data, searchQuery }) {
                
                 {filteredData?.slice(0, visibleItems).map((item, index) => (
                     <React.Fragment key={index}>
-                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[533px] lg:hover:scale-105">
-                            <div className="relative h-[533px]">
+                        <div className="bg-white lg:rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[100%] md:w-72 h-[600px] lg:hover:scale-105">
+                            <div className="relative h-[600px]">
                                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex flex-col gap-2 items-end pt-5 pr-5">
@@ -81,12 +81,12 @@ function CarProducts({ data, searchQuery }) {
                                         // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                                         layout="fill"
                                         objectFit="cover"
-                                        className=" "
+                                        className=""
                                         // priority
                                         loading='lazy'
                                     />
                                 </Link>
-                                <div className="relative z-20 top-[18.5rem] bg-gradient-to-t from-black opacity-90">
+                                <div className="relative z-20 top-[22.7rem] bg-gradient-to-t from-black opacity-90">
                                     {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                     <div className="flex items-center justify-center gap-8 lg:gap-5 pt-5 pr-5 pb-2">
                                         <p className='font-bold text-lg shadow-black lg:pl-4 pl-6'>Book Now</p>
