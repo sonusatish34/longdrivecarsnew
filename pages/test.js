@@ -141,7 +141,12 @@ const LocationFetcher = () => {
                                         <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[2]?.car_image_duplicate_copy)}></Image>
+                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[0]?.car_image_duplicate_copy)}></Image>
+                                        </div>
+                                        <div onClick={() => {
+                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                                        }}>
+                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[1]?.car_image_duplicate_copy)}></Image>
                                         </div>
                                         <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
@@ -151,7 +156,7 @@ const LocationFetcher = () => {
                                         <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[2]?.car_image_duplicate_copy)}></Image>
+                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[3]?.car_image_duplicate_copy)}></Image>
                                         </div>
 
 
