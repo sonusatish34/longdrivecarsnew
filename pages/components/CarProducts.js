@@ -47,34 +47,17 @@ function CarProducts({ data, searchQuery }) {
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  // const filteredData = [
-  //     {
-  //         "maker_model": "BALENO AUTOMATIC",
-  //         "car_owner_id": 4547,
-  //         "car_number": "TS08KC2408",
-  //         "price_24_hours": 91,
-  //         "manufacture_date": "2024",
-  //         // "car_image_car_right_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_car_right_view_98eb1c461d3746338710027db87be640.jpeg",
-  //         "car_image_car_left_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_car_left_view_c75e46b5293140f1813e43262003edd2.jpeg",
-  //         "car_image_front_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_front_view_82d31a1672b04c579b9ed62601732a27.jpeg",
-  //         "car_image_back_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_back_view_672dfb63851645d39c1505eaec793ebb.jpeg",
-  //         "car_image_back_inner": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_back_inner_2778cd2813374ea89ac7a993fc7f2c2a.jpeg",
-  //         "car_image_reading_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3/9000666331/images/car_image_reading_view_1cb4f805b9584327b83c3e479f1b267e.jpeg",
-  //         "fuel_type": "Petrol",
-  //         "transmission_type": "Automatic",
-  //         "seater": "5",
-  //         "vehicle_color": "Maroon"
-  //     },
+  
 
-  // ]
+
   return (
     <div className=' bg-white'>
       <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center text-white">
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
-              <div className="relative h-[630px] lg:rounded-md">
+            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]  h-[630px] lg:hover:scale-105">
+              <div className="relative lg:h-[530px]  h-[630px] lg:rounded-md">
                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
@@ -101,28 +84,37 @@ function CarProducts({ data, searchQuery }) {
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image className='lg:h-[498px] h-[598px] ' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                    </Link>
+
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_back_inner)}></Image>
+                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_back_inner)}></Image>
+                    </Link>
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                    </Link>
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                    </Link>
                   </div>
 
 
                 </Slider>
                 {/* </Link> */}
-                <div className="relative z-20 bottom-[12.5rem] bg-gradient-to-t from-black opacity-90">
+                <div className="relative z-20 bottom-[12.5rem] lg:bottom-[12.1rem] bg-gradient-to-t from-black opacity-90">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                     <p className='font-bold text-lg shadow-black'>Book Now</p>
@@ -140,7 +132,7 @@ function CarProducts({ data, searchQuery }) {
               </div>
               <div>
 
-                <div className="z-20 relative flex justify-between  text-black bottom-9">
+                <div className="z-20 relative flex justify-between  text-black bottom-9 lg:bottom-[2.25rem]">
                   <ul className="text-black flex w-full justify-between">
                     <li className="bg-green-500 w-full p-2  text-center text-black lg:rounded-bl-md">
                       {" "}
@@ -157,7 +149,6 @@ function CarProducts({ data, searchQuery }) {
                       </Link>
                     </li>
                     <li className="bg-blue-500 w-full p-2  text-black lg:rounded-br-md">
-                      {" "}
                       <Link href="tel:9111911162" target="_blank">
                         <p className=" flex gap-1 text-sm justify-center">
                           <span>

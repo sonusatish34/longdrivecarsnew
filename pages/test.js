@@ -98,6 +98,20 @@ const LocationFetcher = () => {
 
         fetchData();
     }, [location]);
+    const getOrderedImages = (attributes) => {
+        const imageMap = {};
+
+        attributes.forEach(attr => {
+            imageMap[attr.attribute_name] = attr.car_image_duplicate_copy;
+        });
+
+        return [
+            imageMap["car_image_front_view"],
+            imageMap["car_image_car_right_view"],
+            imageMap["car_image_back_inner"],
+            imageMap["car_image_back_view"]
+        ];
+    };
 
     return (
         <div className=' pt-36 lg:py-8 flex flex-col lg:flex-row gap-12'>
@@ -113,14 +127,14 @@ const LocationFetcher = () => {
                     {data?.map((item, index) => (
 
                         <React.Fragment key={index}>
-                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
-                                <div className="relative h-[630px] lg:rounded-md">
+                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[530px] lg:hover:scale-105">
+                                <div className="relative h-[530px] lg:rounded-md">
                                     <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
                                             {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-blue-700 text-white rounded-md '> <span></span><span>{Math.round((item?.distance) * 100)/100} km near you</span></p>
+                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-blue-700 text-white rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
 
                                             {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                         </div>
@@ -138,27 +152,19 @@ const LocationFetcher = () => {
                                         autoplay={false}
                                         className="relative bottom-[5.5rem] lg:rounded-md"
                                     >
-                                        <div onClick={() => {
+                                        {getOrderedImages(item?.attributes).map((imageSrc, index) => (
+                                            <div key={index} onClick={() => {
+                                                // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
+                                            }}>
+                                                <Image className='h-[500px]' width={1000} height={1000} src={replaceText(imageSrc)} alt={`Car image ${index + 1}`} />
+                                            </div>
+                                        ))}
+                                        {/* <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
                                             <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[0]?.car_image_duplicate_copy)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[1]?.car_image_duplicate_copy)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[2]?.car_image_duplicate_copy)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[3]?.car_image_duplicate_copy)}></Image>
-                                        </div>
 
+                                        </div> */}
 
 
                                     </Slider>
