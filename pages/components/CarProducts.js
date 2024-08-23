@@ -31,7 +31,7 @@ function CarProducts({ data, searchQuery }) {
     centerMode: true,
     centerPadding: '0',
     focusOnSelect: true,
-    arrows: false,
+    arrows: true,
   };
   const [visibleItems, setVisibleItems] = useState(8);
   // const [searchQuery, setSearchQuery] = useState('');
@@ -84,10 +84,19 @@ function CarProducts({ data, searchQuery }) {
 
                     {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                   </div>
-
                 </div>
-
-                <Slider {...settings}>
+                <Slider
+                  dots={true}
+                  infinite={true}
+                  speed={500}
+                  slidesToShow={1}
+                  slidesToScroll={1}
+                  centerMode={true}
+                  centerPadding={0}
+                  focusOnSelect={true}
+                  arrows={false}
+                  autoplay={false}
+                >
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
@@ -179,14 +188,16 @@ function CarProducts({ data, searchQuery }) {
           </React.Fragment>
         ))}
       </div>
-      {visibleItems < filteredData?.length && (
-        <div className="text-center md:pb-10 py-6 -z-50 pt-28">
-          <button className="bg-[#660066] text-lg font-bold text-white px-9 py-2 rounded-full">
-            <Link href={"/explore-self-drive-cars"}>View all cars</Link>
-          </button>
-        </div>
-      )}
-    </div>
+      {
+        visibleItems < filteredData?.length && (
+          <div className="text-center md:pb-10 py-6 -z-50 pt-28">
+            <button className="bg-[#660066] text-lg font-bold text-white px-9 py-2 rounded-full">
+              <Link href={"/explore-self-drive-cars"}>View all cars</Link>
+            </button>
+          </div>
+        )
+      }
+    </div >
   )
 }
 

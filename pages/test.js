@@ -82,7 +82,7 @@ const LocationFetcher = () => {
       };
 
       try {
-        const response = await fetch(`https://api.longdrivecarz.in/user/home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
+        const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
         const result = await response.json();
         const realdata = result?.data?.results;
         setData(realdata);
@@ -151,22 +151,22 @@ const LocationFetcher = () => {
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view_duplicate)}></Image>
+                      <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[2]?.car_image_duplicate_copy)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_back_inner_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.attributes[0]?.car_image_duplicate_copy)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.attributes[2]?.car_image_duplicate_copy)}></Image>
                     </div>
                     <div onClick={() => {
                       // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                     }}>
-                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view_duplicate)}></Image>
+                      <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.attributes[3]?.car_image_duplicate_copy)}></Image>
                     </div>
                   </Carousel>
                   {/* </Link> */}
