@@ -110,12 +110,7 @@ export default function Homepage({ data }) {
     <div className="min-h-screen">
       <DynImageChange />
       <div>
-        {/* <div className='text-center'>
-          <h2 id='explore' className="px-3 font-bold text-2xl font-jakarta pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9">Explore Long Drive Car Rentals</h2>
-          <div className='py-3'>
-            <Link href={'/test'} className='p-2 bg-blue-700 text-lg rounded'>Get Near By Cars</Link>
-          </div>
-        </div> */}
+       
         <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
           <div className='flex lg:flex-row flex-col lg:justify-around justify-center items-center lg:gap-0'>
             <div>
@@ -130,10 +125,6 @@ export default function Homepage({ data }) {
             <div className='lg:w-[560px] lg:pl-20'>
               <p className="lg:text-2xl text-sm font-bold lg:w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
               <div className='flex flex-col justify-center items-center py-4'>
-                {/* <p className='pt-6'><Link href={'/test'} className={`${styles.glitterButton} p-2 bg-white w-fit text-lg font-semibold text-black rounded flex items-center gap-2 hover:scale- shadow-md`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link></p> */}
-                {/* <Marquee className='pl-4 w-48' speed={50}>
-                  <span className=''> click here to get list of near by cars list. </span>
-                </Marquee> */}
                 <button className='p-1 bg-white rounded hover:scale-105'>
                   <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center`}><span><IoLocationSharp size={20} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
                 </button>

@@ -73,9 +73,9 @@ function CarProducts({ data, searchQuery }) {
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            <div className="bg-white rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
-              <div className="relative h-[630px]">
-                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom">
+            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
+              <div className="relative h-[630px] lg:rounded-md">
+                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
@@ -96,12 +96,12 @@ function CarProducts({ data, searchQuery }) {
                   focusOnSelect={true}
                   arrows={false}
                   autoplay={false}
-                  className="relative bottom-[4.5rem]"
+                  className="relative bottom-[4.5rem] lg:rounded-md"
                 >
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                    <Image className='h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
@@ -142,7 +142,7 @@ function CarProducts({ data, searchQuery }) {
 
                 <div className="z-20 relative flex justify-between  text-black bottom-9">
                   <ul className="text-black flex w-full justify-between">
-                    <li className="bg-green-500 w-full p-2  text-center text-black">
+                    <li className="bg-green-500 w-full p-2  text-center text-black lg:rounded-bl-md">
                       {" "}
                       <Link
                         href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
@@ -156,7 +156,7 @@ function CarProducts({ data, searchQuery }) {
                         </p>
                       </Link>
                     </li>
-                    <li className="bg-blue-500 w-full p-2  text-black">
+                    <li className="bg-blue-500 w-full p-2  text-black lg:rounded-br-md">
                       {" "}
                       <Link href="tel:9111911162" target="_blank">
                         <p className=" flex gap-1 text-sm justify-center">
