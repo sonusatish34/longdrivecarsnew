@@ -134,8 +134,8 @@ export default function Homepage({ data }) {
                 {/* <Marquee className='pl-4 w-48' speed={50}>
                   <span className=''> click here to get list of near by cars list. </span>
                 </Marquee> */}
-                <button className='p-1 bg-white rounded '>
-                  <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center`}><span><IoLocationSharp size={30} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
+                <button className='p-1 bg-white rounded hover:scale-105'>
+                  <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center`}><span><IoLocationSharp size={20} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
                 </button>
               </div>
             </div>

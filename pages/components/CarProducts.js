@@ -73,12 +73,12 @@ function CarProducts({ data, searchQuery }) {
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            <div className="bg-white  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
+            <div className="bg-white rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[630px] lg:hover:scale-105">
               <div className="relative h-[630px]">
-                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 top-[4.5rem]">
+                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                    <p className='ca  pitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
+                    <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
                     {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
                     <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{item?.address_area_name}</span></p>
 
@@ -96,6 +96,7 @@ function CarProducts({ data, searchQuery }) {
                   focusOnSelect={true}
                   arrows={false}
                   autoplay={false}
+                  className="relative bottom-[4.5rem]"
                 >
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
@@ -121,7 +122,7 @@ function CarProducts({ data, searchQuery }) {
 
                 </Slider>
                 {/* </Link> */}
-                <div className="relative z-20 bottom-32 bg-gradient-to-t from-black opacity-90">
+                <div className="relative z-20 bottom-[12.5rem] bg-gradient-to-t from-black opacity-90">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                     <p className='font-bold text-lg shadow-black'>Book Now</p>
@@ -139,7 +140,7 @@ function CarProducts({ data, searchQuery }) {
               </div>
               <div>
 
-                <div className="z-20 relative flex justify-between  text-black top-10">
+                <div className="z-20 relative flex justify-between  text-black bottom-9">
                   <ul className="text-black flex w-full justify-between">
                     <li className="bg-green-500 w-full p-2  text-center text-black">
                       {" "}
@@ -190,7 +191,7 @@ function CarProducts({ data, searchQuery }) {
       </div>
       {
         visibleItems < filteredData?.length && (
-          <div className="text-center md:pb-10 py-6 -z-50 pt-28">
+          <div className="text-center md:pb-10 py-6 pt-8">
             <button className="bg-[#660066] text-lg font-bold text-white px-9 py-2 rounded-full">
               <Link href={"/explore-self-drive-cars"}>View all cars</Link>
             </button>
