@@ -78,7 +78,7 @@ function CarProducts({ data, searchQuery }) {
                   centerPadding={0}
                   focusOnSelect={true}
                   arrows={false}
-                  autoplay={false}
+                  autoplay={true}
                   className="relative bottom-[4.5rem] lg:rounded-md"
                 >
                   <div onClick={() => {

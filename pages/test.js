@@ -181,12 +181,10 @@ const LocationFetcher = () => {
                                             <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
                                             <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
                                             <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
-
                                         </ul>
                                     </div>
                                 </div>
                                 <div>
-
                                     <div className="z-20 relative flex justify-between  text-black bottom-9">
                                         <ul className="text-black flex w-full justify-between">
                                             <li className="bg-green-500 w-full p-2  text-center text-black lg:rounded-bl-md">
