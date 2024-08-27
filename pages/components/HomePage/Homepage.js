@@ -103,8 +103,6 @@ export default function Homepage({ data }) {
       }
     ]
   };
-  
- 
   function scrollToTarget() {
     const element = document.getElementById('explore');
     if (element) {
@@ -196,9 +194,7 @@ export default function Homepage({ data }) {
               <div
                 key={index}
                 // className='relative flex flex-col text-black bg-white rounded overflow-hidden'
-                className={`${hoveredIndex === index ? 'h-80 sca transition-opacity ease' : 'h-auto'} pt-3 p-2 flex flex-col text-black bg-white rounded `}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                className={` pt-3 p-2 flex flex-col text-black bg-white rounded `}
               >
                 {/* Image Container */}
                 <div className='relative'>
@@ -209,15 +205,11 @@ export default function Homepage({ data }) {
                     height={1000}
                     className='w-full h-32 object-cover'
                   />
-                  {/* <p className={`${hoveredIndex === index ? 'opacity-0' : 'opacity-100 text-center text-xl font-semibold'}`}>{item.carname} Starting From </p> */}
-                  <div className={`flex flex-col gap-3 text-center ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className={`flex flex-col gap-3 text-center $`}>
                     <p className='text-base font-semibold'>{item.carname} Starting From ₹2000/day</p>
-                    {/* <p className='text-lg'>12 hrs - ₹1000</p>
-                  <p className='text-lg'>24 hrs - ₹2000</p> */}
                   </div>
-                  {/* Overlay for hover effect */}
                   <div
-                    className={`absolute inset-0 flex flex-col justify-center items-center  text-black p-4  ${hoveredIndex === index ? 'opacity-100 top-52 transition-opacity duration-600 ease-in' : 'opacity-0'}`}
+                    className={` flex flex-col justify-center items-center  text-black p-4 `}
                   >
                     <div className='flex flex-col gap-3 text-center'>
                       <p className='text-xl font-semibold'>{item.carname} Starting From</p>
@@ -250,9 +242,7 @@ export default function Homepage({ data }) {
             ))}
           </Slider>
         </div>
-
       </div>
-
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
