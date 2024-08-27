@@ -132,9 +132,9 @@ const LocationFetcher = () => {
                                     <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
+                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
                                             {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-blue-700 text-white rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
+                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
 
                                             {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                         </div>
@@ -159,23 +159,13 @@ const LocationFetcher = () => {
                                                 <Image className='h-[500px]' width={1000} height={1000} src={replaceText(imageSrc)} alt={`Car image ${index + 1}`} />
                                             </div>
                                         ))}
-                                        {/* <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[600px]' width={1000} height={1000} src={replaceText(item?.attributes[0]?.car_image_duplicate_copy)}></Image>
-
-                                        </div> */}
-
 
                                     </Slider>
                                     {/* </Link> */}
                                     <div className="relative z-20 bottom-[13.5rem] bg-gradient-to-t from-black opacity-90">
-                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
-                                            {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
-                                            {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
+                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                                         </div>
                                         <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
                                             <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
@@ -234,13 +224,6 @@ const LocationFetcher = () => {
                         </React.Fragment>
                     ))}
                 </div>
-                {/* {visibleItems < filteredData?.length && (
-                <div className="text-center md:pb-10 pb-6">
-                    <button className="bg-blue-500 text-lg font-bold text-white px-9 py-2 rounded-full">
-                        <Link href={"/explore-self-drive-cars"}>View all cars</Link>
-                    </button>
-                </div>
-            )} */}
             </div>
         </div>
     );

@@ -6,6 +6,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: "DM Sans", sans-serif;
   src: url("/font/dmsans.woff2") format("woff2");
@@ -113,4 +114,30 @@ body {
 }
 .mont-text {
   font-family: "Montserrat", sans-serif;
+}
+/*  */
+.triangleElement {
+  background: linear-gradient(to bottom right, #fff 100%, #fff 100%, #660066 100%, #660066 80%),
+              url('/bggg.webp');
+  background-size: cover;
+  background-position: center;
+  /* height: 100vh; Adjust as needed */
+  background-blend-mode: overlay; /* Optional: Adjusts how the gradient blends with the image */
+}
+.slider-container {
+  position: relative;
+}
+
+.slider-container .slick-slide {
+  position: relative;
+}
+
+.slider-container .slick-slide:hover .overlay-content {
+  opacity: 1;
+}
+
+.slider-container .slick-list {
+  display: flex;
+  align-items: center;
+  height: 400px;
 }

@@ -18,20 +18,73 @@ import { TbManualGearbox } from "react-icons/tb";
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function CarProducts({ data, searchQuery }) {
   // console.log(data,"dasya");
-  const settings = {
-    dots: true,
+  var settings = {
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '0',
-    focusOnSelect: true,
+    pauseOnHover: true,
     arrows: true,
+    autoplay: true,
+    speed: 1000,
+    autoplaySpeed: 1500,
+    responsive: [
+      {
+        breakpoint: 1440,
+        settings: {
+          // slidesToShow: 7,
+          slidesToScroll: 1,
+          infinite: true,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          pauseOnHover: true,
+          infinite: true,
+          autoplay: true,
+          speed: 1000,
+          autoplaySpeed: 2000,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          pauseOnFocus: true,
+          pauseOnHover: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          // rows: 2,
+          slidesPerRow: 1, // 2 slides per row (2 columns)
+          pauseOnHover: true,
+          autoplay: true,
+          speed: 2000,
+          vertical: true,
+          verticalSwiping: true, // Enable vertical swiping
+          swipeToSlide: true,
+          arrows: false
+
+        }
+      }
+    ]
   };
   const [visibleItems, setVisibleItems] = useState(8);
   // const [searchQuery, setSearchQuery] = useState('');
@@ -47,9 +100,6 @@ function CarProducts({ data, searchQuery }) {
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
-
-
   return (
     <div className=' bg-white'>
       <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center text-white">
@@ -79,6 +129,8 @@ function CarProducts({ data, searchQuery }) {
                   focusOnSelect={true}
                   arrows={false}
                   autoplay={true}
+                  pauseOnFocus= {true}
+                  pauseOnHover= {true}
                   className="relative bottom-[4.5rem] lg:rounded-md"
                 >
                   <div onClick={() => {
@@ -100,14 +152,14 @@ function CarProducts({ data, searchQuery }) {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
                     <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_reading_view)}></Image>
                     </Link>
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
                     <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                      <Image className='lg:h-[498px] h-[598px]' width={1000} height={1000} src={replaceText(item?.car_image_back_view)}></Image>
                     </Link>
                   </div>
 

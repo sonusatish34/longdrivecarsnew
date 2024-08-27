@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import CarProducts from '../CarProducts';
@@ -11,7 +10,13 @@ import mg from '../../images/mg.webp';
 import kia from '../../images/kia.webp';
 import mahindra from '../../images/mhlogo.webp';
 import suzuki from '../../images/suz.webp';
-
+import inv1 from '../../changeimg/innova.webp'
+import inv2 from '../../changeimg/i10.webp'
+import inv3 from '../../changeimg/i20.webp'
+import inv4 from '../../changeimg/swift.webp'
+import inv5 from '../../changeimg/polo.webp'
+import inv6 from '../../changeimg/polo.webp'
+import inv7 from '../../changeimg/polo.webp'
 import renault from '../../images/renault.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -19,6 +24,7 @@ import left from '../../images/left.png'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import styles from './HomePage.module.css';
 import { FaSearch } from 'react-icons/fa';
 const DynCallBackForm = dynamic(() => import('../CallBackForm/CallBackForm'));
@@ -30,19 +36,24 @@ import { IoLocationSharp } from "react-icons/io5";
 import rightimg from '../../images/iii.png'
 import './HomePage.module.css'
 import Marquee from 'react-fast-marquee';
-
-
+import apple from '../../images/apple.webp'
+import google from '../../images/ggle.webp'
+import innova from '../../images/discount.webp'
 const DynamicFaqComponent = dynamic(() => import('../FaqAccordian/FaqAccordian'));
+
 export default function Homepage({ data }) {
+  const [hovered, setHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const data2 = data;
   const [searchQuery, setSearchQuery] = useState('');
   var settings = {
     // infinite: true,
-    slidesToShow: 7,
+    slidesToShow: 5,
     slidesToScroll: 1,
     pauseOnHover: true,
-    // arrows: false,
-
+    arrows: true,
+    pauseOnFocus: true,
+    pauseOnHover: true,
     autoplay: true,
     speed: 1000,
     autoplaySpeed: 1500,
@@ -50,9 +61,9 @@ export default function Homepage({ data }) {
       {
         breakpoint: 1440,
         settings: {
-          // slidesToShow: 7,
+          slidesToShow: 7,
           slidesToScroll: 1,
-          infinite: true,
+          infinite: false,
           pauseOnHover: true,
           pauseOnFocus: true,
         }
@@ -63,7 +74,6 @@ export default function Homepage({ data }) {
           slidesToShow: 7,
           slidesToScroll: 1,
           pauseOnHover: true,
-
           autoplay: true,
           speed: 1000,
           autoplaySpeed: 2000,
@@ -72,7 +82,7 @@ export default function Homepage({ data }) {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2
         }
@@ -84,41 +94,65 @@ export default function Homepage({ data }) {
           pauseOnHover: true,
           slidesToShow: 1,
           slidesToScroll: 1,
-          // rows: 2,1
-          slidesPerRow: 2, // 2 slides per row (2 columns)
-          pauseOnHover: true,
-          autoplay: false,
+          // rows: 2,
+          autoplay: true,
           speed: 2000,
-          // vertical: true,
-          // verticalSwiping: true, // Enable vertical swiping
-          swipeToSlide: true,
-          arrows: true
+          arrows: false
 
         }
       }
     ]
   };
-
+  
+ 
   function scrollToTarget() {
     const element = document.getElementById('explore');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  const fddata = [
+    {
+      carname: "Innova",
+      src: inv1
+    },
+    {
+      carname: "I10",
+      src: inv2
+    },
+    {
+      carname: "I20",
+      src: inv3
+    },
+    {
+      carname: "Swift",
+      src: inv4
+    },
+    {
+      carname: "Polo",
+      src: inv5
+    },
+    {
+      carname: "swift",
+      src: inv1
+    },
 
+  ]
+  const hiddenkey = 'hidden';
+  const blockkey = 'block';
   return (
     <div className="min-h-screen">
       <DynImageChange />
       <div>
-       
+
         <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
           <div className='flex lg:flex-row flex-col lg:justify-around justify-center items-center lg:gap-0'>
             <div>
               <Image
                 src={left}
                 alt="Car"
-                // width={500}
-                // height={500}
+                // width={1000}
+                // height={1000}
                 className="rounded-full w-52 h-52 lg:scale-125"
               />
             </div>
@@ -136,7 +170,7 @@ export default function Homepage({ data }) {
                 alt="Car"
                 width={1000}
                 height={1000}
-                className=" w-52 h-52"
+                className=" lg:w-52 lg:h-52 h-44 w-44"
               />
             </div>
           </div>
@@ -154,90 +188,71 @@ export default function Homepage({ data }) {
       </div>
       <CarProducts data={data2} searchQuery={searchQuery} />
       <div><DynNearYou /></div>
-      <div className='bg-gray-800 flex flex-col justify-center items-center gap-y-6 lg:py-20'>
-        <div className='text-center'>
-          <p className='py-3 md:text-5xl xs:text-3xl mb-7 text-white  font-bold'>Our Fleet</p>
-          <div className="flex items-center justify-center">
-            <div className="slider-container my-2 text-white ">
-              <Slider className={`${styles.widthscreenset} lg:w-[80vw] w-[70vw]`} {...settings}>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
+      <div className='feature-cars bg bg-gray-800 px-7 py-6 h-[655px]'>
+        <p className='text-center text-4xl font-semibold py-8 pb-14'>Check Out Our Featured Cars</p>
+        <div className="slider-container">
+          <Slider {...settings}>
+            {fddata.map((item, index) => (
+              <div
+                key={index}
+                // className='relative flex flex-col text-black bg-white rounded overflow-hidden'
+                className={`${hoveredIndex === index ? 'h-80 sca transition-opacity ease' : 'h-auto'} pt-3 p-2 flex flex-col text-black bg-white rounded `}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
+                {/* Image Container */}
+                <div className='relative'>
+                  <Image
+                    src={item.src}
+                    alt={item.carname}
+                    width={1000}
+                    height={1000}
+                    className='w-full h-32 object-cover'
+                  />
+                  {/* <p className={`${hoveredIndex === index ? 'opacity-0' : 'opacity-100 text-center text-xl font-semibold'}`}>{item.carname} Starting From </p> */}
+                  <div className={`flex flex-col gap-3 text-center ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
+                    <p className='text-base font-semibold'>{item.carname} Starting From ₹2000/day</p>
+                    {/* <p className='text-lg'>12 hrs - ₹1000</p>
+                  <p className='text-lg'>24 hrs - ₹2000</p> */}
                   </div>
-                  <p className=''>Morris11</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
+                  {/* Overlay for hover effect */}
+                  <div
+                    className={`absolute inset-0 flex flex-col justify-center items-center  text-black p-4  ${hoveredIndex === index ? 'opacity-100 top-52 transition-opacity duration-600 ease-in' : 'opacity-0'}`}
+                  >
+                    <div className='flex flex-col gap-3 text-center'>
+                      <p className='text-xl font-semibold'>{item.carname} Starting From</p>
+                      <p className='text-lg'>24 hrs - ₹1000</p>
+                      <p className='text-lg'>2 days - ₹2000</p>
+                    </div>
+                    <div className="flex items-center justify-center gap-6 mt-4">
+                      <Image
+                        priority
+                        height={1000}
+                        width={1000}
+                        alt='Apple'
+                        className='w-20 h-10'
+                        src={apple}
+                      />
+                      <a href='/'>
+                        <Image
+                          priority
+                          height={1000}
+                          width={1000}
+                          alt='Google'
+                          className='w-28 h-14'
+                          src={google}
+                        />
+                      </a>
+                    </div>
                   </div>
-                  <p className=''>Mahindra</p>
                 </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
-                  </div>
-                  <p className=''>Morris</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className=''>Mahindra</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mg}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full w-32 h-16"
-                    />
-                  </div>
-                  <p className=''>Morris</p>
-                </div>
-                <div className='pr-4'>
-                  <div className='w-24 h-24 bg-white rounded-full pt-5' onClick={() => { setSearchQuery("tata"); scrollToTarget() }}>
-                    <Image
-                      src={mahindra}
-                      alt="Car"
-                      width={180}
-                      height={180}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <p className=''>Mahindra</p>
-                </div>
-
-              </Slider>
-            </div>
-          </div>
+              </div>
+            ))}
+          </Slider>
         </div>
+
       </div>
+
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
