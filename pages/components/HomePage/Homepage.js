@@ -3,20 +3,16 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
 import CarProducts from '../CarProducts';
-import tata from '../../images/tata2.webp';
-import skoda from '../../images/skoda1.webp';
-import toyota from '../../images/toyota1.webp';
-import mg from '../../images/mg.webp';
-import kia from '../../images/kia.webp';
-import mahindra from '../../images/mhlogo.webp';
-import suzuki from '../../images/suz.webp';
-import inv1 from '../../changeimg/innova.webp'
-import inv2 from '../../changeimg/i10.webp'
-import inv3 from '../../changeimg/i20.webp'
-import inv4 from '../../changeimg/swift.webp'
-import inv5 from '../../changeimg/polo.webp'
-import inv6 from '../../changeimg/polo.webp'
-import inv7 from '../../changeimg/polo.webp'
+
+import carnearbtn from '../../images/carnearbtn.png';
+import mapright from '../../images/mapright.webp';
+import inv from '../../changeimg/innova.webp'
+import i10 from '../../changeimg/i10.webp'
+import i20 from '../../changeimg/i20.webp'
+import swift from '../../changeimg/swift.webp'
+import ertiga from '../../changeimg/ERTIGA_RED.webp'
+import creta from '../../changeimg/creta-thumbnail-pc.png'
+import baleno from '../../changeimg/baleno.webp'
 import renault from '../../images/renault.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -24,6 +20,9 @@ import left from '../../images/left.png'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { BsFuelPump } from 'react-icons/bs';
+import { TbManualGearbox } from 'react-icons/tb';
+import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 
 import styles from './HomePage.module.css';
 import { FaSearch } from 'react-icons/fa';
@@ -48,13 +47,13 @@ export default function Homepage({ data }) {
   const [searchQuery, setSearchQuery] = useState('');
   var settings = {
     // infinite: true,
-    slidesToShow: 5,
+    slidesToShow: 3,
     slidesToScroll: 1,
     pauseOnHover: true,
     arrows: true,
     pauseOnFocus: true,
     pauseOnHover: true,
-    autoplay: true,
+    autoplay: false,
     speed: 1000,
     autoplaySpeed: 1500,
     responsive: [
@@ -95,7 +94,7 @@ export default function Homepage({ data }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           // rows: 2,
-          autoplay: true,
+          autoplay: false,
           speed: 2000,
           arrows: false
 
@@ -109,75 +108,87 @@ export default function Homepage({ data }) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  // console.log(data, "ddata");
+  function replaceText(str) {
+    let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
+    return newstr
+  }
+  const fd = ["MARUTHI BALENO", "HYUNDAI CRETA", "INNOVA CRYSTA", "HYUNDAI GRAND I10", "MARUTHI DZIRE"];
+
   const fddata = [
     {
-      carname: "Innova",
-      src: inv1
+      carname: "MARUTHI SWIFT",
+      src: swift
     },
     {
-      carname: "I10",
-      src: inv2
+      carname: "MARUTHI ERTIGA",
+      src: ertiga
     },
     {
-      carname: "I20",
-      src: inv3
+      carname: "INNOVA CRYSTA",
+      src: inv
     },
     {
-      carname: "Swift",
-      src: inv4
+      carname: "MARUTHI BALENO",
+      src: baleno
     },
     {
-      carname: "Polo",
-      src: inv5
+      carname: "HYUNDAI CRETA",
+      src: creta
     },
-    {
-      carname: "swift",
-      src: inv1
-    },
-
   ]
   const hiddenkey = 'hidden';
   const blockkey = 'block';
+
   return (
     <div className="min-h-screen">
       <DynImageChange />
       <div>
 
-        <div className='flex lg:mx-[87px] p-5 w- xl:mx-[168px] xs:mx-7 rounded-md justify-center bg-[#660066]  items-center pb-5 lg:pt-5 text-white shadow-md'>
-          <div className='flex lg:flex-row flex-col lg:justify-around justify-center items-center lg:gap-0'>
-            <div>
+        <div className='px-8 py-8'>
+          <div className='text-white flex flex-col justify-center items-center bg-[#660066] rounded-md'>
+            <div className='flex flex-col items-center font-bold pt-4 lg:pt-16'>
+              <p className='lg:text-3xl text-xl underline'>New Feature</p>
+              <p className='lg:text-6xl text-xl lg:pt-2'>Explore Cars Near You</p>
+              <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
+                <Image
+                  priority
+                  src={carnearbtn}
+                  alt={'home banner'}
+                  height={1000}
+                  width={1000}
+                  className='lg:w-full lg:h-32 w-48'
+                />
+              </Link>
+              <p className='text-xs lg:text-5xl lg:relative lg:top-7'>20Kms Around Your Location</p>
+
+            </div>
+
+            <div className='flex justify-between w-full lg:px-10 lg:relative lg:bottom-8'>
               <Image
+                priority
                 src={left}
-                alt="Car"
-                // width={1000}
-                // height={1000}
-                className="rounded-full w-52 h-52 lg:scale-125"
-              />
-            </div>
-            <div className='lg:w-[560px] lg:pl-20'>
-              <p className="lg:text-2xl text-sm font-bold lg:w-[81%] text-center">Looking For Self Drive Car Rentals In Your Location?</p>
-              <div className='flex flex-col justify-center items-center py-4'>
-                <button className='p-1 bg-white rounded hover:scale-105'>
-                  <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center`}><span><IoLocationSharp size={20} className="text-orange-400" /></span> Get Near By Cars<span></span></Link>
-                </button>
-              </div>
-            </div>
-            <div>
-              <Image
-                src={rightimg}
-                alt="Car"
-                width={1000}
+                alt={'home banner'}
                 height={1000}
-                className=" lg:w-52 lg:h-52 h-44 w-44"
+                width={1000}
+                className='lg:w-56 w-20 lg:scale-150'
+              />
+              <Image
+                priority
+                src={mapright}
+                alt={'home banner'}
+                height={1000}
+                width={1000}
+                className='lg:w-56 w-20 lg:scale-125'
               />
             </div>
           </div>
         </div>
-        <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center pt-3'>
+        <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4 pb-16'>
           <input
-            placeholder='Search for the cars'
-            className='placeholder-black  px-4 py-3 rounded-full bg-gray-200 w-full max-w-56 md:max-w-96 lg:max-w-2xl'
-            type='search'
+            placeholder='Search for your favourite car'
+            className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
+            type='search' pb-16
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
           />
@@ -186,69 +197,96 @@ export default function Homepage({ data }) {
       </div>
       <CarProducts data={data2} searchQuery={searchQuery} />
       <div><DynNearYou /></div>
-      <div className='feature-cars bg bg-gray-800 px-7 py-6 h-[655px]'>
+      <div className='feature-cars bg bg-white text-black px-7 py-6 h-[655px] '>
         <p className='text-center text-4xl font-semibold py-8 pb-14'>Check Out Our Featured Cars</p>
-        <div className="slider-container">
+        <div className="slider-container h-[600px] ">
           <Slider {...settings}>
-            {fddata.map((item, index) => (
-              <div
-                key={index}
-                // className='relative flex flex-col text-black bg-white rounded overflow-hidden'
-                className={` pt-3 p-2 flex flex-col text-black bg-white rounded `}
-              >
-                {/* Image Container */}
-                <div className='relative'>
-                  <Image
-                    src={item.src}
-                    alt={item.carname}
-                    width={1000}
-                    height={1000}
-                    className='w-full h-32 object-cover'
-                  />
-                  <div className={`flex flex-col gap-3 text-center $`}>
-                    <p className='text-base font-semibold'>{item.carname} Starting From ₹2000/day</p>
-                  </div>
-                  <div
-                    className={` flex flex-col justify-center items-center  text-black p-4 `}
-                  >
-                    <div className='flex flex-col gap-3 text-center'>
-                      <p className='text-xl font-semibold'>{item.carname} Starting From</p>
-                      <p className='text-lg'>24 hrs - ₹1000</p>
-                      <p className='text-lg'>2 days - ₹2000</p>
-                    </div>
-                    <div className="flex items-center justify-center gap-6 mt-4">
-                      <Image
-                        priority
-                        height={1000}
-                        width={1000}
-                        alt='Apple'
-                        className='w-20 h-10'
-                        src={apple}
-                      />
-                      <a href='/'>
-                        <Image
-                          priority
-                          height={1000}
-                          width={1000}
-                          alt='Google'
-                          className='w-28 h-14'
-                          src={google}
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {
+              data?.map((item, index) => (
+                fddata?.map((inside, index) => (
+                  (item?.maker_model === inside.carname) ?
+                    <div className='mont-text'>
+                      {(item.maker_model == inside.carname) && <div
+                        key={index}
+                        // className='relative flex flex-col text-black bg-white rounded overflow-hidden'
+                        className={`pt-3 flex flex-col text-black w-[270px] `}
+                      >
+                        {/* Image Container */}
+                        <div className='relative pt-1 pl-2 border-2 border-gray-200 rounded-lg'>
+                          <p>Make Year {item?.manufacture_date}</p>
+                          <Image
+                            src={(inside.src)}
+                            alt={'carss'}
+                            width={1000}
+                            height={1000}
+                            className='w-[250px] h-[150px] '
+                          />
+                          <div className={`flex flex-col gap-3 text-center $`}>
+                            {/* <p className='text-base font-semibold'>{item.carname} Starting From ₹2000/day</p> */}
+                          </div>
+                          <div
+                            className={` flex flex-col justify-center   text-black`}
+                          >
+                            <div className="flex items-center gap-3 justify-around  text-black font-normal text-base px-3">
+                              <div className="flex items-center">
+                                <BsFuelPump size={15} className="mr-1" />
+                                <span>{item?.fuel_type}</span>
+                              </div>
+                              <div className="flex items-center">
+                                <TbManualGearbox size={15} className="mr-1" />
+                                <span>{item?.transmission_type}</span>
+                              </div>
+                              <div className="flex items-center">
+                                <MdOutlineAirlineSeatReclineExtra size={15} className="mr-1" />
+                                <span>{item?.seater}</span>
+                              </div>
+                            </div>
+                            <div>
+                            </div>
+                            <p className='text-left text-lg pt-2 font-bold px-3'>{item?.maker_model}</p>
+                            <div className='flex flex-col gap-2'>
+                              <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {item?.price_24_hours * 24}</span></p>
+                              <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 24 * 4}</span></p>
+                              <p className='flex justify-between px-4 text-sm'><span>10 days</span><span>₹ {item?.price_24_hours * 24 * 10}</span></p>
+                            </div>
+                            <div className="flex items-center justify-center gap-6 mt-">
+                              <Image
+                                priority
+                                height={1000}
+                                width={1000}
+                                alt='Apple'
+                                className='w-20 h-10'
+                                src={apple}
+                              />
+                              <a href='/'>
+                                <Image
+                                  priority
+                                  height={1000}
+                                  width={1000}
+                                  alt='Google'
+                                  className='w-28 h-14'
+                                  src={google}
+                                />
+                              </a>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>}
+                    </div> : null
+                ))
+              ))
+            }
           </Slider>
         </div>
       </div>
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-        <h2 className='uppercase p-2 mb-4 text-center font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
         <DynamicFaqComponent />
       </div>
+
       <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#660066] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
         <div className='xl:w-5/12 xl:text-left xs:w-full xs:text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-left text-lg  lg:p-4 lg:pl-14 font-semibold'>
           Get in touch with us to arrange your booking
@@ -258,7 +296,7 @@ export default function Homepage({ data }) {
           <div className='flex justify-around gap-3 pb-2 text-white'>
             <button className='bg-green-500  rounded-full p-2 '>
               <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
-                <p className=' flex items-center justify-center gap-1 text-sm'><span><FaWhatsapp size={30} /></span> <span>Whatsapp</span></p>
+                <p className=' flex items-center justify-center gap-1 text-sm text-white'><span><FaWhatsapp size={30} /></span> <span>Whatsapp</span></p>
               </Link>
             </button>
             <button className='bg-blue-500 rounded-full p-2'>

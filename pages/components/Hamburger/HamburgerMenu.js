@@ -83,14 +83,10 @@ const HamburgerMenu = () => {
                   priority
                 // placeholder="blur"
                 />
-                <p className='font-semibold text-[#0456e8] text-lg lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
+                <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
               </div>
               <div className='w-40 text-black 2xl:w-full lg:w-96 lg:mt-2'>
               </div>
-
-
-
-
             </div>
           </Link>
         </div>
@@ -105,7 +101,7 @@ const HamburgerMenu = () => {
         <div className='lg:hidden block'>
           <button
             ref={buttonRef}
-            className="fixed top-[2.8rem] right-5 z-40 text-blue-400"
+            className="fixed top-[2.4rem] right-5 z-40 text-blue-400 flex items-center"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -120,6 +116,7 @@ const HamburgerMenu = () => {
                 d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
               />
             </svg>
+            Branches
           </button>
         </div>
         <nav
@@ -127,22 +124,7 @@ const HamburgerMenu = () => {
           className={`${isOpen ? 'block overflow-auto' : 'hidden'} w-11/12 h-fit absolute top-12 bg-orange-50 rounded-md p-2 pt-6 lg:pr-16 right-0 z-50 transition-transform delay-2000 ease-out text-black`}
           style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}
         >
-          <Link href={'/'}>
-            <div className='flex cursor-pointer items-center'>
-              <Image
-                className="w-24 pl-10"
-                src={logo2}
-                alt="carrr"
-                width={192}
-                height={192}
-                priority
-              // placeholder="blur"
-              />
-              <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-               
-              </div>
-            </div>
-          </Link>
+         
           <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
             <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
             <li className="w-32 text-start"><Link href={''}>Contact</Link></li>

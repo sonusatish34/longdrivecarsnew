@@ -292,7 +292,7 @@ export default function car_products({ cars }) {
                     Car Rentals</h2>
                 <div className='mb-9 lg:mb-16 flex flex-grow items-center justify-center'>
                     <input
-                        placeholder='Search for the cars'
+                        placeholder='Search for your favourite car'
                         className='placeholder-black text-black px-4 py-3 rounded-md w-full max-w-56 md:max-w-96 lg:max-w-2xl'
                         type='search'
                         value={searchQuery}
@@ -329,7 +329,7 @@ export default function car_products({ cars }) {
                                         <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
-                                            <Image className='h-[498px] rounded-md' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                                            <Image alt="car images" className='h-[498px] rounded-md' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
                                         </div>
                                         <div onClick={() => {
                                             // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)

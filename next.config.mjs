@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'd10uth61hedy2t.cloudfront.net',
+        hostname: 'ldcars.blr1.digitaloceanspaces.com',
       },
     ],
   },

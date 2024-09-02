@@ -55,7 +55,7 @@ const CarDetails = () => {
         
       </Head>
       <div className=' lg:px-2 mx-auto lg:mx-36 xl:mx-16 md:p-28 lg:p-4 xs:px-5 sm:pt-44 px-2'>
-        <div className='flex flex-col xs:mt-48 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-orange-400 rounded-md'>
+        <div className='flex flex-col xs:mt-2 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-orange-400 rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
             <div className="relative md:w-2/3 w-full p-1 xl:pt-6 xs:pt-8 border-1 border-gray-300 h-[434px]">

@@ -10,6 +10,7 @@ function hi() {
                 height={1000}
                 width={1000}
                 className='rounded-full h-80 w-80'
+                alt='test'
             />
         </div>
     )

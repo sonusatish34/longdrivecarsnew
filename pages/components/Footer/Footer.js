@@ -6,15 +6,16 @@ import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 import { TbPointFilled } from "react-icons/tb";
 import imgs from '../../images/cretafoot.png'
+import imgs2 from '../../images/tatanexonrunning.png'
 function Footer() {
     return (
         // <div style={{ backgroundImage: 'url(/sd.)' }} className='pb-4'></div>
-        <div className='bg-white text-black'>
-            <div style={{ backgroundImage: 'url(/222.avif)' }} className='bg-white lg:px-16 bg-contain lg:bg-center bg-bottom bg-no-repeat'>
+        <div className='bg-black text-white'>
+            <div style={{ backgroundImage: 'url(/ldcfooter.png)' }} className='bg-contain bg lg:bg-center bg-bottom bg-no-repeat lg:bg-repeat'>
                 <footer className='lg:pb opacity-'>
-                    <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-28 lg:pb-48 lg:pt-6 lg:px-28 xl:px-2">
+                    <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-28 lg:pb-48 lg:pt-6 lg:px-28 xl:px-14 xl:pt relative top-9">
                         <div className='lg:w-3/6'>
-                            <div className='flex flex-col text-lef p-1 rounded '>
+                            <div className='flex flex-col p-1 rounded '>
                                 <p className='lg:text-lg xs:text-xs xs:font-medium lg:font-semibold font-sans'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
                             </div>
                         </div>
@@ -55,14 +56,22 @@ function Footer() {
                     </div>
 
                 </footer>
-                <div className='relative lg:bottom-7 top-3 lg:top-0'>
-                    <Marquee speed={55} direction='right' className='lg:pt-0'>
-                        <div className={'flex text-xs lg:text-lg '}>
+                <div className='relative lg:bottom-3 top-3 lg:top-7'>
+                    <Marquee speed={40} direction='right' className='lg:pt-0'>
+                        <div className={'flex gap-12 lg:gap-64 text-xs lg:text-lg '}>
+                            
+                            <Image 
+                                src={imgs2}
+                                width={700}
+                                height={700}
+                                className='lg:w-28 lg:h-24 w-14 h-10 relative top-[6px]'
+                            >
+                            </Image>
                             <Image 
                                 src={imgs}
-                                width={2000}
-                                height={2000}
-                                className='lg:w-24 lg:h-20 w-10 h-10'
+                                width={700}
+                                height={700}
+                                className='lg:w-32 lg:h-28 w-14 h-14'
                             >
                             </Image>
                         </div>
@@ -70,8 +79,9 @@ function Footer() {
                 </div>
 
             </div>
-            <div className=' pb-4 lg:px-20 text-center text-black lg:text-lg text-xs border-t-2 border-t-gray-300'>
-                <p>© longdrivecars all rights reserved</p>
+            <div className=' pb-4 lg:px-20 text-center lg:text-black text-white lg:text-lg text-xs border-t-2 border-t-gray-300'>
+                <p >© longdrivecars all rights reserved</p>
+                {/* <Link href={'/blog.html'}>blogs</Link> */}
             </div>
 
         </div>
