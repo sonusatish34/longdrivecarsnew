@@ -46,7 +46,6 @@ const CarDetails = () => {
     let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
     return newstr
   }
-  console.log(customData,"custom data");
   
   return (
     <div className='bg-white text-black'>

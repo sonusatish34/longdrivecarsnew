@@ -36,15 +36,11 @@ const LocationFetcher = () => {
     const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
     const day = today.getDate() + 1;
     const daynum = today.getDate() + 2;
-    console.log(daynum + 1, "daynum");
 
     const compldate = `${year}-${month}-${day}`
     // return `${year}-${month}-${day}`;
     const compldateend = `${year}-${month}-${daynum}`
-    console.log(compldate, "compldate");
-    console.log(compldateend, "compldateend");
-    console.log(lat, "lat");
-    console.log(lon, "lon");
+   
 
     // };
 
@@ -86,10 +82,8 @@ const LocationFetcher = () => {
                 const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
-                console.log(realdata,"rd");
                 
                 setData(realdata);
-                console.log(response, "resp");
             } catch (error) {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
