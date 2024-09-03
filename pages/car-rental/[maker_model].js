@@ -46,7 +46,8 @@ const CarDetails = () => {
     let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
     return newstr
   }
-
+  console.log(customData,"custom data");
+  
   return (
     <div className='bg-white text-black'>
       <Head>
@@ -96,7 +97,7 @@ const CarDetails = () => {
         />
       </Head>
       <div className='xl:mx-16 mont-text mx-4'>
-        <div className='flex flex-col xs:mt-24 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-orange-400 rounded-md'>
+        <div className='flex flex-col xs:mt-24 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
             <div className="relative md:w-2/3 w-full p-1 xl:pt-6 xs:pt-8 border-1 border-gray-300 h-[434px]">

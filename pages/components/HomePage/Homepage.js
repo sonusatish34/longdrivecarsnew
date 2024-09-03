@@ -60,7 +60,7 @@ export default function Homepage({ data }) {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 7,
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: false,
           pauseOnHover: true,
@@ -70,7 +70,7 @@ export default function Homepage({ data }) {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 7,
+          slidesToShow: 3,
           slidesToScroll: 1,
           pauseOnHover: true,
           autoplay: true,
@@ -157,10 +157,10 @@ export default function Homepage({ data }) {
                   alt={'home banner'}
                   height={1000}
                   width={1000}
-                  className='lg:w-full lg:h-32 w-48'
+                  className='lg:w-full lg:h-32 w-full pl-4'
                 />
               </Link>
-              <p className='text-xs lg:text-5xl lg:relative lg:top-7'>20Kms Around Your Location</p>
+              <p className='text-sm lg:text-5xl relative lg:top-7 top-7 left-6'>20Kms Around Your Location</p>
 
             </div>
 
@@ -171,7 +171,7 @@ export default function Homepage({ data }) {
                 alt={'home banner'}
                 height={1000}
                 width={1000}
-                className='lg:w-56 w-20 lg:scale-150'
+                className='lg:w-56 w-20 lg:scale-150 hidden lg:block'
               />
               <Image
                 priority
@@ -179,7 +179,7 @@ export default function Homepage({ data }) {
                 alt={'home banner'}
                 height={1000}
                 width={1000}
-                className='lg:w-56 w-20 lg:scale-125'
+                className='lg:w-56 w-16 lg:scale-125'
               />
             </div>
           </div>
@@ -197,23 +197,23 @@ export default function Homepage({ data }) {
       </div>
       <CarProducts data={data2} searchQuery={searchQuery} />
       <div><DynNearYou /></div>
-      <div className='feature-cars bg bg-white text-black px-7 py-6 h-[655px] '>
-        <p className='text-center text-4xl font-semibold py-8 pb-14'>Check Out Our Featured Cars</p>
+      <div className='feature-cars bg  text-black px-7 py-6 h-[655px] bg-gray-800'>
+        <p className='text-center text-4xl font-semibold py-8 pb-4 text-white'>Check Out Our Featured Cars</p>
         <div className="slider-container h-[600px] ">
           <Slider {...settings}>
             {
               data?.map((item, index) => (
                 fddata?.map((inside, index) => (
                   (item?.maker_model === inside.carname) ?
-                    <div className='mont-text'>
+                    <div className='mont-text '>
                       {(item.maker_model == inside.carname) && <div
                         key={index}
                         // className='relative flex flex-col text-black bg-white rounded overflow-hidden'
-                        className={`pt-3 flex flex-col text-black w-[270px] `}
+                        className={`pt-3 flex flex-col text-black w-[270px] rounded-md`}
                       >
                         {/* Image Container */}
-                        <div className='relative pt-1 pl-2 border-2 border-gray-200 rounded-lg'>
-                          <p>Make Year {item?.manufacture_date}</p>
+                        <div className='relative border-2 border-gray-200 bg-white rounded-md'>
+                          <p className='bg-cyan-100 pl-5'>Make Year {item?.manufacture_date}</p>
                           <Image
                             src={(inside.src)}
                             alt={'carss'}
@@ -243,13 +243,13 @@ export default function Homepage({ data }) {
                             </div>
                             <div>
                             </div>
-                            <p className='text-left text-lg pt-2 font-bold px-3'>{item?.maker_model}</p>
-                            <div className='flex flex-col gap-2'>
+                            <p className='text-left text-lg pt-2 font-bold px-3 border-t-2 border-b-2 border-gray-200'>{item?.maker_model}</p>
+                            <div className='flex flex-col gap-1'>
                               <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {item?.price_24_hours * 24}</span></p>
                               <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 24 * 4}</span></p>
-                              <p className='flex justify-between px-4 text-sm'><span>10 days</span><span>₹ {item?.price_24_hours * 24 * 10}</span></p>
+                              <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {item?.price_24_hours * 24 * 10}</span></p>
                             </div>
-                            <div className="flex items-center justify-center gap-6 mt-">
+                            <div className="flex items-center justify-center gap-6 pt-1 border-t-2 border-gray-200">
                               <Image
                                 priority
                                 height={1000}

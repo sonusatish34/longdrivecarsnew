@@ -47,7 +47,7 @@ const ImageChange = () => {
             className='lg:w-[600px] w-[300px]'
           />
           <div className="lg:text-left  lg:pl-12 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms" data-wow-duration="200ms">
-            <p className='xl:text-3xl lg:text-2xl text-xl  lg:pb-2 font-bold py-2 pl-5 lg:pl-0 w-fit lg:w-3/4'>Install Long Drive Cars Mobile app &
+            <p className='xl:text-3xl lg:text-2xl text-xl  lg:pb-2 font-bold py-2 lg:pl-0 w-fit lg:w-3/4'>Install Long Drive Cars Mobile app &
               Start Your Journey!</p>
             <div className='flex xs:flex-wrap lg:gap-8 pt-2 gap-2 lg:w-full xs:text-sm md:text-xs xl:text-lg'>
               <div className="flex items-center gap-1 py-2">
@@ -79,24 +79,24 @@ const ImageChange = () => {
                 <div className="flex gap-4 pt-4 text-xs
                      font-medium lg:text-sm xs: lg:w-[90%] flex-wrap text-white">
                   {/* <p className='font-sans xl:text-5xl lg:text-5xl text-3xl mb-2 lg:pl-5 lg:pb-8'>Why Choose Us?</p> */}
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black rounded-full lg:hover:scale-105 xl:w-[280px] w-[230px]">
-                    <FaRegClock className="bg-white text-black rounded-full p-1" size={40} />
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-[230px]">
+                    <FaRegClock className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="">Choose Your Own Hours</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black rounded-full lg:hover:scale-105 xl:w-[280px] w-[230px]">
-                    <SlSpeedometer className="bg-white text-black rounded-full p-1" size={40} />
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-[230px]">
+                    <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className=" ml-2">Unlimited Kilometers</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black rounded-full lg:hover:scale-105 xl:w-[280px] w-[230px]">
-                    <RiMoneyRupeeCircleFill className="bg-white text-black rounded-full p-1" size={40} />
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-[230px]">
+                    <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2 ">Zero Deposit</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black rounded-full lg:hover:scale-105 xl:w-[280px] w-[230px]">
-                    <GiTowTruck className="bg-white text-black rounded-full p-1" size={40} />
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-[230px]">
+                    <GiTowTruck className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className=" ml-2">24/7 Breakdown Service</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black rounded-full lg:hover:scale-105 xl:w-[280px] w-[230px]">
-                    <FaCar className="bg-white text-black rounded-full p-1" size={40} />
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-[230px]">
+                    <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2">Check Original Car Photo</p>
                   </div>
                 </div>

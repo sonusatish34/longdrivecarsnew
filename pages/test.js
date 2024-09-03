@@ -86,6 +86,8 @@ const LocationFetcher = () => {
                 const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
+                console.log(realdata,"rd");
+                
                 setData(realdata);
                 console.log(response, "resp");
             } catch (error) {
@@ -122,10 +124,9 @@ const LocationFetcher = () => {
                 </div></div>}
             {error && <p>Error: {error}</p>}
             <div className=' bg-white'>
+            <p className='text-red-500 text-center py-5'></p>
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
-
                     {data?.map((item, index) => (
-
                         <React.Fragment key={index}>
                             <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[530px] lg:hover:scale-105">
                                 <div className="relative h-[530px] lg:rounded-md">
