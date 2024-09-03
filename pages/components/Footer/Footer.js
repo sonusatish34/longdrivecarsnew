@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 import { TbPointFilled } from "react-icons/tb";
 import imgs from '../../images/cretafoot.png'
-import imgs2 from '../../images/3_408-removebg-preview (1).png'       
+import imgs2 from '../../images/3_408-removebg-preview (1).png'
 function Footer() {
     return (
         // <div style={{ backgroundImage: 'url(/sd.)' }} className='pb-4'></div>
@@ -41,7 +41,24 @@ function Footer() {
                             </div>
                         </div>
                         <div>
-                            <h2 className='text-left mb-1 xs:pt-3 text-xl font-bold pb-4'>Social Media Links</h2>
+                            <p className='text-left mb-1 xs:pt-3 text-xl font-bold pb-4'>Our Branches</p>
+                            <div className='flex gap-5'>
+                                <Link href={''} target='_blank'>
+                                    <p className='hover:text-blue-500 cursor-pointer'></p>
+                                </Link>
+                                <Link href={'https://www.instagram.com/longdrivecars_official/'} target='_blank'>
+                                    <p className='hover:text-blue-500 cursor-pointer'><FaInstagram className='lg:size-8 size-9' /></p>
+                                </Link>
+                                <Link href={'https://in.linkedin.com/company/long-drive-cars'} target='_blank'>
+                                    <p className='hover:text-blue-500 cursor-pointer'><SiLinkedin className='lg:size-8 size-9' /></p>
+                                </Link>
+                                <Link href={'https://www.youtube.com/@longdrivecars_official'} target='_blank'>
+                                    <p className='hover:text-blue-500 cursor-pointer'><FaYoutube className='lg:size-8 size-9' /></p>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            <p className='text-left mb-1 xs:pt-3 text-xl font-bold pb-4'>Social Media Links</p>
                             <div className='flex gap-5'>
                                 <Link href={'https://www.facebook.com/selfdrivecarsbylongdrivecars/'} target='_blank'>
                                     <p className='hover:text-blue-500 cursor-pointer'><FaFacebook className='lg:size-8 size-9' /></p>
