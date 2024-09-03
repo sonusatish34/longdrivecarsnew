@@ -85,11 +85,10 @@ const HamburgerMenu = () => {
                 // placeholder="blur"
                 />
               </Link>
-
               <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
             </div>
-            <div className='w-40 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-              <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block 2xl:pr-40`}>
+            <div className='w-full text-black lg:mt-2'>
+              <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
                 <ul className='font-semibold text-lg flex gap-8'>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Blog</Link></li>

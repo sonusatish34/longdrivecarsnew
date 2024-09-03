@@ -41,20 +41,15 @@ function Footer() {
                             </div>
                         </div>
                         <div>
-                            <p className='text-left mb-1 xs:pt-3 text-xl font-bold pb-4'>Our Branches</p>
-                            <div className='flex gap-5'>
-                                <Link href={''} target='_blank'>
-                                    <p className='hover:text-blue-500 cursor-pointer'></p>
-                                </Link>
-                                <Link href={'https://www.instagram.com/longdrivecars_official/'} target='_blank'>
-                                    <p className='hover:text-blue-500 cursor-pointer'><FaInstagram className='lg:size-8 size-9' /></p>
-                                </Link>
-                                <Link href={'https://in.linkedin.com/company/long-drive-cars'} target='_blank'>
-                                    <p className='hover:text-blue-500 cursor-pointer'><SiLinkedin className='lg:size-8 size-9' /></p>
-                                </Link>
-                                <Link href={'https://www.youtube.com/@longdrivecars_official'} target='_blank'>
-                                    <p className='hover:text-blue-500 cursor-pointer'><FaYoutube className='lg:size-8 size-9' /></p>
-                                </Link>
+                            <p className='text-left text-xl font-bold pb-4'>Our Branches</p>
+                            <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
+                                <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
+                                    <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Dilshuknagar</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Madhapur</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Kukatapally</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Ameerpet</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Warangal</Link></li>
+                                </ul>
                             </div>
                         </div>
                         <div>

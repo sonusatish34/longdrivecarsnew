@@ -3,17 +3,16 @@ import Image from 'next/image'
 // import carphotot from '../../images/rightimg.webp';
 import { useState } from 'react';
 
-const  CallBackForm = () => {
+const CallBackForm = () => {
 
     const [mobile, setmobile] = useState("");
     const [isError, setIsError] = useState(false);
     const pattern = new RegExp(/^\d{10}$/);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!isError && mobile.length == 10)
-        {
+        if (!isError && mobile.length == 10) {
             fetch('https://longdrivecarz.in/site/contacts', {
                 method: 'POST',
                 headers: {
@@ -29,7 +28,7 @@ const  CallBackForm = () => {
         else {
             // console.log("some error");
         }
-        
+
     };
 
     return (
@@ -41,7 +40,7 @@ const  CallBackForm = () => {
                         <p className='text-base lg:pl-9 xl:pl-0 xl:text-base font-sans xs:text-center pt-2 xs:pt-0 xs:text-xs font-normal'>Let us help you on a quick call</p>
                     </div>
                     <form onSubmit={handleSubmit} className='rounded-lg text-black text-xs flex pt-4'>
-            
+
                         <input
                             value={mobile}
                             type="text"
@@ -58,11 +57,11 @@ const  CallBackForm = () => {
 
                         <button className='bg-green-400 ml-0 border-2 xs:ml-1 xs:p-1  border-gray-400 lg:p-2 lg:text-[10px] text-white lg:w-28  w-fit xs:text-[8px] rounded' type="submit">Get Callback</button>
                     </form>
-                    <div>{isError && mobile.length>1 && <p className='text-sm text-center '>Please enter a valid number</p>}</div>
+                    <div>{isError && mobile.length > 1 && <p className='text-sm text-center '>Please enter a valid number</p>}</div>
                 </div>
             </div>
         </div>
-    ) 
+    )
 }
 
 export default CallBackForm

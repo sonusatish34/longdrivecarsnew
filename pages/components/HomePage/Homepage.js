@@ -46,14 +46,14 @@ export default function Homepage({ data }) {
   const data2 = data;
   const [searchQuery, setSearchQuery] = useState('');
   var settings = {
-    // infinite: true,
+    infinite: true,
+    autoplay: true,
     slidesToShow: 3,
     slidesToScroll: 1,
     pauseOnHover: true,
     arrows: true,
     pauseOnFocus: true,
     pauseOnHover: true,
-    autoplay: false,
     speed: 1000,
     autoplaySpeed: 1500,
     responsive: [
@@ -62,9 +62,10 @@ export default function Homepage({ data }) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          infinite: false,
           pauseOnHover: true,
           pauseOnFocus: true,
+          infinite: true,
+          autoplay: true,
         }
       },
       {
@@ -73,6 +74,7 @@ export default function Homepage({ data }) {
           slidesToShow: 3,
           slidesToScroll: 1,
           pauseOnHover: true,
+          infinite: true,
           autoplay: true,
           speed: 1000,
           autoplaySpeed: 2000,
@@ -83,7 +85,9 @@ export default function Homepage({ data }) {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 2
+          initialSlide: 2,
+          infinite: true,
+          autoplay: true,
         }
       },
       {
@@ -94,7 +98,8 @@ export default function Homepage({ data }) {
           slidesToShow: 1,
           slidesToScroll: 1,
           // rows: 2,
-          autoplay: false,
+          infinite: true,
+          autoplay: true,
           speed: 2000,
           arrows: false
 
@@ -148,7 +153,7 @@ export default function Homepage({ data }) {
         <div className='px-8 py-8'>
           <div className='text-white flex flex-col justify-center items-center bg-[#660066] rounded-md'>
             <div className='flex flex-col items-center font-bold pt-4 lg:pt-16'>
-              <p className='lg:text-3xl text-xl underline'>New Feature</p>
+              <p className='bg-gradient-to-r from-violet-100 to-yellow-500 animate-bounce lg:text-3xl text-lg bg-white text-black p-1 lg:p-2 rounded-md'>New Feature</p>
               <p className='lg:text-6xl text-xl lg:pt-2'>Explore Cars Near You</p>
               <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
                 <Image
@@ -160,13 +165,12 @@ export default function Homepage({ data }) {
                   className='lg:w-full lg:h-32 w-full pl-4'
                 />
               </Link>
-              <p className='text-sm lg:text-5xl relative lg:top-7 top-7 left-6'>20Kms Around Your Location</p>
-
+              <p className='text-base lg:text-5xl relative lg:top-7'>20Kms Around Your Location</p>
             </div>
 
-            <div className='flex justify-between w-full lg:px-10 lg:relative lg:bottom-8'>
+            <div className='flex lg:justify-between justify-center w-full lg:px-10 lg:relative lg:bottom-8'>
               <Image
-                priority
+                priorit
                 src={left}
                 alt={'home banner'}
                 height={1000}
@@ -179,7 +183,7 @@ export default function Homepage({ data }) {
                 alt={'home banner'}
                 height={1000}
                 width={1000}
-                className='lg:w-56 w-16 lg:scale-125'
+                className='lg:w-56 w-36 lg:scale-125 relative'
               />
             </div>
           </div>
@@ -187,7 +191,7 @@ export default function Homepage({ data }) {
         <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4 pb-16'>
           <input
             placeholder='Search for your favourite car'
-            className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
+            className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
             type='search' pb-16
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
@@ -213,7 +217,7 @@ export default function Homepage({ data }) {
                       >
                         {/* Image Container */}
                         <div className='relative border-2 border-gray-200 bg-white rounded-md'>
-                          <p className='bg-cyan-100 pl-5'>Make Year {item?.manufacture_date}</p>
+                          <p className='bg-gray-100 pl-5'>Make Year {item?.manufacture_date}</p>
                           <Image
                             src={(inside.src)}
                             alt={'carss'}
