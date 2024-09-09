@@ -126,7 +126,7 @@ const LocationFetcher = () => {
                         <React.Fragment key={index}>
                             <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%]  md:w-72 h-[530px] lg:hover:scale-105">
                                 <div className="relative h-[530px] lg:rounded-md ">
-                                    <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
+                                    <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md top-20">
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
@@ -154,7 +154,7 @@ const LocationFetcher = () => {
 
                                     </Slider>
                                     {/* </Link> */}
-                                    <div className="relative z-20 bottom-[13.5rem] bg-gradient-to-t from-black opacity-90">
+                                    <div className="relative z-20 bottom-[7.5rem] bg-gradient-to-t from-black opacity-90">
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
@@ -167,7 +167,7 @@ const LocationFetcher = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="z-20 relative flex justify-between  bottom-9">
+                                    <div className="z-20 relative flex justify-between  top-[3.75rem]">
                                         <ul className="flex w-full justify-between">
                                             <li className="bg-green-500 w-full p-2  text-center text-white lg:rounded-bl-md">
                                                 {" "}
