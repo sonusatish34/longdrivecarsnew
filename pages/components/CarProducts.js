@@ -191,7 +191,7 @@ function CarProducts({ data, place }) {
                     <li className="bg-green-500 w-full py-3 lg:py-2 text-center lg:rounded-bl-md">
                       {" "}
                       <Link
-                        href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                        href="https://api.whatsapp.com/send?phone=+9000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking."
                         target="_blank"
                       >
                         <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
@@ -203,7 +203,7 @@ function CarProducts({ data, place }) {
                       </Link>
                     </li>
                     <li className="bg-blue-500 w-full py-3 lg:py-2 lg:rounded-br-md">
-                      <Link href="tel:9111911162" target="_blank">
+                      <Link href="tel:9000478478" target="_blank">
                         <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
                           <span>
                             <BiPhoneCall size={20} />

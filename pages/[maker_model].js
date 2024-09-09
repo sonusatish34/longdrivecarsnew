@@ -95,12 +95,12 @@ const CarDetails = () => {
           <h2 className='font-semibold text-2xl font-manrope'>Contact us by</h2>
           <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-6 xs:pt-2 text-white'>
             <button className='bg-green-500 rounded-full p-2 lg:p-3'>
-              <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+              <Link href="https://api.whatsapp.com/send?phone=+9000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                 <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
               </Link>
             </button>
             <button className='bg-blue-500 rounded-full p-2 lg:p-3 lg:px-7'>
-              <Link href="tel:9666677405" target='_blank'>
+              <Link href="tel:9000478478" target='_blank'>
                 <p className=' flex items-center gap-1 text-xl'><span><BiPhoneCall className='xl:size-6' /></span> <span>Call Us</span></p>
               </Link>
             </button>

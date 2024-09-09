@@ -340,12 +340,12 @@ export default function car_products({ cars }) {
                                         <p className='text-black text-lg text-center font-semibold pb-2'>For Booking</p>
                                         <div className="flex justify-around text-white">
                                             <button className='bg-green-500 w-full rounded-bl-md p-2 flex justify-center'>
-                                                <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+                                                <Link href="https://api.whatsapp.com/send?phone=+9000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                                                     <p className=' flex gap-1 text-lg items-center'><span><FaWhatsapp size={20} /></span> <span>Whatsapp</span></p>
                                                 </Link>
                                             </button>
                                             <button className='bg-blue-500 w-full rounded-br-md p-2 flex justify-center' >
-                                                <Link href="tel:9666677405" target='_blank'>
+                                                <Link href="tel:9000478478" target='_blank'>
                                                     <p className='flex gap-1 text-lg items-center px-1'><span><BiPhoneCall size={20} /></span> <span>Call Us</span></p>
                                                 </Link>
                                             </button>
