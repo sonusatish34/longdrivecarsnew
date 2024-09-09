@@ -125,8 +125,8 @@ const LocationFetcher = () => {
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[530px] lg:hover:scale-105">
-                                <div className="relative h-[530px] lg:rounded-md">
+                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] overflow-hidden md:w-72 h-[530px] lg:hover:scale-105">
+                                <div className="relative h-[530px] lg:rounded-md ">
                                     <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
