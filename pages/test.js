@@ -10,7 +10,6 @@ import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import Slider from 'react-slick';
 import { SlSpeedometer } from "react-icons/sl";
-import disc from './images/discountonbook.webp'
 import { FaSearch } from 'react-icons/fa';
 import carphoto from './images/car_image.jpeg'
 import { IoLocationSharp } from "react-icons/io5";
@@ -79,7 +78,7 @@ const LocationFetcher = () => {
             };
 
             try {
-                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
+                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=17&long=78&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
 
@@ -168,9 +167,9 @@ const LocationFetcher = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="z-20 relative flex justify-between  text-black bottom-9">
-                                        <ul className="text-black flex w-full justify-between">
-                                            <li className="bg-green-500 w-full p-2  text-center text-black lg:rounded-bl-md">
+                                    <div className="z-20 relative flex justify-between  bottom-9">
+                                        <ul className="flex w-full justify-between">
+                                            <li className="bg-green-500 w-full p-2  text-center text-white lg:rounded-bl-md">
                                                 {" "}
                                                 <Link
                                                     href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
@@ -184,12 +183,13 @@ const LocationFetcher = () => {
                                                     </p>
                                                 </Link>
                                             </li>
-                                            <li className="bg-blue-500 w-full p-2  text-black lg:rounded-br-md">
+                                            <li className="bg-blue-500 w-full p-2  text-white lg:rounded-br-md">
                                                 {" "}
                                                 <Link href="tel:9111911162" target="_blank">
                                                     <p className=" flex gap-1 text-sm justify-center">
                                                         <span>
-                                                            <BiPhoneCall size={20} />
+                                                            <BiPhoneCall size=
+                                                            {20} />
                                                         </span>{" "}
                                                         <span>Call Us</span>
                                                     </p>

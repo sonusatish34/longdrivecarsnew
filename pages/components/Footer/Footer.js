@@ -32,7 +32,7 @@ function Footer() {
                 </div>
             </div>
             <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
-                <footer className='lg:pb'>
+                <footer className='lg:pb py-4'>
                     <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>

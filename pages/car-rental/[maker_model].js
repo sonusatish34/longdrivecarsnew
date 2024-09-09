@@ -151,20 +151,20 @@ const CarDetails = () => {
             <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                <HiCurrencyRupee className="bg-orange-200 rounded-md p-1" size={40} />
+                <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} />
                 <p className=" ml-2 text-xs">Zero Deposit</p>
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                <SlSpeedometer className="bg-orange-200 rounded-md p-1" size={40} />
+                <SlSpeedometer className="bg-blue-200 rounded-md p-1" size={40} />
                 <p className="  ml-2 text-xs">Unlimited Kilometers</p>
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                <GiTowTruck className="bg-orange-200 rounded px-[4px]" size={40} />
+                <GiTowTruck className="bg-blue-200 rounded px-[4px]" size={40} />
                 <p className="  ml-2 text-xs">24/7 Breakdown Service</p>
               </div>
               
               <div className="flex items-center gap-1 p-2 bg-[#ffffff]  border-[1px] border-black rounded-md">
-                <Ri24HoursLine className="bg-orange-200 rounded-md p-1" size={40} />
+                <Ri24HoursLine className="bg-blue-200 rounded-md p-1" size={40} />
                 <p className="  ml-2 text-xs mt-1">Choose Your Own Hours</p>
               </div>
             </div>

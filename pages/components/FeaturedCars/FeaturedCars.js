@@ -17,7 +17,7 @@ import Image from 'next/image';
 var settings = {
     infinite: true,
     autoplay: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: true,
     arrows: true,
@@ -29,7 +29,7 @@ var settings = {
       {
         breakpoint: 1440,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           pauseOnHover: true,
           pauseOnFocus: true,

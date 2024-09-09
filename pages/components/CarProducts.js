@@ -8,7 +8,6 @@ import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { SlSpeedometer } from "react-icons/sl";
 import Link from 'next/link';
-import disc from '../images/discountonbook.webp'
 import { FaSearch } from 'react-icons/fa';
 import carphoto from '../images/car_image.jpeg'
 import { IoLocationSharp } from "react-icons/io5";
@@ -21,7 +20,7 @@ import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-function CarProducts({ data ,place}) {
+function CarProducts({ data, place }) {
   // console.log(data,"dasya");
   var settings = {
     infinite: true,
@@ -104,15 +103,15 @@ function CarProducts({ data ,place}) {
     <div className=' bg-white'>
       <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
       <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-12'>
-          <input
-            placeholder='Search for your favourite car'
-            className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
-            type='search'
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-          />
-          <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
-        </div>
+        <input
+          placeholder='Search for your favourite car'
+          className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
+          type='search'
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
+        <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
+      </div>
       <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center text-white">
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
@@ -145,8 +144,8 @@ function CarProducts({ data ,place}) {
                   }}>
                     {
                       <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image className='lg:h-[505px] h-[598px] rounded-md ' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
-                    </Link>}
+                        <Image className='lg:h-[505px] h-[598px] rounded-md ' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                      </Link>}
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
