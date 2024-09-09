@@ -102,8 +102,8 @@ function CarProducts({ data ,place}) {
   );
   return (
     <div className=' bg-white'>
-      <p className='text-black xl:text-5xl font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
-      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4'>
+      <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
+      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-12'>
           <input
             placeholder='Search for your favourite car'
             className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'

@@ -74,7 +74,7 @@ const HamburgerMenu = () => {
           {/* <Link href={'/'}> */}
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
             <div className='flex items-center lg:gap-6 gap-3'>
-              <Link href={'/'}>
+              <Link href={'/'} className='flex items-center lg:gap-6 gap-3'>
                 <Image
                   className="lg:w-32 w-10"
                   src={logo2}
@@ -84,8 +84,8 @@ const HamburgerMenu = () => {
                   priority
                 // placeholder="blur"
                 />
-              </Link>
               <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
+              </Link>
             </div>
             <div className='w-full text-black lg:mt-2 lg:pl-60'>
               <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
