@@ -140,13 +140,10 @@ const LocationFetcher = () => {
                                         speed={500}
                                         slidesToShow={1}
                                         slidesToScroll={1}
-                                        centerMode={true}
-                                        centerPadding={0}
-                                        focusOnSelect={true}
                                         arrows={false}
                                         autoplay={false}
                                         swipe= {true}
-                                        className="relative bottom-[5.5rem] lg:rounded-md kkky"
+                                        className=" bottom-[5.5rem] lg:rounded-md kkky"
                                     >
                                         {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                             <div key={index} onClick={() => {
