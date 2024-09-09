@@ -74,7 +74,7 @@ function Footer() {
                                 <div className='flex justify-center items-center'>
                                     <ul>
                                         <li className='text-base'>Telangana, AP</li>
-                                        <li className='text-xl font-bold'><Link href="tel:9666677405" target='_blank'>9666-677-405</Link></li>
+                                        <li className='text-xl font-bold'><Link href="tel:9000478478" target='_blank'>9000-478-478</Link></li>
                                     </ul>
                                 </div>
                                 <div className='flex items-center'>

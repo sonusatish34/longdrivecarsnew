@@ -126,7 +126,7 @@ const LocationFetcher = () => {
                         <React.Fragment key={index}>
                             <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%]  md:w-72 h-[530px] lg:hover:scale-105 ">
                                 <div className="relative h-[530px] lg:rounded-md ">
-                                    <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom lg:rounded-md">
+                                    <div className="top-[5.5rem] relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
@@ -154,7 +154,7 @@ const LocationFetcher = () => {
 
                                     </Slider>
                                     {/* </Link> */}
-                                    <div className="relative z-20 bottom-[13.5rem] bg-gradient-to-t from-black opacity-90">
+                                    <div className="relative z-20 bottom-[7.5rem] bg-gradient-to-t from-black opacity-90">
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
@@ -167,12 +167,12 @@ const LocationFetcher = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div className="z-20 relative flex justify-between bottom-[2.1rem]">
+                                    <div className="z-20 relative flex justify-between top-[4rem]">
                                         <ul className="flex w-full justify-between">
                                             <li className="bg-green-500 w-full p-2  text-center text-white lg:rounded-bl-md">
                                                 {" "}
                                                 <Link
-                                                    href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    href="https://api.whatsapp.com/send?phone=+9000478478=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 text-sm justify-center">
@@ -185,7 +185,7 @@ const LocationFetcher = () => {
                                             </li>
                                             <li className="bg-blue-500 w-full p-2  text-white lg:rounded-br-md">
                                                 {" "}
-                                                <Link href="tel:9111911162" target="_blank">
+                                                <Link href="tel:9000478478" target="_blank">
                                                     <p className=" flex gap-1 text-sm justify-center">
                                                         <span>
                                                             <BiPhoneCall size=
