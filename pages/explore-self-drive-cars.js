@@ -8,18 +8,14 @@ import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { FaExchangeAlt } from "react-icons/fa";
 import Link from 'next/link';
-import disc from './images/discountonbook.webp'
+import disc from './images/cashback.webp'
 import { FaSearch } from 'react-icons/fa';
 import StaticData from './components/StaticData/StaticData'
 import { useMemo } from "react";
-import img2 from './changeimg/ertiga.webp'
+import img2 from './changeimg/innova.webp'
 import img3 from './changeimg/polo.webp'
 import img4 from './changeimg/swift.webp'
 import img5 from './changeimg/i20.webp'
-import { IoLocationSharp } from "react-icons/io5";
-import { BsFillFuelPumpFill } from "react-icons/bs";
-import { GrGroup } from "react-icons/gr";
-import Slider from 'react-slick';
 export default function car_products({ cars }) {
 
     const [mobile, setmobile] = useState("");
@@ -38,7 +34,7 @@ export default function car_products({ cars }) {
                 },
                 body: JSON.stringify({
                     'user_phone': mobile,
-                    'user_location': 'Bangalore'
+                    'user_location': 'Hyderabad'
                 })
             });
         }
@@ -213,12 +209,12 @@ export default function car_products({ cars }) {
                     </div>
                     <div className={`flex flex-col capitalize gap-6 mb-6 lg:pt-2 pt-2 w-64 lg:hidden`}>
                         <div className="flex gap-6">
-                            <p onClick={handleFilter} className="text-black text-lg font-bold flex gap-2 items-center border-2 border-orange-400 p-2 rounded-md"><span><FaExchangeAlt /></span><span>Filters</span> </p>
-                            <button className={`${filter ? blockd : hiddend} text-xs opacity-85`} onClick={clearFilters}>Clear all </button>
+                            <p onClick={handleFilter} className="text-black text-lg font-bold flex gap-2 items-center border-2 border-orange-400 p-2 rounded-md"><span><FaExchangeAlt/></span><span>Filters</span> </p>
+                            <button className={`${filter ? blockd : hiddend } text-xs opacity-85`} onClick={clearFilters}>Clear all </button>
                         </div>
-                        <div className={`${filter ? blockd : hiddend} text-sm flex flex-col gap-2`}>
+                        <div className={`${filter ? blockd : hiddend } text-sm flex flex-col gap-2`}>
                             <div className='flex flex-wrap lg:flex-col gap-2 w-64 overflow-hidden capitalize'>
-                                <label className='font-semibold  w-full'>Brand</label>
+                            <label className='font-semibold  w-full'>Brand</label>
                                 {uniqueBrands.map(brand => (
                                     <label key={brand} className='flex items-center border-[1px] border-gray-400 text-gray-600 rounded-md p-1'>
                                         <input
@@ -303,115 +299,74 @@ export default function car_products({ cars }) {
                 <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 gap-x-8 gap-y-8 flex flex-col gap-2 items-center justify-center lg:max-w-7xl py-4">
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 h-[530px] lg:hover:scale-105">
-                                <div className="relative h-[530px] rounded-md">
-                                    <div className="relative z-20 bg-gradient-to-b from-black opacity-90 bottom rounded-md">
-                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                                        <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
-                                            {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{item?.address_area_name}</span></p>
-                                        </div>
-                                    </div>
-                                    <Slider
-                                        dots={true}
-                                        infinite={true}
-                                        speed={500}
-                                        slidesToShow={1}
-                                        slidesToScroll={1}
-                                        centerMode={true}
-                                        centerPadding={0}
-                                        focusOnSelect={true}
-                                        arrows={false}
-                                        autoplay={false}
-                                        className="relative bottom-[4.5rem] rounded-md"
-                                    >
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image alt="car images" className='h-[498px] rounded-md' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[498px]' width={1000} height={1000} src={replaceText(item?.car_image_back_inner)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[498px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
-                                        </div>
-                                        <div onClick={() => {
-                                            // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
-                                            <Image className='h-[498px]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
-                                        </div>
-                                    </Slider>
-                                    <div className="relative z-20 bottom-[12.5rem] bg-gradient-to-t from-black opacity-90">
-                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                                        <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
-                                            <p className='font-bold text-lg'>Book Now</p>
-                                            {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
-                                            {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
-                                        </div>
-                                        <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
-                                            <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
-                                            <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
-                                            <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div>
-
-                                    <div className="z-20 relative flex justify-between  text-black bottom-9">
-                                        <ul className="text-black flex w-full justify-between">
-                                            <li className="bg-green-500 w-full p-2  text-center text-black rounded-bl-md">
-                                                {" "}
-                                                <Link
-                                                    href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
-                                                    target="_blank"
-                                                >
-                                                    <p className=" flex gap-1 text-sm justify-center">
-                                                        <span>
-                                                            <FaWhatsapp size={20} />
-                                                        </span>{" "}
-                                                        <span>Whatsapp</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                            <li className="bg-blue-500 w-full p-2 text-black rounded-br-md">
-                                                {" "}
-                                                <Link href="tel:9111911162" target="_blank">
-                                                    <p className=" flex gap-1 text-sm justify-center">
-                                                        <span>
-                                                            <BiPhoneCall size={20} />
-                                                        </span>{" "}
-                                                        <span>Call Us</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] md:w-72 h-[500px] lg:hover:scale-105">
+                            <div className="relative h-80">
+                                <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                                    <Image
+                                        src={replaceText(item?.car_image_car_right_view)}
+                                        alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="rounded-t-lg relative"
+                                        // priority
+                                        loading='lazy'
+                                    />
+                                </Link>
                             </div>
-                            {/* {(index + 1) % 5 === 0 && (
-                            <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[529px] lg:hover:scale-105">
+
+                            <div className="pt-4 flex flex-col gap-4">
+                                <div className='flex items-baseline justify-between px-2'>
+                                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                                        <p className="text-gray-700 cursor-pointer font-sans font-semibold text-xs hover:text-red-600 w-fit">{item.maker_model}</p>
+                                    </Link>
+                                    <p className="text-blue-500 font-bold">₹ {item.price_24_hours * 24}/day</p>
+                                </div>
+                                <div className="flex items-center justify-around border-b border-gray-300 text-black font-normal text-base px-2">
+                                    <div className="flex items-center">
+                                        <BsFuelPump size={15} className="mr-1" />
+                                        <span>{item.fuel_type}</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <TbManualGearbox size={15} className="mr-1" />
+                                        <span>{item.transmission_type}</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <MdOutlineAirlineSeatReclineExtra size={15} className="mr-1" />
+                                        <span>{item.seater}</span>
+                                    </div>
+                                </div>
+                                <div className='pt-2'>
+                                    <p className='text-black text-lg text-center font-semibold pb-2'>For Booking</p>
+                                    <div className="flex justify-around text-white">
+                                        <button className='bg-green-500 w-full rounded-bl-md p-2 flex justify-center'>
+                                            <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+                                                <p className=' flex gap-1 text-lg items-center'><span><FaWhatsapp size={20} /></span> <span>Whatsapp</span></p>
+                                            </Link>
+                                        </button>
+                                        <button className='bg-blue-500 w-full rounded-br-md p-2 flex justify-center' >
+                                            <Link href="tel:9666677405" target='_blank'>
+                                                <p className='flex gap-1 text-lg items-center px-1'><span><BiPhoneCall size={20} /></span> <span>Call Us</span></p>
+                                            </Link>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {(index + 1) % (4)  === 0  && (
+                            <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[500px]  lg:hover:scale-105">
                                 <div>
                                     <Image
                                         src={disc}
-                                        height={400}
-                                        width={400}
+                                        height={1000}
+                                        width={1000}
                                         alt='discount'
+                                        className="scale-90"
                                     />
                                 </div>
                             </div>
-
-                        )} */}
-                        </React.Fragment>
+                        )}
+                    </React.Fragment>
                     ))}
                 </div>
             </div>

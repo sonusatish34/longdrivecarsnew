@@ -1,42 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
+import { BiPhoneCall } from "react-icons/bi";
+import { FaWhatsapp } from "react-icons/fa";
+import StaticData from '../components/StaticData/StaticData'
+import { BsFuelPump } from 'react-icons/bs';
+import { TbManualGearbox } from 'react-icons/tb';
+import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
+import CarProducts from '../components/CarProducts';
+
 import dynamic from 'next/dynamic';
 
-const components = {
-  ameerpet: dynamic(() => import('../components/Branches/ameerpet'), { ssr: false }),
-  dilshuknagar: dynamic(() => import('../components/Branches/dilshuknagar')),
-  ecil: dynamic(() => import('../components/Branches/ecil')),
-  kukatpally: dynamic(() => import('../components/Branches/kukatpally')),
-  madhapur: dynamic(() => import('../components/Branches/madhapur')),
-  medipally: dynamic(() => import('../components/Branches/medipally')),
-  miyapur: dynamic(() => import('../components/Branches/miyapur')),
-  secunderabad: dynamic(() => import('../components/Branches/secunderabad')),
-  shamshabad: dynamic(() => import('../components/Branches/shamshabad')),
-  ramanthapur: dynamic(() => import('../components/Branches/ramanthapur')),
-  gachibowli: dynamic(() => import('../components/Branches/gachibowli')),
-};
+const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
+const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
+const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
+const DynNearByApi = dynamic(() => import('../components/NearByApi/NearByApi'));
+const GetInTouch = dynamic(() => import('../components/GetInTouch/GetInTouch'));
+const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCars'));
+const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
+import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs'
 
-function Place() {
-  const [Component, setComponent] = useState(null);
-  const router = useRouter();
-  const { place } = router.query;
+export default function place() {
+    const [carData, setCarData] = useState(null)
+    const router = useRouter();
+    const { place } = router.query;
 
-  useEffect(() => {
-    if (place) {
-      const component = components[place.toLowerCase()];
-      if (component) {
-        setComponent(component);
-      } else {
-        setComponent(null);
-      }
+    function replaceText(str) {
+        let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
+        return newstr
     }
-  }, [place]);
 
-  return (
-    <div>
-      {Component ? <Component /> : <div>Loading...</div>}
-    </div>
-  );
+    useEffect(() => {
+        async function fetchCarDetails() {
+
+            try {
+                const response = await fetch(`https://api.longdrivecarz.in/site/cars-info?location=${place}`);
+                const items = await response.json();
+                const cars = items?.data?.results;
+                setCarData(cars)
+            } catch (error) {
+            } finally {
+                console.log("fnnalu");
+
+            }
+        }
+
+        if (place) {
+            fetchCarDetails();
+        }
+    }, [place]);
+    console.log(carData, "-----cardata");
+
+    return (
+        <div className="min-h-screen">
+            <DynImageChange />
+            <div>
+                <DynNearByApi />
+            </div>
+            <CarProducts data={carData} place={place}/>
+            <div><DynNearYou /></div>
+            <FeaturedCars data={carData}/>
+            <DynCallBackForm />
+            <DynWhyChooseUs />
+            <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
+                <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+                <DynamicFaqComponent />
+            </div>
+            <GetInTouch />
+        </div>
+    )
 }
 
-export default Place;

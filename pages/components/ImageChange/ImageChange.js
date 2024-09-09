@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import homebanner from '../../images/homebanner.webp'
-import apple from '../../images/apple.webp'
+import apple from '../../images/apple.webp' 
 import google from '../../images/ggle.webp'
 import Link from 'next/link';
 import img2 from '../../changeimg/ertiga.webp'
@@ -9,15 +9,10 @@ import img3 from '../../changeimg/polo.webp'
 import img4 from '../../changeimg/swift.webp'
 import img5 from '../../changeimg/i20.webp'
 import { FaRegClock } from "react-icons/fa";
-
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { SlSpeedometer } from "react-icons/sl";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { Ri24HoursLine } from "react-icons/ri";
-// import { FaCarBurst } from "react-icons/fa6";
 import { GiTowTruck } from "react-icons/gi";
 import { FaCar } from "react-icons/fa";
-import { VscColorMode } from "react-icons/vsc";
 
 const ImageChange = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,7 +30,7 @@ const ImageChange = () => {
 
   return (
 
-    <div className='mt-28 xl:mt-0 2xl:mt-0 lg:mt-0 lg:pl-16'>
+    <div className='mt-28 xl:mt-0 2xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4'>
       <div className='h-full lg:pt-2 xl:pl-4 lg:pl-10  lg:justify-between xs:justify-end flex flex-wrap md:justify-end justify-between bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center'>
           <Image
@@ -44,20 +39,20 @@ const ImageChange = () => {
             alt={'home banner'}
             height={1000}
             width={1000}
-            className='lg:w-[600px] w-[300px]'
+            className='xl:w-[600px] lg:w-[400px] w-[300px]'
           />
-          <div className="lg:text-left  lg:pl-12 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms" data-wow-duration="200ms">
+          <div className="lg:text-left xl:pl-12 lg:pl-4 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms" data-wow-duration="200ms">
             <p className='xl:text-3xl lg:text-2xl text-xl  lg:pb-2 font-bold py-2 lg:pl-0 w-fit lg:w-3/4 px-4'>Install Long Drive Cars Mobile app &
               Start Your Journey!</p>
-            <div className='flex xs:flex-wrap justify-center lg:gap-8 pt-2 gap-2 lg:w-full xs:text-sm md:text-xs xl:text-lg'>
-              <div className="flex gap-1 py-2 justify-center items-center">
+            <div className='flex xs:flex-wrap justify-center lg:justify-normal lg:gap-8 pt-2 gap-2 lg:w-full xs:text-sm md:text-xs xl:text-lg'>
+              <div className="flex gap-2 py-2 justify-center lg:justify-normal items-center">
                 <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                   <Image
                     priority
                     height={500}
                     width={500}
                     alt='apple'
-                    className='lg:w-36 w-32 h-10'
+                    className='lg:w-36 lg:h-14 w-24 h-10'
                     src={apple}
                   >
                   </Image>
@@ -68,32 +63,32 @@ const ImageChange = () => {
                     height={500}
                     width={500}
                     alt='google'
-                    className='lg:w-48 w-36 h-16'
+                    className='lg:w-48 lg:h-20 w-28 h-16'
                     src={google}
                   >
                   </Image>
                 </Link>
               </div>
               <div>
-                <div className="flex gap-4 pt-4 px-8 text-xs font-medium lg:text-sm xs: lg:w-[90%] flex-wrap text-white ">
-                  {/* <p className='font-sans xl:text-5xl lg:text-5xl text-3xl mb-2 lg:pl-5 lg:pb-8'>Why Choose Us?</p> */}
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-full">
+                <div className="flex gap-4  pt-4 pr-4  text-xs font-medium lg:text-sm xs: lg:w-[90%] flex-wrap text-white">
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
                     <FaRegClock className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="">Choose Your Own Hours</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-full">
-                    <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className=" ml-2">Unlimited Kilometers</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-full">
-                    <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2 ">Zero Deposit</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-full">
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
                     <GiTowTruck className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className=" ml-2">24/7 Breakdown Service</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] lg:text-lg text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] w-full">
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className=" ml-2">Unlimited Kilometers</p>
+                  </div>
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2 ">Zero Deposit</p>
+                  </div>
+                  
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
                     <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2">Check Original Car Photo</p>
                   </div>
@@ -102,9 +97,7 @@ const ImageChange = () => {
             </div>
           </div>
         </div>
-
-
-
+xp
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-function CarProducts({ data, searchQuery }) {
+function CarProducts({ data ,place}) {
   // console.log(data,"dasya");
   var settings = {
     infinite: true,
@@ -88,7 +88,7 @@ function CarProducts({ data, searchQuery }) {
   };
   const [visibleItems, setVisibleItems] = useState(8);
   // const [searchQuery, setSearchQuery] = useState('');
-
+  const [searchQuery, setSearchQuery] = useState('');
   const handleLoadMore = () => {
     setVisibleItems(prev => prev + 9);
   };
@@ -102,11 +102,22 @@ function CarProducts({ data, searchQuery }) {
   );
   return (
     <div className=' bg-white'>
+      <p className='text-black xl:text-5xl font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
+      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4'>
+          <input
+            placeholder='Search for your favourite car'
+            className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
+            type='search'
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+          <FaSearch size={25} className='text-blue-500 relative right-14 lg:right-20 md:right-14' />
+        </div>
       <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center text-white">
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+            <div className="bg-white lg:rounded-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
               <div className="relative lg:h-[530px]  h-[630px] lg:rounded-md">
                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md bottom-4">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
@@ -132,10 +143,10 @@ function CarProducts({ data, searchQuery }) {
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
-                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                    {
+                      <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                       <Image className='lg:h-[505px] h-[598px] rounded-md ' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
-                    </Link>
-
+                    </Link>}
                   </div>
                   <div onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)

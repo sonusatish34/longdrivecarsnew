@@ -41,7 +41,7 @@ const HamburgerMenu = () => {
       <div className='flex justify-between items-center lg:px-14'>
         <Marquee speed={75}>
           <div className={'flex p-1 text-xs gap-24 lg:text-lg '}>
-            <p className='flex items-center gap-1 justify-center pl-6'><TbPointFilled /><span>Zero Deposit</span></p>
+            <p className='flex items-center gap-1 justify-center pl-6'><TbPointFilled /><span>Zero .Deposit</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Unlimited Kilometers</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Neatly Washed Car</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Choose your Favourite Color Car</span></p>
@@ -87,7 +87,7 @@ const HamburgerMenu = () => {
               </Link>
               <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
             </div>
-            <div className='w-full text-black lg:mt-2'>
+            <div className='w-full text-black lg:mt-2 lg:pl-60'>
               <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
                 <ul className='font-semibold text-lg flex gap-8'>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>

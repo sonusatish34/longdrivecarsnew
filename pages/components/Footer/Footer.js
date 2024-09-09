@@ -9,7 +9,6 @@ import imgs from '../../images/cretafoot.png'
 import imgs2 from '../../images/3_408-removebg-preview (1).png'
 function Footer() {
     return (
-        // <div style={{ backgroundImage: 'url(/sd.)' }} className='pb-4'></div>
         <div className='bg-white'>
             <div className='flex px-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
                 <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
@@ -32,28 +31,28 @@ function Footer() {
                     </ul>
                 </div>
             </div>
-            <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg lg:bg-center bg-bottom bg-no-repeat lg:bg-repeat'>
+            <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
                 <footer className='lg:pb'>
-                    <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 lg:px-28 xl:px-14 xl:pt relative top-9">
-                        <div className='lg:w-3/6'>
+                    <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
+                        <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
-                                <p className='lg:text-lg xs:text-xs xs:font-medium lg:font-semibold font-sans'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
+                                <p className='xl:text-lg lg:text-base xs:text-xs xs:font-medium lg:font-semibold font-sans'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
                             </div>
                         </div>
                         <div>
                             <p className='text-left text-xl font-bold pb-4'>Our Branches</p>
-                            <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
+                            <div className=' xl:text-left lg:text-base text-left text-base font-semibold'>
                                 <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
-                                    <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Dilshuknagar</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Madhapur</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Kukatapally</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Ameerpet</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Warangal</Link></li>
+                                    <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Vijayawada</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Bangalore</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Mysore</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/vizag'}>Vizag</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/warangal'}>Warangal</Link></li>
                                 </ul>
                             </div>
                         </div>
                         <div>
-                            <p className='text-left mb-1 xs:pt-3 text-xl font-bold pb-4'>Social Media Links</p>
+                            <p className='text-left mb-1 pt-3 lg:pt-0 text-xl font-bold pb-4'>Social Media Links</p>
                             <div className='flex gap-5'>
                                 <Link href={'https://www.facebook.com/selfdrivecarsbylongdrivecars/'} target='_blank'>
                                     <p className='hover:text-blue-500 cursor-pointer'><FaFacebook className='lg:size-8 size-9' /></p>
@@ -70,7 +69,7 @@ function Footer() {
                             </div>
                         </div>
                         <div>
-                            <h2 className='text-left mb-1 xs:pt-3 text-xl font-bold'>Contact Info</h2>
+                            <h2 className='text-left mb-1 text-xl font-bold'>Contact Info</h2>
                             <div className='flex md:flex-col xs:flex-row text-left text-lg xs:gap-4 xs:pb-4'>
                                 <div className='flex justify-center items-center'>
                                     <ul>

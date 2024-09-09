@@ -40,7 +40,7 @@ const LocationFetcher = () => {
     const compldate = `${year}-${month}-${day}`
     // return `${year}-${month}-${day}`;
     const compldateend = `${year}-${month}-${daynum}`
-   
+
 
     // };
 
@@ -79,11 +79,14 @@ const LocationFetcher = () => {
             };
 
             try {
-                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
+                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=17&long=78&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
-                
+
                 setData(realdata);
+                console.log(response,'respppp');
+                console.log(realdata,"rdd");
+                
             } catch (error) {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
@@ -110,7 +113,7 @@ const LocationFetcher = () => {
     };
 
     return (
-        <div className=' pt-36 lg:py-8 flex flex-col lg:flex-row gap-12'>
+        <div className='pt-20 lg:py-8 flex flex-col lg:flex-row gap-12'>
             {/* <p className='text-red-500'>hjo</p> */}
             {loading && <div className="text-center py-4">
                 <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
@@ -118,7 +121,7 @@ const LocationFetcher = () => {
                 </div></div>}
             {error && <p>Error: {error}</p>}
             <div className=' bg-white'>
-            <p className='text-red-500 text-center py-5'></p>
+                <p className='text-black text-center py-5 text-lg font-bold'>Explore Cars Near You in 20 Kms</p>
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
@@ -128,15 +131,12 @@ const LocationFetcher = () => {
                                         {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                                         <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
-                                            {/* <span className='p-1 font-bold bg-[#8C52FF] rounded-bl-md  z-50 font-manrope text-sm '>₹{item?.price_24_hours * 24}/day</span> */}
                                             <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
-
-                                            {/* <p className="text-[#556EE6]">₹ {item.price_24_hours} /Day</p> */}
                                         </div>
                                     </div>
                                     <Slider
                                         dots={false}
-                                        infinite={true}
+                                        infinite={false}
                                         speed={500}
                                         slidesToShow={1}
                                         slidesToScroll={1}
@@ -145,7 +145,8 @@ const LocationFetcher = () => {
                                         focusOnSelect={true}
                                         arrows={false}
                                         autoplay={false}
-                                        className="relative bottom-[5.5rem] lg:rounded-md"
+                                        swipe= {true}
+                                        className="relative bottom-[5.5rem] lg:rounded-md kkky"
                                     >
                                         {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                             <div key={index} onClick={() => {

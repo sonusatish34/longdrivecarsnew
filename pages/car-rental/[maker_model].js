@@ -25,7 +25,6 @@ const CarDetails = () => {
   useEffect(() => {
     async function fetchCarDetails() {
       setLoading(true);
-
       try {
         const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
         const items = await response.json();
@@ -148,7 +147,7 @@ const CarDetails = () => {
           </div>
         </div>
         <div className='xl:mx-64  lg:mx-48'>
-          <div className='py-8'>
+          <div className='py-4'>
             <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
@@ -170,7 +169,7 @@ const CarDetails = () => {
               </div>
             </div>
           </div>
-          <div className='overview pt-10 lg:text-base py-8'>
+          <div className='overview pt-10 lg:text-base py-4'>
             <ul className='my-2 flex flex-wrap justify-center pb-4'>
               <li className='md:w-32 xl:w-40 w-32  flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2'>
                 <BsFuelPump className='text-green-700 md:size-8 xl:size-10 size-6' />
@@ -194,13 +193,13 @@ const CarDetails = () => {
               </li>
             </ul>
           </div>
-          <div className='py-8'>
-            <p className='font-bold text-2xl border-l-4 border-red-900 mb-4 pl-2 ' >Description</p>
+          <div className='py-4'>
+            <p className='font-bold text-2xl border-l-4 border-red-900 mb-4 pl-2'>Description</p>
             <p className='font-light p-1 text-xs lg:text-base leading-6 '>
               {customData[mdyfmaker_model]?.desc}
             </p>
           </div>
-          <p className='font-semibold text-xl mt-4  py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental Hyderabad</p>
+          <p className='font-semibold text-xl py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental Hyderabad</p>
           <p className='font-light p-1 leading-6 text-xs lg:text-base pb-8'>
             {customData[mdyfmaker_model]?.subdesc}
           </p>
