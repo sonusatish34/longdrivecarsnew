@@ -88,7 +88,7 @@ const LocationFetcher = () => {
                 const realdata = result?.data?.results;
 
                 setData(realdata);
-                
+
             } catch (error) {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
@@ -127,15 +127,11 @@ const LocationFetcher = () => {
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36 overflow-hidden'>
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
+
                             <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%]  md:w-72 h-[530px] lg:hover:scale-105 ">
+
                                 <div className="relative h-[530px] lg:rounded-md ">
-                                    <div className=" relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
-                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                                        <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
-                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
-                                        </div>
-                                    </div>
+
                                     <Slider
                                         dots={false}
                                         infinite={false}
@@ -144,20 +140,31 @@ const LocationFetcher = () => {
                                         slidesToScroll={1}
                                         arrows={false}
                                         autoplay={false}
-                                        swipe= {true}
+                                        swipe={true}
                                         className=" bottom-[5.5rem] lg:rounded-md kkky overflow-hidden"
                                     >
+
                                         {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                             <div key={index} onClick={() => {
                                                 // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                             }}>
-                                                <Image className='h-[500px] rounded-md' width={1000} height={1000} src={replaceText(imageSrc)} alt={`Car image ${index + 1}`} />
+                                                <Image className='h-[530px] rounded-md' width={1000} height={1000} src={replaceText(imageSrc)} alt={`Car image ${index + 1}`} />
                                             </div>
                                         ))}
 
                                     </Slider>
                                     {/* </Link> */}
-                                    <div className="relative z-20 bottom-[13.5rem] bg-gradient-to-t from-black opacity-90 text-white">
+                                    <div>
+                                    <div className=" relative bottom-[538px]  z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
+                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                                        <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
+                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div className="relative z-20 bottom-[15.5rem] bg-gradient-to-t from-black opacity-90 text-white">
+                                    
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
@@ -168,40 +175,40 @@ const LocationFetcher = () => {
                                             <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
                                         </ul>
                                         <div>
-                                    <div className="z-20 flex justify-between">
-                                        <ul className="flex w-full justify-between">
-                                            <li className="bg-green-500 w-full p-2  text-center text-white">
-                                                {" "}
-                                                <Link
-                                                    href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
-                                                    target="_blank"
-                                                >
-                                                    <p className=" flex gap-1 text-sm justify-center">
-                                                        <span>
-                                                            <FaWhatsapp size={20} />
-                                                        </span>{" "}
-                                                        <span>Whatsapp</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                            <li className="bg-blue-500 w-full p-2  text-white">
-                                                {" "}
-                                                <Link href="tel:9000478478" target="_blank">
-                                                    <p className=" flex gap-1 text-sm justify-center">
-                                                        <span>
-                                                            <BiPhoneCall size=
-                                                            {20} />
-                                                        </span>{" "}
-                                                        <span>Call Us</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                        </ul>
+                                            <div className="z-20 flex justify-between">
+                                                <ul className="flex w-full justify-between">
+                                                    <li className="bg-green-500 w-full p-2  text-center text-white">
+                                                        {" "}
+                                                        <Link
+                                                            href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                            target="_blank"
+                                                        >
+                                                            <p className=" flex gap-1 text-sm justify-center">
+                                                                <span>
+                                                                    <FaWhatsapp size={20} />
+                                                                </span>{" "}
+                                                                <span>Whatsapp</span>
+                                                            </p>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="bg-blue-500 w-full p-2  text-white">
+                                                        {" "}
+                                                        <Link href="tel:9000478478" target="_blank">
+                                                            <p className=" flex gap-1 text-sm justify-center">
+                                                                <span>
+                                                                    <BiPhoneCall size=
+                                                                        {20} />
+                                                                </span>{" "}
+                                                                <span>Call Us</span>
+                                                            </p>
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                    </div>
-                                </div>
-                                
+
 
                                 {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
                             </div>
