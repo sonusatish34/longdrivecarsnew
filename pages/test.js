@@ -27,7 +27,7 @@ const LocationFetcher = () => {
     const [lat, setLat] = useState('');
 
     const replaceText = (str) => {
-        return str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
+        return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
     };
     // const getCurrentDate = () => {
     const today = new Date();
@@ -78,7 +78,7 @@ const LocationFetcher = () => {
             };
 
             try {
-                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=17&long=78&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
+                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
 
@@ -120,7 +120,7 @@ const LocationFetcher = () => {
                 </div></div>}
             {error && <p>Error: {error}</p>}
             <div className=' bg-white'>
-                <p className='text-black text-center py-5 text-lg font-bold'>Explore Cars Near You in 20 Kms</p>
+                <p className=' text-center py-5 text-lg font-bold'>Explore Cars Near You in 20 Kms</p>
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36 overflow-hidden'>
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
@@ -154,12 +154,12 @@ const LocationFetcher = () => {
 
                                     </Slider>
                                     {/* </Link> */}
-                                    <div className="relative z-20 bottom-[7.5rem] bg-gradient-to-t from-black opacity-90">
+                                    <div className="relative z-20 bottom-[7.5rem] bg-gradient-to-t from-black opacity-90 text-white">
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                                         </div>
-                                        <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
+                                        <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold ">
                                             <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
                                             <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
                                             <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
@@ -172,7 +172,7 @@ const LocationFetcher = () => {
                                             <li className="bg-green-500 w-full p-2  text-center text-white lg:rounded-bl-md">
                                                 {" "}
                                                 <Link
-                                                    href="https://api.whatsapp.com/send?phone=+9000478478&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 text-sm justify-center">

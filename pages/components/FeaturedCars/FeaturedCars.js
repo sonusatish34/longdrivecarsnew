@@ -124,6 +124,7 @@ function FeaturedCars({data}) {
                             width={1000}
                             height={1000}
                             className='w-[250px] h-[150px] '
+                            priority
                           />
                           <div className={`flex flex-col gap-3 text-center $`}>
                           </div>

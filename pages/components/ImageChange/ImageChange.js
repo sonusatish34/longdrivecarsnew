@@ -97,7 +97,6 @@ const ImageChange = () => {
             </div>
           </div>
         </div>
-xp
       </div>
     </div>
   );

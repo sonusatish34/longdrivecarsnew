@@ -93,8 +93,8 @@ function CarProducts({ data, place }) {
   };
 
   const replaceText = (str) => {
-    return str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
-  };
+    return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+};
 
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
@@ -190,7 +190,7 @@ function CarProducts({ data, place }) {
                   <ul className="flex w-full justify-between">
                     <li className="bg-green-500 w-full py-3 lg:py-2 text-center lg:rounded-bl-md">
                       {" "}
-                      <Link href="https://api.whatsapp.com/send?phone=+9000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+                      <Link href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                         <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
                           <span>
                             <FaWhatsapp size={20} />

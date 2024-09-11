@@ -33,7 +33,7 @@ function Footer() {
             </div>
             <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
                 <footer className='lg:pb py-4'>
-                    <div className="flex xl flex-wrap px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
+                    <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
                                 <p className='xl:text-lg lg:text-base xs:text-xs xs:font-medium lg:font-semibold font-sans'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
@@ -43,11 +43,11 @@ function Footer() {
                             <p className='text-left text-xl font-bold pb-4'>Our Branches</p>
                             <div className=' xl:text-left lg:text-base text-left text-base font-semibold'>
                                 <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
-                                    <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Vijayawada</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Bangalore</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Mysore</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/vizag'}>Vizag</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/self-drive-car-rental/warangal'}>Warangal</Link></li>
+                                    <li className='hover:scale-105'> <Link href={'self-drive-cars-kukatpally'}>Kukatpally</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Bangalore</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-lbnagar-kothapet'}>LB Nagar</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-madhapur'}>Madhapur</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Warangal</Link></li>
                                 </ul>
                             </div>
                         </div>
