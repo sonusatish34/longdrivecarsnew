@@ -8,7 +8,7 @@ import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { FaExchangeAlt } from "react-icons/fa";
 import Link from 'next/link';
-import disc from './images/cashback.webp'
+import disc from './images/discoutn.webp'
 import { FaSearch } from 'react-icons/fa';
 import StaticData from './components/StaticData/StaticData'
 import { useMemo } from "react";
@@ -354,7 +354,7 @@ export default function car_products({ cars }) {
                                 </div>
                             </div>
                             {(index + 1) % (4) === 0 && (
-                                <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-64 h-[500px]  lg:hover:scale-105">
+                                <div className="bg-[#8d398d] rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-64 h-[500px]  lg:hover:scale-105">
                                     <div>
                                         <Image
                                             src={disc}

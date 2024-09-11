@@ -1,23 +1,18 @@
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
-import { IoReload } from "react-icons/io5";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { BsFuelPump } from 'react-icons/bs';
-import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import { SlSpeedometer } from "react-icons/sl";
+
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
-import carphoto from '../images/car_image.jpeg'
-import { IoLocationSharp } from "react-icons/io5";
+
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { TbManualGearbox } from "react-icons/tb";
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slider from 'react-slick';
-
+import disc from '../images/discoutn.webp'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 function CarProducts({ data, place }) {
@@ -85,7 +80,7 @@ function CarProducts({ data, place }) {
       }
     ]
   };
-  const [visibleItems, setVisibleItems] = useState(8);
+  const [visibleItems, setVisibleItems] = useState(7);
   // const [searchQuery, setSearchQuery] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const handleLoadMore = () => {
@@ -94,7 +89,7 @@ function CarProducts({ data, place }) {
 
   const replaceText = (str) => {
     return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-};
+  };
 
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
@@ -215,19 +210,19 @@ function CarProducts({ data, place }) {
 
               {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
             </div>
-            {/* {(index + 1) % 5 === 0 && (
-                            <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[529px] lg:hover:scale-105">
-                                <div>
-                                    <Image
-                                        src={disc}
-                                        height={400}
-                                        width={400}
-                                        alt='discount'
-                                    />
-                                </div>
-                            </div>
-
-                        )} */}
+            {(index + 1 === 3) && (
+              <div className="bg-[#8d398d] rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[500px]  lg:hover:scale-105">
+                <div>
+                  <Image
+                    src={disc}
+                    height={1000}
+                    width={1000}
+                    alt='discount'
+                    className="scale-75"
+                  />
+                </div>
+              </div>
+            )}
           </React.Fragment>
         ))}
       </div>

@@ -42,7 +42,6 @@ export default function place() {
                 setCarData(cars)
             } catch (error) {
             } finally {
-                console.log("fnnalu");
 
             }
         }
@@ -51,8 +50,6 @@ export default function place() {
             fetchCarDetails();
         }
     }, [place]);
-    console.log(carData, "-----cardata");
-
     return (
         <div className="min-h-screen">
             <DynImageChange />
