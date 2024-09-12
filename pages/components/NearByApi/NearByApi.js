@@ -10,7 +10,7 @@ function NearByApi() {
                 <div className='pt-10 flex flex-col lg:gap-3 gap-2 items-center'>
                     <p className='xl:text-5xl lg:text-4xl text-2xl lg:pt-2'>Explore Cars Near You</p>
                     <p className='text-base xl:text-3xl lg:text-2xl relative'>20Kms Around Your Location</p>
-                    <Link href={'/test'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
+                    <Link href={'/get-near-by-cars'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
                         <Image
                             priority
                             src={carnearbtn}

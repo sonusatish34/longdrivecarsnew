@@ -22,6 +22,7 @@ const DynNearByApi = dynamic(() => import('../NearByApi/NearByApi'));
 const GetInTouch = dynamic(() => import('../GetInTouch/GetInTouch'));
 const FeaturedCars = dynamic(() => import('../FeaturedCars/FeaturedCars'));
 const DynamicFaqComponent = dynamic(() => import('../FaqAccordian/FaqAccordian'));
+const DynamicPriceList = dynamic(() => import('../PriceList/PriceList'));
 
 export default function Homepage({ data }) {
 
@@ -43,6 +44,7 @@ export default function Homepage({ data }) {
         <DynamicFaqComponent />
       </div>
       <GetInTouch />
+      <DynamicPriceList />
     </div>
   );
 }

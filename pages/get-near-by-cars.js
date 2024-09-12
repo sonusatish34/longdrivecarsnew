@@ -161,6 +161,7 @@ const LocationFetcher = () => {
                                                     src={replaceText(imageSrc)}
                                                     alt={`Car image ${index + 1}`}
                                                     priority />
+                                                    
                                             </div>
                                         ))}
 
