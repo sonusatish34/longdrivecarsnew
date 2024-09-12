@@ -43,11 +43,14 @@ function Footer() {
                             <p className='text-left text-xl font-bold pb-4'>Our Branches</p>
                             <div className=' xl:text-left lg:text-base text-left text-base font-semibold'>
                                 <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
-                                    <li className='hover:scale-105'> <Link href={'self-drive-cars-kukatpally'}>Kukatpally</Link></li>
+
+                                    <li className='hover:scale-105'><Link href={'/'}>Hyderabad</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/'}>Warangal</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/'}>Vizag</Link></li>
+                                    <li className='hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
                                     <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Bangalore</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-lbnagar-kothapet'}>LB Nagar</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-madhapur'}>Madhapur</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Warangal</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/'}>Mysuru</Link></li>
+                                    <li className='hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
                                 </ul>
                             </div>
                         </div>

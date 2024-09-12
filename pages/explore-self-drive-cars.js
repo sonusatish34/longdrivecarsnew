@@ -284,7 +284,7 @@ export default function car_products({ cars }) {
 
             </div>
             <div className='w-full'>
-                <h2 id='explore' className="px-3 font-bold text-2xl pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9 text-center">Explore Self Drive
+                <h2 id='explore' className="px-3 font-bold text-2xl lg:text-3xl pt-8 text-blue-950 mb-2 xl:text-5xl lg:mb-9 text-center">Explore Self Drive
                     Car Rentals</h2>
                 <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-12'>
                     <input
@@ -318,9 +318,9 @@ export default function car_products({ cars }) {
                                 <div className="pt-4 flex flex-col gap-4">
                                     <div className='flex items-baseline justify-between px-2'>
                                         <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                                            <p className="text-gray-700 cursor-pointer font-sans font-semibold text-xs hover:text-red-600 w-fit">{item.maker_model}</p>
+                                            <p className="text-gray-700 cursor-pointer font-sans font-semibold text-[10px] hover:text-red-600 w-fit">{item.maker_model}</p>
                                         </Link>
-                                        <p className="text-blue-500 font-bold">₹ {item.price_24_hours * 24}/day</p>
+                                        <p className="text-blue-500 font-bold text-xs">₹ {item.price_24_hours * 24}/day</p>
                                     </div>
                                     <div className="flex items-center justify-around border-b border-gray-300 text-black font-normal text-base px-2">
                                         <div className="flex items-center">

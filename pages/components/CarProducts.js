@@ -211,7 +211,13 @@ function CarProducts({ data, place }) {
               {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
             </div>
             {(index + 1 === 3) && (
-              <div className="bg-[#8d398d] rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[500px]  lg:hover:scale-105">
+              <div className="bg-[#8d398d] lg:rounded-b-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+                <div className="relative z-20 bg-[#8d398d] lg:rounded-t-md opacity-90 bottom-4">
+                  {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                  <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                    {/* <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p> */}
+                  </div>
+                </div>
                 <div>
                   <Image
                     src={disc}

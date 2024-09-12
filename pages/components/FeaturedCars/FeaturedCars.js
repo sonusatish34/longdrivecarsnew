@@ -118,14 +118,16 @@ function FeaturedCars({ data }) {
                     >
                       <div className='relative border-2 border-gray-200 bg-white rounded-md'>
                         <p className='bg-gray-100 pl-5'>Make Year {item?.manufacture_date}</p>
-                        <Image
-                          src={(inside.src)}
-                          alt={'carss'}
-                          width={1000}
-                          height={1000}
-                          className='w-[250px] h-[150px] '
-                          priority
-                        />
+                        <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                          <Image
+                            src={(inside.src)}
+                            alt={'carss'}
+                            width={1000}
+                            height={1000}
+                            className='w-[250px] h-[150px] '
+                            priority
+                          />
+                        </Link>
                         <div className={`flex flex-col gap-3 text-center $`}>
                         </div>
                         <div

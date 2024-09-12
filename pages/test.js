@@ -45,28 +45,33 @@ const LocationFetcher = () => {
     // return `${year}-${month}-${day}`;
     const compldateend = `${year}-${month}-${daynum}`
 
-
-    // };
-
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setLat(latitude);
-                    setLon(longitude);
-                    setLocation({ latitude, longitude });
-                },
-                (err) => {
-                    setError(err.message);
-                    setLoading(false);
-                }
-            );
-        } else {
-            setError('Geolocation is not supported by this browser.');
-            setLoading(false);
-        }
-    }, []);
+        const requestLocation = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        setLat(latitude);
+                        setLon(longitude);
+                        setLocation({ latitude, longitude });
+                    },
+                    (err) => {
+                        setError(err.message);
+                        setLoading(false);
+                    },
+                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 } // Ensure the location is always fresh
+                );
+            } else {
+                setError('Geolocation is not supported by this browser.');
+                setLoading(false);
+            }
+        };
+
+        // Clear the location data to ensure permission is requested again
+        setLocation(null);
+
+        requestLocation();
+    }, []); // Empty dependency array means it runs once on mount, every page reload
 
     useEffect(() => {
         if (!location) return;
@@ -93,12 +98,12 @@ const LocationFetcher = () => {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
                 setLoading(false);
-
             }
         };
 
         fetchData();
     }, [location]);
+
     const getOrderedImages = (attributes) => {
         const imageMap = {};
 
@@ -120,10 +125,11 @@ const LocationFetcher = () => {
             {loading && <div className="text-center py-4">
                 <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
                     <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
-                </div></div>}
+                </div>
+            </div>}
             {error && <p>Error: {error}</p>}
             <div className=' bg-white'>
-                <p className=' text-center py-5 text-lg font-bold'>Explore Cars Near You in 20 Kms</p>
+                <p className=' text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
                 <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36 overflow-hidden'>
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
@@ -148,23 +154,28 @@ const LocationFetcher = () => {
                                             <div key={index} onClick={() => {
                                                 // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                             }}>
-                                                <Image className='h-[530px] rounded-md' width={1000} height={1000} src={replaceText(imageSrc)} alt={`Car image ${index + 1}`} />
+                                                <Image
+                                                    className='h-[530px] rounded-md'
+                                                    width={1000}
+                                                    height={1000}
+                                                    src={replaceText(imageSrc)}
+                                                    alt={`Car image ${index + 1}`}
+                                                    priority />
                                             </div>
                                         ))}
 
                                     </Slider>
                                     {/* </Link> */}
                                     <div>
-                                    <div className=" relative bottom-[538px]  z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
-                                        {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
-                                        <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                                            <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
-                                            <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
+                                        <div className=" relative bottom-[538px]  z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
+                                            <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                                                <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
+                                                <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    </div>
                                     <div className="relative z-20 bottom-[15.5rem] bg-gradient-to-t from-black opacity-90 text-white">
-                                    
+
                                         <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                             <p className='font-bold text-lg shadow-black'>Book Now</p>
                                             <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50  text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
