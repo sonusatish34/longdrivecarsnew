@@ -224,7 +224,7 @@ function CarProducts({ data, place }) {
                     height={1000}
                     width={1000}
                     alt='discount'
-                    className="scale-75 lg:scale-95"
+                    className="scale-90 mxs:scale-75 lg:scale-95 relative mxs:bottom-12"
                   />
                 </div>
               </div>

@@ -88,7 +88,7 @@ const LocationFetcher = () => {
             };
 
             try {
-                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=17&long=78&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
+                const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
 
@@ -153,7 +153,7 @@ const LocationFetcher = () => {
                                         {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                             <div key={index} onClick={() => {
                                                 // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                            }}>
+                                        }}>
                                                 <Image
                                                     className='h-[530px] rounded-md'
                                                     width={1000}
