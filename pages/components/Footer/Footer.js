@@ -13,26 +13,26 @@ function Footer() {
             <div className='flex px-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
                 <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
                     <ul className='gap-2 flex flex-col'>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/medipally'}>Self drive car rental in Medipally</Link></li>
-                        <li className='hover:scale-105 '><Link href={'/self-drive-car-rental/miyapur'}>Self drive car rental in Miyapur</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ramanthapur'}>Self drive car rental in Ramanthapur</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/secunderabad'}>Self drive car rental in Secunderabad</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/shamshabad'}>Self drive car rental in Shamshabad</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/medipally'}>Self drive car rental in Medipally</Link></li>
+                        <li className='lg:hover:scale-105 '><Link href={'/self-drive-car-rental/miyapur'}>Self drive car rental in Miyapur</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/ramanthapur'}>Self drive car rental in Ramanthapur</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/secunderabad'}>Self drive car rental in Secunderabad</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/shamshabad'}>Self drive car rental in Shamshabad</Link></li>
                     </ul>
                 </div>
                 <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
                     <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
-                        <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Self drive car rental in Dilshuknagar</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Self drive car rental in Madhapur</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Self drive car rental in Kukatapally</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Self drive car rental in Ameerpet</Link></li>
-                        <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Self drive car rental in Ecil</Link></li>
+                        <li className='lg:hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Self drive car rental in Dilshuknagar</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Self drive car rental in Madhapur</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Self drive car rental in Kukatapally</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Self drive car rental in Ameerpet</Link></li>
+                        <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Self drive car rental in Ecil</Link></li>
                     </ul>
                 </div>
             </div>
             <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
-                <footer className='lg:pb py-4'>
+                <footer className='py-8 pl-8 lg:py-2 lg:px-4'>
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
@@ -40,17 +40,17 @@ function Footer() {
                             </div>
                         </div>
                         <div>
-                            <p className='text-left text-xl font-bold pb-4'>Our Branches</p>
+                            <p className='text-left text-xl font-bold pb-2'>Our Branches</p>
                             <div className=' xl:text-left lg:text-base text-left text-base font-semibold'>
-                                <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
+                                <ul className='gap-2 flex flex-col lg:pt-0'>
 
-                                    <li className='hover:scale-105'><Link href={'/'}>Hyderabad</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/'}>Warangal</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/'}>Vizag</Link></li>
-                                    <li className='hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Bangalore</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/'}>Mysuru</Link></li>
-                                    <li className='hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Hyderabad</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Warangal</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Vizag</Link></li>
+                                    <li className='lg:hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Bangalore</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Mysuru</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
                                 </ul>
                             </div>
                         </div>

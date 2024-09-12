@@ -46,32 +46,24 @@ const LocationFetcher = () => {
     const compldateend = `${year}-${month}-${daynum}`
 
     useEffect(() => {
-        const requestLocation = () => {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const { latitude, longitude } = position.coords;
-                        setLat(latitude);
-                        setLon(longitude);
-                        setLocation({ latitude, longitude });
-                    },
-                    (err) => {
-                        setError(err.message);
-                        setLoading(false);
-                    },
-                    { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 } // Ensure the location is always fresh
-                );
-            } else {
-                setError('Geolocation is not supported by this browser.');
-                setLoading(false);
-            }
-        };
-
-        // Clear the location data to ensure permission is requested again
-        setLocation(null);
-
-        requestLocation();
-    }, []); // Empty dependency array means it runs once on mount, every page reload
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { latitude, longitude } = position.coords;
+                    setLat(latitude);
+                    setLon(longitude);
+                    setLocation({ latitude, longitude });
+                },
+                (err) => {
+                    setError(err.message);
+                    setLoading(false);
+                }
+            );
+        } else {
+            setError('Geolocation is not supported by this browser.');
+            setLoading(false);
+        }
+    }, []);
 
     useEffect(() => {
         if (!location) return;
@@ -93,11 +85,12 @@ const LocationFetcher = () => {
                 const realdata = result?.data?.results;
 
                 setData(realdata);
-
+                
             } catch (error) {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
                 setLoading(false);
+
             }
         };
 
