@@ -28,7 +28,7 @@ const LocationFetcher = () => {
 
     const replaceText = (str) => {
         // return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.');
-        if (str.includes("cdn"))
+        if (str?.includes("cdn"))
             return str;
         else {
             return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
