@@ -8,6 +8,5 @@ export function middleware(request) {
     url.pathname = '/';
     return NextResponse.redirect(url);
   }
-
   return NextResponse.next();
 }

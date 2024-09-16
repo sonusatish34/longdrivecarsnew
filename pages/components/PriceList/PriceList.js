@@ -47,7 +47,7 @@ export default function Table() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
                         <tr>
-                            <td className="px-2 py-2  border border-gray-300 font-semibold text-wrap">Polo / Eco Sport / 120 / Fronx / Scross
+                            <td className="px-2 py-2  border border-gray-300 font-semibold text-wrap">Polo / Eco Sport / I20 / Fronx / Scross
                             </td>
                             <td className="px-2 py-2  border border-gray-300 font-semibold">
                                 1992 </td>
@@ -89,7 +89,7 @@ export default function Table() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
                         <tr>
-                            <td className="px-2 py-2  border border-gray-300 font-semibold text-wrap">120 Sunroof / Ecosport Sunroof
+                            <td className="px-2 py-2  border border-gray-300 font-semibold text-wrap">I20 Sunroof / Ecosport Sunroof
                             </td>
                             <td className="px-2 py-2  border border-gray-300 font-semibold">
                                 2280 </td>

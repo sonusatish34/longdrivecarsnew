@@ -2,7 +2,6 @@ import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import React, { useState } from 'react';
 import Image from 'next/image';
-
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 
@@ -13,8 +12,10 @@ import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slider from 'react-slick';
 import disc from '../images/discoutn.webp'
+import discfree from '../images/free.webp'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 function CarProducts({ data, place }) {
   // console.log(data,"dasya");
   var settings = {
@@ -80,7 +81,7 @@ function CarProducts({ data, place }) {
       }
     ]
   };
-  const [visibleItems, setVisibleItems] = useState(7);
+  const [visibleItems, setVisibleItems] = useState(6);
   // const [searchQuery, setSearchQuery] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const handleLoadMore = () => {
@@ -88,8 +89,13 @@ function CarProducts({ data, place }) {
   };
 
   const replaceText = (str) => {
-    return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-  };
+    // return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.');
+    if (str?.includes("cdn"))
+        return str;
+    else {
+        return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+    }
+};
 
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
@@ -134,12 +140,12 @@ function CarProducts({ data, place }) {
                   pauseOnHover={true}
                   className="relative bottom-[4.5rem] lg:rounded-md"
                 >
-                  <div onClick={() => {
+                  <div className="" onClick={() => {
                     // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                   }}>
                     {
                       <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                        <Image className='lg:h-[505px] h-[598px] rounded-md ' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
+                        <Image className='lg:h-[505px] h-[598px] rounded-md scale-150' width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_left_view)}></Image>
                       </Link>}
                   </div>
                   <div onClick={() => {
@@ -210,6 +216,7 @@ function CarProducts({ data, place }) {
 
               {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
             </div>
+            {/* displayIndices.includes(index) */}
             {(index + 1 === 3) && (
               <div className="bg-[#8d398d] lg:rounded-b-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
                 <div className="relative z-20 bg-[#8d398d] lg:rounded-t-md opacity-90 bottom-4">
@@ -225,6 +232,25 @@ function CarProducts({ data, place }) {
                     width={1000}
                     alt='discount'
                     className="scale-90 mxs:scale-75 lg:scale-95 relative mxs:bottom-12"
+                  />
+                </div>
+              </div>
+            )}
+            {(index + 1 === 5) && (
+              <div className="bg-black lg:rounded-b-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+                <div className="relative z-20 bg-black lg:rounded-t-md opacity-90 bottom-4">
+                  {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
+                  <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+                    {/* <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p> */}
+                  </div>
+                </div>
+                <div>
+                  <Image
+                    src={discfree}
+                    height={1000}
+                    width={1000}
+                    alt='discount'
+                    className=""
                   />
                 </div>
               </div>

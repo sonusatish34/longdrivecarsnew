@@ -11,6 +11,7 @@ function medipally() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
+                alt="car rental"
             />
             <div className=' xl:mx-72 lg:mx-80 mx-6'>
                 <p>If you love driving a different car on every outing, then you understand the benefits of self drive car rentals. Renting a car gives you the freedom to choose from various models, each suited to different needs. Self Drive Cars Hyderabad offers an exceptional self drive car rentals service in Uppal and Medipally. Let's dive into the array of vehicles and features available at Self Drive Cars Hyderabad and the excellent customer service that makes it all possible.

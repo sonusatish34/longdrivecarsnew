@@ -11,6 +11,7 @@ function shamshabad() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
+                alt="car rental"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
             <p className='pb-2'>In addition to being close to Rajiv Gandhi International Airport, Shamshabad, a booming city outside of Hyderabad, is well-known for its expanding selection of <strong>self-drive car services</strong> . <strong>Self-drive car rentals</strong>  in Shamshabad provide an adaptable and hassle-free way to get around, whether you're a visitor visiting the area or a local resident searching for handy transportation. This blog will discuss the various <strong>self-drive car services</strong>  that are offered, the advantages of choosing a self-drive car, and how to locate the top <strong>self drive cars near me.</strong></p>

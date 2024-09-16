@@ -31,14 +31,14 @@ const FaqAccordion = () => {
   };
 
   return (
-    <div className="xl:mx-28 lg:mx-16">
+    <div className="xl:mx-28 lg:mx-16 mont-text">
       {faqData.map((item, index) => (
         <div key={index} className="border-b-[2px] border-gray-300 rounded mb-2 text-black">
           <div
             className="flex justify-between items-center px-4 py-3 cursor-pointer"
             onClick={() => toggleAccordion(index)}
           >
-            <span className="lg:w-full lg:text-lg xs:text-sm font-semibold font-sans capitalize text-base w-64">{item.question}</span>
+            <span className="lg:w-full lg:text-lg xs:text-sm font-semibold capitalize text-base w-64">{item.question}</span>
             <svg
               className={`lg:w-6 lg:h-6 w-4 h-4 rounded bg-[#660066] text-white transition-transform ${activeIndex === index ? 'transform rotate-180' : ''}`}
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ const FaqAccordion = () => {
           <div
             className={`transition-all duration-300 ${activeIndex === index ? 'max-h-screen' : 'max-h-0'} overflow-hidden`}
           >
-            <div className='px-4 text-xs lg:text-base leading-6 lg:leading-9' dangerouslySetInnerHTML={{ __html: item.answer }} />
+            <div className='roboto-text px-4 text-xs lg:text-base leading-6 lg:leading-9' dangerouslySetInnerHTML={{ __html: item.answer }} />
           </div>
         </div>
       ))}
