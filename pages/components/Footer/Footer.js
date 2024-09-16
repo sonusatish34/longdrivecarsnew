@@ -10,7 +10,7 @@ import imgs2 from '../../images/3_408-removebg-preview (1).png'
 function Footer() {
     return (
         <div className='bg-white'>
-            <div className='flex px-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
+            <div className='flex px-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center'>
                 <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
                     <ul className='gap-2 flex flex-col'>
                         <li className='lg:hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
@@ -32,11 +32,11 @@ function Footer() {
                 </div>
             </div>
             <div style={{ backgroundImage: 'url(/dub1.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
-                <footer className='py-8 pl-8 lg:py-2 lg:px-4'>
+                <footer className='py-8 pl-8 lg:py-2 lg:px-4 mont-text'>
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-28  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
-                                <p className='xl:text-lg lg:text-base xs:text-xs xs:font-medium lg:font-semibold font-sans'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
+                                <p className='xl:text-lg lg:text-base xs:text-xs xs:font-medium lg:font-semibold'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
                             </div>
                         </div>
                         <div>
@@ -98,6 +98,7 @@ function Footer() {
                                 width={700}
                                 height={700}
                                 className='lg:w-36 lg:h-28 w-16 h-14 bottom-[1.1rem] relative lg:bottom-[2.25rem]'
+                                alt="car rental"
                             >
                             </Image>
                             <Image
@@ -105,6 +106,7 @@ function Footer() {
                                 width={700}
                                 height={700}
                                 className='lg:w-32 lg:h-28 w-14 h-14'
+                                alt="car rental"
                             >
                             </Image>
                         </div>

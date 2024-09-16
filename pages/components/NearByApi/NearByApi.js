@@ -23,14 +23,16 @@ function NearByApi() {
                     <span className='animate-ping text-xl bg-red-800 rounded-full w-3 h-3 relative bottom-8 left-28 xl:bottom-10 xl:left-44 lg:bottom-10 lg:left-36'></span>
                 </div>
                 <div>
-                    <Image
-                        priority
-                        src={mapright}
-                        alt={'home banner'}
-                        height={1000}
-                        width={1000}
-                        className=':xl-80 lg:w-72 w-48 scale-125 relative'
-                    />
+                    <Link href={'/get-near-by-cars'}>
+                        <Image
+                            priority
+                            src={mapright}
+                            alt={'home banner'}
+                            height={1000}
+                            width={1000}
+                            className=':xl-80 lg:w-72 w-48 scale-125 relative'
+                        />
+                    </Link>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ function dilshuknagar() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
+                alt="cars"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
                 <p className='pb-2'>Self Drive Cars Hyderabad is a market-leading provider of self-drive car rentals in Dilsukhnagar, offering a diverse fleet to meet any individual's needs. Our car rental services are designed to provide the quality and professionalism you expect from a top-tier self-drive car rentals service.

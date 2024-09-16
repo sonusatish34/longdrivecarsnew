@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import homebanner from '../../images/homebanner.webp'
-import apple from '../../images/apple.webp' 
+import apple from '../../images/apple.webp'
 import google from '../../images/ggle.webp'
 import Link from 'next/link';
 import img2 from '../../changeimg/ertiga.webp'
@@ -13,6 +13,10 @@ import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { SlSpeedometer } from "react-icons/sl";
 import { GiTowTruck } from "react-icons/gi";
 import { FaCar } from "react-icons/fa";
+import { IoMdArrowDropdownCircle } from "react-icons/io";
+import { SiContactlesspayment } from "react-icons/si";
+import { FaCarSide } from "react-icons/fa";
+import { IoCarSportSharp } from "react-icons/io5";
 
 const ImageChange = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,8 +33,7 @@ const ImageChange = () => {
   }, []);
 
   return (
-
-    <div className='mt-28 xl:mt-0 2xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4'>
+    <div className='mt-28 xl:mt-0 2xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 roboto-text'>
       <div className='h-full lg:pt-2 xl:pl-4 lg:pl-10  lg:justify-between xs:justify-end flex flex-wrap md:justify-end justify-between bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center'>
           <Image
@@ -87,11 +90,28 @@ const ImageChange = () => {
                     <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2 ">Zero Deposit</p>
                   </div>
-                  
+
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
                     <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2">Check Original Car Photo</p>
                   </div>
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <FaCarSide className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Car Starts ₹1488/day, min 24hrs</p>
+                  </div>
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <IoMdArrowDropdownCircle className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Lowest Price Challenge</p>
+                  </div>
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <IoCarSportSharp className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Baleno, Dzire 1776 per day</p>
+                  </div>
+                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[220px]  w-full">
+                    <SiContactlesspayment className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Just pay 10% Advance & book</p>
+                  </div>
+
                 </div>
               </div>
             </div>

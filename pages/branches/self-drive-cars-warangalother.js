@@ -50,6 +50,7 @@ export default function car_products({ cars }) {
                       // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                       // title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                       layout="fill"
+                      alt="cars-warangal"
                       objectFit="cover"
                       className="rounded-t-lg relative"
                       // priority
@@ -105,6 +106,7 @@ export default function car_products({ cars }) {
                       width={1000}
                       alt='discount'
                       className="scale-90"
+                      
                     />
                   </div>
                 </div>

@@ -11,6 +11,7 @@ function kukatpally() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
+                alt="car rental"
             />
             <div className=' xl:mx-72 lg:mx-80 mx-6'>
             <p className='font-bold lg:text-xl py-2'>Are you looking for the best self-drive car rentals in Kukatpally?</p>

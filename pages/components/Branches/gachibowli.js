@@ -13,6 +13,7 @@ function Gachibowli() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
+                alt="cars"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
                 <p>Looking for the freedom to explore Hyderabad at your own pace? <strong>Self-drive car rentals</strong> offer the perfect solution. Gachibowli, a bustling tech hub, is a convenient starting point for your adventures. With <strong>Self Drive Cars Hyderabad</strong>, you can easily rent a car and embark on exciting journeys.</p>
