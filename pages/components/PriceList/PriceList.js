@@ -1,7 +1,7 @@
 // components/Table.js
 export default function Table() {
     return (
-        <div className="lg:px-20 px-4 lg:py-20 py-8  mont-text">
+        <div className="lg:px-20 px-4 lg:py-20 py-8  ">
             <p className="lg:text-xl text-xl text-[#660066] font-bold text-center pb-8 lg:pb-2 uppercase"><span className="font-bold text-lg text-[#dbbeed]">/</span><span className="font-bold text-lg text-[#c97ef7]">/</span><span className="font-bold text-lg text-[#660066]">/ </span> price list</p>
             <p className="lg:text-4xl text-xl font-bold text-center text-black pb-8 lg:pb-12 capitalize">Check out our comprehensive price list</p>
             <div className=" flex flex-wrap gap-14">

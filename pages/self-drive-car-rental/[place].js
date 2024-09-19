@@ -27,11 +27,6 @@ export default function place() {
     const router = useRouter();
     const { place } = router.query;
 
-    function replaceText(str) {
-        let newstr = str?.replace('https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3', 'https://d10uth61hedy2t.cloudfront.net');
-        return newstr
-    }
-
     useEffect(() => {
         async function fetchCarDetails() {
 
@@ -56,9 +51,9 @@ export default function place() {
             <div>
                 <DynNearByApi />
             </div>
-            <CarProducts data={carData} place={place}/>
+            <CarProducts data={carData} place={place} />
             <div><DynNearYou /></div>
-            <FeaturedCars data={carData}/>
+            <FeaturedCars data={carData} />
             <DynCallBackForm />
             <DynWhyChooseUs />
             <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>

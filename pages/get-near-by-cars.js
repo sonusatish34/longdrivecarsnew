@@ -27,14 +27,12 @@ const LocationFetcher = () => {
     const [lat, setLat] = useState('');
 
     const replaceText = (str) => {
-        // return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.');
         if (str?.includes("cdn"))
             return str;
         else {
             return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
         }
     };
-    // const getCurrentDate = () => {
     const today = new Date();
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
@@ -42,7 +40,6 @@ const LocationFetcher = () => {
     const daynum = today.getDate() + 2;
 
     const compldate = `${year}-${month}-${day}`
-    // return `${year}-${month}-${day}`;
     const compldateend = `${year}-${month}-${daynum}`
 
     useEffect(() => {
@@ -83,14 +80,11 @@ const LocationFetcher = () => {
                 const response = await fetch(`https://api.longdrivecarz.in/user/updated-home?lat=${lat}&long=${lon}&start_date=${compldate}%2000%3A00%3A00&end_date=${compldateend}%2000%3A00%3A00&no_of_days=1&index=0&limit=20`, requestOptions);
                 const result = await response.json();
                 const realdata = result?.data?.results;
-
                 setData(realdata);
-                
             } catch (error) {
                 setError(error.message || 'An error occurred while fetching data.');
             } finally {
                 setLoading(false);
-
             }
         };
 
@@ -113,7 +107,7 @@ const LocationFetcher = () => {
     };
 
     return (
-        <div className='pt-20 lg:py-8 flex flex-col lg:flex-row gap-12'>
+        <div className='pt-32 lg:py-8 flex flex-col lg:flex-row gap-12'>
             {/* <p className='text-red-500'>hjo</p> */}
             {loading && <div className="text-center py-4">
                 <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
@@ -127,7 +121,7 @@ const LocationFetcher = () => {
                     {data?.map((item, index) => (
                         <React.Fragment key={index}>
 
-                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  xs:w-[100%]  md:w-72 h-[530px] lg:hover:scale-105 ">
+                            <div className="bg-white lg:rounded-md  shadow-lg  flex flex-col  w-[100%]  md:w-72 h-[530px] lg:hover:scale-105 ">
 
                                 <div className="relative h-[530px] lg:rounded-md ">
 
@@ -146,7 +140,7 @@ const LocationFetcher = () => {
                                         {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                             <div key={index} onClick={() => {
                                                 // router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-                                        }}>
+                                            }}>
                                                 <Image
                                                     className='h-[530px] rounded-md'
                                                     width={1000}
@@ -154,7 +148,6 @@ const LocationFetcher = () => {
                                                     src={replaceText(imageSrc)}
                                                     alt={`Car image ${index + 1}`}
                                                     priority />
-                                                    
                                             </div>
                                         ))}
 
@@ -213,23 +206,7 @@ const LocationFetcher = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
-                                {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
                             </div>
-                            {/* {(index + 1) % 5 === 0 && (
-                <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[529px] lg:hover:scale-105">
-                    <div>
-                        <Image
-                            src={disc}
-                            height={400}
-                            width={400}
-                            alt='discount'
-                        />
-                    </div>
-                </div>
-
-            )} */}
                         </React.Fragment>
                     ))}
                 </div>

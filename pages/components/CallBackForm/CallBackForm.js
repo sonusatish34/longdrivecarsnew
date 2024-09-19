@@ -33,11 +33,11 @@ const CallBackForm = () => {
 
     return (
         <div className='bg-white pt-4'>
-            <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] xs:mx-7 rounded-md justify-center bg-[#660066] items-center pb-5 lg:pt-5 text-white shadow-md'>
-                <div className='lg:flex lg:flex-col lg:justify-center lg:items-center xl:p-5 lg:w-2/3 xl:w-2/5 xs:p-0 lg:p-0'>
+            <div className='flex lg:mx-[77px] p-5 xl:mx-[98px] mx-7 rounded-md justify-center bg-[#660066] items-center pb-5 lg:pt-5 text-white shadow-md'>
+                <div className='lg:flex lg:flex-col lg:justify-center lg:items-center xl:p-5 lg:w-2/3 xl:w-2/5 p-0 lg:p-0'>
                     <div className='  xl:px-6 lg:py-3'>
-                        <h2 className='md:text-2xl md:font-semibold font-sans sm:text-lg xl:text-2xl font-semibold xs:text-center'>Can't find the perfect car? </h2>
-                        <p className='text-base lg:pl-9 xl:pl-0 xl:text-base font-sans xs:text-center pt-2 xs:pt-0 xs:text-xs font-normal'>Let us help you on a quick call</p>
+                        <h2 className='md:text-2xl md:font-semibold font-sans sm:text-lg xl:text-2xl font-semibold text-center'>Can't find the perfect car? </h2>
+                        <p className='text-base lg:pl-9 xl:pl-0 xl:text-base font-sans text-center pt-2  font-normal'>Let us help you on a quick call</p>
                     </div>
                     <form onSubmit={handleSubmit} className='rounded-lg text-black text-xs flex pt-4'>
 
@@ -52,10 +52,10 @@ const CallBackForm = () => {
                                 else setIsError(false);
                             }}
                             maxLength={10}
-                            className='lg:rounded-md lg:w-full lg:p-3 xs:w-40 xs:rounded-sm xs:p-1'
+                            className='lg:rounded-md lg:w-full lg:p-3 w-40 rounded-sm p-1'
                         />
 
-                        <button className='bg-green-400 ml-0 border-2 xs:ml-1 xs:p-1  border-gray-400 lg:p-2 lg:text-[10px] text-white lg:w-28  w-fit xs:text-[8px] rounded' type="submit">Get Callback</button>
+                        <button className='bg-green-400 border-2 ml-1 p-1  border-gray-400 lg:p-2 lg:text-[10px] text-white lg:w-28  w-fit text-[8px] rounded' type="submit">Get Callback</button>
                     </form>
                     <div>{isError && mobile.length > 1 && <p className='text-sm text-center '>Please enter a valid number</p>}</div>
                 </div>

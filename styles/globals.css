@@ -1,6 +1,5 @@
-
 body {
-  font-family: 'ui-sans-serif', 'system-ui';
+  font-family: "Poppins", sans-serif;
 }
 @tailwind base;
 @tailwind components;
@@ -58,17 +57,23 @@ body {
   }
 }
 
-
 .roboto-text {
   font-family: "Roboto", sans-serif;
 }
-.mont-text {
-  font-family: "Montserrat", sans-serif;
+
+.poppins-text {
+  font-family: "Poppins", sans-serif;
 }
 /*  */
 .triangleElement {
-  background: linear-gradient(to bottom right, #fff 100%, #fff 100%, #660066 100%, #660066 80%),
-              url('/bggg.webp');
+  background: linear-gradient(
+      to bottom right,
+      #fff 100%,
+      #fff 100%,
+      #660066 100%,
+      #660066 80%
+    ),
+    url("/bggg.webp");
   background-size: cover;
   background-position: center;
   /* height: 100vh; Adjust as needed */

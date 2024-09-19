@@ -89,13 +89,12 @@ function CarProducts({ data, place }) {
   };
 
   const replaceText = (str) => {
-    // return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.');
     if (str?.includes("cdn"))
-        return str;
+      return str;
     else {
-        return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+      return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
     }
-};
+  };
 
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
@@ -103,10 +102,10 @@ function CarProducts({ data, place }) {
   return (
     <div className=' bg-white'>
       <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
-      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-12'>
+      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-2'>
         <input
           placeholder='Search for your favourite car'
-          className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
+          className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
           type='search'
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
@@ -117,7 +116,7 @@ function CarProducts({ data, place }) {
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            <div className="bg-white lg:rounded-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+            <div className="bg-white lg:rounded-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
               <div className="relative lg:h-[530px]  h-[630px] lg:rounded-md">
                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md bottom-4">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
@@ -145,7 +144,7 @@ function CarProducts({ data, place }) {
                   }}>
                     {
                       <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                        <Image className='lg:h-[505px] h-[598px] rounded-md scale-150' width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_left_view)}></Image>
+                        <Image className='lg:h-[505px] h-[598px] rounded-md' width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_left_view)}></Image>
                       </Link>}
                   </div>
                   <div onClick={() => {
@@ -213,12 +212,9 @@ function CarProducts({ data, place }) {
                   </ul>
                 </div>
               </div>
-
-              {/* <p className='p-1 font-bold text-red-500 bg-yellow-200 z-50 font-manrope text-3xl lg:pl-20'>{item?.maker_model}</p> */}
             </div>
-            {/* displayIndices.includes(index) */}
             {(index + 1 === 3) && (
-              <div className="bg-[#8d398d] lg:rounded-b-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+              <div className="bg-[#8d398d] lg:rounded-b-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
                 <div className="relative z-20 bg-[#8d398d] lg:rounded-t-md opacity-90 bottom-4">
                   {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
@@ -236,12 +232,11 @@ function CarProducts({ data, place }) {
                 </div>
               </div>
             )}
+            
             {(index + 1 === 5) && (
-              <div className="bg-black lg:rounded-b-md  shadow-lg flex flex-col  xs:w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
+              <div className="bg-black lg:rounded-b-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105 pb-9">
                 <div className="relative z-20 bg-black lg:rounded-t-md opacity-90 bottom-4">
-                  {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                    {/* <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p> */}
                   </div>
                 </div>
                 <div>
@@ -250,7 +245,7 @@ function CarProducts({ data, place }) {
                     height={1000}
                     width={1000}
                     alt='discount'
-                    className=""
+                    className="mxs:scale-90 lg:scale-100 relative  mxs:bottom-10 mxs:h-[680px] lg:h-full"
                   />
                 </div>
               </div>
@@ -258,6 +253,7 @@ function CarProducts({ data, place }) {
           </React.Fragment>
         ))}
       </div>
+
       {
         visibleItems < filteredData?.length && (
           <div className="text-center md:pb-10 py-6 pt-8 px-6">

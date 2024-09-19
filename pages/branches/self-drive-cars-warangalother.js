@@ -1,7 +1,7 @@
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoReload } from "react-icons/io5";
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
@@ -13,9 +13,14 @@ import { FaSearch } from 'react-icons/fa';
 export default function car_products({ cars }) {
 
   const [searchQuery, setSearchQuery] = useState('');
+  
   const replaceText = (str) => {
-    return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-};
+    if (str?.includes("cdn"))
+      return str;
+    else {
+      return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+    }
+  };
 
   const filteredData = cars?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
@@ -29,7 +34,7 @@ export default function car_products({ cars }) {
       <div className='w-full'>
         <h2 id='explore' className="px-3 font-bold text-2xl pt-8 text-blue-950 mb-2 lg:text-5xl lg:mb-9 text-center">Explore Self Drive
           Car Rentals in Warangal</h2>
-          <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4'>
+        <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center py-4'>
           <input
             placeholder='Search for your favourite car'
             className='outline-gray-500 placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
@@ -42,7 +47,7 @@ export default function car_products({ cars }) {
         <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 gap-x-8 gap-y-8 flex flex-col gap-2 items-center justify-center lg:max-w-7xl py-4 xl:pl-[12rem]">
           {filteredData?.map((item, index) => (
             <React.Fragment key={index}>
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] md:w-72 h-[500px] lg:hover:scale-105">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  w-[90%] md:w-72 h-[500px] lg:hover:scale-105">
                 <div className="relative h-80">
                   <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                     <Image
@@ -98,7 +103,7 @@ export default function car_products({ cars }) {
                 </div>
               </div>
               {(index + 1) % (4) === 0 && (
-                <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-72 h-[500px]  lg:hover:scale-105">
+                <div className="bg-orange-100 rounded-lg shadow-lg overflow-hidden flex flex-col  w-[90%] justify-center md:w-72 h-[500px]  lg:hover:scale-105">
                   <div>
                     <Image
                       src={""}
@@ -106,7 +111,7 @@ export default function car_products({ cars }) {
                       width={1000}
                       alt='discount'
                       className="scale-90"
-                      
+
                     />
                   </div>
                 </div>

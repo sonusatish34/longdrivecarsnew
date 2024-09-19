@@ -111,7 +111,7 @@ function FeaturedCars({ data }) {
             data?.map((item, index) => (
               fddata?.map((inside, index) => (
                 (item?.maker_model === inside.carname) ?
-                  <div key={index} className='mont-text '>
+                  <div key={index} className=' '>
                     {(item.maker_model == inside.carname) && <div
                       key={index}
                       className={`pt-3 flex flex-col text-black w-[270px] rounded-md`}

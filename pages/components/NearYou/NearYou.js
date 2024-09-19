@@ -22,7 +22,7 @@ function NearYou() {
                 priority
             />
             <div className='py-16 lg:w-2/5 flex flex-col items-center'>
-                <p className='font-bold text-4xl lg:pb-8 py-2 xs:px-4 xs:text-2xl lg:text-left xs:text-center pb-4'>Book A Car Near You</p>
+                <p className='font-bold xl:text-4xl lg:pb-8 py-2 px-4 text-2xl lg:text-left text-center pb-4'>Book A Car Near You</p>
                 <div className='flex flex-wrap items-center lg:items-start text-black justify-center md:flex-col lg:justify-start px-5 md:px-0  gap-3 text-base'>
                     <div className='flex items-center gap-2 p-2 bg-white w-full  rounded-md' >
                         <PiCarFill className='bg-[#660066] text-white rounded-md p-2' size={50} />

@@ -41,8 +41,12 @@ const CarDetails = () => {
     }
   }, [maker_model]);
   const replaceText = (str) => {
-    return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-};
+    if (str?.includes("cdn"))
+      return str;
+    else {
+      return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+    }
+  };
   return (
     <div className='bg-white text-black'>
       <Head>
@@ -53,11 +57,11 @@ const CarDetails = () => {
         <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
         
       </Head>
-      <div className=' lg:px-2 mx-auto lg:mx-36 xl:mx-16 md:p-28 lg:p-4 xs:px-5 sm:pt-44 px-2'>
-        <div className='flex flex-col xs:mt-2 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-orange-400 rounded-md'>
+      <div className=' lg:px-2 mx-auto lg:mx-36 xl:mx-16 md:p-28 lg:p-4 px-5 sm:pt-44 px-2'>
+        <div className='flex flex-col mt-2 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-orange-400 rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
-            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 xs:pt-8 border-1 border-gray-300 h-[434px]">
+            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[434px]">
               <Image
                 src={replaceText(caritem?.car_image_car_right_view)}
                 alt="Car"
@@ -73,9 +77,9 @@ const CarDetails = () => {
               <h2 className='p-1 font-bold font-manrope text-3xl lg:pl-20'>{customData[maker_model?.toLowerCase()]?.id}</h2>
               <h2 className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹ {caritem?.price_24_hours * 24}/day</span></h2>
             </div>
-            <div className='pt-6 flex flex-col xs:hidden lg:flex lg:pl-20'>
+            <div className='pt-6 flex flex-col hidden lg:flex lg:pl-20'>
               <h2 className='font-semibold text-2xl font-manrope'>Contact us by</h2>
-              <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-6 xs:pt-2 text-white'>
+              <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
                 <button className='bg-green-500 rounded-full p-2 lg:p-3'>
                   <Link href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                     <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
@@ -92,7 +96,7 @@ const CarDetails = () => {
         </div>
         <div className='pt-6 lg:hidden'>
           <h2 className='font-semibold text-2xl font-manrope'>Contact us by</h2>
-          <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-6 xs:pt-2 text-white'>
+          <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
             <button className='bg-green-500 rounded-full p-2 lg:p-3'>
               <Link href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                 <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
@@ -107,7 +111,7 @@ const CarDetails = () => {
         </div>
         <div className='lg:w-3/5'>
           <div className="grid grid-cols-2 gap-2 lg:pt-12 xl:pt-8 pt-4 text-xs
-                     font-semibold lg:text-base xs: lg:w-full">
+                     font-semibold lg:text-base  lg:w-full">
             <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
               <HiCurrencyRupee className="bg-orange-200 rounded-md p-1" size={40} />
               <p className="ml-2">Zero Deposit</p>

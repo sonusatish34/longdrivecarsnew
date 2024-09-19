@@ -4,7 +4,7 @@ import nexon from '../../images/4.webp'
 function Gachibowli() {
 
     return (
-        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 mont-text'>
+        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
             <h1 className='font-bold text-xs lg:text-3xl xl:mx-72 lg:mx-80 mx-6'>Drive yourself around Hyderabad with self-drive cars from Gachibowli </h1>
             <p className='font-bold text-sm lg:text-3xl py-6 xl:mx-72 lg:mx-80 mx-6'>Discover Hyderabad on Your Terms</p>
             

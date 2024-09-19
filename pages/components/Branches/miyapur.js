@@ -4,7 +4,7 @@ import innovaa from '../../images/9.webp'
 function miyapur() {
 
     return (
-        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 mont-text'>
+        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
             <h1 className='font-bold text-base lg:text-3xl  xl:mx-72 lg:mx-80 mx-6'>Drive yourself around Hyderabad with self-drive car options in Miyapur</h1>
             <Image
                 src={innovaa}

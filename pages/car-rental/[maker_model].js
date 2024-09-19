@@ -12,7 +12,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SlSpeedometer } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
-import { HiCurrencyRupee } from "react-icons/hi2";
+import { HiCurren4cyRupee } from "react-icons/hi2";
 import Head from 'next/head';
 const CarDetails = () => {
   const [caritem, setCarItem] = useState(null);
@@ -42,8 +42,12 @@ const CarDetails = () => {
     }
   }, [maker_model]);
   const replaceText = (str) => {
-    return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-};
+    if (str?.includes("cdn"))
+      return str;
+    else {
+      return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+    }
+  };
   
   return (
     <div className='bg-white text-black'>
@@ -55,11 +59,11 @@ const CarDetails = () => {
         <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
   
       </Head>
-      <div className='xl:mx-16 mont-text mx-4'>
-        <div className='flex flex-col xs:mt-24 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+      <div className='xl:mx-16  mx-4'>
+        <div className='flex flex-col mt-24 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
-            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 xs:pt-8 border-1 border-gray-300 h-[434px]">
+            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[434px]">
               <Image
                 src={replaceText(caritem?.car_image_car_right_view)}
                 alt="Car"
@@ -77,7 +81,7 @@ const CarDetails = () => {
             </div>
             <div className='pt-6 flex flex-col xs:hidden lg:flex lg:pl-20'>
               <p className='font-semibold text-2xl '>Contact us  by</p>
-              <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-6 xs:pt-2 text-white'>
+              <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
                 <button className='bg-green-500 rounded-full p-2 lg:p-3'>
                   <Link href="https://api.whatsapp.com/send?phone=+919000478478&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                     <p className=' flex items-center gap-1 text-base'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
@@ -94,7 +98,7 @@ const CarDetails = () => {
         </div>
         <div className='pt-6 lg:hidden'>
           <p className='font-semibold text-2xl'>Contact us by</p>
-          <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-6 xs:pt-2 text-white'>
+          <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
             <button className='bg-green-500 rounded-full p-2 lg:p-3'>
               <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
                 <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
@@ -112,7 +116,7 @@ const CarDetails = () => {
             <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} />
+                {/* <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} /> */}
                 <p className=" ml-2 text-xs">Zero Deposit</p>
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">

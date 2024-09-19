@@ -4,7 +4,7 @@ import creta from '../../images/6.webp'
 function madhapur() {
 
     return (
-        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 mont-text'>
+        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
             <h1 className='font-bold text-sm lg:text-3xl xl:mx-72 lg:mx-80 mx-6'>Self-Drive Car Rentals in Madhapur: Your Go-To Car Rental Services </h1>
             <Image
                 src={creta}

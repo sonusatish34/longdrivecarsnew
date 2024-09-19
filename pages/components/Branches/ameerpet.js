@@ -4,7 +4,7 @@ import tiago from '../../images/1.webp'
 function Ameerpet() {
 
     return (
-        <div className='text-black pt-48 lg:pt-24 text-xs lg:text-lg leading-6 lg:leading-8 mont-text'>
+        <div className='text-black pt-48 lg:pt-24 text-xs lg:text-lg leading-6 lg:leading-8 '>
             <h1 className='font-bold text-sm xl:text-4xl xl:mx-72 lg:mx-80 mx-6 pb-8'>Discover Hyderabad at your own pace with self-drive cars in Ameerpet</h1>
             <div>
 

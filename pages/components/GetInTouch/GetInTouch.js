@@ -5,7 +5,7 @@ import Link from 'next/link';
 function GetInTouch() {
   return (
     <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#660066] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
-        <div className='xl:w-5/12 xl:text-left xs:w-full xs:text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-left text-lg  lg:p-4 lg:pl-14 font-semibold'>
+        <div className='xl:w-5/12 xl:text-left w-full text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-lg  lg:p-4 lg:pl-14 font-semibold'>
           Get in touch with us to arrange your booking
         </div>
         <div className='flex flex-col pt-4 lg:pr-16 items-center justify-start gap-2 text-sm lg:p-4 font-semibold cursor-pointer pr-'>

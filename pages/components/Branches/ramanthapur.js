@@ -4,7 +4,7 @@ import kushaq from '../../images/10.webp'
 function ramanthapur() {
 
     return (
-        <div className='text-black pt-48 lg:py-12  text-xs lg:text-base leading-7 lg:leading-9 mont-text'>
+        <div className='text-black pt-48 lg:py-12  text-xs lg:text-base leading-7 lg:leading-9 '>
             <h1 className='font-bold text-base lg:text-3xl xl:mx-72 lg:mx-80 mx-6'>Find a Range of Self-Drive Cars in Ramanthapur</h1>
             <Image
                 src={kushaq}

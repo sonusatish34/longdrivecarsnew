@@ -9,7 +9,7 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({locname}) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
@@ -37,7 +37,7 @@ const HamburgerMenu = () => {
   }, [isOpen]);
 
   return (
-    <div className='fixed lg:relative top-0 left-0 right-0 z-50 bg-white text-black shadow-md mont-text'>
+    <div className='fixed lg:relative top-0 left-0 right-0 z-50 bg-white text-black shadow-md '>
       <div className='flex justify-between items-center lg:px-14'>
         <Marquee speed={75}>
           <div className={'flex p-1 text-xs gap-24 lg:text-lg '}>
@@ -59,7 +59,7 @@ const HamburgerMenu = () => {
           </div>
         </Marquee>
         <div className='border-l-2 border-l-black'>
-          <ul className='flex justify-end lg:gap-5 xs:gap-2 px-2'>
+          <ul className='flex justify-end lg:gap-5 gap-2 px-2'>
             <li><Link href={'https://www.facebook.com/selfdrivecarsbylongdrivecars/'} target='_blank'>
               <FaFacebook className='hover:text-blue-500 cursor-pointer lg:size-6' />
             </Link></li>
@@ -86,10 +86,10 @@ const HamburgerMenu = () => {
       </div>
       <div className="flex lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20 w-full">
         <div className="flex">
-          {/* <Link href={'/'}> */}
+         
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
             <div className='flex items-center lg:gap-6 gap-3'>
-              <Link href={'/'} className='flex items-center lg:gap-6 gap-3'>
+              <Link href={`${locname?.length?locname:'/'}`} className='flex items-center lg:gap-6 gap-3'>
                 <Image
                   className="lg:w-32 w-10"
                   src={logo2}
@@ -99,7 +99,7 @@ const HamburgerMenu = () => {
                   priority
                 // placeholder="blur"
                 />
-              <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48'>Long Drive Cars</p>
+              <p className='font-semibold text-[#0456e8] text-sm lg:text-4xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
               </Link>
             </div>
             <div className='w-full text-black lg:mt-2 xl:pl-60 lg:pl-20'>
