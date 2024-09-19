@@ -15,9 +15,7 @@ const DynamicFaqComponent = dynamic(() => import('../FaqAccordian/FaqAccordian')
 const DynamicPriceList = dynamic(() => import('../PriceList/PriceList'));
 
 export default function Homepage({ data }) {
-
   const data2 = data;
-  
   return (
     <div className="min-h-screen">
       <DynHeader/>

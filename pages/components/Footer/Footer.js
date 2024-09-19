@@ -48,7 +48,7 @@ function Footer() {
                                     <li className='lg:hover:scale-105'><Link href={'/branches/self-drive-cars-kukatpally'}>Kukatpally</Link></li>
                                     <li className='lg:hover:scale-105'> <Link href={'/branches/self-drive-cars-madhapur'}>Madhapur</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Warangal</Link></li>
-                                    <li className='lg:hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Bangalore</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'bangalore'}>Bangalore</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/branches/hyderabad-rental-car'}>Rental Car</Link></li>
                                 </ul>
                             </div>

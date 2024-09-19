@@ -156,7 +156,6 @@ export default function Table() {
                         <tr>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 7 Seater Sunroof Cars </th>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 24 hrs Price</th>
-
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">

@@ -13,6 +13,7 @@ import { SlSpeedometer } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
 import { HiCurren4cyRupee } from "react-icons/hi2";
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Head from 'next/head';
 const CarDetails = () => {
   const [caritem, setCarItem] = useState(null);
@@ -51,6 +52,7 @@ const CarDetails = () => {
   
   return (
     <div className='bg-white text-black'>
+      <HamburgerMenu/>
       <Head>
         <title>Zero Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />

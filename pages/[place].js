@@ -14,7 +14,7 @@ const FeaturedCars = dynamic(() => import('./components/FeaturedCars/FeaturedCar
 const DynamicFaqComponent = dynamic(() => import('./components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
 
-const allowedKeywords = ['warangal', 'bengalore', 'keyword3'];
+const allowedKeywords = ['warangal', 'bangalore', 'keyword3'];
 
 export default function Place({ place }) {
     const [carData, setCarData] = useState(null);
@@ -49,7 +49,6 @@ export default function Place({ place }) {
     //             console.error('Error fetching Hyderabad car details:', error);
     //         }
     //     }
-
     //     fetchHydCarDetails();
     // }, []);
 

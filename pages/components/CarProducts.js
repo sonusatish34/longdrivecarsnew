@@ -258,7 +258,7 @@ function CarProducts({ data, place }) {
         visibleItems < filteredData?.length && (
           <div className="text-center md:pb-10 py-6 pt-8 px-6">
             <button className="bg-[#4508a6] text-xl font-bold text-white w-full lg:w-96 py-4 rounded-full">
-              <Link href={"/explore-self-drive-cars"}>View all cars</Link>
+              <Link href={`/explore-self-drive-cars/${place?.length?place:'Hyderabad'}`}>View all cars</Link>
             </button>
           </div>
         )

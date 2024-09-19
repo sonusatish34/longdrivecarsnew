@@ -19,7 +19,7 @@ function WhyChooseUs() {
                     
                     <div className="flex gap-4 items-center justify-center pt-4 text-xs
                      font-medium lg:text-sm lg:w-[90%] flex-wrap">
-                        <p className='text-white xl:text-5xl lg:text-5xl text-3xl mb-2 lg:pl-5 lg:pb-8'>Why- Choose Us?</p>
+                        <p className='text-white xl:text-5xl lg:text-5xl text-3xl mb-2 lg:pl-5 lg:pb-8'>Why Choose Us?</p>
                         <div className="flex items-center gap-1 p-2 bg-[#ffffff] text-lg lg:text-sm xl:text-lg  border-[1px] border-black rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[200px]  w-[325px]">
                             <RiMoneyRupeeCircleFill className="bg-[#660066] rounded-md p-1 text-white" size={40} />
                             <p className="ml-2">Zero Deposit</p>
