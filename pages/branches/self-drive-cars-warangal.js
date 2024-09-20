@@ -1,8 +1,11 @@
 import React from 'react'
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 
 function warangal() {
   return (
-    <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+    <div>
+      <HamburgerMenu/>
+    <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-40 lg:pt-16'>
         <p className='font-bold text-xl lg:text-3xl'>Stop here if you are searching for Self Drive Cars Warangal</p>
         <p>It's now near you, get self drive cars in Warangal at Long Drive cars.</p>
         <p className='font-bold text-lg'>Choose the best self driving cars in Warangal</p>
@@ -47,6 +50,7 @@ function warangal() {
         <p>After completing the entire Warangal outing, self drive car from Warangal to Hyderabad next. On your way to Hyderabad, first find a must visit place - the Jain Temple at Kolanupaka. Also known as Kulpakji, this temple is 2000 years old, located in Kolanupaka at a distance of 83 kms from Warangal. Yet another reason to self drive!</p>
         <p>No ordinary place, the Jain Temple of Kolanupaka is supposedly built in the 11th Century AD by Bharata Chakravarty of the Rahtrakutas. Recently restored, this temple is regarded to be sacred for the Shwetambaras and is reasonably well maintained by the community. The temple is home to the idols of the three main Jain Tirthankaras : Lord Rishabha, Lord Neminath and Lord Mahavira. The idol of Lord Rishabha is made from a single jade (thus the magnificence it reflects) and is also known as Maniyaswami. If you are the one who goes into great details, then you can find a myriad of Jain manuscripts, antiquities and inscriptions here, proving that this temple was once a major religious hub for the Jains.</p>
         <p>On the road again, you would notice that the last couple of hours on the way to Hyderabad are quite scenic. Happy driving to Hyderabad, where historical places like Charminar, Golconda fort, palaces and museums as well as new age landmarks, Ramoji film city, theme parks and more await you!</p>
+    </div>
     </div>
   )
 }

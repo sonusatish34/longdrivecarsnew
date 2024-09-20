@@ -10,7 +10,7 @@ import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
 const HamburgerMenu = ({locname}) => {
-  console.log(locname,"locaname in hamb");
+  console.log(locname?locname:'hyderabad',"locaname in hamb");
   
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);

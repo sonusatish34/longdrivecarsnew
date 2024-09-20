@@ -1,8 +1,10 @@
 import React from 'react'
-
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 function hyderabadrentalcar() {
   return (
-    <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+    <div>
+      <HamburgerMenu/>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16 grotesk-text'>
       <p className='text-xl lg:text-3xl font-bold'>Hyderabad rental car in a matter of minutes!</p>
       <p>Overdue for a vacation? Take yourself and your family or friends out of town on a memorable road jaunt.</p>
       <p>At this point you may ask: How to holiday across India in an independent manner with your family and friends, and without spending a huge amount? No problem. No own vehicle that can carry 7-8 people? No worries. Don't hit the brakes on your getaway plans, choose from the best 7-8 seater car of your choice from Long Drive Cars, the best Hyderabad rental car service.</p>
@@ -57,6 +59,8 @@ function hyderabadrentalcar() {
       <p>3. Last but not the least, choose a car that's convenient for all.</p>
       <p>SUVs enjoy a following of its own, and is the ideal car if you want peace of mind on your long drives with family or friends. Speaking of long drives, if you want hassle free Fortuner car on rent in Hyderabad, then go nowhere but Long Drive Cars. Enjoy your trip.</p>
     </div>
+    </div>
+    
   )
 }
 

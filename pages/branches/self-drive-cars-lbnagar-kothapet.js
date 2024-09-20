@@ -1,8 +1,12 @@
 import React from 'react'
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 
 function dilshuknagar() {
   return (
+    <div>
+      <HamburgerMenu/>
     <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+      
       <p className='text-xl lg:text-2xl font-bold'>Easy access to self drive cars in Dilsukhnagar</p>
       <p>Long Drive cars is a market leading provider of self drive cars in Dilsukhnagar with the latest fleet of cars to meet any individual needs. The car rental services offered at Long Drive cars are the very services you would expect from a quality professional self driving solutions company</p>
       <p>It's hard to believe but the car rental segment in India in the year 2019 looked refreshingly different compared to what it appears today.</p>
@@ -44,6 +48,7 @@ function dilshuknagar() {
       </p>
       <p>Please note that if you are out on a road trip with a number of friends, or find yourself behind the wheels after a party, it can be tempting to invite in as many passengers as possible in your rental car. However, know that stringent passenger restriction laws exist throughout India and non-compliance can result in fines and even jail term In a few cases. So ensure that a 5 seater has only 5 people on board and a 7-8 seater car has an equal number of passengers while you are in charge of the car. Happy self driving!
       </p>
+    </div>
     </div>
   )
 }

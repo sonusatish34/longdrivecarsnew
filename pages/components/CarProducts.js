@@ -17,7 +17,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function CarProducts({ data, place }) {
-  // console.log(data,"dasya");
+  console.log(place,"-----place---");
+  
+  {data ? (
+    <p>{data.title}</p>
+) : (
+    <p>No data available</p>
+)}
+
   var settings = {
     infinite: true,
     slidesToShow: 1,
@@ -87,7 +94,7 @@ function CarProducts({ data, place }) {
   const handleLoadMore = () => {
     setVisibleItems(prev => prev + 9);
   };
-
+  console
   const replaceText = (str) => {
     if (str?.includes("cdn"))
       return str;
@@ -102,7 +109,7 @@ function CarProducts({ data, place }) {
   return (
     <div className=' bg-white'>
       <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7'>Explore Our Cars in {place?.length ? place : 'Hyderabad'}</p>
-      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-2'>
+      <div className=' lg:mb-16 pl-3 flex flex-grow items-center justify-center pt-2 pb-14 lg:pb-2'>
         <input
           placeholder='Search for your favourite car'
           className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
@@ -144,7 +151,7 @@ function CarProducts({ data, place }) {
                   }}>
                     {
                       <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                        <Image className='lg:h-[505px] h-[598px] rounded-md' width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_left_view)}></Image>
+                        <Image className='lg:h-[505px] h-[598px] rounded-md' width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_right_view)}></Image>
                       </Link>}
                   </div>
                   <div onClick={() => {

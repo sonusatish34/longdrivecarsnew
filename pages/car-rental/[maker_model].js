@@ -12,17 +12,18 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SlSpeedometer } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
-import { HiCurren4cyRupee } from "react-icons/hi2";
+import { HiCurrencyRupee } from "react-icons/hi";
+
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Head from 'next/head';
 const CarDetails = () => {
   const [caritem, setCarItem] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   const router = useRouter();
   const { maker_model } = router.query;
   const mdyfmaker_model = maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
+  console.log(mdyfmaker_model,"--mdyfmaker_model--");
   useEffect(() => {
     async function fetchCarDetails() {
       setLoading(true);
@@ -31,6 +32,8 @@ const CarDetails = () => {
         const items = await response.json();
         const cars = items?.data?.results;
         const car = cars?.find(i => i?.maker_model.toLowerCase() == mdyfmaker_model);
+        console.log(car,"--car--");
+        
         setCarItem(car);
       } catch (error) {
       } finally {
@@ -62,15 +65,15 @@ const CarDetails = () => {
   
       </Head>
       <div className='xl:mx-16  mx-4'>
-        <div className='flex flex-col mt-24 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+        <div className='flex flex-col mt-32 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
-            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[434px]">
+            <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[534px]">
               <Image
                 src={replaceText(caritem?.car_image_car_right_view)}
                 alt="Car"
-                style={{ objectFit: "cover" }}
-                className="relative rounded-md"
+                style={{ }}
+                className="relative rounded- object-cover"
                 fill
                 sizes="(min-width: 640px) 50vw, 100vw"
               />
@@ -118,7 +121,7 @@ const CarDetails = () => {
             <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                {/* <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} /> */}
+                <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} />
                 <p className=" ml-2 text-xs">Zero Deposit</p>
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">

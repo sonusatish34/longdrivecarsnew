@@ -1,7 +1,11 @@
 import React from 'react'
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 
 function kukatpally() {
   return (
+    <div>
+
+      <HamburgerMenu/>
     <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       <p className='text-xl lg:text-2xl font-bold'>It's time for self drive cars in Kukatpally</p>
       <p>Are you looking for Best Self Drive Cars Kukatpally?</p>
@@ -57,6 +61,7 @@ function kukatpally() {
       <p>After you have had enough of Hyderabad, then what's next. Worry not, because the Telangana state and the rest of southern India make an impressive region. The rich and colourful landscapes range from breezy coastlines to the mountaintops/ hill stations. You can go from busy beaches to leafy villages that lay in between urban areas. It’s safe to say that there’s plenty to explore in one of India's more prominent southern states. While there is a good railway system and many other public transportation options such as buses, however, driving yourself is the best way to discover Hyderabad and the nearby getaways, at your own pace.</p>
       <p className='text-lg font-bold'>Visit Long Drive Cars for 'Self drive car rental in Kukatpally'</p>
       <p>Since no two cities of India are similar in comparison, similarly no two car rental service companies are alike. Truly, Long Drive Cars as a unique car rental company is in a league of its own. So if you are looking for self drive car rental in Kukatpally, then Long Drive Cars is the place to be. The company's promoters and people are the secret to the popularity of its success.</p>
+    </div>
     </div>
   )
 }

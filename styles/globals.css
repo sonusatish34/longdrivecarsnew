@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 body {
   font-family: "Poppins", sans-serif;
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,6 +66,9 @@ body {
 .poppins-text {
   font-family: "Poppins", sans-serif;
 }
+.grotesk-text {
+  font-family: "Space Grotesk", sans-serif;
+}
 /*  */
 .triangleElement {
   background: linear-gradient(
@@ -95,4 +100,38 @@ body {
   display: flex;
   align-items: center;
   height: 480px;
+}
+
+
+/* styles/Slider.module.css */
+.sliderContainer {
+  position: relative;
+  width: 300px; /* Adjust as needed */
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 200px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightblue;
+  opacity: 0.5; /* Default opacity for non-active slides */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1.1); /* Scale up the active slide */
+}
+
+.next,
+.prev {
+  opacity: 0.5; /* Ensure next and prev slides are also slightly visible */
 }

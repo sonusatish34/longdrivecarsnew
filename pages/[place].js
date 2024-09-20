@@ -20,7 +20,7 @@ export default function Place({ place }) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
     const router = useRouter();
-
+    
     useEffect(() => {
         async function fetchCarDetails() {
             try {
@@ -59,7 +59,7 @@ export default function Place({ place }) {
             <div>
                 <DynNearByApi />
             </div>
-            <CarProducts data={carData} place={place} />
+            <CarProducts data={carData} place={(place?.length?place:'hyderabad')} />
             <div><DynNearYou /></div>
             <FeaturedCars data={carData} />
             <DynCallBackForm />

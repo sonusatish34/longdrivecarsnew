@@ -1,8 +1,10 @@
 import React from 'react'
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 
 function Bangalore() {
   return (
     <div className='text-black px-12'>
+      <HamburgerMenu/>
       <p className='text-lg font-bold'>Right here for you: Self Drive Cars in Bengaluru</p>
       <p>Now you need not search for self-drive cars in Bengaluru, because the best name in rental cars - Long Drive Cars - is right here for you.</p>
       <p className='text-lg font-bold'>Think no more, experience best Self-Drive Car Rental in Bangalore</p>

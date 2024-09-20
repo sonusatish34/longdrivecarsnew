@@ -1,7 +1,10 @@
 import React from 'react'
+import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 
 function madhapur() {
   return (
+    <div>
+      <HamburgerMenu/>
     <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       <p className='text-xl lg:text-2xl font-bold'>Self Drive Cars Madhapur ends here</p>
       <p className='text-lg font-bold'>It's not far, find Self Drive Cars near Madhapur</p>
@@ -44,6 +47,7 @@ function madhapur() {
       <p>On the road again, you would notice that the last couple of hours on the way back to Hyderabad are quite scenic.</p>
       <p className='text-lg font-bold'>Feel comfortable in the quality self driven cars of Long Drive Cars, always</p>
       <p>While you and your family/friends would feel comfortable in the quality self driven cars offered by Long Drive Cars, however, it is worth noting that Warangal is a less visited tourist spot during the summer season when the sun is blazing, the weather is hot and a bit unpleasant.</p>
+    </div>
     </div>
   )
 }
