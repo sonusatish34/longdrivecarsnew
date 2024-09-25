@@ -9,7 +9,7 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenu = ({locname}) => {
+const HamburgerMenuBng = ({locname}) => {
   
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -77,11 +77,11 @@ const HamburgerMenu = ({locname}) => {
         </div>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
+        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help Bng</h2>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <h2 className='lg:text-2xl lg:font-bold'>
-            <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
+            <Link href="tel:9129122525" target='_blank'>912-912-25-25</Link>
           </h2>
         </div>
       </div>
@@ -90,7 +90,8 @@ const HamburgerMenu = ({locname}) => {
          
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
             <div className='flex items-center lg:gap-6 gap-3'>
-              <Link href={`${(locname?.length && locname=='bangalore')?'/bangalore':'/'}`} className='flex items-center lg:gap-6 gap-3'>
+              <Link href={`/bangalore`} className='flex items-center lg:gap-6 gap-3'>
+              {/* <Link href={`${(locname?.length && locname=='bangalore')?'/bangalore':'/'}`} className='flex items-center lg:gap-6 gap-3'> */}
                 <Image
                   className="lg:w-32 w-10"
                   src={logo2}
@@ -155,4 +156,4 @@ const HamburgerMenu = ({locname}) => {
   );
 };
 
-export default HamburgerMenu;
+export default HamburgerMenuBng;

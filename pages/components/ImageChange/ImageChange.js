@@ -37,7 +37,6 @@ const ImageChange = () => {
       <div className='h-full lg:pt-2 xl:pl-4 lg:pl-10 flex flex-wrap bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:pr-2 '>
           <Image
-            priority
             src={homebanner}
             alt={'home banner'}
             height={1000}
@@ -51,7 +50,6 @@ const ImageChange = () => {
               <div className="flex gap-2 py-2 justify-center lg:justify-normal items-center">
                 <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                   <Image
-                    priority
                     height={500}
                     width={500}
                     alt='apple'
@@ -62,7 +60,6 @@ const ImageChange = () => {
                 </Link>
                 <Link href='https://play.google.com/store/search?q=long+drive+cars&c=apps'>
                   <Image
-                    priority
                     height={500}
                     width={500}
                     alt='google'

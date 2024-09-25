@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 
 import CarProducts from '../CarProducts';
 import DynWhyChooseUs from '../WhyChooseUs/WhyChooseUs'
+import SelfDrivePlaces from '../SelfDrivePlaces/SelfDrivePlaces';
 
 const DynHeader = dynamic(() => import('../Hamburger/HamburgerMenu'));
 const DynCallBackForm = dynamic(() => import('../CallBackForm/CallBackForm'));
@@ -18,7 +19,7 @@ export default function Homepage({ data }) {
   const data2 = data;
   return (
     <div className="min-h-screen">
-      <DynHeader/>
+      {/* <DynHeader/> */}
       <DynImageChange />
       <div>
         <DynNearByApi />
@@ -33,7 +34,9 @@ export default function Homepage({ data }) {
         <DynamicFaqComponent />
       </div>
       <GetInTouch />
-      <DynamicPriceList />
+      <DynamicPriceList city={'hyd'}/>
+      
+      
     </div>
   );
 }

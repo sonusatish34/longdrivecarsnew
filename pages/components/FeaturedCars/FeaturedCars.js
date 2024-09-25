@@ -101,7 +101,7 @@ const fddata = [
   },
 ]
 
-function FeaturedCars({ data }) {
+function FeaturedCars({ data,branch }) {
   return (
     <div className='feature-cars bg  text-black px-7 py-6 h-[655px] bg-gray-800 '>
       <p className='text-center text-4xl font-semibold py-8 pb-4 text-white'>Check Out Our Featured Cars</p>
@@ -118,14 +118,13 @@ function FeaturedCars({ data }) {
                     >
                       <div className='relative border-2 border-[#660066]-200 bg-white rounded-md'>
                         <p className='bg-[#660066] text-white rounded-t-md pl-5'>Make Year {item?.manufacture_date}</p>
-                        <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                        <Link href={`${(((branch?.length?branch:'')+"/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                           <Image
                             src={(inside.src)}
                             alt={'carss'}
                             width={1000}
                             height={1000}
                             className='w-[250px] h-[150px] '
-                            priority
                           />
                         </Link>
                         <div className={`flex flex-col gap-3 text-center $`}>
@@ -158,7 +157,6 @@ function FeaturedCars({ data }) {
                           <div className="flex items-center justify-center gap-6 pt-1 border-t-2 border-gray-200">
                             <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                               <Image
-                                priority
                                 height={500}
                                 width={500}
                                 alt='apple'
@@ -169,7 +167,6 @@ function FeaturedCars({ data }) {
                             </Link>
                             <Link href='https://play.google.com/store/search?q=long+drive+cars&c=apps'>
                               <Image
-                                priority
                                 height={500}
                                 width={500}
                                 alt='google'

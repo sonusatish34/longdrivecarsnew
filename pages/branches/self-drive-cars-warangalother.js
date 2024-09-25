@@ -49,7 +49,7 @@ export default function car_products({ cars }) {
             <React.Fragment key={index}>
               <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  w-[90%] md:w-72 h-[500px] lg:hover:scale-105">
                 <div className="relative h-80">
-                  <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                  <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                     <Image
                       src={replaceText(item?.car_image_car_right_view)}
                       // alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
@@ -66,7 +66,7 @@ export default function car_products({ cars }) {
 
                 <div className="pt-4 flex flex-col gap-4">
                   <div className='flex items-baseline justify-between px-2'>
-                    <Link href={`/${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                    <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                       <p className="text-gray-700 cursor-pointer font-sans font-semibold text-xs hover:text-red-600 w-fit">{item.maker_model}</p>
                     </Link>
                     <p className="text-blue-500 font-bold">₹ {item.price_24_hours * 24}/day</p>

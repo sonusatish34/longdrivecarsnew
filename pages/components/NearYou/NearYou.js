@@ -19,7 +19,6 @@ function NearYou() {
                 height={2000}
                 alt='innova car'
                 className='lg:w-2/5 '
-                priority
             />
             <div className='py-16 lg:w-2/5 flex flex-col items-center'>
                 <p className='font-bold xl:text-4xl lg:pb-8 py-2 px-4 text-2xl lg:text-left text-center pb-4'>Book A Car Near You</p>
