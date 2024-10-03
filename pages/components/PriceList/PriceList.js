@@ -18,12 +18,12 @@ export default function PriceList({ city }) {
 
     return (
         <div className="lg:px-20 px-4 lg:py-20 py-8  ">
-            <p className="lg:text-xl text-xl text-[#660066] font-bold text-center pb-8 lg:pb-2 uppercase"><span className="font-bold text-lg text-[#dbbeed]">/</span><span className="font-bold text-lg text-[#c97ef7]">/</span><span className="font-bold text-lg text-[#660066]">/ </span> price list</p>
+            <p className="lg:text-xl text-xl text-[#660066] font-bold text-center pb-8 lg:pb-2 uppercase"><span className="font-bold text-lg text-[#dbbeed]">/</span><span className="font-bold text-lg text-[#c97ef7]">/</span><span className="font-bold text-lg text-[#660066]">/ </span>price list</p>
             <p className="lg:text-4xl text-xl font-bold text-center text-black pb-8 lg:pb-12 capitalize">Check out our comprehensive price list</p>
             <div className=" flex flex-wrap gap-14">
                 <div className=" rounded- overflow-hidden">
 
-                    <table className="lg:w-96 divide-y  text-xs text-black rounded-md  overflow-hidden" >
+                    <table className="lg:w-96 divide-y  text-xs text-black rounded-t-md  overflow-hidden" >
                         <thead className="bg-[#660066] text-white rounded-md">
                             <tr>
                                 <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 5 Seater Basic Cars </th>
@@ -55,7 +55,7 @@ export default function PriceList({ city }) {
                         </tbody>
                     </table>
                 </div>
-                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-md   overflow-hidden" >
+                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-t-md   overflow-hidden" >
                     <thead className="bg-[#660066] text-white">
                         <tr>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 5 seater luxury </th>
@@ -96,7 +96,7 @@ export default function PriceList({ city }) {
                         </tr>}
                     </tbody>
                 </table>
-                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-md   overflow-hidden" >
+                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-t-md   overflow-hidden" >
                     <thead className="bg-[#660066] text-white">
                         <tr>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 5 Seater Sunroof Cars </th>
@@ -125,7 +125,7 @@ export default function PriceList({ city }) {
 
                     </tbody>
                 </table>
-                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-md   overflow-hidden" >
+                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-t-md   overflow-hidden" >
                     <thead className="bg-[#660066] text-white">
                         <tr>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 7 seater cars </th>
@@ -165,7 +165,7 @@ export default function PriceList({ city }) {
                         </tr>
                     </tbody>
                 </table>
-                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-md   overflow-hidden" >
+                <table className="lg:w-96 w-80 divide-y  text-xs text-black rounded-t-md   overflow-hidden" >
                     <thead className="bg-[#660066] text-white">
                         <tr>
                             <th className="px-2 py-3 text-left  font-medium uppercase tracking-wider border border-gray-300 whitespace-nowrap"> 7 Seater Sunroof Cars </th>

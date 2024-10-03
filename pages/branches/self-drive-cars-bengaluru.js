@@ -1,10 +1,12 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
+import Footer from '../components/Footer/Footer';
 
 function Bangalore() {
   return (
-    <div className='text-black px-12'>
+    <div>
       <HamburgerMenu/>
+      <div  className='text-black px-12 bg-white'>
       <p className='text-lg font-bold'>Right here for you: Self Drive Cars in Bengaluru</p>
       <p>Now you need not search for self-drive cars in Bengaluru, because the best name in rental cars - Long Drive Cars - is right here for you.</p>
       <p className='text-lg font-bold'>Think no more, experience best Self-Drive Car Rental in Bangalore</p>
@@ -64,8 +66,10 @@ function Bangalore() {
         With a high google customer rating, Long Drive provides the cleanest cars in this side of the globe.
         Customers earn reward points on every booking, and the earned points can be redeemed in the subsequent bookings. So, visit https://www.longdrivecars.com/ often as the company announces attractive offers and great discount options from time to time.
         Happy journey!</p>
-
     </div>
+        <Footer/>
+    </div>
+    
   )
 }
 

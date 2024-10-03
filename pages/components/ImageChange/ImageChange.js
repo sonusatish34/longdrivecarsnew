@@ -18,7 +18,7 @@ import { SiContactlesspayment } from "react-icons/si";
 import { FaCarSide } from "react-icons/fa";
 import { IoCarSportSharp } from "react-icons/io5";
 
-const ImageChange = () => {
+const ImageChange = ({locname}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
     img2, img3, img4, img5
@@ -83,10 +83,10 @@ const ImageChange = () => {
                     <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className=" ml-2">Unlimited Kilometers</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
+                  {(locname!=='bangalore')? <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2 ">Zero Deposit</p>
-                  </div>
+                  </div>:null}
                   
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
@@ -94,7 +94,7 @@ const ImageChange = () => {
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <FaCarSide className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Car Starts ₹1488/day, min 24hrs</p>
+                    <p className="ml-2">Car Starts at {(locname!=='bangalore')?'₹1488/day':'₹1848/Day'}</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <IoMdArrowDropdownCircle className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
@@ -102,7 +102,7 @@ const ImageChange = () => {
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <IoCarSportSharp className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Baleno, Dzire 1776 per day</p>
+                    <p className="ml-2">Swift Dzire {(locname!=='bangalore')?'1776':'2280'} per Day</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <SiContactlesspayment className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />

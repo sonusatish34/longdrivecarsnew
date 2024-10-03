@@ -1,9 +1,10 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
+import Footer from '../components/Footer/Footer';
 
 function dilshuknagar() {
   return (
-    <div>
+    <div className='bg-white'>
       <HamburgerMenu/>
     <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       
@@ -49,6 +50,7 @@ function dilshuknagar() {
       <p>Please note that if you are out on a road trip with a number of friends, or find yourself behind the wheels after a party, it can be tempting to invite in as many passengers as possible in your rental car. However, know that stringent passenger restriction laws exist throughout India and non-compliance can result in fines and even jail term In a few cases. So ensure that a 5 seater has only 5 people on board and a 7-8 seater car has an equal number of passengers while you are in charge of the car. Happy self driving!
       </p>
     </div>
+    <Footer/>
     </div>
   )
 }

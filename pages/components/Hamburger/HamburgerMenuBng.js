@@ -9,7 +9,7 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenuBng = ({locname}) => {
+const HamburgerMenuBng = () => {
   
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -42,17 +42,17 @@ const HamburgerMenuBng = ({locname}) => {
       <div className='flex justify-between items-center lg:px-14'>
         <Marquee speed={75}>
           <div className={'flex p-1 text-xs gap-24 lg:text-lg '}>
-            <p className='flex items-center gap-1 justify-center pl-6'><TbPointFilled /><span>Zero Deposit</span></p>
+            {/* <p className='flex items-center gap-1 justify-center pl-6'><TbPointFilled /><span>Zero Deposit</span></p> */}
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Unlimited Kilometers</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Neatly Washed Car</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Choose your Favourite Color Car</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Check Original Car Photos & Book</span></p>
             <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Choose Your Own Hours 36hr, 50hr</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Car Starts ₹1488/day, min 24hrs</span></p>
+            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Car Starts ₹1848/day, min 24hrs</span></p>
             <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Any Problem 24/7 Service</span></p>
             <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span> Lowest Price Challenge
             </span></p>
-            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Baleno, Dzire 1776 per day
+            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Baleno, Dzire 2280 per day
             </span></p>
             <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Just pay 10% Advance & book
 
@@ -77,7 +77,7 @@ const HamburgerMenuBng = ({locname}) => {
         </div>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help Bng</h2>
+        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <h2 className='lg:text-2xl lg:font-bold'>
@@ -110,7 +110,7 @@ const HamburgerMenuBng = ({locname}) => {
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Blog</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>About Us</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/contact.html'}>Contact Us</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={'/bangalore/contact.html'}>Contact Us</Link></li>
                 </ul>
               </div>
             </div>

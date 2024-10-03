@@ -104,7 +104,7 @@ function CarProducts({ data, branch ,phoneno}) {
                     <p className='font-bold text-lg shadow-black'>Book Now</p>
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                   </div>
-                  <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
+                  <ul className="flex gap-4 justify-center text-xs pt-2 pb-6 font-bold">
                     <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
                     <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
                     <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
@@ -140,10 +140,10 @@ function CarProducts({ data, branch ,phoneno}) {
               </div>
             </div>
             {(index + 1 === 3) && (
-              <div className="bg-[#8d398d] lg:rounded-b-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105">
-                <div className="relative z-20 bg-[#8d398d] lg:rounded-t-md opacity-90 bottom-4">
-                  <div className="flex flex-col gap-2 items-end pt-5 pr-5">
-                  </div>
+              <div className="pb-9 ">
+              <div className="bg-[#8d398d] lg:rounded-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[500px]   h-[630px] lg:hover:scale-105 relative top-7">
+                <div className="relative z-20 bg-[#8d398d] lg:rounded-md opacity-90 bottom-7">
+                  
                 </div>
                 <div>
                   <Image
@@ -151,16 +151,17 @@ function CarProducts({ data, branch ,phoneno}) {
                     height={1000}
                     width={1000}
                     alt='discount'
-                    className="scale-90 mxs:scale-75 lg:scale-95 relative mxs:bottom-12"
+                    className="scale-90 mxs:scale-75 lg:scale-100 relative mxs:bottom-12 rounded-md"
                   />
                 </div>
+              </div>
               </div>
             )}
             
             {(index + 1 === 5) && (
-              <div className="bg-black lg:rounded-b-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105 pb-9">
-                <div className="relative z-20 bg-black lg:rounded-t-md opacity-90 bottom-4">
-                  <div className="flex flex-col gap-2 items-end pt-5 pr-5">
+              <div className="bg-black lg:rounded-md  shadow-lg flex flex-col  w-[100%] md:w-72 lg:h-[530px]   h-[630px] lg:hover:scale-105 pb-9">
+                <div className="relative z-20 bg-black lg:rounded-md opacity-90 bottom-6">
+                  <div className="flex flex-col gap-2 items-end pt-6 pr-5 lg:rounded-t-md">
                   </div>
                 </div>
                 <div>

@@ -76,20 +76,20 @@ export default function Place() {
             <BangaloreLayout>
                 <div className="min-h-screen">
                     {/* <Header locname={'bangalore'} /> */}
-                    <DynImageChange />
+                    <DynImageChange locname={'bangalore'}/>
                     <div>
-                        <DynNearByApi />
+                        <DynNearByApi city={'bangalore'} />
                     </div>
                     <CarProducts data={carData} branch={"bangalore"} phoneno={'9129122525'}/>
                     <div><DynNearYou /></div>
                     <FeaturedCars data={carData} branch={"bangalore"} />
                     <DynCallBackForm />
-                    <DynWhyChooseUs />
+                    <DynWhyChooseUs locname={'bangalore'}/>
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
                         <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
-                        <DynamicFaqComponent />
+                        <DynamicFaqComponent city={'bangalore'}/>
                     </div>
-                    <GetInTouch />
+                    <GetInTouch city={'bangalore'}/>
                     <PriceList city={'bangalore'}/>
                 </div>
             </BangaloreLayout>

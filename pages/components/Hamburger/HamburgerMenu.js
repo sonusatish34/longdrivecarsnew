@@ -143,12 +143,49 @@ const HamburgerMenu = ({locname}) => {
           className={`${isOpen ? 'block overflow-auto' : 'hidden'} w-11/12 h-fit absolute top-12 bg-blue-50 rounded-md p-2 pt-6 lg:pr-16 right-0 z-50 transition-transform delay-2000 ease-out text-black`}
           style={{ transform: `${isOpen ? 'translateX(0)' : 'translateX(-100%)'}` }}
         >
+          <Link href={'/'}>
+            <div className='flex cursor-pointer items-center'>
+              <Image
+                className="w-24 lg:w-48 lg:h-48"
+                src={logo2}
+                alt="carrr"
+                width={192}
+                height={192}
+                priority
+              // placeholder="blur"
+              />
+              <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
+                <p className='font-semibold xl:text-xl lg:text-xl text-xs'>Self Drive Cars <span className='text-blue-500'>Hyderabad</span></p>
+                <p className='xs:text-xs lg:text-lg flex lg:pl-10 xs:pl-9'>
+                  <span className='xs:text-[7px] lg:text-[10px]'>Powered By</span>
+                  <span className='lg:text-[17px] font-bold text-blue-700 text-[10px] xs:text-[8px] pl-1'>LONG DRIVE CARS</span>
+                </p>
+              </div>
+            </div>
+          </Link>
           <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
-            <li className="w-32 text-start"><Link href={'/branches/self-drive-cars-dilshuknagar'}>Dilshuknagar</Link></li>
-            <li className="w-32 text-start"><Link href={'/branches/self-drive-cars-madhapur'}>Madhapur</Link></li>
-            <li className="w-32 text-start"><Link href={'/branches/self-drive-cars-kukatpally'}>Kukatpally</Link></li>
-            <li className="w-32 text-start"><Link href={'/branches/self-drive-cars-bangalore'}>Bangalore</Link></li>
+            <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
+            <li className="w-32 text-start"><Link href={''}>Contact</Link></li>
+            <li className="w-32 text-start"><Link href={''}>Blog</Link></li>
+            <li className="w-32 text-start"><Link href={''}>Reviews</Link></li>
           </ul>
+          <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
+            <p>For Booking Help Call</p>
+            <div className="flex items-center">
+              <ul>
+                <li>Telangana, AP</li>
+                <li className="font-bold text-2xl text-black">
+                  <Link href="tel:9666677405" target='_blank'>9666-677-405</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="flex items-center">
+              <ul>
+                <li>Bangalore</li>
+                <li className="font-bold text-2xl text-black">912-912-25-25</li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
     </div>

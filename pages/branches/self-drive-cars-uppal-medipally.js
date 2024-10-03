@@ -1,8 +1,9 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
+import Footer from '../components/Footer/Footer';
 function hyderabadrentalcar() {
   return (
-    <div>
+    <div className='bg-white'>
       <HamburgerMenu/>
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       <p className='lg:text-3xl text-xl font-bold'>Now it's easy to get self drive cars in Uppal, Medipally</p>
@@ -29,6 +30,7 @@ function hyderabadrentalcar() {
       <p className='lg:text-lg font-bold'></p>
       <p className='lg:text-lg font-bold'></p>
     </div>
+    <Footer/>
     </div>
     
     

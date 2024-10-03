@@ -1,12 +1,11 @@
 import ContactUS from "../components/ContactUs/ContactUs"
-
+import BangaloreLayout from "../components/Layout/BangaloreLayout"
 function contact() {
 
     return (
-       
-            <ContactUS/>
-        
-
+        <BangaloreLayout>
+            <ContactUS />
+        </BangaloreLayout>
     )
 }
 
