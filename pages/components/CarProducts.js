@@ -106,7 +106,7 @@ function CarProducts({ data, branch ,phoneno}) {
                     <p className='font-bold text-lg shadow-black'>Book Now</p>
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                   </div>
-                  <ul className="flex gap-4 justify-center text-sm pt-2 pb-6 font-bold">
+                  <ul className="flex gap-4 justify-center text-xs pt-2 pb-6 font-bold">
                     <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
                     <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
                     <li className=" flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
@@ -153,6 +153,8 @@ function CarProducts({ data, branch ,phoneno}) {
                     alt='discount self drive car rental'
                     className="scale-90 mxs:scale-75 lg:scale-90 relative mxs:bottom- rounded-md"
                   />
+                </div>
+              </div>
                 </div>
               </div>
               </div>
