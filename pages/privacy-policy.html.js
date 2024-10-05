@@ -3,9 +3,9 @@ import HamburgerMenu from './components/Hamburger/HamburgerMenu'
 import Footer from './components/Footer/Footer'
 function privacypolicyhtml() {
     return (
-        <div>
+        <div className='bg-white'>
             <HamburgerMenu />
-            <div className='bg-white text-[#666] lg:px-20 pl-8 pr-6 pt-32 lg:pt-4 text-sm lg:text-base font-light grotesk-text leading-6 lg:leading-7'>
+            <div className=' text-[#666] lg:px-20 pl-8 pr-6 pt-32 lg:pt-4 text-sm lg:text-base font-light grotesk-text leading-6 lg:leading-7'>
                 <p className='font-bold text-xs text-right'>Updated On: 25th Sep, 2024.</p>
                 <p className='text-center font-bold pt-3 text-base text-black'>PRIVACY POLICY</p>
                 <ol className='pt-3'>

@@ -2,14 +2,14 @@
 // import HamburgerMenuBng
 // import Footer from '../Footer';
 import HamburgerMenuBng from '../Hamburger/HamburgerMenuBng';
-import Footer from '../Footer/Footer';
+import FooterBng from '../Footer/FooterBng';
 const BangaloreLayout = ({ children }) => {
   return (
     <div className='bg-white'>
       {/* <Header city="Bangalore" /> */}
-      <HamburgerMenuBng/>
+      <HamburgerMenuBng />
       <main>{children}</main>
-      <Footer />
+      <FooterBng />
     </div>
   );
 };

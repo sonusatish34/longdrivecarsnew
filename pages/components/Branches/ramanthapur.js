@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import kushaq from '../../images/10.webp'
+import kushaq from '../../images/branchimages/9.webp'
 function ramanthapur() {
 
     return (
@@ -11,7 +11,7 @@ function ramanthapur() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="car rental rampally"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
            <p>The ability to travel at your own speed is more crucial than ever in the fast-paced world of today. Self Drive Cars Hyderabad provides the best <strong>self-drive car rental services in Ramanthapur </strong>self-drive car rental services in Ramanthapur, Hyderabad, making them the ideal choice for your travel requirements.<strong> Self Drive Cars Hyderabad </strong> guarantees the greatest rental car experience, whether you're planning a long road trip or a quick break.</p>

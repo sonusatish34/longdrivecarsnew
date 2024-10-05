@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import creta from '../../images/6.webp'
+import creta from '../../images/branchimages/6.webp'
 function madhapur() {
 
     return (
@@ -11,7 +11,7 @@ function madhapur() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="self drive car rental madhapur"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
             <p className='pt-8'><strong>Self-Drive Car Rentals in Madhapur</strong>  If you're searching for self-drive car rentals in Madhapur, look no further. Self Drive Cars Hyderabad is your ultimate destination for top-notch car rental services near Madhapur.</p>

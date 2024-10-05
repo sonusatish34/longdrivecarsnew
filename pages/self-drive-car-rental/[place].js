@@ -15,6 +15,7 @@ const components = {
   shamshabad: dynamic(() => import('../components/Branches/shamshabad')),
   ramanthapur: dynamic(() => import('../components/Branches/ramanthapur')),
   gachibowli: dynamic(() => import('../components/Branches/gachibowli')),
+
 };
 
 function Place() {

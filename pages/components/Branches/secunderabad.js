@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import xuv500 from '../../images/11.webp'
+import xuv500 from '../../images/branchimages/1.webp'
 function secunderabad() {
 
     return (

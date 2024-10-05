@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import punch from '../../images/7.webp'
+import punch from '../../images/branchimages/3.webp'
 function shamshabad() {
 
     return (

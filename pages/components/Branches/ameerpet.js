@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import tiago from '../../images/1.webp'
+import tiago from '../../images/branchimages/1.webp'
 function Ameerpet() {
 
     return (
@@ -13,7 +13,7 @@ function Ameerpet() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="cars"
+                alt="self drive car rental ameerpet"
             />
             </div>
             <div className='xl:mx-80 lg:mx-80 mx-6'>

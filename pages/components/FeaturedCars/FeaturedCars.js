@@ -101,7 +101,7 @@ const fddata = [
   },
 ]
 
-function FeaturedCars({ data,branch }) {
+function FeaturedCars({ data, branch }) {
   return (
     <div className='feature-cars bg  text-black px-7 py-6 h-[655px] bg-gray-800 '>
       <p className='text-center text-4xl font-semibold py-8 pb-4 text-white'>Check Out Our Featured Cars</p>
@@ -114,11 +114,11 @@ function FeaturedCars({ data,branch }) {
                   <div key={index} className=' '>
                     {(item.maker_model == inside.carname) && <div
                       key={index}
-                      className={`pt-3 flex flex-col text-black w-[270px] rounded-md`}
+                      className={`pt-3 flex flex-col text-black w-[250px] mxs:w-[270px] rounded-md`}
                     >
                       <div className='relative border-2 border-[#660066]-200 bg-white rounded-md'>
                         <p className='bg-[#660066] text-white rounded-t-md pl-5'>Make Year {item?.manufacture_date}</p>
-                        <Link href={`${(((branch?.length?branch:'')+"/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                        <Link href={`${(((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                           <Image
                             src={(inside.src)}
                             alt={'carss'}
@@ -154,13 +154,13 @@ function FeaturedCars({ data,branch }) {
                             <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 24 * 4}</span></p>
                             <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {item?.price_24_hours * 24 * 10}</span></p>
                           </div>
-                          <div className="flex items-center justify-center gap-6 pt-1 border-t-2 border-gray-200">
+                          <div className="flex items-center justify-center gap-4 pt-1 border-t-2 border-gray-200">
                             <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                               <Image
                                 height={500}
                                 width={500}
                                 alt='apple'
-                                className='w-24 h-10'
+                                className='w-24 h-11'
                                 src={apple}
                               >
                               </Image>

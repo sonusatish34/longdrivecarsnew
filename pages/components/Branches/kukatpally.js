@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import thar from '../../images/5.webp'
+import thar from '../../images/branchimages/5.webp'
 function kukatpally() {
 
     return (
@@ -11,7 +11,7 @@ function kukatpally() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="self drive car rental kukatpally"
             />
             <div className=' xl:mx-72 lg:mx-80 mx-6'>
             <p className='font-bold lg:text-xl py-2'>Are you looking for the best self-drive car rentals in Kukatpally?</p>

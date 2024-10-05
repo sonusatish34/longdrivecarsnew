@@ -40,7 +40,6 @@ const CarDetails = () => {
         setLoading(false);
       }
     }
-
     if (maker_model) {
       fetchCarDetails();
     }
@@ -69,10 +68,10 @@ const CarDetails = () => {
           <div className='flex flex-col mt-32 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
             {loading && <div>Loading...</div>}
             {!loading && (
-              <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[534px]">
+              <div className="relative w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[634px]">
                 <Image
                   src={replaceText(caritem?.car_image_car_right_view)}
-                  alt="Car"
+                  alt="self drive car rental"
                   style={{}}
                   className="relative rounded- object-cover"
                   fill

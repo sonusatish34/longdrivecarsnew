@@ -1,15 +1,17 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
-
+import Footer from '../components/Footer/Footer';
+import Link from 'next/link';
 function Bangalore() {
   return (
-    <div className='text-black px-12'>
+    <div className='leading-8 lg:leading-9 bg-white'>
       <HamburgerMenu/>
-      <p className='text-lg font-bold'>Right here for you: Self Drive Cars in Bengaluru</p>
+      <div  className='text-black px-4 bg-white pt-32 lg:pt-10 lg:px-16'>
+      <p className='text-lg font-bold py-2 lg:py-4 lg:text-4xl'>Right here for you: Self Drive Cars in Bengaluru</p>
       <p>Now you need not search for self-drive cars in Bengaluru, because the best name in rental cars - Long Drive Cars - is right here for you.</p>
-      <p className='text-lg font-bold'>Think no more, experience best Self-Drive Car Rental in Bangalore</p>
+      <p className='text-lg font-bold py-2 lg:py-4'>Think no more, experience best Self-Drive Car Rental in Bangalore</p>
       <p>Why self-drive cars? Well, because Bangalore is one of the finest cities in India to experience self-drive cars in which you can travel across the Garden City at your own pace. Offering excellent self-drive cars in Bengaluru, Long Drive Cars is a quality company. With a rental car of your choice, you can indulge in memorable trips that include personal shopping sprees, family picnics, official trips and for any other outings.</p>
-      <p className='text-lg font-bold'>Need a rental car for Shopping? Self-drive cars in Bengaluru, just for you!</p>
+      <p className='text-lg font-bold py-2 lg:py-4'>Need a rental car for Shopping? Self-drive cars in Bengaluru, just for you!</p>
       <p>Bangalore is a heaven for shopaholics. Rejoice that Long Drive Cars are present in the city of Bengaluru. And the city's mega malls and landmark stores love to pamper its visitors and shoppers like you, all year round. In the quality self-drive cars in Bengaluru from Long Drive Cars, you can take your sweet time exploring the legendary shopping scene of the Silicon Valley of India, as you like. No hunting for public cabs wherein an unknown person among you (the driver) is present all the time and overhears all your private talks!</p>
       <p>If you don't want that and prefer privacy in your shopping spree, just pick up your choice of car with the classy Self Drive Car Rental in Bangalore like Long Drive Cars, and breeze through the city's amazing shopping areas. Even if you don't know the city roads inside out to visit the famous places that lie within the lanes and bylanes of Bengaluru, no hassle, just follow the digital maps and zoom off in style. Here are a few suggested places:</p>
       <p>The first on the list is Commercial Street. Yes. It would be a mistake to not visit the Commercial Street. Known for economical shopping, this is the place in Bangalore for all shopaholics. Buy everything on bargain, from clothes, footwear, jewelry, to spices, antiques, home decor and even scintillating sarees.</p>
@@ -20,7 +22,7 @@ function Bangalore() {
       <p>For the techies, there is no better place than SP Road Electronics Market. Shop best gadgets, from mobile accessories, spare parts to new and happening gadgets. But do bargain or your visit would be in vain!</p>
       <p>MG Road is the commercial center that's not to be missed. From cool clothes, including silk sarees to fabulous food, handicrafts, and above all, rosewood and sandalwood, get it all.</p>
       <p>After the famous shopping areas, now come the malls. Or maybe for some, the malls mean everything. The good news for such people: there's no dearth of malls in Bengaluru. Phoenix Marketcity. Orion Mall. Forum Mall. VR Mall. And many more. Go experience them all in one of the sleek self-drive cars in Bengaluru from Long Drive Cars.</p>
-      <p className='text-lg font-bold'>All roads for "Car Rental for Self-Driven in Bangalore" lead to Long Drive Cars</p>
+      <p className='text-lg font-bold py-2 lg:py-4'>All roads for "Car Rental for Self-Driven in Bangalore" lead to Long Drive Cars</p>
       <p>Are you going through that nagging moment when you all have ample leisure time at hand and everyone in the group/family is bored beyond words? Fret not. Simply search for self-drive cars in Bengaluru, come to Long Drive Cars office, and start the happy time within no time. Zoom away to any of the breathtaking getaways that are few hours away from India's tech innovation capital and experience an exhilarating change.</p>
       <p>Reaching weekend getaways in self drive cars is the perfect choice. The short weekend or a long holiday with family and friends by self-driving has its own appeal. With no stranger (driver) among the group, everyone can be at ease and enjoy every moment of the trip.</p>
       <p>The weekend getaways from Bangalore offer self-drive enthusiasts with all types of getaway destinations to choose from. If you like higher altitudes, there are hill stations. Love wildlife? Self-drive to resorts amid the jungles. Curious about India's great past, visit a historical place of your choice. Feeling spiritual, the garden city is close to religious towns. The best part, you can reach the above places without reserving any seat on crowded public transportation: like trains, buses or flights. Additionally, you can choose to extend or advance the date of the trip based on your/others engagements.</p>
@@ -49,7 +51,7 @@ function Bangalore() {
         </ul>
       </div>
 
-      <p className='text-lg font-bold'>Why choose Long Drive Cars?</p>
+      <p className='text-lg font-bold py-2 lg:py-4'>Why choose Long Drive Cars?</p>
       <p>While you and your family/friends would certainly experience comfort in the rental cars offered by Long Drive Cars, however, there are other reasons. Long Drive is gaining popularity in South Indian cities such as Hyderabad, Warangal and Bangalore owing to the following favorable features:</p>
       <p>Long Drive Cars believes in creating good relationships with customers through positive, efficient, and friendly environment.</p>
       <p>The Long Drive Cars team members take the effort to meet and exceed the customers' expectations and they continuously find ways to enhance the level of customer service provided</p>
@@ -62,10 +64,12 @@ function Bangalore() {
         Long drive cars offer smooth ride quality. So, whether you are hiring a car for solo fun ride in Bangalore, picking up a cousin from the Kempegowda international airport at night, or self-driving with family or friends around the city, it would be a memorable experience.
         Long Drive tariff is reasonable and affordable, with choicest of car models to suit any budget.
         With a high google customer rating, Long Drive provides the cleanest cars in this side of the globe.
-        Customers earn reward points on every booking, and the earned points can be redeemed in the subsequent bookings. So, visit https://www.longdrivecars.com/ often as the company announces attractive offers and great discount options from time to time.
+        Customers earn reward points on every booking, and the earned points can be redeemed in the subsequent bookings. So, visit<Link href='https://www.longdrivecars.com/'>https://www.longdrivecars.com/</Link>  often as the company announces attractive offers and great discount options from time to time.
         Happy journey!</p>
-
     </div>
+        <Footer/>
+    </div>
+    
   )
 }
 

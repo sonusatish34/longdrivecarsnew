@@ -3,14 +3,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import carnearbtn from '../../images/carnearbtn.png';
 import mapright from '../../images/mapright.webp';
-function NearByApi() {
+function NearByApi({ city }) {
     return (
         <div className='xl:px-28 lg:px-16 px-2 py-6 lg:py-10'>
             <div className='text-white font-bold xl:px-28 lg:px-12 bg-[#660066] rounded-md py-4 flex flex-col lg:flex-row items-center lg:justify-between poppins-text'>
                 <div className='pt-10 flex flex-col lg:gap-3 gap-2 items-center'>
                     <p className='xl:text-5xl lg:text-4xl text-2xl lg:pt-2'>Explore Cars Near You</p>
                     <p className='text-base xl:text-3xl lg:text-2xl relative'>20Kms Around Your Location</p>
-                    <Link href={'/get-near-by-cars'} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
+                    <Link href={`${city?.length ? city : ''}/get-near-by-cars`} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
                         <Image
                             src={carnearbtn}
                             alt={'home banner'}
@@ -19,10 +19,10 @@ function NearByApi() {
                             className='xl:w-full lg:w-96 lg:h-28 w-full pl-4 '
                         />
                     </Link>
-                    <span className='animate-ping text-xl bg-red-800 rounded-full w-3 h-3 relative bottom-8 left-28 xl:bottom-10 xl:left-44 lg:bottom-10 lg:left-36'></span>
+                    <span className='animate-ping text-xl bg-red-800 rounded-full w-3 h-3 relative bottom-8 left-28 mxs:left-32 xl:bottom-10 xl:left-44 lg:bottom-10 lg:left-36'></span>
                 </div>
                 <div>
-                    <Link href={'/get-near-by-cars'}>
+                    <Link href={`${city?.length ? city : ''}/get-near-by-cars`}>
                         <Image
                             src={mapright}
                             alt={'home banner'}
@@ -38,3 +38,22 @@ function NearByApi() {
 }
 
 export default NearByApi
+
+    // <!-- Event snippet for Contact conversion page
+    // In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    // < script >
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof (url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16698821101/CQaxCPyqu9YZEO2Tz5o-',
+            'value': 1.0,
+            'currency': 'INR',
+            'event_callback': callback
+        });
+        return false;
+    }
+{/* </script> */}

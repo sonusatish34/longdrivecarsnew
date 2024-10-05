@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import harrier from '../../images/3.webp'
+import harrier from '../../images/branchimages/3.webp'
 function ecil() {
 
     return (
@@ -11,7 +11,7 @@ function ecil() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="cars"
+                alt="self drive car rental ecil"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
             <p>If you're searching for the best <strong>self drive car rentals</strong>  in ECIL, look no further than<strong> Self Drive Cars Hyderabad</strong>. Offering a seamless and convenient car rental experience, this service is perfect for those who want the freedom to explore without the hassle of deposits or mileage restrictions. </p>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import innovaa from '../../images/9.webp'
+import innovaa from '../../images/branchimages/8.webp'
 function miyapur() {
 
     return (
@@ -11,7 +11,7 @@ function miyapur() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="car rental miyapur"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
             <p className='pb-3'>You probably already love <strong>self-drive rental cars</strong> if you get a kick out of driving a different vehicle every time you go somewhere. One benefit of renting a car is that you can select from a large selection of models and variations. For example, <strong>Self Drive Cars</strong>  offers a range of 5-seater and 7-8-seater rental cars if you're seeking for self-drive cars in Miyapur.</p>

@@ -3,8 +3,6 @@ import dynamic from 'next/dynamic';
 
 import CarProducts from '../CarProducts';
 import DynWhyChooseUs from '../WhyChooseUs/WhyChooseUs'
-import SelfDrivePlaces from '../SelfDrivePlaces/SelfDrivePlaces';
-
 const DynHeader = dynamic(() => import('../Hamburger/HamburgerMenu'));
 const DynCallBackForm = dynamic(() => import('../CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../NearYou/NearYou'));
@@ -24,7 +22,7 @@ export default function Homepage({ data }) {
       <div>
         <DynNearByApi />
       </div>
-      <CarProducts data={data2} />
+      <CarProducts phoneno={'9000478478'} data={data2} />
       <div><DynNearYou /></div>
       <FeaturedCars data={data2}/>
       <DynCallBackForm />
