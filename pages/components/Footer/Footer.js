@@ -175,6 +175,7 @@ function Footer({ branch }) {
                 {/* <Link href={'/blog.html'}>blogs</Link> */}
             </div>
         </div>
+    </div>
     )
 }
 export default Footer;
