@@ -14,7 +14,6 @@ function Footer({ branch }) {
     return (
         <div className={`bg-white`}>
             <div className='flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center '>
-            <div className='flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center '>
                 <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
                     <ul className='lg:gap-x-16 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
@@ -44,19 +43,6 @@ function Footer({ branch }) {
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
-                                {/* <div className='flex items-center'> */}
-                                <Image
-                                    className=" lg:w- lg:h-32"
-                                    src={logo2}
-                                    alt="carrr"
-                                    width={1000}
-                                    height={1000}
-                                    priority
-                                // placeholder="blur"
-                                />
-                                {/* <p className='lg:text-5xl uppercase font-bold'>longdrivecars</p> */}
-                                {/* </div> */}
-
                                 {/* <div className='flex items-center'> */}
                                 <Image
                                     className=" lg:w- lg:h-32"
@@ -175,7 +161,6 @@ function Footer({ branch }) {
                 {/* <Link href={'/blog.html'}>blogs</Link> */}
             </div>
         </div>
-    </div>
     )
 }
 export default Footer;
