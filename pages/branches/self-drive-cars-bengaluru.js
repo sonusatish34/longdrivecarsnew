@@ -5,7 +5,7 @@ import Link from 'next/link';
 function Bangalore() {
   return (
     <div className='leading-8 lg:leading-9 bg-white'>
-      <HamburgerMenu/>
+      <HamburgerMenu phoneno={'9000-478-478'}/>
       <div  className='text-black px-4 bg-white pt-32 lg:pt-10 lg:px-16'>
       <p className='text-lg font-bold py-2 lg:py-4 lg:text-4xl'>Right here for you: Self Drive Cars in Bengaluru</p>
       <p>Now you need not search for self-drive cars in Bengaluru, because the best name in rental cars - Long Drive Cars - is right here for you.</p>

@@ -6,7 +6,7 @@ import Layout from './components/Layout/Layout'
 import About from './components/ContactUs/About'
 function about() {
     return (
-        <Layout>
+        <Layout phoneno={'9000-478-478'}>
             <div>
                 <About/>
             </div>

@@ -31,7 +31,7 @@ export default function Homepage({ data }) {
         <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
         <DynamicFaqComponent />
       </div>
-      <GetInTouch />
+      <GetInTouch phoneno={'9000478478'}/>
       <DynamicPriceList city={'hyd'}/>
       
       

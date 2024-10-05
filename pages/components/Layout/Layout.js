@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from '../Hamburger/HamburgerMenu'
 import Footer from '../Footer/Footer';
-const Layout = ({ children }) => {
+const Layout = ({ children , city, phoneno ,locname}) => {
     return (
         <div className=" min-h-screen bg-white">
-            <Header />
+            <Header phoneno={phoneno} locname={locname}/>
             <main className="flex-grow bg-white">{children}</main>
-            <Footer />
+            <Footer/>
         </div>
     );
 };

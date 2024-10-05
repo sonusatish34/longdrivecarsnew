@@ -14,7 +14,7 @@ function Footer({ branch }) {
     return (
         <div className={`bg-white`}>
             <div className='flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center '>
-                <div className=' xl:text-left lg:text-base text-left text-xs font-semibold'>
+                <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
                     <ul className='lg:gap-x-16 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/medipally'}>Self drive car rental in Medipally</Link></li>
@@ -40,7 +40,7 @@ function Footer({ branch }) {
             </div>
             <div style={{ backgroundImage: 'url(/ldcfooter_11zon.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
                 <footer className='py-8 pl-4 lg:py-2 lg:px-4'>
-                    <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-14 xl:pt relative top-">
+                    <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-8 xl:pt relative top">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
                                 {/* <div className='flex items-center'> */}
@@ -128,9 +128,7 @@ function Footer({ branch }) {
                                 <p className='font-bold text-lg text-blue-500'>Location</p>
                                 <p className='w-40 text-xs'>Long Drive Cars, Pillar No 129, Main Road, beside Medipally, Medipally, Hyderabad, Telangana 500098</p>
                             </div>
-
                         </div>
-
                     </div>
                 </footer>
                 <div className='relative lg:bottom-3 top-3 lg:top-7'>

@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 function hyderabadrentalcar() {
   return (
     <div className='bg-white'>
-      <HamburgerMenu />
+      <HamburgerMenu phoneno={'9000-478-478'}/>
       <div className='text-black lg:px-16 px-4 leading-8 lg:leading-9 pt-24 lg:pt-16 bg-white'>
         <p className='text-xl font-bold py-2 lg:py-4 lg:text-5xl'>Hyderabad rental car in a matter of minutes!</p>
         <p>Overdue for a vacation? Take yourself and your family or friends out of town on a memorable road jaunt.</p>

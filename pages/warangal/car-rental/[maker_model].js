@@ -54,7 +54,7 @@ const CarDetails = () => {
   };
 
   return (
-    <Layout>
+    <Layout locname={'warangal'} phoneno={"9000-777-665"}>
       <div className='bg-white text-black'>
         {/* <HamburgerMenu locname={"Warangal"}/> */}
         <Head>

@@ -4,7 +4,7 @@ import Footer from '../components/Footer/Footer';
 function hyderabadrentalcar() {
   return (
     <div className='bg-white'>
-      <HamburgerMenu/>
+      <HamburgerMenu phoneno={'9000-478-478'}/>
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       <p className='lg:text-3xl text-xl font-bold py-2'>Now it's easy to get self drive cars in Uppal, Medipally</p>
       <p>If you are among the smart people who believe in driving a different car on every outing, than you are among the few who have already self driven a rental car. Another advantage of renting a car is the choice of variants/models that this service provides. So write 'self drive cars in Uppal, Medipally' and see what you get: the many 5 seater and 7-8 seater cars you can rent out at Long Drive Cars!</p>

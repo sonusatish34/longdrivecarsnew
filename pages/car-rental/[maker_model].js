@@ -52,7 +52,7 @@ const CarDetails = () => {
   };
 
   return (
-    <Layout>
+    <Layout phoneno={'9000-478-478'}>
       <div className='bg-white text-black'>
         {/* <HamburgerMenu locname={"bangalore"}/> */}
         <Head>

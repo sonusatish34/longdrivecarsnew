@@ -3,9 +3,9 @@ import ExploreCars from '../components/ExploreCars/ExploreCars'
 import Layout from '../components/Layout/Layout'
 function exploreselfdrivecars() {
   return (
-    <Layout>
+    <Layout locname={'warangal'} phoneno={"9000-777-665"}>
       <div>
-        <ExploreCars loc={'bangalore'} />
+        <ExploreCars loc={'warangal'} phoneno={"9000777665"}/>
       </div>
     </Layout>
 

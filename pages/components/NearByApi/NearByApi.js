@@ -38,22 +38,3 @@ function NearByApi({ city }) {
 }
 
 export default NearByApi
-
-    // <!-- Event snippet for Contact conversion page
-    // In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-    // < script >
-    function gtag_report_conversion(url) {
-        var callback = function () {
-            if (typeof (url) != 'undefined') {
-                window.location = url;
-            }
-        };
-        gtag('event', 'conversion', {
-            'send_to': 'AW-16698821101/CQaxCPyqu9YZEO2Tz5o-',
-            'value': 1.0,
-            'currency': 'INR',
-            'event_callback': callback
-        });
-        return false;
-    }
-{/* </script> */}

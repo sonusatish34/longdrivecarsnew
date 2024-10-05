@@ -32,7 +32,7 @@ function Place() {
   }, [place]);
 
   return (
-    <Layout>
+    <Layout locname={'warangal'} phoneno={"9000-777-665"}>
       <div className='text-black lg:px- pt-32 lg:pt-10 leading-8 lg:leading-9 '>
         {Component ? <Component /> : <div>Loading...</div>}
       </div>

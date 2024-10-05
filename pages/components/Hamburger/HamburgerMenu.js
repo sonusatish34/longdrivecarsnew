@@ -9,12 +9,12 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenu = ({locname}) => {
-  
+const HamburgerMenu = ({ locname ,phoneno }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
-
+  // const validLocations = ['bangalore', 'warangal', 'vizag','mysore','mangalore'];
   const handleClickOutside = (event) => {
     if (
       menuRef.current &&
@@ -80,27 +80,29 @@ const HamburgerMenu = ({locname}) => {
         <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
-          <h2 className='lg:text-2xl lg:font-bold'>
-            <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
-          </h2>
+          <div className='lg:text-2xl lg:font-bold'>
+            <Link href={`tel:${(phoneno?.replace(/-/g, ""))}`} target='_blank'>{phoneno}</Link>
+          </div>
         </div>
       </div>
       <div className="flex lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20 w-full">
         <div className="flex">
-         
+
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
             <div className='flex items-center lg:gap-6 gap-3'>
-              <Link href={`${(locname?.length && locname=='bangalore')?'/bangalore':'/'}`} className='flex items-center lg:gap-6 gap-3'>
+              <Link
+                href={`${(locname?.length) ? `/${locname}` : '/'}`}
+                className='flex items-center lg:gap-6 gap-3'>
                 <Image
                   className="lg:w-32 w-10"
                   src={logo2}
                   alt="carrr"
                   width={192}
                   height={192}
-                  // priority
+                // priority
                 // placeholder="blur"
                 />
-              <p className='font-semibold text-[#0456e8] text-sm xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
+                <p className='font-semibold text-[#0456e8] text-sm xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
               </Link>
             </div>
             <div className='w-full text-black lg:mt-2 lg:pl-10 xl:pl-56'>
@@ -108,8 +110,8 @@ const HamburgerMenu = ({locname}) => {
                 <ul className='font-semibold xl:text-lg lg:text-base  flex gap-8 xl:gap-12'>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Blog</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/about'}>About Us</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/contact.html'}>Contact Us</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/about` : '/about'}`}>About Us</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/contact.html` : '/contact.html'}`}>Contact Us</Link></li>
                 </ul>
               </div>
             </div>

@@ -89,8 +89,8 @@ export default function Place() {
                         <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
                         <DynamicFaqComponent city={'bangalore'}/>
                     </div>
-                    <GetInTouch city={'bangalore'}/>
-                    <PriceList city={'bangalore'}/>
+                    <GetInTouch city={'bangalore'} phoneno={'9129122525'}/>
+                    <PriceList city={'bangalore'} phoneno={'9129122525'}/>
                 </div>
             </BangaloreLayout>
         </div>
