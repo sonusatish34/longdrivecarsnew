@@ -1,13 +1,22 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
-
+import Image from 'next/image';
+import www from '../images/branchimages/4.webp'
 function dilshuknagar() {
   return (
     <div className='bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'}/>
     <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
-      
+    <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
       <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>Easy access to self drive cars in Dilsukhnagar</p>
       <p>Long Drive cars is a market leading provider of self drive cars in Dilsukhnagar with the latest fleet of cars to meet any individual needs. The car rental services offered at Long Drive cars are the very services you would expect from a quality professional self driving solutions company</p>
       <p>It's hard to believe but the car rental segment in India in the year 2019 looked refreshingly different compared to what it appears today.</p>

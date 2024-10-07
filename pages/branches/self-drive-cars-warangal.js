@@ -1,12 +1,22 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
-
+import Image from 'next/image';
+import www from '../images/branchimages/1.webp'
 function warangal() {
   return (
     <div className='bg-white'>
-      <HamburgerMenu phoneno={'9000-478-478'}/>
-    <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+      <HamburgerMenu phoneno={'9000-478-478'} />
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+        <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
         <p className='font-bold text-xl lg:text-3xl py-2'>Stop here if you are searching for Self Drive Cars Warangal</p>
         <p>It's now near you, get self drive cars in Warangal at Long Drive cars.</p>
         <p className='font-bold text-lg py-2'>Choose the best self driving cars in Warangal</p>
@@ -51,8 +61,8 @@ function warangal() {
         <p>After completing the entire Warangal outing, self drive car from Warangal to Hyderabad next. On your way to Hyderabad, first find a must visit place - the Jain Temple at Kolanupaka. Also known as Kulpakji, this temple is 2000 years old, located in Kolanupaka at a distance of 83 kms from Warangal. Yet another reason to self drive!</p>
         <p>No ordinary place, the Jain Temple of Kolanupaka is supposedly built in the 11th Century AD by Bharata Chakravarty of the Rahtrakutas. Recently restored, this temple is regarded to be sacred for the Shwetambaras and is reasonably well maintained by the community. The temple is home to the idols of the three main Jain Tirthankaras : Lord Rishabha, Lord Neminath and Lord Mahavira. The idol of Lord Rishabha is made from a single jade (thus the magnificence it reflects) and is also known as Maniyaswami. If you are the one who goes into great details, then you can find a myriad of Jain manuscripts, antiquities and inscriptions here, proving that this temple was once a major religious hub for the Jains.</p>
         <p>On the road again, you would notice that the last couple of hours on the way to Hyderabad are quite scenic. Happy driving to Hyderabad, where historical places like Charminar, Golconda fort, palaces and museums as well as new age landmarks, Ramoji film city, theme parks and more await you!</p>
-    </div>
-    <Footer/>
+      </div>
+      <Footer />
     </div>
   )
 }

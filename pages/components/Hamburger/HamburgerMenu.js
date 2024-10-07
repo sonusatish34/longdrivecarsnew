@@ -108,8 +108,8 @@ const HamburgerMenu = ({ locname ,phoneno }) => {
             <div className='w-full text-black lg:mt-2 lg:pl-10 xl:pl-56'>
               <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
                 <ul className='font-semibold xl:text-lg lg:text-base  flex gap-8 xl:gap-12'>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Blog</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}` : '/'}`}>Home</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}` : '/'}`}>Blog</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/about` : '/about'}`}>About Us</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/contact.html` : '/contact.html'}`}>Contact Us</Link></li>
                 </ul>

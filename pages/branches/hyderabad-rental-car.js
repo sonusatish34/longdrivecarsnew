@@ -1,11 +1,22 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
+import www from '../images/branchimages/2.webp'
+import Image from 'next/image';
 function hyderabadrentalcar() {
   return (
     <div className='bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'}/>
       <div className='text-black lg:px-16 px-4 leading-8 lg:leading-9 pt-24 lg:pt-16 bg-white'>
+      <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
         <p className='text-xl font-bold py-2 lg:py-4 lg:text-5xl'>Hyderabad rental car in a matter of minutes!</p>
         <p>Overdue for a vacation? Take yourself and your family or friends out of town on a memorable road jaunt.</p>
         <p>At this point you may ask: How to holiday across India in an independent manner with your family and friends, and without spending a huge amount? No problem. No own vehicle that can carry 7-8 people? No worries. Don't hit the brakes on your getaway plans, choose from the best 7-8 seater car of your choice from Long Drive Cars, the best Hyderabad rental car service.</p>

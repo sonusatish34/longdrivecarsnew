@@ -1,10 +1,21 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
+import Image from 'next/image';
+import www from '../images/branchimages/5.webp'
 function hyderabadrentalcar() {
   return (
     <div className='bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'}/>
+      <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
       <p className='lg:text-3xl text-xl font-bold py-2'>Now it's easy to get self drive cars in Uppal, Medipally</p>
       <p>If you are among the smart people who believe in driving a different car on every outing, than you are among the few who have already self driven a rental car. Another advantage of renting a car is the choice of variants/models that this service provides. So write 'self drive cars in Uppal, Medipally' and see what you get: the many 5 seater and 7-8 seater cars you can rent out at Long Drive Cars!</p>

@@ -180,7 +180,7 @@ function CarProducts({ data, branch ,phoneno}) {
 
       {
         visibleItems < filteredData?.length && (
-          <div className="text-center md:pb-10 py-6 pt-8 px-6">
+          <div className="text-center  pb-14 px-6">
             <button className="bg-[#4508a6] text-xl font-bold text-white w-full lg:w-96 py-4 rounded-full">
               <Link href={`${branch?.length?branch:''}/explore-self-drive-cars`}>View all cars</Link>
             </button>

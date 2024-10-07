@@ -81,6 +81,7 @@ const CarDetails = () => {
               </div>
             )}
             <div className='flex flex-col justify-evenly'>
+              
               <div>
                 <p className='p-1 font-bold  text-3xl lg:pl-20'>{customData[mdyfmaker_model]?.id}</p>
                 <p className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹{caritem?.price_24_hours * 24}/day</span></p>

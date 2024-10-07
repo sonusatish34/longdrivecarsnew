@@ -2,13 +2,25 @@ import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
+import www from '../images/branchimages/3.webp'
+import Image from 'next/image';
 function Bangalore() {
   return (
     <div className='leading-8 lg:leading-9 bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'}/>
+
       <div  className='text-black px-4 bg-white pt-32 lg:pt-10 lg:px-16'>
       <p className='text-lg font-bold py-2 lg:py-4 lg:text-4xl'>Right here for you: Self Drive Cars in Bengaluru</p>
       <p>Now you need not search for self-drive cars in Bengaluru, because the best name in rental cars - Long Drive Cars - is right here for you.</p>
+      <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
       <p className='text-lg font-bold py-2 lg:py-4'>Think no more, experience best Self-Drive Car Rental in Bangalore</p>
       <p>Why self-drive cars? Well, because Bangalore is one of the finest cities in India to experience self-drive cars in which you can travel across the Garden City at your own pace. Offering excellent self-drive cars in Bengaluru, Long Drive Cars is a quality company. With a rental car of your choice, you can indulge in memorable trips that include personal shopping sprees, family picnics, official trips and for any other outings.</p>
       <p className='text-lg font-bold py-2 lg:py-4'>Need a rental car for Shopping? Self-drive cars in Bengaluru, just for you!</p>

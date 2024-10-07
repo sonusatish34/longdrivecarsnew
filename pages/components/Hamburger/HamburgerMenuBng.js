@@ -107,8 +107,8 @@ const HamburgerMenuBng = () => {
             <div className='w-full text-black lg:mt-2 xl:pl-60 lg:pl-20'>
               <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
                 <ul className='font-semibold text-lg flex gap-16'>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Home</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={'/'}>Blog</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={'/bangalore'}>Home</Link></li>
+                  <li><Link className='hover:text-blue-400 hover:underline' href={'/bangalore'}>Blog</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/bangalore/about'}>About Us</Link></li>
                   <li><Link className='hover:text-blue-400 hover:underline' href={'/bangalore/contact.html'}>Contact Us</Link></li>
                 </ul>
