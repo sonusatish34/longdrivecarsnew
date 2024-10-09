@@ -216,6 +216,12 @@
 
     "subdesc": "At Long Drive Cars, we've got your back for convenient and pocket-friendly car rentals. Say yes to self-drive car rentals  options for great rates and terms that cater to you, beating out those chauffeur-driven choices any day. Feel the freedom and privacy of steering your own adventure. The Polo, loaded with cool features inside, is your go-to for those long road trips. With our self-drive car rental deals, clock up as many kilometers as you want, zero deposit needed, just smooth sailing at your own rhythm. Our Long Drive Cars now offer the convenience of the closest self-drive Polo available, making your rental experience effortless."
   },
+  "volkswagen virtus": {
+    "id": "Volkswagen's  virtus",
+    "desc": "Volkswagen's virtus is a little automobile that combines performance, style, and utility all together. Driving a virtus is pleasant and comfortable thanks to its sophisticated technology features, roomy cabin, and elegant exterior. It has a variety of powerful engines that deliver remarkable fuel economy without sacrificing performance. The virtus's handling agility makes city driving easy, and its safety features provide peace of mind when driving. All things considered, Volkswagen's dedication to quality and innovation in the small car market is embodied by the virtus.",
+
+    "subdesc": "At Long Drive Cars, we've got your back for convenient and pocket-friendly car rentals. Say yes to self-drive car rentals  options for great rates and terms that cater to you, beating out those chauffeur-driven choices any day. Feel the freedom and privacy of steering your own adventure. The virtus, loaded with cool features inside, is your go-to for those long road trips. With our self-drive car rental deals, clock up as many kilometers as you want, zero deposit needed, just smooth sailing at your own rhythm. Our Long Drive Cars now offer the convenience of the closest self-drive virtus available, making your rental experience effortless."
+  },
 
   "ford ecosport": {
     "id": "Ford's EcoSport",
@@ -500,6 +506,12 @@
     "desc": "The Crysta Car embodies sleek elegance and futuristic innovation. Its aerodynamic silhouette seamlessly integrates with LED accent lighting that traces its contours, illuminating the road ahead with a blend of style and functionality. The interior is a sanctuary of luxury, featuring premium leather upholstery and state-of-the-art technology at every touchpoint. With advanced driver-assist systems and a responsive hybrid engine, the Crysta Car delivers both exhilarating performance and eco-conscious efficiency. Whether navigating urban streets or embarking on a cross-country adventure, this car redefines the driving experience with its blend of sophistication and cutting-edge design.",
 
     "subdesc": "Long Drive Cars offers the perfect blend of budget and convenience through our self-drive car rental services. Designed to be affordable and flexible, our rentals provide better value than chauffeured options. Relish the freedom and privacy of self-drive cars, equipped with luxurious cabins ideal for long journeys.Long Drive car rentals take advantage of unlimited mileage and zero deposit requirements, ensuring a stress-free experience. Our Long Drive Cars now offer the convenience of the closest self-drive Crysta available, making your rental experience effortless."
+  },
+  "toyota innova": {
+    "id": "Toyota Innova ",
+    "desc": "The Innova Car embodies sleek elegance and futuristic innovation. Its aerodynamic silhouette seamlessly integrates with LED accent lighting that traces its contours, illuminating the road ahead with a blend of style and functionality. The interior is a sanctuary of luxury, featuring premium leather upholstery and state-of-the-art technology at every touchpoint. With advanced driver-assist systems and a responsive hybrid engine, the Innova Car delivers both exhilarating performance and eco-conscious efficiency. Whether navigating urban streets or embarking on a cross-country adventure, this car redefines the driving experience with its blend of sophistication and cutting-edge design.",
+
+    "subdesc": "Long Drive Cars offers the perfect blend of budget and convenience through our self-drive car rental services. Designed to be affordable and flexible, our rentals provide better value than chauffeured options. Relish the freedom and privacy of self-drive cars, equipped with luxurious cabins ideal for long journeys.Long Drive car rentals take advantage of unlimited mileage and zero deposit requirements, ensuring a stress-free experience. Our Long Drive Cars now offer the convenience of the closest self-drive Innova available, making your rental experience effortless."
   },
 
   "toyota fortuner": {

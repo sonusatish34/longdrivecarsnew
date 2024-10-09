@@ -1,26 +1,15 @@
 import React from 'react'
-import Image from 'next/image';
-import ds from '../../../pages/images/icon-navigator.svg'
-import clock from '../../../pages/images/icon-clock.svg'
-import deposit from '../../../pages/images/deposit.svg'
-import ggle from '../../../pages/images/ggle.webp'
-import apple from '../../../pages/images/apple.webp'
-import { BiPhoneCall } from "react-icons/bi";
-import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
-import lady from '../../../pages/images/tboo_lady_image.svg'
-import Layout from '../Layout/Layout';
-
 import ImageChange from '../ImageChange/ImageChange';
 const ContactUS = () => {
 
     return (
-        // <Layout>
+
         <div className='text-black bg-white'>
             <div className='bg-white text-black lg:text-lg text-sm lg:leading-9 leading-7 lg:pt-2 pt-28'>
                 <p className='font-bold lg:text-4xl text-3xl py-4 lg:px-16 px-2'>Welcome to Long drive cars - Your trusted partner for self drive rental cars </p>
-                <ImageChange/>
-                
+                <ImageChange />
+
                 <div className='lg:px-16 px-2 pt-4'>
                     <p >Long drive cars -  your go-to solution for all your self-drive car rental needs! Whether you're planning a weekend adventure, a corporate outing or require a car for everyday use, long drive cars are here to ensure that your travel  experience is smooth and hassle free. </p>
                     <p>Explore the places at your own pace with our fleet of well maintained vehicles that give you the best value for your money.  We at Long drive cars do not compromise on quality and are transparent about the pricing policies without any hidden charges. </p>
@@ -41,17 +30,13 @@ const ContactUS = () => {
                     <p className='py-4 font-bold lg:text-3xl'>Visit Our Office</p>
                     <p>You can also visit our office at:  Long Drive Cars, Pillar No 129, Main Road, beside Medipally, Medipally, Hyderabad, Telangana 500098 , 9111911162.</p>
                     <p className='py-4 font-bold lg:text-3xl'>Social Media</p>
-                    {/* <p>Follow us on social media for the latest updates and offers:</p>
-                    <p>Instagram:<Link className='underline' href={'https://www.instagram.com/longdrivecars_official/'}>https://www.instagram.com/longdrivecars_official/</Link> </p>*/}
-                    <p></p>
                     <p>Follow us on social media for the latest updates and offers:</p>
-                    <p>
-
-                    <Link className='underline' href={'https://twitter.com/Long_drive_cars'}>Twitter</Link>
+                    <p className='flex gap-4'>
+                        <Link className='underline' href={'https://twitter.com/Long_drive_cars'}>Twitter</Link>
+                        <Link className='underline' href={'https://www.instagram.com/longdrivecars_official/'}>Instagram</Link>
                     </p>
-                    <Link className='underline' href={'https://www.instagram.com/longdrivecars_official/'}>Instagram</Link>
                     <p className='py-4 font-bold lg:text-3xl'>CUSTOMER SUPPORT </p>
-                    <p>Come what may : Regardless of the challenges or any obstacles faced during your journey, Long drive cars assure you with top-notch support 24/7 from our customer support team. Wherever you are, count on us to get you back on road promptly. Ran out of gas or in need of a spare tire? No worries, we'll use our reliable tracking tools to find the nearest service center from a vast network of service centers and send help your way.  Give us a call or ping us at : <Link className='underline' href={'tel:9000478478'}>+91 9000-478-478</Link>. </p> 
+                    <p>Come what may : Regardless of the challenges or any obstacles faced during your journey, Long drive cars assure you with top-notch support 24/7 from our customer support team. Wherever you are, count on us to get you back on road promptly. Ran out of gas or in need of a spare tire? No worries, we'll use our reliable tracking tools to find the nearest service center from a vast network of service centers and send help your way.  Give us a call or ping us at : <Link className='underline' href={'tel:9000478478'}>+91 9000-478-478</Link>. </p>
                     <p className='py-4 font-bold lg:text-3xl'>Big moves ahead:  Huge updates incoming. </p>
                     <p>Whether you need a small car for running errands or a spacious SUV for a family trip, we’ll have the right ride for you</p>
                     <p>Big things are happening at Long drive cars, and we can’t wait for you to join us on this epic journey!</p>
@@ -64,7 +49,7 @@ const ContactUS = () => {
                         <li>Bangalore</li>
                         <li>Mysore</li>
                         <li>Mangalore</li>
-                    </ol> 
+                    </ol>
                 </div>
             </div>
         </div>

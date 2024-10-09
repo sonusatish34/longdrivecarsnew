@@ -4,7 +4,8 @@ import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-import customData from '../../components/kk.json';
+// import customData from '../../components/kk.json';
+import customData from './components/kk.json';
 import { PiCarFill } from "react-icons/pi";
 import { BiPhoneCall } from "react-icons/bi";
 import Link from 'next/link';
@@ -14,10 +15,9 @@ import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
 import { HiCurrencyRupee } from "react-icons/hi";
 
-// import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Head from 'next/head';
-import Layout from '../../components/Layout/Layout';
-const CarDetails = () => {
+import Layout from './components/Layout/Layout';
+const CarDetails = ({city,phoneno}) => {
   const [caritem, setCarItem] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -28,7 +28,7 @@ const CarDetails = () => {
     async function fetchCarDetails() {
       setLoading(true);
       try {
-        const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
+        const response = await fetch(`https://api.longdrivecarz.in/site/cars-info?location=${city}`);
         const items = await response.json();
         const cars = items?.data?.results;
         const car = cars?.find(i => i?.maker_model.toLowerCase() == mdyfmaker_model);
@@ -52,16 +52,15 @@ const CarDetails = () => {
   };
 
   return (
-    <Layout phoneno={'9000-777-665'} locname={'warangal'}>
       <div className='bg-white text-black'>
         {/* <HamburgerMenu locname={"bangalore"}/> */}
         <Head>
-          <title>Zero Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
+          <title>Zero Deposit & Unlimited km - Self-Drive Car Rentals In {city}</title>
           <meta name="description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta property="og:title" content="Zero Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+          <meta property="og:title" content="Zero Deposit & Unlimited km - Self-Drive Car Rentals In {city}" />
           <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-          <script
+          {/* <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=AW-16731119855"
           ></script>
@@ -74,7 +73,7 @@ const CarDetails = () => {
             gtag('config', 'AW-16731119855');
           `,
             }}
-          ></script>
+          ></script> */}
         </Head>
         <div className='xl:mx-16  mx-4'>
           <div className='flex flex-col mt-[7.48rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
@@ -100,12 +99,12 @@ const CarDetails = () => {
                 <p className='font-semibold text-2xl '>Contact us  by</p>
                 <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
                   <button className='bg-green-500 rounded-full p-2 lg:p-3'>
-                    <Link href="https://api.whatsapp.com/send?phone=+919000777665&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+                    <Link href={`https://api.whatsapp.com/send?phone=+91${phoneno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`} target='_blank'>
                       <p className=' flex items-center gap-1 text-base'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                     </Link>
                   </button>
                   <button className='bg-blue-500 rounded-full p-2 lg:p-3 lg:px-7'>
-                    <Link href="tel:9000777665" target='_blank'>
+                    <Link href={`tel:${phoneno}`} target='_blank'>
                       <p className=' flex items-center gap-1 text-base'><span><BiPhoneCall className='xl:size-6' /></span> <span>Call Us</span></p>
                     </Link>
                   </button>
@@ -117,12 +116,12 @@ const CarDetails = () => {
             <p className='font-semibold text-2xl'>Contact us by</p>
             <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
               <button className='bg-green-500 rounded-full p-2 lg:p-3'>
-                <Link href="https://api.whatsapp.com/send?phone=+919000777665&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking." target='_blank'>
+              <Link href={`https://api.whatsapp.com/send?phone=+91${phoneno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`} target='_blank'>
                   <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                 </Link>
               </button>
               <button className='bg-blue-500 rounded-full p-2 lg:p-3 lg:px-7'>
-                <Link href="tel:9000777665" target='_blank'>
+              <Link href={`tel:${phoneno}`} target='_blank'>
                   <p className=' flex items-center gap-1 text-xl'><span><BiPhoneCall className='xl:size-6' /></span> <span>Call Us</span></p>
                 </Link>
               </button>
@@ -181,14 +180,13 @@ const CarDetails = () => {
                 {customData[mdyfmaker_model]?.desc}
               </p>
             </div>
-            <p className='font-semibold text-xl py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental Hyderabad</p>
+            <p className='font-semibold text-xl py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental {city}</p>
             <p className='font-light p-1 leading-6 text-xs lg:text-base pb-8'>
               {customData[mdyfmaker_model]?.subdesc}
             </p>
           </div>
         </div>
       </div>
-    </Layout>
   );
 };
 

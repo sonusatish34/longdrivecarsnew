@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Image from 'next/image';
@@ -20,11 +19,7 @@ const LocationFetcher = () => {
     const [lat, setLat] = useState('');
 
     const replaceText = (str) => {
-        if (str?.includes("cdn"))
-            return str;
-        else {
-            return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-        }
+        return str?.includes("cdn") ? str : str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
     };
 
     const today = new Date();
@@ -58,7 +53,7 @@ const LocationFetcher = () => {
         };
 
         fetchLocation();
-    }, []); // Empty dependency array ensures this runs on mount
+    }, []); // Runs once on mount
 
     useEffect(() => {
         if (!location) return;
@@ -87,7 +82,7 @@ const LocationFetcher = () => {
         };
 
         fetchData();
-    }, [location]);
+    }, [location, lat, lon]); // Fetch data when location changes
 
     const getOrderedImages = (attributes) => {
         const imageMap = {};
@@ -112,13 +107,13 @@ const LocationFetcher = () => {
                     </div>
                 </div>}
                 {error && <p>Error: {error}</p>}
-                <div className=' bg-white'>
-                    <p className=' text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
-                    <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36 overflow-hidden'>
+                <div className='bg-white'>
+                    <p className='text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
+                    <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
                         {data?.map((item, index) => (
                             <React.Fragment key={index}>
-                                <div className="bg-white lg:rounded-md shadow-lg flex flex-col w-[100%] md:w-72 h-[530px] lg:hover:scale-105 ">
-                                    <div className="relative h-[530px] lg:rounded-md ">
+                                <div className="bg-white lg:rounded-md shadow-lg flex flex-col w-[100%] md:w-72 h-[530px] lg:hover:scale-105">
+                                    <div className="relative h-[530px] lg:rounded-md">
                                         <Slider
                                             dots={false}
                                             infinite={false}
@@ -146,7 +141,9 @@ const LocationFetcher = () => {
                                             <div className="relative bottom-[538px] z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md">
                                                 <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                                                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md z-50 font-manrope text-base px-2'>{item?.maker_model.toLowerCase()}</p>
-                                                    <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '> <span></span><span>{Math.round((item?.distance) * 100) / 100} km near you</span></p>
+                                                    <p className='flex justify-center items-center p-1 font-bold z-50 text-sm bg-white text-blue-700 rounded-md '>
+                                                        <span>{Math.round((item?.distance) * 100) / 100} km near you</span>
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -156,9 +153,9 @@ const LocationFetcher = () => {
                                                 <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md z-50 text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
                                             </div>
                                             <ul className="flex gap-4 justify-center text-xs pt-2 pb-6 font-bold ">
-                                                <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><BsFillFuelPumpFill className="text-orange-500" /></span><span>{item?.fuel_type}</span></li>
-                                                <li className="border-r-2 border-white flex items-center gap-1 pr-2"><span><GrGroup className="text-blue-500" /></span><span>{item?.seater} Seater</span></li>
-                                                <li className="flex items-center gap-1"><span><TbManualGearbox size={20} className="text-red-600" /></span><span>{item?.transmission_type}</span></li>
+                                                <li className="border-r-2 border-white flex items-center gap-1 pr-2"><BsFillFuelPumpFill className="text-orange-500" /><span>{item?.fuel_type}</span></li>
+                                                <li className="border-r-2 border-white flex items-center gap-1 pr-2"><GrGroup className="text-blue-500" /><span>{item?.seater} Seater</span></li>
+                                                <li className="flex items-center gap-1"><TbManualGearbox size={20} className="text-red-600" /><span>{item?.transmission_type}</span></li>
                                             </ul>
                                             <div>
                                                 <div className="z-20 flex justify-between bg-[##a52a2a]">
@@ -169,20 +166,14 @@ const LocationFetcher = () => {
                                                                 target="_blank"
                                                             >
                                                                 <p className="flex gap-1 text-sm justify-center">
-                                                                    <span>
-                                                                        <FaWhatsapp size={20} />
-                                                                    </span>{" "}
-                                                                    <span>Whatsapp</span>
+                                                                    <FaWhatsapp size={20} /> <span>Whatsapp</span>
                                                                 </p>
                                                             </Link>
                                                         </li>
                                                         <li className="bg-blue-500 w-full p-2 text-white">
                                                             <Link href="tel:9000478478" target="_blank">
                                                                 <p className="flex gap-1 text-sm justify-center">
-                                                                    <span>
-                                                                        <BiPhoneCall size={20} />
-                                                                    </span>{" "}
-                                                                    <span>Call Us</span>
+                                                                    <BiPhoneCall size={20} /> <span>Call Us</span>
                                                                 </p>
                                                             </Link>
                                                         </li>

@@ -104,7 +104,7 @@ const fddata = [
 function FeaturedCars({ data, branch }) {
   return (
     <div className='feature-cars bg  text-black px-7 py-6 h-[655px] bg-gray-800 '>
-      <p className='text-center text-4xl font-semibold py-8 pb-4 text-white'>Check Out Our Featured Cars</p>
+      <p className='text-center lg:text-4xl text-2xl font-semibold lg:py-8 py-4 text-white'>Check Out Our Featured Cars</p>
       <div className="slider-container h-[600px] ">
         <Slider {...settings}>
           {
@@ -118,7 +118,7 @@ function FeaturedCars({ data, branch }) {
                     >
                       <div className='relative border-2 border-[#660066]-200 bg-white rounded-md'>
                         <p className='bg-[#660066] text-white rounded-t-md pl-5'>Make Year {item?.manufacture_date}</p>
-                        <Link href={`${(((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                        <Link href={`${branch!=='warangal'?((((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')):'/'}`}>
                           <Image
                             src={(inside.src)}
                             alt={'carss'}
@@ -157,20 +157,20 @@ function FeaturedCars({ data, branch }) {
                           <div className="flex items-center justify-center gap-4 pt-1 border-t-2 border-gray-200">
                             <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                               <Image
-                                height={500}
-                                width={500}
+                                height={200}
+                                width={200}
                                 alt='apple'
-                                className='w-24 h-11'
+                                className='w-24 h-8'
                                 src={apple}
                               >
                               </Image>
                             </Link>
                             <Link href='https://play.google.com/store/search?q=long+drive+cars&c=apps'>
                               <Image
-                                height={500}
-                                width={500}
+                                height={200}
+                                width={200}
                                 alt='google'
-                                className='w-28 h-16'
+                                className='w-[6.5rem] h-12'
                                 src={google}
                               >
                               </Image>

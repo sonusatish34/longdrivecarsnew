@@ -4,7 +4,7 @@ import xuv500 from '../../images/branchimages/1.webp'
 function secunderabad() {
 
     return (
-        <div className='text-black pt-48 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
+        <div className='text-black pt-36 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
             <h1 className='font-bold text-base lg:text-3xl xl:mx-72 lg:mx-80 mx-6'>Experience the convenience of self-drive cars in Secunderabad  </h1>
             <Image
                 src={xuv500}

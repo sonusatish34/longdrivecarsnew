@@ -4,16 +4,14 @@ import { FaFacebook, FaInstagram, FaSearch, FaYoutube } from 'react-icons/fa';
 import { SiLinkedin } from "react-icons/si";
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
-import { TbPointFilled } from "react-icons/tb";
 import imgs from '../../images/cretafoot.png'
 import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp'
 import logo2 from '../../images/logo-white.webp';
 
-
-function Footer({ branch }) {
+function Footer({ locname }) {
     return (
         <div className={`bg-white`}>
-            <div className='flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center '>
+            <div className={`${locname == 'warangal' ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
                 <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
                     <ul className='lg:gap-x-16 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
@@ -33,10 +31,8 @@ function Footer({ branch }) {
                         <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Car rental services in Bangalore</Link></li>
                         <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Car rental services in Warangal</Link></li>
                         <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-uppal-medipally'}>Car rental services in Uppal Medipally</Link></li>
-
                     </ul>
                 </div>
-
             </div>
             <div style={{ backgroundImage: 'url(/ldcfooter_11zon.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
                 <footer className='py-8 pl-4 lg:py-2 lg:px-4'>
@@ -45,7 +41,7 @@ function Footer({ branch }) {
                             <div className='flex flex-col p-1 rounded '>
                                 {/* <div className='flex items-center'> */}
                                 <Image
-                                    className=" lg:w- lg:h-32"
+                                    className="lg:w-72 xl:w-full xl:h-32 lg:20"
                                     src={logo2}
                                     alt="carrr"
                                     width={1000}
@@ -53,9 +49,6 @@ function Footer({ branch }) {
                                     priority
                                 // placeholder="blur"
                                 />
-                                {/* <p className='lg:text-5xl uppercase font-bold'>longdrivecars</p> */}
-                                {/* </div> */}
-
                                 <p className='xl:text-lg lg:text-base text-xs font-medium lg:font-semibold'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
                             </div>
                         </div>
@@ -65,7 +58,7 @@ function Footer({ branch }) {
                                 <ul className='gap-2 flex flex-col lg:pt-0'>
                                     <li className='lg:hover:scale-105'><Link href={'/'}>Hyderabad</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/warangal'}>Warangal</Link></li>
-                                    <li className='lg:hover:scale-105'><Link href={'/'}>Vizag</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/vizag'} target='_blank'>Vizag</Link></li>
                                     <li className='lg:hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/bangalore'}>Bangalore</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/'}>Mysuru</Link></li>
@@ -118,7 +111,7 @@ function Footer({ branch }) {
                                     <div className='flex items-center'>
                                         <ul>
                                             <li className='text-base'>Bangalore</li>
-                                            <li className='text-base mxs:text-lg lg:text-2xl font-bold'><Link href="tel:9129122525" target='_blank'>912-912-25-25</Link></li>
+                                            <li className='text-base mxs:text-lg lg:text-2xl font-bold'><Link href="tel:9129122525" target='_blank'>912-912-2525</Link></li>
                                         </ul>
                                     </div>
                                 </div>

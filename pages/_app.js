@@ -7,7 +7,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="icon" href="/LDC.png" />
-        <link rel="canonical" href="https://selfdrivecarshyderabad.com" />
       </Head>
       <Component {...pageProps} />
     </>

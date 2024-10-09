@@ -7,7 +7,9 @@ function warangal() {
   return (
     <div className='bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'} />
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
+        
+        <p className='font-bold text-xl lg:text-3xl py-2'>Stop here if you are searching for Self Drive Cars Warangal</p>
         <div>
           <Image
             src={www}
@@ -17,7 +19,6 @@ function warangal() {
             alt="self drive car rental ameerpet"
           />
         </div>
-        <p className='font-bold text-xl lg:text-3xl py-2'>Stop here if you are searching for Self Drive Cars Warangal</p>
         <p>It's now near you, get self drive cars in Warangal at Long Drive cars.</p>
         <p className='font-bold text-lg py-2'>Choose the best self driving cars in Warangal</p>
         <p>Why self drive cars? Because Warangal is one of the best cities in Telangana to experience self drive cars in which you can travel across this once capital city of Kakatiya kingdom. Through the best self driving cars in Warangal from a quality company like Long Drive cars, you can indulge in a variety of trips that include personal shopping spree, family outings, business trips and for any other purpose.</p>

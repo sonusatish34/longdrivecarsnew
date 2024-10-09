@@ -7,8 +7,10 @@ function madhapur() {
   return (
     <div className='bg-white'>
       <HamburgerMenu  phoneno={'9000-478-478'}/>
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
-      <div>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
+        <p className='text-xl lg:text-5xl font-bold'>Self Drive Cars Madhapur ends here</p>
+        <p className='text-lg font-bold lg:text-2xl py-2 lg:py-4'>It's not far, find Self Drive Cars near Madhapur</p>
+        <div>
           <Image
             src={www}
             height={2000}
@@ -17,8 +19,6 @@ function madhapur() {
             alt="self drive car rental ameerpet"
           />
         </div>
-        <p className='text-xl lg:text-5xl font-bold'>Self Drive Cars Madhapur ends here</p>
-        <p className='text-lg font-bold lg:text-2xl py-2 lg:py-4'>It's not far, find Self Drive Cars near Madhapur</p>
         <p>If you are searching for Self Drive Carss near Madhapur, know that you have arrived at the right place - Long Drive Cars.</p>
         <p className='text-lg font-bold py-2 lg:py-4'>Choose the best Self Drive Cars hire in Madhapur</p>
         <p>Why Self Drive Cars? Because Hyderabad is one of the best cities in India to experience Self Drive Carss in which you can travel across this historical city. Through the best Self Drive Cars hire in Madhapur from a quality company like Long Drive Cars, you can indulge in a variety of trips that include personal shopping trips, family outings, business trips and for any other purpose.</p>

@@ -4,8 +4,7 @@ import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-// import customData from '../components/kk.json';
-import customData from '../../components/kk.json'
+import customData from '../../components/kk.json';
 import { PiCarFill } from "react-icons/pi";
 import { BiPhoneCall } from "react-icons/bi";
 import Link from 'next/link';
@@ -13,16 +12,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import { SlSpeedometer } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
-import { HiCurrencyRupee } from "react-icons/hi";
-
-// import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
-import HamburgerMenu from '@/pages/components/Hamburger/HamburgerMenu';
 import Head from 'next/head';
-import BangaloreLayout from '@/pages/components/Layout/BangaloreLayout';
+import Layout from '../../components/Layout/Layout';
 const CarDetails = () => {
   const [caritem, setCarItem] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const router = useRouter();
   const { maker_model } = router.query;
   const mdyfmaker_model = maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
@@ -30,7 +24,7 @@ const CarDetails = () => {
     async function fetchCarDetails() {
       setLoading(true);
       try {
-        const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Bangalore');
+        const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
         const items = await response.json();
         const cars = items?.data?.results;
         const car = cars?.find(i => i?.maker_model.toLowerCase() == mdyfmaker_model);
@@ -40,6 +34,7 @@ const CarDetails = () => {
         setLoading(false);
       }
     }
+
     if (maker_model) {
       fetchCarDetails();
     }
@@ -53,21 +48,21 @@ const CarDetails = () => {
   };
 
   return (
-    <BangaloreLayout>
+    <Layout phoneno={'9000-478-478'}>
       <div className='bg-white text-black'>
+        {/* <HamburgerMenu locname={"bangalore"}/> */}
         <Head>
-          <title>Zero Deposit & Unlimited km - Self-Drive Car Rentals In Bangalore</title>
-          <meta name="description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+          <title> Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
+          <meta name="description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta property="og:title" content="Zero Deposit & Unlimited km - Self-Drive Car Rentals In Bangalore" />
-          <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-
+          <meta property="og:title" content="Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+          <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
         </Head>
         <div className='xl:mx-16  mx-4'>
-          <div className='flex flex-col mt-32 md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+          <div className='flex flex-col mt-[7.48rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
             {loading && <div>Loading...</div>}
             {!loading && (
-              <div className="relative w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[634px]">
+              <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[534px]">
                 <Image
                   src={replaceText(caritem?.car_image_car_right_view)}
                   alt="self drive car rental"
@@ -119,10 +114,10 @@ const CarDetails = () => {
             <div className='py-4'>
               <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
-                <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
+                {/* <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
                   <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} />
                   <p className=" ml-2 text-xs">Zero Deposit</p>
-                </div>
+                </div> */}
                 <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
                   <SlSpeedometer className="bg-blue-200 rounded-md p-1" size={40} />
                   <p className="  ml-2 text-xs">Unlimited Kilometers</p>
@@ -168,15 +163,14 @@ const CarDetails = () => {
                 {customData[mdyfmaker_model]?.desc}
               </p>
             </div>
-            <p className='font-semibold text-xl py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental Bangalore</p>
+            <p className='font-semibold text-xl py-3'>Why Choose {customData[mdyfmaker_model]?.id} from Self Drive Cars Rental Hyderabad</p>
             <p className='font-light p-1 leading-6 text-xs lg:text-base pb-8'>
               {customData[mdyfmaker_model]?.subdesc}
             </p>
           </div>
         </div>
       </div>
-    </BangaloreLayout>
-
+    </Layout>
   );
 };
 

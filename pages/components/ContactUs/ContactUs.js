@@ -162,15 +162,15 @@ const ContactUS = () => {
                             </li>
                             <li>
                                 <p className='bg-[#0556e8] p-2 w-32 text-white'>Bangalore</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-25-25</Link></span></p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
                             </li>
                             <li>
                                 <p className='bg-[#0556e8] p-2 w-32 text-white'>Goa</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments</span><span><Link href="tel:9129122525" target="_blank">912-912-25-25</Link></span></p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
                             </li>
                             <li>
                                 <p className='bg-[#0556e8] p-2 w-52 text-white'>Helpline Numbers</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-25-25</Link></span></p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
                             </li>
                         </ul>
 

@@ -81,7 +81,7 @@ const HamburgerMenuBng = () => {
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <h2 className='lg:text-2xl lg:font-bold'>
-            <Link href="tel:9129122525" target='_blank'>912-912-25-25</Link>
+            <Link href="tel:9129122525" target='_blank'>912-912-2525</Link>
           </h2>
         </div>
       </div>
@@ -183,7 +183,7 @@ const HamburgerMenuBng = () => {
             <div className="flex items-center">
               <ul>
                 <li>Bangalore</li>
-                <li className="font-bold text-2xl text-black">912-912-25-25</li>
+                <li className="font-bold text-2xl text-black"><Link href={'tel:9129122525'}>912-912-2525</Link></li>
               </ul>
             </div>
           </div>

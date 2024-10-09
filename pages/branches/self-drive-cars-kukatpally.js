@@ -1,13 +1,24 @@
 import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
+import Image from 'next/image';
+import www from '../images/branchimages/6.webp'
 
 function kukatpally() {
   return (
     <div className='bg-white'>
       <HamburgerMenu phoneno={'9000-478-478'}/>
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-24 lg:pt-16'>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
         <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>It's time for self drive cars in Kukatpally</p>
+        <div>
+          <Image
+            src={www}
+            height={2000}
+            width={2000}
+            className='py-3 object-cover w-full'
+            alt="self drive car rental ameerpet"
+          />
+        </div>
         <p>Are you looking for Best Self Drive Cars Kukatpally?</p>
         <p>Buying a car comes with immense responsibilities and massive costs – not just for your personal savings account but for the environment as well. And as Indian cities turn more and more crowded, the burden on the environment is only getting worse. Plus there is the issue of finding a parking space, which is turning even scarier. But there is a shining light: it's today's no nonsense generation.</p>
         <p>It's hard to believe but the car rental segment in India in the year 2019 looked refreshingly different compared to what it appears today.</p>

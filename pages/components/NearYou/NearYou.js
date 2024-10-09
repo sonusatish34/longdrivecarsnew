@@ -1,11 +1,6 @@
 import React from 'react'
-import { IoCheckmarkCircleOutline } from "react-icons/io5";
 import rightimg from '../../images/thar.webp'
 import Image from 'next/image';
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import { SlSpeedometer } from "react-icons/sl";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { Ri24HoursLine } from "react-icons/ri";
 import { PiCarFill } from "react-icons/pi";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import { GiConfirmed } from "react-icons/gi";
@@ -17,7 +12,7 @@ function NearYou() {
                 src={rightimg}
                 width={2000}
                 height={2000}
-                alt='innova car'
+                alt='self drive car rental thar'
                 className='lg:w-2/5 '
             />
             <div className='py-16 lg:w-2/5 flex flex-col items-center'>
