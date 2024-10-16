@@ -14,30 +14,20 @@ import { SiContactlesspayment } from "react-icons/si";
 import { FaCarSide } from "react-icons/fa";
 import { IoCarSportSharp } from "react-icons/io5";
 
-const ImageChange = ({ locname }) => {
-
+const ImageChange = ({locname}) => {
+ 
   return (
     <div className='mt-28 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 poppins-text'>
       <div className='bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center'>
-          {/* <Image
-            src={homebanner}
-            alt={'self drive car rental hyderabad'}
-            height={1200}
-            width={1200}
-            className='xl:w-[500px] lg:w-[350px] w-[300px]'
-            priority
-          /> */}
           <Image
             src={homebanner}
             alt={'self drive car rental hyderabad'}
-            layout="responsive"
             height={1200}
             width={1200}
             className='xl:w-[500px] lg:w-[350px] w-[300px]'
             priority
           />
-
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms">
             <p className='xl:text-3xl lg:text-2xl text-xl  lg:pb-2 font-bold py-2 lg:pl-0 w-fit lg:w-3/4 px-4'>Install Long Drive Cars Mobile app &
               Start Your Journey!</p>
@@ -78,18 +68,18 @@ const ImageChange = ({ locname }) => {
                     <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className=" ml-2">Unlimited Kilometers</p>
                   </div>
-                  {(locname !== 'bangalore') ? <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
+                  {(locname!=='bangalore')? <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2 ">Zero Deposit</p>
-                  </div> : null}
-
+                  </div>:null}
+                  
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
                     <p className="ml-2">Check Original Car Photo</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <FaCarSide className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Car Starts at {(locname !== 'bangalore') ? '₹ 1488/day' : '₹1848/Day'}</p>
+                    <p className="ml-2">Car Starts at {(locname!=='bangalore')?'₹ 1488/day':'₹1848/Day'}</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <IoMdArrowDropdownCircle className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
@@ -97,7 +87,7 @@ const ImageChange = ({ locname }) => {
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <IoCarSportSharp className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Swift Dzire {(locname !== 'bangalore') ? '1776' : '2280'} per Day</p>
+                    <p className="ml-2">Swift Dzire {(locname!=='bangalore')?'1776':'2280'} per Day</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-lg lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <SiContactlesspayment className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />

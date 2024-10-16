@@ -38,12 +38,14 @@ body {
 
 .roboto-text {
   font-family: "Roboto", sans-serif;
+  font-display: swap;
 }
 
 .poppins-text {
   font-family: "Poppins", sans-serif;
+  font-display: swap;
 }
 .grotesk-text {
   font-family: "Space Grotesk", sans-serif;
+  font-display: swap;
 }
-/*  */
