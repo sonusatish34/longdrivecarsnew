@@ -157,20 +157,20 @@ function FeaturedCars({ data, branch }) {
                           <div className="flex items-center justify-center gap-4 pt-1 border-t-2 border-gray-200">
                             <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>
                               <Image
-                                height={200}
-                                width={200}
+                                height={500}
+                                width={500}
                                 alt='apple'
-                                className='w-24 h-8'
+                                className='w-24 h-11'
                                 src={apple}
                               >
                               </Image>
                             </Link>
                             <Link href='https://play.google.com/store/search?q=long+drive+cars&c=apps'>
                               <Image
-                                height={200}
-                                width={200}
+                                height={500}
+                                width={500}
                                 alt='google'
-                                className='w-[6.5rem] h-12'
+                                className='w-28 h-16'
                                 src={google}
                               >
                               </Image>

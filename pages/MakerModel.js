@@ -17,6 +17,12 @@ import { HiCurrencyRupee } from "react-icons/hi";
 
 import Head from 'next/head';
 import Layout from './components/Layout/Layout';
+
+import Slider from 'react-slick';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const CarDetails = ({city,phoneno}) => {
   const [caritem, setCarItem] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -76,18 +82,48 @@ const CarDetails = ({city,phoneno}) => {
           ></script> */}
         </Head>
         <div className='xl:mx-16  mx-4'>
-          <div className='flex flex-col mt-[7.48rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+          <div className='flex flex-col mt-[7.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
             {loading && <div>Loading...</div>}
             {!loading && (
-              <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 h-[434px]">
-                <Image
-                  src={replaceText(caritem?.car_image_car_right_view)}
-                  alt="self drive car rental"
-                  style={{}}
-                  className="relative rounded- object-cover"
-                  fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                />
+              <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 lg:h-[634px] overflow-hidden">
+                <Slider
+                  dots={true}
+                  infinite={true}
+                  speed={500}
+                  slidesToShow={1}
+                  slidesToScroll={1}
+                  centerMode={true}
+                  centerPadding={0}
+                  focusOnSelect={true}
+                  arrows={false}
+                  // autoplay={true}
+                  pauseOnFocus={true}
+                  pauseOnHover={true}
+                  className="relative bottom-[4.5rem] lg:rounded-md"
+                >
+                  <div>
+                    {
+                      <Link href={`${(('' + "/car-rental/" + caritem?.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                        <Image className={'lg:h-[655px] h-[450px] xl:w-3/4 rounded-md'} width={1000} height={1000} alt="cars" src={replaceText(caritem?.car_image_car_right_view)}></Image>
+                      </Link>}
+                  </div>
+                  <div onClick={() => {
+                  }}>
+                    <Link href={`${(("car-rental/" + caritem?.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image alt="self drive car rental" className='lg:h-[655px] h-[450px] xl:w-3/4 rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_inner)}></Image>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link href={`${(("car-rental/" + caritem?.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image alt="self drive car rental" className='lg:h-[655px] h-[450px] xl:w-3/4 rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_reading_view)}></Image>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link href={`${(("car-rental/" + caritem?.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image alt="self drive car rental" className='lg:h-[655px] h-[450px] xl:w-3/4 rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_view)}></Image>
+                    </Link>
+                  </div>
+                </Slider>
               </div>
             )}
             <div className='flex flex-col justify-evenly'>

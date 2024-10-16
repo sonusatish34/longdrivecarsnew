@@ -40,7 +40,7 @@ export default function Place({cars,canonicalUrl}) {
                     <DynCallBackForm />
                     <DynWhyChooseUs locname={'bangalore'} />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-                        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+                        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
                         <DynamicFaqComponent city={'bangalore'} />
                     </div>
                     <GetInTouch city={'bangalore'} phoneno={'9129122525'} />
@@ -52,7 +52,7 @@ export default function Place({cars,canonicalUrl}) {
 }
 
 export async function getServerSideProps({req}) {
-    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
+    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=bangalore');
     const items = await response.json();
     const cars = items?.data?.results;
     const host = req.headers.host;

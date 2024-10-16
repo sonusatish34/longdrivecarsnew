@@ -3,7 +3,6 @@ import Head from "next/head";
 import Layout from "./components/Layout/Layout";
 
 export default function Home({ cars,canonicalUrl }) {
-  
   return (
     <div className="bg-white">
       <Layout phoneno={'9000-478-478'}>
@@ -17,6 +16,7 @@ export default function Home({ cars,canonicalUrl }) {
         </Head>
         <Homepage data={cars} />
       </Layout>
+
     </div>
   );
 }

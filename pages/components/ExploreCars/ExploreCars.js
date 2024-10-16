@@ -286,8 +286,8 @@ export default function ExploreCars({ loc,phoneno }) {
 
                 </div>
                 <div className='w-full'>
-                    <h2 id='explore' className="px-3 font-bold text-2xl lg:text-3xl pt-8 text-blue-950 mb-2 xl:text-5xl lg:mb-9 text-center">Explore Self Drive
-                        Car Rentals</h2>
+                    <p id='explore' className="px-3 font-bold text-2xl lg:text-3xl pt-8 text-blue-950 mb-2 xl:text-5xl lg:mb-9 text-center">Explore Self Drive
+                        Car Rentals</p>
                     <div className=' lg:mb-16 pl-3 flex items-center justify-center pt-2 pb-12'>
                         <input
                             placeholder='Search for your favourite car'

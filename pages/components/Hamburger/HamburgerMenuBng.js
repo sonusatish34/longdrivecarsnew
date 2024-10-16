@@ -77,12 +77,12 @@ const HamburgerMenuBng = () => {
         </div>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
+        <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
-          <h2 className='lg:text-2xl lg:font-bold'>
+          <p className='lg:text-2xl lg:font-bold'>
             <Link href="tel:9129122525" target='_blank'>912-912-2525</Link>
-          </h2>
+          </p>
         </div>
       </div>
       <div className="flex lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20 w-full">

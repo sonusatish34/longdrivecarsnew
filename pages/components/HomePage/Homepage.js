@@ -26,7 +26,7 @@ export default function Homepage({ data }) {
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
         <DynamicFaqComponent />
       </div>
       <GetInTouch phoneno={'9000478478'} />

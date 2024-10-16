@@ -77,7 +77,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
         </div>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
+        <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <div className='lg:text-2xl lg:font-bold'>
