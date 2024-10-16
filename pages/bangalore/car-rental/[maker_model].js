@@ -1,5 +1,6 @@
 import React from 'react'
-import MakerModel from '../../MakerModel'
+import dynamic from 'next/dynamic';
+const MakerModel = dynamic(() => import('../../MakerModel'));
 import Layout from '@/pages/components/Layout/Layout';
 function maker_model() {
   return (
