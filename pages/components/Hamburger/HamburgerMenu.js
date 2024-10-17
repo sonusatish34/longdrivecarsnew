@@ -87,7 +87,6 @@ const HamburgerMenu = ({ locname, phoneno }) => {
       </div>
       <div className="border-[6px] border-blue-100">
         <div className="flex">
-
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
             <div className='flex items-center lg:gap-6 gap-3'>
               <Link
