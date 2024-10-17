@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import CarProducts from '../components/CarProducts';
-
+import { useRouter } from 'next/router';
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
@@ -17,6 +17,9 @@ import Head from 'next/head';
 
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
+    const router = useRouter();
+//    const { place } = router.query;
+console.log(router.query,"-----------router.query----------------");
 
     return (
         <div>

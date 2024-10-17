@@ -1,9 +1,9 @@
 
 
-"use client"; // Make sure this is the very first line in your file
+"use client";
 
 import { useState } from "react";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io"; // Import the icons
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function Faq() {
     const documents = [

@@ -10,6 +10,6 @@ function maker_model() {
     </div>
     </Layout>
   )
-}
+};
 
 export default  maker_model;
