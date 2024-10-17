@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import CarProducts from '../CarProducts';
 import DynWhyChooseUs from '../WhyChooseUs/WhyChooseUs'
+const DynHeader = dynamic(() => import('../Hamburger/HamburgerMenu'));
 const DynCallBackForm = dynamic(() => import('../CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../ImageChange/ImageChange'));
@@ -16,21 +17,24 @@ export default function Homepage({ data }) {
   const data2 = data;
   return (
     <div className="min-h-screen">
+      {/* <DynHeader/> */}
       <DynImageChange />
       <div>
         <DynNearByApi />
       </div>
-      <CarProducts phoneno={'9000478478'} data={data2} count={7} />
+      <CarProducts phoneno={'9000478478'} data={data2} count={8}/>
       <div><DynNearYou /></div>
-      <FeaturedCars data={data2} />
+      <FeaturedCars data={data2}/>
       <DynCallBackForm />
       <DynWhyChooseUs />
       <div className='bg-white  rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
+        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
         <DynamicFaqComponent />
       </div>
-      <GetInTouch phoneno={'9000478478'} />
-      <DynamicPriceList city={'hyd'} />
+      <GetInTouch phoneno={'9000478478'}/>
+      <DynamicPriceList city={'hyd'}/>
+      
+      
     </div>
   );
 }

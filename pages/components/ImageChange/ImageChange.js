@@ -18,11 +18,11 @@ const ImageChange = ({locname}) => {
  
   return (
     <div className='mt-28 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 poppins-text'>
-      <div className='bg-white'>
-        <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center'>
+      <div className='h-full lg:pt-2 xl:pl-4 lg:pl-10 flex flex-wrap bg-white'>
+        <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:pr-2 '>
           <Image
             src={homebanner}
-            alt={'self drive car rental hyderabad'}
+            alt={'home banner'}
             height={1200}
             width={1200}
             className='xl:w-[500px] lg:w-[350px] w-[300px]'

@@ -47,6 +47,7 @@ function Footer({ branch }) {
                                     alt="carrr"
                                     width={1000}
                                     height={1000}
+                                    priority
                                 // placeholder="blur"
                                 />
                                 <p className='xl:text-lg lg:text-base text-xs font-medium lg:font-semibold'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
@@ -133,15 +134,15 @@ function Footer({ branch }) {
                                 src={imgs2}
                                 width={1000}
                                 height={1000}
-                                className='lg:w-36 lg:h-28 w-16 h-12 relative bottom-1 lg:bottom-[0.55rem]'
+                                className='lg:w-36 lg:h-28 h-28 relative lg:bottom-[0.55rem]'
                                 alt="car rental"
                             >
                             </Image>
                             <Image
                                 src={imgs}
-                                width={1000}
-                                height={1000}
-                                className='lg:w-32 lg:h-28 h-12 w-12 '
+                                width={700}
+                                height={700}
+                                className='lg:w-32 lg:h-28 h-20'
                                 alt="car rental"
                             >
                             </Image>

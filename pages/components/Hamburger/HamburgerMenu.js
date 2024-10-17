@@ -9,7 +9,7 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenu = ({ locname, phoneno }) => {
+const HamburgerMenu = ({ locname ,phoneno }) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -77,7 +77,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
         </div>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>
+        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <div className='lg:text-2xl lg:font-bold'>
@@ -85,7 +85,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
           </div>
         </div>
       </div>
-      <div className="border-[6px] border-blue-100">
+      <div className="flex lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20 w-full">
         <div className="flex">
 
           <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
@@ -140,53 +140,53 @@ const HamburgerMenu = ({ locname, phoneno }) => {
           </button>
         </div>
         <nav
-          ref={menuRef}
-          className={`w-11/12 h-fit absolute top-[7.2rem] bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
-          style={{
-            transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
-          }}
-        >
-          <Link href={'/'}>
-            <div className='flex gap-3 cursor-pointer items-center pl-4 pb-2'>
-              <Image
-                className="w-10 lg:w-48 lg:h-48"
-                src={logo2}
-                alt="carrr"
-                width={192}
-                height={192}
-                priority
-              />
-              <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-                <p className='text-xl font-bold'>
-                  <span className='text-[#0456e8]'>Long Drive Cars</span>
-                </p>
-              </div>
-            </div>
-          </Link>
-          <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
-            <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
-            <li className="w-32 text-start"><Link href={''}>Contact Us</Link></li>
-            <li className="w-32 text-start"><Link href={''}>About Us</Link></li>
-            <li className="w-32 text-start"><Link href={''}>Blog</Link></li>
-          </ul>
-          <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
-            <p>For Booking Help Call</p>
-            <div className="flex items-center">
-              <ul>
-                <li>Telangana, AP</li>
-                <li className="font-bold text-2xl text-black">
-                  <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
-                </li>
-              </ul>
-            </div>
-            <div className="flex items-center">
-              <ul>
-                <li>Bangalore</li>
-                <li className="font-bold text-2xl text-black">912-912-2525</li>
-              </ul>
-            </div>
+      ref={menuRef}
+      className={`w-11/12 h-fit absolute top-12 bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
+      style={{
+        transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+      }}
+    >
+      <Link href={'/'}>
+        <div className='flex gap-3 cursor-pointer items-center pl-4 pb-2'>
+          <Image
+            className="w-10 lg:w-48 lg:h-48"
+            src={logo2}
+            alt="carrr"
+            width={192}
+            height={192}
+            priority
+          />
+          <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
+            <p className='text-xl font-bold'>
+              <span className='text-[#0456e8]'>Long Drive Cars</span>
+            </p>
           </div>
-        </nav>
+        </div>
+      </Link>
+      <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
+        <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
+        <li className="w-32 text-start"><Link href={''}>Contact Us</Link></li>
+        <li className="w-32 text-start"><Link href={''}>About Us</Link></li>
+        <li className="w-32 text-start"><Link href={''}>Blog</Link></li>
+      </ul>
+      <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
+        <p>For Booking Help Call</p>
+        <div className="flex items-center">
+          <ul>
+            <li>Telangana, AP</li>
+            <li className="font-bold text-2xl text-black">
+              <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="flex items-center">
+          <ul>
+            <li>Bangalore</li>
+            <li className="font-bold text-2xl text-black">912-912-2525</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
       </div>
     </div>
   );

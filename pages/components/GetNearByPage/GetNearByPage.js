@@ -109,7 +109,7 @@ const LocationFetcher = () => {
                 {error && <p>Error: {error}</p>}
                 <div className='bg-white'>
                     <p className='text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
-                    <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
+                    <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36 overflow-hidden'>
                         {data?.map((item, index) => (
                             <React.Fragment key={index}>
                                 <div className="bg-white lg:rounded-md shadow-lg flex flex-col w-[100%] md:w-72 h-[530px] lg:hover:scale-105">

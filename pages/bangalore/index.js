@@ -34,13 +34,13 @@ export default function Place({cars,canonicalUrl}) {
                     <div>
                         <DynNearByApi city={'bangalore'} />
                     </div>
-                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9129122525'} count={6}/>
+                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9129122525'} count={8}/>
                     <div><DynNearYou /></div>
                     <FeaturedCars data={cars} branch={"bangalore"} />
                     <DynCallBackForm />
                     <DynWhyChooseUs locname={'bangalore'} />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-                        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
+                        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
                         <DynamicFaqComponent city={'bangalore'} />
                     </div>
                     <GetInTouch city={'bangalore'} phoneno={'9129122525'} />
@@ -52,7 +52,7 @@ export default function Place({cars,canonicalUrl}) {
 }
 
 export async function getServerSideProps({req}) {
-    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=bangalore');
+    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
     const items = await response.json();
     const cars = items?.data?.results;
     const host = req.headers.host;
