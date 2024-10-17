@@ -23,8 +23,8 @@ const ImageChange = ({locname}) => {
           <Image
             src={homebanner}
             alt={'home banner'}
-            height={1200}
-            width={1200}
+            height={1000}
+            width={1000}
             className='xl:w-[500px] lg:w-[350px] w-[300px]'
             priority
           />
