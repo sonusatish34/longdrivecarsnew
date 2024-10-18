@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import CarProducts from '../components/CarProducts';
-import { useRouter } from 'next/router';
+
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
@@ -17,9 +17,6 @@ import Head from 'next/head';
 
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
-    const router = useRouter();
-//    const { place } = router.query;
-console.log(router.query,"-----------router.query----------------");
 
     return (
         <div>
@@ -37,13 +34,13 @@ console.log(router.query,"-----------router.query----------------");
                     <div>
                         <DynNearByApi city={'bangalore'} />
                     </div>
-                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9129122525'} count={8}/>
+                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9129122525'} count={6}/>
                     <div><DynNearYou /></div>
                     <FeaturedCars data={cars} branch={"bangalore"} />
                     <DynCallBackForm />
                     <DynWhyChooseUs locname={'bangalore'} />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-                        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+                        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
                         <DynamicFaqComponent city={'bangalore'} />
                     </div>
                     <GetInTouch city={'bangalore'} phoneno={'9129122525'} />
@@ -55,7 +52,7 @@ console.log(router.query,"-----------router.query----------------");
 }
 
 export async function getServerSideProps({req}) {
-    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=Hyderabad');
+    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=bangalore');
     const items = await response.json();
     const cars = items?.data?.results;
     const host = req.headers.host;

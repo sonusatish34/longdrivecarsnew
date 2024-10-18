@@ -1,6 +1,5 @@
 import React from 'react'
-import dynamic from 'next/dynamic';
-const MakerModel = dynamic(() => import('../../MakerModel'));
+import MakerModel from '../../MakerModel'
 import Layout from '../../components/Layout/Layout';
 function maker_model() {
   return (
@@ -10,6 +9,6 @@ function maker_model() {
     </div>
     </Layout>
   )
-};
+}
 
 export default  maker_model;

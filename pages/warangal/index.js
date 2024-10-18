@@ -39,7 +39,7 @@ export default function Place({cars,canonicalUrl}) {
 
     return (
         <div>
-            <Layout locname={'warangal'} phoneno={"9000-777-665"}>
+            {/* <Layout locname={'warangal'} phoneno={"9000-777-665"}> */}
                 <Head>
                     <title>Zero Deposit & Unlimited Km - Self-Drive Car Rentals In Warangal</title>
                     <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & Zero deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
@@ -62,7 +62,7 @@ export default function Place({cars,canonicalUrl}) {
                     ></script>
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
-                <div className="min-h-screen">
+                <div >
                     <DynImageChange />
                     <div>
                         <DynNearByApi city={'warangal'} />
@@ -73,13 +73,13 @@ export default function Place({cars,canonicalUrl}) {
                     <DynCallBackForm />
                     <DynWhyChooseUs />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
-                        <h2 className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</h2>
+                        <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9000777665'} />
                     <PriceList city={'hyd'} />
                 </div>
-            </Layout>
+            {/* </Layout> */}
         </div>
     );
 }

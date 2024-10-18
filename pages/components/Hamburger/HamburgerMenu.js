@@ -1,4 +1,5 @@
 "use client";
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,18 +10,15 @@ import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
 
-const HamburgerMenu = ({ locname ,phoneno }) => {
-
+const HamburgerMenu = ({ locname, phoneno }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
-  // const validLocations = ['bangalore', 'warangal', 'vizag','mysore','mangalore'];
+
   const handleClickOutside = (event) => {
     if (
-      menuRef.current &&
-      !menuRef.current.contains(event.target) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(event.target)
+      menuRef.current && !menuRef.current.contains(event.target) &&
+      buttonRef.current && !buttonRef.current.contains(event.target)
     ) {
       setIsOpen(false);
     }
@@ -39,154 +37,113 @@ const HamburgerMenu = ({ locname ,phoneno }) => {
 
   return (
     <div className='fixed lg:relative top-0 left-0 right-0 z-50 bg-white text-black shadow-md '>
-      <div className='flex justify-between items-center lg:px-14'>
-        <Marquee speed={75}>
-          <div className={'flex p-1 text-xs gap-24 lg:text-lg '}>
-            <p className='flex items-center gap-1 justify-center pl-6'><TbPointFilled /><span>Zero Deposit</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Unlimited Kilometers</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Neatly Washed Car</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Choose your Favourite Color Car</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Check Original Car Photos & Book</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Choose Your Own Hours 36hr, 50hr</span></p>
-            <p className='flex items-center gap-1 justify-center'><TbPointFilled /><span>Car Starts ₹1488/day, min 24hrs</span></p>
-            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Any Problem 24/7 Service</span></p>
-            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span> Lowest Price Challenge
-            </span></p>
-            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Baleno, Dzire 1776 per day
-            </span></p>
-            <p className='flex items-center gap-1 justify-center lg:pr-20'><TbPointFilled /><span>Just pay 10% Advance & book
-
-            </span></p>
-          </div>
-        </Marquee>
+      <div className='flex justify-between items-center lg:px-14 px-2'>
+        <div className='w-1/2'>
+          <Marquee speed={75} >
+            <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
+              {['Zero Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Baleno, Dzire 1776 per day', 'Just pay 10% Advance & book'].map((text, index) => (
+                <p key={index} className='flex items-center gap-1 justify-center'>
+                  <TbPointFilled /><span>{text}</span>
+                </p>
+              ))}
+            </div>
+          </Marquee>
+        </div>
         <div className='border-l-2 border-l-black'>
-          <ul className='flex justify-end lg:gap-5 gap-4 px-2'>
-            <li><Link href={'https://www.facebook.com/selfdrivecarsbylongdrivecars/'} target='_blank'>
-              <FaFacebook className='hover:text-blue-500 cursor-pointer lg:size-6' />
-            </Link></li>
-            <li><Link href={'https://www.instagram.com/longdrivecars_official/'} target='_blank'>
-              <FaInstagram className='hover:text-blue-500 cursor-pointer lg:size-6' />
-            </Link></li>
-            <li><Link href={'https://in.linkedin.com/company/long-drive-cars'} target='_blank'>
-              <SiLinkedin className='hover:text-blue-500 cursor-pointer lg:size-6' />
-            </Link></li>
-            <li><Link href={'https://www.youtube.com/@longdrivecars_official'} target='_blank'>
-              <FaYoutube className='hover:text-blue-500 cursor-pointer lg:size-6' />
-            </Link></li>
+          <ul className='flex justify-end lg:gap-5 gap-4'>
+            {[
+              { href: 'https://www.facebook.com/selfdrivecarsbylongdrivecars/', icon: <FaFacebook /> },
+              { href: 'https://www.instagram.com/longdrivecars_official/', icon: <FaInstagram /> },
+              { href: 'https://in.linkedin.com/company/long-drive-cars', icon: <SiLinkedin /> },
+              { href: 'https://www.youtube.com/@longdrivecars_official', icon: <FaYoutube /> },
+            ].map(({ href, icon }, index) => (
+              <li key={index}>
+                <Link href={href} target='_blank'>
+                  {React.cloneElement(icon, { className: 'hover:text-blue-500 cursor-pointer lg:size-6' })}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="flex bg-gray-800 justify-between text-white text-base py-2 px-3 lg:px-14">
-        <h2 className='lg:text-2xl lg:font-bold'>For Booking Help</h2>
+      <div className="flex bg-gray-800 justify-between text-white text-base py-2 lg:px-14 px-2">
+        <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>
         <div className="flex items-center gap-1">
           <LuPhoneCall size={20} />
           <div className='lg:text-2xl lg:font-bold'>
-            <Link href={`tel:${(phoneno?.replace(/-/g, ""))}`} target='_blank'>{phoneno}</Link>
+            <Link href={`tel:${phoneno?.replace(/-/g, "")}`} target='_blank'>{phoneno}</Link>
           </div>
         </div>
       </div>
-      <div className="flex lg:justify-between items-center z-50 fixed lg:relative bg-white lg:py-14 lg:pr-14 border-8 border-blue-100 lg:h-20 w-full">
-        <div className="flex">
-          <div className='rounded-md flex cursor-pointer items-center lg:pl-14 pl-4'>
-            <div className='flex items-center lg:gap-6 gap-3'>
-              <Link
-                href={`${(locname?.length) ? `/${locname}` : '/'}`}
-                className='flex items-center lg:gap-6 gap-3'>
-                <Image
-                  className="lg:w-32 w-10"
-                  src={logo2}
-                  alt="carrr"
-                  width={192}
-                  height={192}
-                // priority
-                // placeholder="blur"
-                />
-                <p className='font-semibold text-[#0456e8] text-sm xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
-              </Link>
-            </div>
-            <div className='w-full text-black lg:mt-2 lg:pl-10 xl:pl-56'>
-              <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block pl-[]`}>
-                <ul className='font-semibold xl:text-lg lg:text-base  flex gap-8 xl:gap-12'>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}` : '/'}`}>Home</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}` : '/'}`}>Blog</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/about` : '/about'}`}>About Us</Link></li>
-                  <li><Link className='hover:text-blue-400 hover:underline' href={`${(locname?.length) ? `/${locname}/contact.html` : '/contact.html'}`}>Contact Us</Link></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='lg:hidden block'>
-          <button
-            ref={buttonRef}
-            className="fixed top-[5rem] right-5 z-40 text-[#0456e8] flex items-center"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-5 h-5 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
+      <div>
+        <div className='flex cursor-pointer items-center lg:pl-14 pl-4 border-8 border-blue-100'>
+          <div className='flex items-center lg:gap-6 gap-3 lg:w-fit'>
+            <Link href={`${locname?.length ? `/${locname}` : '/'}`} className='flex items-center lg:gap-6 gap-3'>
+              <Image
+                className="lg:w-32 w-10"
+                src={logo2}
+                alt="Long Drive Cars"
+                width={128}
+                height={128}
+                placeholder="blur"
               />
-            </svg>
-            {/* Branches */}
-          </button>
-        </div>
-        <nav
-      ref={menuRef}
-      className={`w-11/12 h-fit absolute top-12 bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
-      style={{
-        transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
-      }}
-    >
-      <Link href={'/'}>
-        <div className='flex gap-3 cursor-pointer items-center pl-4 pb-2'>
-          <Image
-            className="w-10 lg:w-48 lg:h-48"
-            src={logo2}
-            alt="carrr"
-            width={192}
-            height={192}
-            priority
-          />
-          <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
-            <p className='text-xl font-bold'>
-              <span className='text-[#0456e8]'>Long Drive Cars</span>
-            </p>
+              <p className='font-semibold text-[#0456e8] text-sm xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
+            </Link>
+          </div>
+          <div className='lg:w-fit text-black lg:mt-2 lg:pl-10 xl:pl-56'>
+            <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block`}>
+              <ul className='font-semibold xl:text-lg lg:text-base flex gap-8 xl:gap-12'>
+                <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
+                <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Blog</Link></li>
+                <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}/about` : '/about'}`}>About Us</Link></li>
+                <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}/contact.html` : '/contact.html'}`}>Contact Us</Link></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </Link>
-      <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
-        <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
-        <li className="w-32 text-start"><Link href={''}>Contact Us</Link></li>
-        <li className="w-32 text-start"><Link href={''}>About Us</Link></li>
-        <li className="w-32 text-start"><Link href={''}>Blog</Link></li>
-      </ul>
-      <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
-        <p>For Booking Help Call</p>
-        <div className="flex items-center">
-          <ul>
-            <li>Telangana, AP</li>
-            <li className="font-bold text-2xl text-black">
-              <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="flex items-center">
-          <ul>
-            <li>Bangalore</li>
-            <li className="font-bold text-2xl text-black">912-912-2525</li>
-          </ul>
-        </div>
       </div>
-    </nav>
+      <div className='lg:hidden block'>
+        <button
+          ref={buttonRef}
+          className="fixed top-[5rem] right-5 z-40 text-[#0456e8] flex items-center"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path fillRule="evenodd" clipRule="evenodd" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
+          </svg>
+        </button>
       </div>
+      <nav
+        ref={menuRef}
+        className={`w-11/12 h-fit absolute top-[7.2rem] bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block opacity-100' : 'hidden opacity-0'}`}
+        style={{
+          transform: isOpen ? 'translateY(0)' : 'translateY(-20px)',
+        }}
+      >
+        <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
+          {['Home', 'Contact Us', 'About Us', 'Blog'].map((item, index) => (
+            <li key={index} className="w-32 text-start"><Link href={`/${item.replace(/\s+/g, '').toLowerCase()}`}>{item}</Link></li>
+          ))}
+        </ul>
+        <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
+          <p>For Booking Help Call</p>
+          <div className="flex items-center">
+            <ul>
+              <li>Telangana, AP</li>
+              <li className="font-bold text-2xl text-black">
+                <Link href="tel:9000478478" target='_blank'>9000-478-478</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="flex items-center">
+            <ul>
+              <li>Bangalore</li>
+              <li className="font-bold text-2xl text-black">912-912-2525</li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };

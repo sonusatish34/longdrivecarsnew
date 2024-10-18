@@ -3,9 +3,9 @@ import Header from '../Hamburger/HamburgerMenu'
 import Footer from '../Footer/Footer';
 const Layout = ({ children , city, phoneno ,locname}) => {
     return (
-        <div className=" min-h-screen bg-white">
+        <div>
             <Header phoneno={phoneno} locname={locname}/>
-            <main className="flex-grow bg-white">{children}</main>
+            <main>{children}</main>
             <Footer locname={locname}/>
         </div>
     );
