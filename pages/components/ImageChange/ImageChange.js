@@ -25,7 +25,7 @@ const ImageChange = ({locname}) => {
             alt={'self drive car rental hyderabad'}
             height={1200}
             width={1200}
-            className='xl:w-[500px] lg:w-[350px] w-[300px]'
+            className='xl:w-[500px] lg:w-[350px] w-[300px] hidden lg:block'
             priority
           />
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms">
