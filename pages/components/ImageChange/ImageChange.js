@@ -17,7 +17,7 @@ import { IoCarSportSharp } from "react-icons/io5";
 const ImageChange = ({locname}) => {
  
   return (
-    <div className='mt-28 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4'>
+    <div className='mt-36 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4'>
       <div className='bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center'>
           <Image
@@ -29,7 +29,7 @@ const ImageChange = ({locname}) => {
             priority
           />
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl pl-8 lg:pt-10 " data-wow-delay="50ms">
-            <p className='xl:text-3xl lg:text-2xl text-xl  lg:pb-2 font-bold py-2 lg:pl-0 w-fit lg:w-3/4 px-4'>Install Long Drive Cars Mobile app &
+            <p className='xl:text-3xl lg:text-2xl text-xl text-center  font-bold  w-fit lg:w-3/4'>Install Long Drive Cars Mobile app &
               Start Your Journey!</p>
             <div className='flex flex-wrap justify-center lg:justify-normal lg:gap-8 pt-2 gap-2 lg:w-full text-sm md:text-xs xl:text-lg'>
               <div className="flex gap-2 py-2 justify-center lg:justify-normal items-center">

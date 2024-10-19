@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram, FaSearch, FaYoutube } from 'react-icons/fa';
 import { SiLinkedin } from "react-icons/si";
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
-import imgs from '../../images/cretafoot.png'
-import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp'
+import imgs from '../../images/cretafoot_2_11zon-transformed.webp';
+import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp';
 import logo2 from '../../images/logo-white.webp';
 
 function Footer({ locname }) {

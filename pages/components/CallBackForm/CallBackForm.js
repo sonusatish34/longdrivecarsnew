@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Image from 'next/image'
 // import carphotot from '../../images/rightimg.webp';
 import { useState } from 'react';
-import cust from '../../images/organic-flat.png'
 const CallBackForm = () => {
 
     const [mobile, setmobile] = useState("");

@@ -3,8 +3,6 @@ import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
 import CarProducts from '../components/CarProducts';
-import Header from '../components/Hamburger/HamburgerMenu';
-// import { useEffect } from 'react';
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
@@ -16,8 +14,6 @@ import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-const DynamicPriceList = dynamic(() => import('../components/PriceList/PriceList'));
-// const allowedKeywords = ['warangal', 'bangalore', 'keyword3'];
 
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
@@ -39,7 +35,7 @@ export default function Place({cars,canonicalUrl}) {
 
     return (
         <div>
-            {/* <Layout locname={'warangal'} phoneno={"9000-777-665"}> */}
+            <Layout locname={'warangal'} phoneno={"9000-777-665"}>
                 <Head>
                     <title>Zero Deposit & Unlimited Km - Self-Drive Car Rentals In Warangal</title>
                     <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & Zero deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
@@ -79,7 +75,7 @@ export default function Place({cars,canonicalUrl}) {
                     <GetInTouch phoneno={'9000777665'} />
                     <PriceList city={'hyd'} />
                 </div>
-            {/* </Layout> */}
+            </Layout>
         </div>
     );
 }

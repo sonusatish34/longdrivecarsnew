@@ -121,7 +121,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
           transform: isOpen ? 'translateY(0)' : 'translateY(-20px)',
         }}
       >
-        <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
+        <ul className="pl-6 pt-1 pb-1 font-semibold flex flex-col gap-2 items-start text-black">
           {['Home', 'Contact Us', 'About Us', 'Blog'].map((item, index) => (
             <li key={index} className="w-32 text-start"><Link href={`/${item.replace(/\s+/g, '').toLowerCase()}`}>{item}</Link></li>
           ))}
