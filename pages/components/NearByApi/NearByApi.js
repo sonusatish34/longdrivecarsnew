@@ -6,7 +6,7 @@ import mapright from '../../images/mapright.webp';
 function NearByApi({ city }) {
     return (
         <div className='xl:px-28 lg:px-16 px-2 py-6 lg:py-10'>
-            <div className='text-white font-bold xl:px-28 lg:px-12 bg-[#660066] rounded-md py-4 flex flex-col lg:flex-row items-center lg:justify-between'>
+            <div className='text-white font-bold xl:px-28 lg:px-12 bg-[#660066] rounded-md py-4 flex flex-col lg:flex-row items-center lg:justify-between poppins-text'>
                 <div className='pt-10 flex flex-col lg:gap-3 gap-2 items-center'>
                     <p className='xl:text-5xl lg:text-4xl text-2xl lg:pt-2'>Explore Cars Near You</p>
                     <p className='text-base xl:text-3xl lg:text-2xl relative'>20Kms Around Your Location</p>
