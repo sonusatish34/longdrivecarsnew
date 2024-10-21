@@ -138,14 +138,14 @@ function CarProducts({ data, branch, phoneno, count }) {
             </div>}
             {(index + 1 === 2) && (
               <div className=" ">
-                <div className="bg-[#8d398d] lg:rounded-md  flex flex-col  w-[100%] md:w-72 lg:h-[496px]   h-[530px] lg:hover:scale-105 relative bottom-4">
+                <div className="bg-[#8d398d] lg:rounded-md  flex flex-col  w-[100%] md:w-72 lg:h-[496px] h-[530px] lg:hover:scale-105 relative bottom-4">
                   <div>
                     <Image
                       src={disc}
                       height={1000}
                       width={1000}
                       alt='discount self drive car rental'
-                      className="scale-90 mxs:scale-75 lg:scale-90 relative mxs:bottom- rounded-md"
+                      className="scale-90 mxs:scale-[0.6] lg:scale-90 relative mxs:bottom-20 mxs:bottom- rounded-md"
                     />
                   </div>
                 </div>
