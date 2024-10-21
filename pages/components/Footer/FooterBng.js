@@ -6,7 +6,7 @@ import { SiLinkedin } from "react-icons/si";
 import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 import { TbPointFilled } from "react-icons/tb";
-import imgs from '../../images/cretafoot.png'
+import imgs from '../../images/cretafoot_2_11zon-transformed.webp'
 import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed.webp'
 import logo2 from '../../images/logo-white.webp';
 
@@ -85,7 +85,7 @@ function Footer({ branch }) {
                                     <Link href={'https://www.facebook.com/selfdrivecarsbylongdrivecars/'} target='_blank'>
                                         <p className='hover:text-blue-500 cursor-pointer'><FaFacebook className='lg:size-8 size-9' /></p>
                                     </Link>
-                                    <Link href={'https://www.instagram.com/longdrivecars_official/'} target='_blank'>
+                                    <Link href={'https://www.instagram.com/longdrivecars_bangalore/?hl=en/'} target='_blank'>
                                         <p className='hover:text-blue-500 cursor-pointer'><FaInstagram className='lg:size-8 size-9' /></p>
                                     </Link>
                                     <Link href={'https://in.linkedin.com/company/long-drive-cars'} target='_blank'>

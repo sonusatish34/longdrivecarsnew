@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
 function GetInTouch({city,phoneno}) {
   return (
-    <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#660066] rounded-md text-white mx-[14px] lg:mx-[58px] my-3 items-center font-sans'>
+    <div className='flex p-5 justify-around xl:justify-between lg:p-8 flex-wrap bg-[#660066] rounded-md text-white mx-[14px] lg:mx-[58px] xl:mx-[78px] my-3 items-center font-sans'>
         <div className='xl:w-5/12 xl:text-left w-full text-center lg:w-2/5 xl:text-4xl lg:text-2xl text-lg  lg:p-4 lg:pl-14 font-semibold'>
           Get in touch with us to arrange your booking
         </div>

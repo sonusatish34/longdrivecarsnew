@@ -136,7 +136,6 @@ export default function CarEarningDashboard() {
     ],
     100000: [
       { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/100000/fortuner.webp', description: 'Fortuner' }
-
     ]
   };
 

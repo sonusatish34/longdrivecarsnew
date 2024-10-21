@@ -4,11 +4,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
-
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { TbManualGearbox } from "react-icons/tb";
-import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slider from 'react-slick';
 import disc from '../images/discoutn.webp'

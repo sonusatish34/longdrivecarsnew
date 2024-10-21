@@ -7,11 +7,11 @@ import Marquee from 'react-fast-marquee';
 import imgs from '../../images/cretafoot_2_11zon-transformed.webp';
 import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp';
 import logo2 from '../../images/logo-white.webp';
-
+const a =['warangal','mysore','vizag']
 function Footer({ locname }) {
     return (
         <div className={`bg-white`}>
-            <div className={`${locname == 'warangal' ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
+            <div className={`${['warangal','mysore','vizag'].includes(locname)  ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
                 <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
                     <ul className='lg:gap-x-16 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
@@ -61,7 +61,7 @@ function Footer({ locname }) {
                                     <li className='lg:hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/bangalore'}>Bangalore</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/mysore'}>Mysuru</Link></li>
-                                    <li className='lg:hover:scale-105'><Link href={'/mangalore'}>Mangalore</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -69,10 +69,10 @@ function Footer({ locname }) {
                             <div>
                                 <p className='text-left mb-1 pt-3 lg:pt-0 text-xl font-bold pb-1'>Useful Links</p>
                                 <div className='flex flex-col gap-1 '>
-                                    <Link href={'/privacy-policy.html'} target='_blank'>
+                                    <Link href={`${locname}/privacy-policy.html`} target='_blank'>
                                         <p className='hover:text-blue-500 cursor-pointer'>Terms & Conditions</p>
                                     </Link>
-                                    <Link href={'/privacy-policy.html#cancel_refund_policy'} target='_blank'>
+                                    <Link href={`${locname}/privacy-policy.html#cancel_refund_policy`} target='_blank'>
                                         <p className='hover:text-blue-500 cursor-pointer'>Refund & Cancelation Policy</p>
                                     </Link>
                                 </div>
@@ -97,7 +97,6 @@ function Footer({ locname }) {
                         </div>
                         <div>
                             <div>
-
                                 <p className='text-left mb-1 text-xl font-bold py-4 lg:py-0'>Contact Info</p>
                                 <div className='flex md:flex-col flex-row text-left text-lg gap-4 pb-4'>
                                     <div className='flex justify-center items-center pt-2'>

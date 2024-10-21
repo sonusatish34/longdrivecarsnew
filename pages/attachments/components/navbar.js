@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="bg-[#2C372E] text-white popins-text p-2 px-3 lg:px-10 lg:p-5 flex justify-between items-center">
       <div className="flex gap-1 items-center">
         {/* Replace '/logo.jpg' with the path to your logo */}
-        <Image src="/logos/logo3.png" alt="Logo" width={500} height={500} className="w-14 lg:w-24" />
+        <Image src="/logos/logo3.webp" alt="Logo" width={500} height={500} className="w-14 lg:w-24" />
         <div className='flex flex-col lg:flex-row lg:space-x-1'>
           <p className="font-semibold text-xs lg:text-2xl">Long Drive Cars</p>
           <p className="font-semibold text-xs lg:text-2xl">Attachment</p>

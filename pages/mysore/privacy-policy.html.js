@@ -3,7 +3,7 @@ import Layout from '../components/Layout/Layout'
 function privacypolicyhtml() {
     return (
         <div className='bg-white'>
-            <Layout locname={'vizag'} phoneno={"998-6666-078"}>
+            <Layout locname={'/mysore'} phoneno={"998-6666-078"}>
                 <div className=' text-[#666] lg:px-20 pl-8 pr-6 pt-32 lg:pt-4 text-sm lg:text-base font-light grotesk-text leading-6 lg:leading-7'>
                     <p className='font-bold text-xs text-right'>Updated On: 25th Sep, 2024.</p>
                     <p className='text-center font-bold pt-3 text-base text-black'>PRIVACY POLICY</p>

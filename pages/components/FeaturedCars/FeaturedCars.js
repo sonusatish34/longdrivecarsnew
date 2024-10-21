@@ -9,7 +9,7 @@ import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import swift from '../../changeimg/swift.webp'
 import ertiga from '../../changeimg/ERTIGA_RED.webp'
-import creta from '../../changeimg/creta-thumbnail-pc.png'
+import creta from '../../changeimg/creta.webp'
 import baleno from '../../changeimg/baleno.webp'
 import inv from '../../changeimg/innova.webp'
 import Image from 'next/image';
@@ -76,7 +76,6 @@ var settings = {
     }
   ]
 };
-const fd = ["MARUTHI BALENO", "HYUNDAI CRETA", "INNOVA CRYSTA", "HYUNDAI GRAND I10", "MARUTHI DZIRE"];
 
 const fddata = [
   {

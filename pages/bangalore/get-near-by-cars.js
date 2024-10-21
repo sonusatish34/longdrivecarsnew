@@ -8,7 +8,7 @@ const DynNearby = dynamic(() => import('../components/GetNearByPage/GetNearByPag
 function getnearbycars() {
   return (
     <div className='bg-white'>
-      <BangaloreLayout>
+      <BangaloreLayout locname={'bangalore'} phoneno={"912-912-2525"}>
         <DynNearby />
       </BangaloreLayout>
     </div>

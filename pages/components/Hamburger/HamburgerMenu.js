@@ -37,8 +37,8 @@ const HamburgerMenu = ({ locname, phoneno }) => {
 
   return (
     <div className='fixed lg:relative top-0 left-0 right-0 z-50 bg-white text-black shadow-md '>
-      <div className='flex justify-between items-center lg:px-14 px-2'>
-        <div className='w-1/2'>
+      <div className='w-full flex justify-between items-center gap-3 lg:px-14 px-2'>
+        <div className='xl:w-[86%] w-[60%] '>
           <Marquee speed={75} >
             <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
               {['Zero Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Baleno, Dzire 1776 per day', 'Just pay 10% Advance & book'].map((text, index) => (
@@ -49,8 +49,8 @@ const HamburgerMenu = ({ locname, phoneno }) => {
             </div>
           </Marquee>
         </div>
-        <div className='border-l-2 border-l-black'>
-          <ul className='flex justify-end lg:gap-5 gap-4'>
+        {/* <div className='border-l-2 border-l-black lg:w-1/5'> */}
+          <ul className='flex lg:gap-6 gap-4 border-l-2 border-l-black lg:w-1/5 lg:pl-4 px-1'>
             {[
               { href: 'https://www.facebook.com/selfdrivecarsbylongdrivecars/', icon: <FaFacebook /> },
               { href: 'https://www.instagram.com/longdrivecars_official/', icon: <FaInstagram /> },
@@ -64,7 +64,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
               </li>
             ))}
           </ul>
-        </div>
+        {/* </div> */}
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 lg:px-14 px-2">
         <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>
@@ -80,17 +80,17 @@ const HamburgerMenu = ({ locname, phoneno }) => {
           <div className='flex items-center lg:gap-6 gap-3 lg:w-fit'>
             <Link href={`${locname?.length ? `/${locname}` : '/'}`} className='flex items-center lg:gap-6 gap-3'>
               <Image
-                className="lg:w-32 w-10"
-                src={logo2}
+                className="lg:w-32 w-14"
+                src="/logos/logo3.webp"
                 alt="Long Drive Cars"
-                width={128}
-                height={128}
-                placeholder="blur"
+                width={500}
+                height={500}
+              // placeholder="blur"
               />
-              <p className='font-semibold text-[#0456e8] text-sm xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
+              <p className='font-semibold text-[#0456e8] text-base xl:text-4xl lg:text-3xl lg:w-[444px] w-48 popins-text'>Long Drive Cars</p>
             </Link>
           </div>
-          <div className='lg:w-fit text-black lg:mt-2 lg:pl-10 xl:pl-56'>
+          <div className='lg:w-fit text-black lg:mt-2  xl:pl-56'>
             <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block`}>
               <ul className='font-semibold xl:text-lg lg:text-base flex gap-8 xl:gap-12'>
                 <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
@@ -105,7 +105,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
       <div className='lg:hidden block'>
         <button
           ref={buttonRef}
-          className="fixed top-[5rem] right-5 z-40 text-[#0456e8] flex items-center"
+          className="fixed top-[5.5rem] right-5 z-40 text-[#0456e8] flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -116,7 +116,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
       </div>
       <nav
         ref={menuRef}
-        className={`w-11/12 h-fit absolute top-[7.2rem] bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block opacity-100' : 'hidden opacity-0'}`}
+        className={`w-11/12 h-fit absolute top-[8.5rem] bg-blue-50 rounded-b-md p-2 pt-2 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block opacity-100' : 'hidden opacity-0'}`}
         style={{
           transform: isOpen ? 'translateY(0)' : 'translateY(-20px)',
         }}

@@ -20,7 +20,7 @@ export default function Place({cars,canonicalUrl}) {
 
     return (
         <div>
-            <BangaloreLayout>
+            <BangaloreLayout locname={'bangalore'} phoneno={"912-912-2525"}>
                 <Head>
                     <title>Zero Deposit & Unlimited Km - Self-Drive Car Rentals In Bangalore</title>
                     <meta name="description" content="Self-drive cars start at 77/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹77/hr, Baleno @ ₹83/hr, Ertiga @ ₹116/hr, Swift @ ₹77/hr, Thar @ ₹208/hr." />

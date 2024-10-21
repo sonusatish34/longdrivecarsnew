@@ -112,7 +112,7 @@ const LocationFetcher = () => {
                 {error && <p>Error: {error}</p>}
                 <div className='bg-white'>
                     <p className='text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
-                    <div className='flex flex-col gap-x-8 gap-y-8 lg:flex-wrap lg:flex-row lg:pl-36'>
+                    <div className='flex flex-col gap-x-8 gap-y-12 lg:flex-wrap lg:flex-row lg:pl-36'>
                         {data?.map((item, index) => (
                             <React.Fragment key={index}>
                                 <div className="bg-white lg:rounded-md shadow-lg flex flex-col w-[100%] md:w-72 h-[450px] lg:hover:scale-105">
@@ -157,9 +157,9 @@ const LocationFetcher = () => {
                                                 <div key={index} className="h-[430px] flex justify-center items-center">
                                                     <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                                                         <Image
-                                                            className='rounded-md'
+                                                            className='rounded-md h-[430px]'
                                                             width={1000}
-                                                            height={430}
+                                                            height={1000}
                                                             src={replaceText(imageSrc)}
                                                             alt={`Car image ${index + 1}`}
                                                         />
@@ -178,7 +178,7 @@ const LocationFetcher = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="relative z-20 bottom-[13.64rem] bg-gradient-to-t from-black opacity-90 text-white">
+                                        <div className="relative z-20 bottom-[12.8rem] bg-gradient-to-t from-black opacity-90 text-white">
                                             <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                                                 <p className='font-bold text-lg shadow-black'>Book Now</p>
                                                 <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md z-50 text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>

@@ -4,7 +4,6 @@ import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-// import customData from '../../components/kk.json';
 import customData from './components/kk.json';
 import { PiCarFill } from "react-icons/pi";
 import { BiPhoneCall } from "react-icons/bi";
@@ -14,10 +13,7 @@ import { SlSpeedometer } from "react-icons/sl";
 import { Ri24HoursLine } from "react-icons/ri";
 import { GiTowTruck } from "react-icons/gi";
 import { HiCurrencyRupee } from "react-icons/hi";
-
 import Head from 'next/head';
-import Layout from './components/Layout/Layout';
-
 import Slider from 'react-slick';
 
 import "slick-carousel/slick/slick.css";
@@ -82,7 +78,7 @@ const CarDetails = ({city,phoneno}) => {
           ></script> */}
         </Head>
         <div className='xl:mx-16  mx-4'>
-          <div className='flex flex-col mt-[7.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+          <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
             {loading && <div>Loading...</div>}
             {!loading && (
               <div className="relative md:w-2/3 w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 lg:h-[634px] overflow-hidden">
