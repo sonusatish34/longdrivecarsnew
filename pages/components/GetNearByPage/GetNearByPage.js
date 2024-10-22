@@ -12,7 +12,6 @@ import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { TbManualGearbox } from "react-icons/tb";
 
-
 const LocationFetcher = () => {
     const [location, setLocation] = useState(null);
     const [error, setError] = useState(null);
@@ -37,12 +36,14 @@ const LocationFetcher = () => {
     useEffect(() => {
         const fetchLocation = () => {
             if (navigator.geolocation) {
+                setLoading(true);
                 navigator.geolocation.getCurrentPosition(
                     (position) => {
                         const { latitude, longitude } = position.coords;
                         setLat(latitude);
                         setLon(longitude);
                         setLocation({ latitude, longitude });
+                        setError(null);
                     },
                     (err) => {
                         setError(err.message);
@@ -56,7 +57,7 @@ const LocationFetcher = () => {
         };
 
         fetchLocation();
-    }, []); // Runs once on mount
+    }, []); // Fetch location on mount
 
     useEffect(() => {
         if (!location) return;
@@ -124,31 +125,6 @@ const LocationFetcher = () => {
                             <React.Fragment key={index}>
                                 <div className="bg-white lg:rounded-md shadow-lg flex flex-col w-[100%] md:w-72 h-[450px] lg:hover:scale-105">
                                     <div className="relative h-[450px] lg:rounded-md">
-                                        {/* <Slider
-                                            dots={false}
-                                            infinite={false}
-                                            speed={500}
-                                            slidesToShow={1}
-                                            slidesToScroll={1}
-                                            arrows={false}
-                                            autoplay={false}
-                                            swipe={true}
-                                            className=" lg:rounded-md kkky overflow-hidden"
-                                        >
-                                            {getOrderedImages(item?.attributes).map((imageSrc, index) => (
-                                                <div key={index}>
-                                                    <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                                                    <Image
-                                                        className='h-[430px] rounded-md'
-                                                        width={1000}
-                                                        height={1000}
-                                                        src={replaceText(imageSrc)}
-                                                        alt={`Car image ${index + 1}`}
-                                                    />
-                                                    </Link>
-                                                </div>
-                                            ))}
-                                        </Slider> */}
                                         <Slider
                                             dots={false}
                                             infinite={false}
@@ -158,7 +134,7 @@ const LocationFetcher = () => {
                                             arrows={false}
                                             autoplay={false}
                                             swipe={true}
-                                            className="lg:rounded-md kkky overflow-hidden h-[430px]" // Set a fixed height
+                                            className="lg:rounded-md kkky overflow-hidden h-[430px]"
                                         >
                                             {getOrderedImages(item?.attributes).map((imageSrc, index) => (
                                                 <div key={index} className="h-[430px] flex justify-center items-center">
