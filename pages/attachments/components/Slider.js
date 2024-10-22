@@ -10,17 +10,16 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 const CarImages = () => {
   return (
     <div className=" bg-[#334B35] p-4 lg:p-12 ">
-      <div className='text-center py-3 lg:py-8 '>
-        <button className="bg-[#6D8C54] text-xs lg:text-lg px-3 py-1   text-white  text-center  rounded-[5px]  ">
+      <div className='flex justify-center py-3 lg:py-8 '>
+        <div className="bg-[#6D8C54] text-xs lg:text-lg px-3 py-1 w-fit text-white  text-center  rounded-[5px]  ">
           Monthly Fixed Payment Car
-        </button>
+        </div>
       </div>
 
       <div className=' bg-white rounded-[8px] px-4 py-5 lg:p-14 lg:px-16 lg:py-12' >
-
         <div className="flex flex-col  lg:flex-row-reverse lg:justify-between lg:px-16   ">
           <Image
-            src='/cars/60000/InnovaCrysta.webp'
+            src='https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/InnovaCrysta.webp'
             alt="Innova Car"
             width={500}
             height={500}

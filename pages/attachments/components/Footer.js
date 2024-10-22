@@ -16,7 +16,7 @@ function Footer() {
 
                     <footer className=' '>
                         <div className='flex'>
-                            <Image src="/logos/logo3.png" alt="Logo" width={1500} height={1500} className=" w-16 lg:w-24   " />
+                            <Image src="/logos/logo3.webp" alt="Logo" width={1500} height={1500} className=" w-16 lg:w-24   " />
                             <p className=" font-semibold flex items-center text-base lg:text-xl " >Long Drive Cars Attachment</p>
                         </div>
                         <div className="flex-wrap lg:flex lg:gap-40 gap-2 pt-1 lg:pt-6 text-white     ">
