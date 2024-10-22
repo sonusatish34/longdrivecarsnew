@@ -109,9 +109,16 @@ const LocationFetcher = () => {
                         <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
                     </div>
                 </div>}
-                {error && <p>Error: {error}</p>}
+                {error &&
+                    <div className='lg:pl-12'>
+                        <div className='bg-red-500 text-white w-fit py-4 px-2 mt-11 mx-3 rounded-md '>
+                            <p className='underline'>{error}</p>
+                            <p className='pt-2'>To enable location services, go to your settings and allow location access your browser.</p>
+                        </div>
+                    </div>}
+
                 <div className='bg-white'>
-                    <p className='text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>
+                    {!error && <p className='text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8'>Explore Cars Near You in 20 Kms</p>}
                     <div className='flex flex-col gap-x-8 gap-y-12 lg:flex-wrap lg:flex-row lg:pl-36'>
                         {data?.map((item, index) => (
                             <React.Fragment key={index}>
