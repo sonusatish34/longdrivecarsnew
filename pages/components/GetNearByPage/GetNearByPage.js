@@ -101,7 +101,8 @@ const LocationFetcher = () => {
             imageMap["car_image_back_view"]
         ];
     };
-
+    console.log(lat,"---",lon);
+    
     return (
         <div>
             <div className='pt-32 lg:py-8 flex flex-col lg:flex-row gap-12'>

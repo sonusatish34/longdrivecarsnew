@@ -21,12 +21,12 @@ function Footer({ branch }) {
                         <li className='hover:scale-105'><Link href={'/bangalore/self-drive-car-rental/electronic_city'}>Self drive car rental in electronic city</Link></li>
                         <li className='hover:scale-105'><Link href={'/bangalore/self-drive-car-rental/hsrlayout'}>Self drive car rental in HSR Layout</Link></li>
                         <li className='hover:scale-105'><Link href={'/bangalore/self-drive-car-rental/jayanagar'}>Self drive car rental in jayanagar</Link></li>
-                        
+
                     </ul>
                 </div>
                 <div className=' xl:text-left lg:text-lg text-left text-xs font-semibold'>
                     <ul className='gap-2 flex flex-col pt-1 lg:pt-0'>
-                        
+
                         <li className='hover:scale-105'> <Link href={'/bangalore/self-drive-car-rental/koramangala'}>Self drive car rental in koramangala</Link></li>
                         <li className='hover:scale-105'><Link href={'/bangalore/self-drive-car-rental/sarjapur'}>Self drive car rental in Sarjapur</Link></li>
                         <li className='hover:scale-105'> <Link href={'/bangalore/self-drive-car-rental/malleshwaram'}>Self drive car rental in malleshwaram</Link></li>
@@ -40,7 +40,6 @@ function Footer({ branch }) {
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-14 xl:pt relative top-">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
-                                {/* <div className='flex items-center'> */}
                                 <Image
                                     className="lg:w-72 xl:w-full xl:h-32 lg:20"
                                     src={logo2}
@@ -116,14 +115,7 @@ function Footer({ branch }) {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div>
-                                <p className='font-bold text-xl'>Head Office</p>
-                                <p className='font-bold text-lg text-blue-500'>Location</p>
-                                <p className='w-40 text-xs'>Long Drive Cars, Pillar No 129, Main Road, beside Medipally, Medipally, Hyderabad, Telangana 500098</p>
-                            </div> */}
-
                         </div>
-
                     </div>
                 </footer>
                 <div className='relative lg:bottom-3 top-3 lg:top-7'>
@@ -151,7 +143,6 @@ function Footer({ branch }) {
             </div>
             <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-xs'>
                 <p>© 2024 LDCars India Private Limited. All Rights Reserved.</p>
-                {/* <Link href={'/blog.html'}>blogs</Link> */}
             </div>
         </div>
     )

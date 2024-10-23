@@ -23,7 +23,6 @@ function malleshwaram() {
                 <li className='list-decimal'> Flexibility: Explore at your pace without relying on public transport.</li>
                 <li className='list-decimal'>Variety: Choose the perfect vehicle for your needs.</li>
                 <li className='list-decimal'>Cost-effectiveness: Save money on longer trips compared to shared rides.</li>
-                {/* <li className='list-decimal'>P</li> */}
             </ol>
             <p className='font-bold'>Benefits of Rental Cars</p>
             <ol className='pl-6'>

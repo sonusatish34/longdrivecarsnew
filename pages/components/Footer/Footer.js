@@ -13,7 +13,7 @@ function Footer({ locname }) {
         <div className={`bg-white`}>
             <div className={`${['warangal','mysore','vizag'].includes(locname)  ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
                 <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
-                    <ul className='lg:gap-x-16 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
+                    <ul className='lg:gap-x-12 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/medipally'}>Self drive car rental in Medipally</Link></li>
                         <li className='hover:scale-105 '><Link href={'/self-drive-car-rental/miyapur'}>Self drive car rental in Miyapur</Link></li>
@@ -39,7 +39,6 @@ function Footer({ locname }) {
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-8 xl:pt relative top">
                         <div className='xl:w-3/6 lg:w-2/6'>
                             <div className='flex flex-col p-1 rounded '>
-                                {/* <div className='flex items-center'> */}
                                 <Image
                                     className="lg:w-72 xl:w-full xl:h-32 lg:20"
                                     src={logo2}
@@ -60,7 +59,7 @@ function Footer({ locname }) {
                                     <li className='lg:hover:scale-105'><Link href={'/vizag'} target='_blank'>Vizag</Link></li>
                                     <li className='lg:hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/bangalore'}>Bangalore</Link></li>
-                                    <li className='lg:hover:scale-105'><Link href={'/mysore'}>Mysuru</Link></li>
+                                    <li className='lg:hover:scale-105'><Link href={'/mysore'}>Mysore</Link></li>
                                     <li className='lg:hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
                                 </ul>
                             </div>
@@ -128,7 +127,7 @@ function Footer({ locname }) {
                                 src={imgs2}
                                 width={1000}
                                 height={1000}
-                                className='lg:w-36 lg:h-28 w-16 h-12 relative bottom-1 lg:bottom-[0.55rem]'
+                                className='lg:w-[170px] lg:h-28 w-16 h-12 relative bottom-1 lg:bottom-[0.55rem]'
                                 alt="car rental"
                             >
                             </Image>
@@ -146,7 +145,6 @@ function Footer({ locname }) {
             </div>
             <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-xs'>
                 <p>© 2024 LDCars India Private Limited. All Rights Reserved.</p>
-                {/* <Link href={'/blog.html'}>blogs</Link> */}
             </div>
         </div>
     )

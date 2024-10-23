@@ -7,7 +7,6 @@ import { FaSearch } from 'react-icons/fa';
 import { BsFillFuelPumpFill } from "react-icons/bs";
 import { GrGroup } from "react-icons/gr";
 import { TbManualGearbox } from "react-icons/tb";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slider from 'react-slick';
 import disc from '../images/discoutn.webp'
 import discfree from '../images/free.webp'
@@ -53,7 +52,6 @@ function CarProducts({ data, branch, phoneno, count }) {
             {<div className=" lg:rounded-md flex flex-col  w-[100%] md:w-72 lg:h-[480px] bg-white  h-[530px] lg:hover:scale-105">
               <div className="relative lg:h-[480px]  h-[480px] lg:rounded-md bg-white">
                 <div className="relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md bottom-4">
-                  {/* <p className='p-1 font-bold font-manrope text-3xl '>{item?.maker_model}</p> */}
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
                   </div>
@@ -118,7 +116,7 @@ function CarProducts({ data, branch, phoneno, count }) {
                           <span>
                             <FaWhatsapp size={20} />
                           </span>{" "}
-                          <span className="mxs:text-yellow-300">Whatsappp</span>
+                          <span>Whatsappp</span>
                         </p>
                       </Link>
                     </li>

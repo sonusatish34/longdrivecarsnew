@@ -119,7 +119,6 @@ export default function ExploreCars({ loc,phoneno }) {
     const hiddend = "hidden";
     return (
         <div>
-            {/* <HamburgerMenu locname={locationG}/> */}
             <div className="produvt-page flex flex-col lg:flex-row gap-10 bg-slate-100 font-sans">
                 <div className='lg:pt-12 pt-40 bg-white'>
                     <div className="text-black-400 lg:px-20  text-black pl-10 pt-4">

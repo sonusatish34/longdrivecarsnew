@@ -6,7 +6,6 @@ import FooterBng from '../Footer/FooterBng';
 const BangaloreLayout = ({ children , city, phoneno ,locname }) => {
   return (
     <div className='bg-white'>
-      {/* <Header city="Bangalore" /> */}
       <HamburgerMenuBng phoneno={phoneno} locname={locname}/>
       <main>{children}</main>
       <FooterBng />

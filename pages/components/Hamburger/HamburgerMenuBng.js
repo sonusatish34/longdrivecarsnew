@@ -49,7 +49,6 @@ const HamburgerMenuBng = ({ locname, phoneno }) => {
             </div>
           </Marquee>
         </div>
-        {/* <div className='border-l-2 border-l-black lg:w-1/5'> */}
           <ul className='flex lg:gap-6 gap-4 border-l-2 border-l-black lg:w-1/5 lg:pl-4 px-1'>
             {[
               { href: 'https://www.facebook.com/selfdrivecarsbylongdrivecars/', icon: <FaFacebook /> },
@@ -64,7 +63,6 @@ const HamburgerMenuBng = ({ locname, phoneno }) => {
               </li>
             ))}
           </ul>
-        {/* </div> */}
       </div>  
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 lg:px-14 px-2">
         <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>

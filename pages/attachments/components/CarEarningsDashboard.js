@@ -233,10 +233,6 @@ export default function CarEarningDashboard() {
           <p>White plate cars accepted</p>
         </div>
       </div>
-      
-
-      
-
     </div>
   );
 }
