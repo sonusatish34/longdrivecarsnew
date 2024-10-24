@@ -143,7 +143,7 @@ function CarProducts({ data, branch, phoneno, count }) {
                       height={1000}
                       width={1000}
                       alt='discount self drive car rental'
-                      className="scale-90 mxs:scale-[0.6] lg:scale-90 relative mxs:bottom-20 md:bottom-0 mxs:bottom- rounded-md"
+                      className="scale-75 mxs:scale-[0.6] lg:scale-90 relative mxs:bottom-20 md:bottom-0 mxs:bottom- rounded-md"
                     />
                   </div>
                 </div>
