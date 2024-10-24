@@ -22,7 +22,7 @@ import hyd from './images/hyderabad-charminar.png'
 import wrg from './images/warangal.png'
 import mys from './images/mysore.webp'
 import viz from './images/vizag.webp'
-
+import Loading from './components/Loading';
 export default function Place({ cars, canonicalUrl }) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
@@ -44,7 +44,22 @@ export default function Place({ cars, canonicalUrl }) {
 
     const [selectedLocation, setSelectedLocation] = useState(null);
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        const handleStart = () => setLoading(true);
+        const handleComplete = () => setLoading(false);
+
+        router.events.on('routeChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleComplete);
+        router.events.on('routeChangeError', handleComplete);
+
+        return () => {
+            router.events.off('routeChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleComplete);
+            router.events.off('routeChangeError', handleComplete);
+        };
+    }, [router.events]);
     const handleLocation = (location) => {
         if (location === 'hyderabad') {
             setSelectedLocation('hyderabad');
@@ -63,6 +78,7 @@ export default function Place({ cars, canonicalUrl }) {
     };
     return (
         <div>
+            {loading && <Loading />}
             {(!selectedLocation) && (
                 <div className='flex justify-center items-center lg:pt-32 pt-20 flex-col gap-4 lg:text-3xl'>
                     <div className='flex items-center lg:gap-6 gap-3'>
@@ -79,7 +95,7 @@ export default function Place({ cars, canonicalUrl }) {
                     <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
                     <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 px-36'>
                         <div className='flex gap-6 flex-col lg:flex-row'>
-                            <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64'><span><Image
+                            <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 h-16 lg:w-64'><span><Image
                                 className="w-8 h-8 relative bottom-1"
                                 src={hyd}
                                 alt="Long Drive Cars"
@@ -87,7 +103,7 @@ export default function Place({ cars, canonicalUrl }) {
                                 height={110}
                             // placeholder="blur"
                             /></span><span className='text-[#0456e8]'>Hyderabad</span></button>
-                            <button onClick={() => handleLocation('bangalore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64'><span><Image
+                            <button onClick={() => handleLocation('bangalore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
                                 className="w-12 h-12 relative bottom-1"
                                 src={bang}
                                 alt="Long Drive Cars"
@@ -95,7 +111,7 @@ export default function Place({ cars, canonicalUrl }) {
                                 height={110}
                             // placeholder="blur"
                             /></span><span className='text-[#0456e8]'>Bangalore</span></button>
-                            <button onClick={() => handleLocation('warangal')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64'><span><Image
+                            <button onClick={() => handleLocation('warangal')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
                                 className="w-8 h-8 relative bottom-1"
                                 src={wrg}
                                 alt="Long Drive Cars"
@@ -105,15 +121,15 @@ export default function Place({ cars, canonicalUrl }) {
                             /></span><span className='text-[#0456e8]'>Warangal</span></button>
                         </div>
                         <div className='flex gap-6 flex-col lg:flex-row'>
-                        <button onClick={() => handleLocation('vizag')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64'><span><Image
-                            className="w-12 h-12 relative bottom-1"
+                        <button onClick={() => handleLocation('vizag')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                            className="w-10 h-10 relative bottom-1"
                             src={viz}
                             alt="Long Drive Cars"
                             width={110}
                             height={110}
                         // placeholder="blur"
                         /></span><span className='text-[#0456e8]'>Vizag</span></button>
-                        <button onClick={() => handleLocation('mysore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64'><span><Image
+                        <button onClick={() => handleLocation('mysore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
                             className="w-12 h-12 relative bottom-1"
                             src={mys}
                             alt="Long Drive Cars"
@@ -123,7 +139,7 @@ export default function Place({ cars, canonicalUrl }) {
                         /></span><span className='text-[#0456e8]'>Mysore</span></button>
                         </div>
                     </div>
-                    <Link href={'/warangal'}> warangal</Link>
+                    {/* <Link href={'/warangal'}> warangal</Link> */}
                 </div>
             )}
             {selectedLocation === 'hyderabad' && (

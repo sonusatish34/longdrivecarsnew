@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-
+import Router from 'next/router';
 import CarProducts from '../components/CarProducts';
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
@@ -14,10 +14,12 @@ import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-
+import Loading from '../components/Loading';
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function fetchCarDetails() {
@@ -32,10 +34,24 @@ export default function Place({cars,canonicalUrl}) {
         }
         fetchCarDetails();
     }, []);
+    useEffect(() => {
+        const handleStart = () => setLoading(true);
+        const handleComplete = () => setLoading(false);
 
+        router.events.on('routeChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleComplete);
+        router.events.on('routeChangeError', handleComplete);
+
+        return () => {
+            router.events.off('routeChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleComplete);
+            router.events.off('routeChangeError', handleComplete);
+        };
+    }, [router.events]);
     return (
         <div>
             <Layout locname={'warangal'} phoneno={"9000-777-665"}>
+            {loading && <Loading />}
                 <Head>
                     <title>Zero Deposit & Unlimited Km - Self-Drive Car Rentals In Warangal</title>
                     <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & Zero deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
