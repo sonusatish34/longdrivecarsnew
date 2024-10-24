@@ -7,11 +7,11 @@ import Marquee from 'react-fast-marquee';
 import imgs from '../../images/cretafoot_2_11zon-transformed.webp';
 import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp';
 import logo2 from '../../images/logo-white.webp';
-const a =['warangal','mysore','vizag']
+const a = ['warangal', 'mysore', 'vizag']
 function Footer({ locname }) {
     return (
         <div className={`bg-white`}>
-            <div className={`${['warangal','mysore','vizag'].includes(locname)  ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
+            <div className={`${['warangal', 'mysore', 'vizag'].includes(locname) ? 'hidden' : ''} flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#660066] rounded-md mx-[14px] lg:mx-[58px] my-3 items-center `}>
                 <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
                     <ul className='lg:gap-x-12 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
@@ -35,18 +35,20 @@ function Footer({ locname }) {
                 </div>
             </div>
             <div style={{ backgroundImage: 'url(/ldcfooter_11zon.webp)' }} className='bg-black text-white bg-contain bg xl:bg-center bg-bottom bg-no-repeat xl:bg-repeat'>
-                <footer className='py-8 pl-4 lg:py-2 lg:px-4'>
+                <footer className=' px-4 lg:py-2 lg:px-4'>
                     <div className="flex flex-wrap lg:flex-row flex-col px-4 justify-between gap-3 b0  z-10 pb-32 lg:pb-48 lg:pt-6 xl:px-14  lg:px-8 xl:pt relative top">
                         <div className='xl:w-3/6 lg:w-2/6'>
-                            <div className='flex flex-col p-1 rounded '>
-                                <Image
-                                    className="lg:w-72 xl:w-full xl:h-32 lg:20"
-                                    src={logo2}
-                                    alt="carrr"
-                                    width={1000}
-                                    height={1000}
-                                // placeholder="blur"
-                                />
+                            <div className='flex flex-col p-1 rounded'>
+                                <div className='py-4'>
+                                    <Image
+                                        className="lg:w-72 xl:w-full xl:h-32 lg:20"
+                                        src={logo2}
+                                        alt="carrr"
+                                        width={1000}
+                                        height={1000}
+                                    // placeholder="blur"
+                                    />
+                                </div>
                                 <p className='xl:text-lg lg:text-base text-xs font-medium lg:font-semibold'>Long Drive cars a leading car rental company offers rental cars for Long Drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long Drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan.</p>
                             </div>
                         </div>

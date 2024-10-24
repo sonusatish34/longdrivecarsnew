@@ -17,7 +17,7 @@ import { IoCarSportSharp } from "react-icons/io5";
 const ImageChange = ({ locname }) => {
 
   return (
-    <div className='mt-36 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4'>
+    <div className='mt-36 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 px-2'>
       <div className='bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:px-6 xl:px-0'>
           <Image
@@ -28,7 +28,7 @@ const ImageChange = ({ locname }) => {
             className='xl:w-[500px] lg:w-[350px] w-[300px] hidden lg:block'
             priority
           />
-          <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl lg:pt-10 " data-wow-delay="50ms">
+          <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl lg:pt-10 pt-3">
             <p className='xl:text-3xl lg:text-2xl text-xl text-center lg:text-left  font-bold  lg:w-2/3'>Install Long Drive Cars Mobile app &
               Start Your Journey!</p>
             <div className='flex flex-wrap justify-center lg:justify-normal lg:gap-8 pt-2 gap-2 lg:w-full text-sm md:text-xs xl:text-base'> 
@@ -39,19 +39,18 @@ const ImageChange = ({ locname }) => {
                     width={500}
                     alt="apple"
                     className="lg:w-40 lg:h-14 w-28 h-11 lg:hover:scale-105"
-                    src={apple} // Local image
-                    priority={true} // Prio rity load if this image is above the fold
+                    src={apple} 
+                    priority={true} 
                   />
                 </Link>
-
                 <Link href="https://play.google.com/store/search?q=long+drive+cars&c=apps">
                   <Image
                     height={500}
                     width={500}
                     alt="google"
                     className="lg:w-48 lg:h-20 w-32 h-16 lg:hover:scale-105"
-                    src={google} // Local image
-                    priority={true} // Load this image with high priority if above the fold
+                    src={google}
+                    priority={true} 
                   />
                 </Link>
               </div>

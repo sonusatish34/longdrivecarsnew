@@ -25,7 +25,6 @@ const GetCall = () => {
         setMobile('');
 
         // Add further form submission logic here (e.g., sending data to an API)
-        console.log("Mobile number submitted:", mobile);
     };
 
     // Handle input change with validation for only digits

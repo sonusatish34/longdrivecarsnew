@@ -4,7 +4,7 @@ export default function CarEarningsSection() {
     return (
         <div
             className="bg-center bg-cover flex flex-col items-start justify-start space-y-3 px-4 py-5 lg:px-10 lg:pt-20 bg-black text-white"
-            style={{ backgroundImage: "url('/cars/Car-bg.webp')" }} // make sure car.svg is inside the 'public' folder
+            style={{ backgroundImage: "url('https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/Car-bg.webp')" }} // make sure car.svg is inside the 'public' folder
         >
             {/* Heading */}
             <p className="text-xs font-bold pt-2 lg:text-3xl lg:pt-5">
