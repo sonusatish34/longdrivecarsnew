@@ -3,10 +3,10 @@ import BangaloreLayout from "../components/Layout/BangaloreLayout"
 function contact() {
 
     return (
-        <BangaloreLayout locname={'bangalore'} phoneno={"912-912-2525"}>
+        <BangaloreLayout locname={'bangalore'} phoneno={"988-6666-883"}>
             <ContactUS />
         </BangaloreLayout>
-    )
+    )    
 }
 
 export default contact

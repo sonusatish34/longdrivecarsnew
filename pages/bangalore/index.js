@@ -15,18 +15,34 @@ import BangaloreLayout from '../components/Layout/BangaloreLayout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
 
-export default function Place({cars,canonicalUrl}) {
+export default function Place({ cars, canonicalUrl }) {
     const [carData, setCarData] = useState(null);
-    // 9886666883    988-6666-883
     return (
         <div>
             <BangaloreLayout locname={'bangalore'} phoneno={"988-6666-883"}>
                 <Head>
-                    <title>Zero Deposit & Unlimited Km - Self-Drive Car Rentals In Bangalore</title>
-                    <meta name="description" content="Self-drive cars start at 77/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹77/hr, Baleno @ ₹83/hr, Ertiga @ ₹116/hr, Swift @ ₹77/hr, Thar @ ₹208/hr." />
+                    <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Bangalore</title>
+                    <meta name="description" content="Self-drive cars start at 77/hr, We offer Self Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹77/hr, Baleno @ ₹83/hr, Ertiga @ ₹116/hr, Swift @ ₹77/hr, Thar @ ₹208/hr." />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta property="og:title" content="Zero Deposit & Unlimited km - Self-Drive Car Rentals In Bangalore" />
-                    <meta property="og:description" content="Self-drive cars start at 77/hr, We offer Self Drive Cars for the best prices with unlimited km & Zero deposit, Book Dzire @ ₹77/hr, Baleno @ ₹83/hr, Ertiga @ ₹116/hr, Swift @ ₹77/hr, Thar @ ₹208/hr." />
+                    <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Bangalore" />
+                    <meta property="og:description" content="Self-drive cars start at 77/hr, We offer Self Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹77/hr, Baleno @ ₹83/hr, Ertiga @ ₹116/hr, Swift @ ₹77/hr, Thar @ ₹208/hr." />
+
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=AW-16605564791"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'AW-16605564791');
+`,
+                        }}
+                    ></script>
+
+
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className="min-h-screen">
@@ -34,7 +50,7 @@ export default function Place({cars,canonicalUrl}) {
                     <div>
                         <DynNearByApi city={'bangalore'} />
                     </div>
-                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9886666883'} count={6}/>
+                    <CarProducts data={cars} branch={"bangalore"} phoneno={'9886666883'} count={6} />
                     <div><DynNearYou /></div>
                     <FeaturedCars data={cars} branch={"bangalore"} />
                     <DynCallBackForm />
@@ -51,19 +67,19 @@ export default function Place({cars,canonicalUrl}) {
     );
 }
 
-export async function getServerSideProps({req}) {
+export async function getServerSideProps({ req }) {
     const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=bangalore');
     const items = await response.json();
     const cars = items?.data?.results;
     const host = req.headers.host;
     const canonicalUrl = host.includes('.in')
-      ? 'https://www.longdrivecars.in/bangalore'
-      : 'https://www.longdrivecars.com/bangalore';
-  
+        ? 'https://www.longdrivecars.in/bangalore'
+        : 'https://www.longdrivecars.com/bangalore';
+
     return {
-      props: {
-        cars,
-        canonicalUrl,
-      },
+        props: {
+            cars,
+            canonicalUrl,
+        },
     };
-  }
+}

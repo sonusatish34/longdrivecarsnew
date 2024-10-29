@@ -86,7 +86,7 @@ const QuestionAnswerSlider = () => {
                 alt="Apple App Store"
                 width={1000}
                 height={1000}
-                className='relative w-24 top-1 lg:w-36 lg:top-2'
+                className='relative w-24 top-[5px] lg:w-36 lg:top-2'
               />
             </Link>
           </div>

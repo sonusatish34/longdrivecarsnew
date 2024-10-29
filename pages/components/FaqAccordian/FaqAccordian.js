@@ -8,7 +8,7 @@ const FaqAccordion = ({city}) => {
     },
     {
       question: "Damage protection",
-      answer: "<div><p>If You Choose</p><p>Zero Deposit Damage Protection</p><p>You Pay Up-to 20000rs Only in case of damage</p><p>If Major Damage Customer should bring fir copy or panchanama from police station Customer should support for Insurance</p><p>Customer should support for Insurance Verification Until Approved</p></div>    <div><p>If You Choose</p><p>Bike + Rc</p><p>No Insurance Will be Applied full Damage Amount Lakhs Of Money Should be Paid by Customer</p><p>In-case of damage Rent Amount No Refund & No Adjustment for Another Car booking.</p><p>Note: In case vehicle damage estimates exceed Rs 2,00,000, a mandatory deductible equivalent to the estimated damage amount is required.</p></div>",
+      answer: "<div><p>If You Choose</p><p>No Deposit Damage Protection</p><p>You Pay Up-to 20000rs Only in case of damage</p><p>If Major Damage Customer should bring fir copy or panchanama from police station Customer should support for Insurance</p><p>Customer should support for Insurance Verification Until Approved</p></div>    <div><p>If You Choose</p><p>Bike + Rc</p><p>No Insurance Will be Applied full Damage Amount Lakhs Of Money Should be Paid by Customer</p><p>In-case of damage Rent Amount No Refund & No Adjustment for Another Car booking.</p><p>Note: In case vehicle damage estimates exceed Rs 2,00,000, a mandatory deductible equivalent to the estimated damage amount is required.</p></div>",
     },
     {
       question: 'Late Or Extension Rules ?',

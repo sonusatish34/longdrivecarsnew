@@ -7,7 +7,7 @@ export default function ZigzagPhones() {
       {/* Desktop Image */}
       <div className="hidden lg:block w-full h-full">
         <Image
-          src="/attachment/web.webp"
+          src="/attachment/attachmentsweb.webp"
           alt="Phone 7 - Desktop"
           width={1000}
           height={1000}
@@ -19,7 +19,7 @@ export default function ZigzagPhones() {
       {/* Mobile Image */}
       <div className="block lg:hidden ">
         <Image
-          src="/attachment/phone.webp"
+          src="/attachment/attachmentsphone.webp"
           alt="Phone 7 - Mobile"
           width={500}
           height={500}

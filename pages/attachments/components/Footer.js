@@ -103,7 +103,7 @@ function Footer() {
                                             alt="Apple App Store"
                                             width={500}
                                             height={500}
-                                            className='relative  w-24 lg:w-28 top-1 lg:top-[6px] '
+                                            className='relative  w-24 lg:w-28 top-[5px] lg:top-[6px] '
                                         />
                                     </Link>
                                 </div>

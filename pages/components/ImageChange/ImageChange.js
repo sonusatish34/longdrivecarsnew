@@ -25,7 +25,7 @@ const ImageChange = ({ locname }) => {
             alt={'self drive car rental hyderabad'}
             height={1000}
             width={1000}
-            className='xl:w-[500px] lg:w-[350px] w-[300px] hidden lg:block'
+            className='xl:w-[500px] lg:w-[350px] w-[300px]'
             priority
           />
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl lg:pt-10 pt-3">
@@ -71,7 +71,7 @@ const ImageChange = ({ locname }) => {
                   </div>
                   {(locname !== 'bangalore') ? <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2 ">Zero Deposit</p>
+                    <p className="ml-2 ">No Deposit</p>
                   </div> : null}
 
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">

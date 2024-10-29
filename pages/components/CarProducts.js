@@ -72,7 +72,7 @@ function CarProducts({ data, branch, phoneno, count }) {
                   className="relative bottom-[4.5rem] lg:rounded-md"
                 >
                   <div>
-                    {
+                    { 
                       <Link href={`${(((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                         <Image className={'lg:h-[455px] h-[450px] rounded-md'} width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_car_right_view)}></Image>
                       </Link>}
