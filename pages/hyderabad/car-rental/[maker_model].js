@@ -1,6 +1,6 @@
 import React from 'react'
-import MakerModel from '../MakerModel'
-import Layout from '../components/Layout/Layout';
+import MakerModel from '../../MakerModel'
+import Layout from '../../components/Layout/Layout';
 function maker_model() {
   return (
     <Layout phoneno={'9000-888-922'}>
