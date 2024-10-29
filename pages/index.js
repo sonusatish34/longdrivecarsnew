@@ -92,13 +92,13 @@ export default function Place({ cars, canonicalUrl }) {
                             className="lg:w-32 w-14"
                             src="/logos/logo3.webp"
                             alt="Long Drive Cars"
-                            width={500}
-                            height={500}
+                            width={100}
+                            height={100}
                         // placeholder="blur"
                         />
                         <p className='font-semibold text-[#0456e8] text-xl xl:text-4xl lg:text-3xl lg:w-[384px] w-48 popins-text'>Long Drive Cars</p>
                     </div>
-                    <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
+                    <p className='lg:text-4xl font-semibold text-xl'>Please Select Your location</p>
                     <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 lg:px-36'>
                         <div className='flex gap-6 flex-col lg:flex-row'>
                             <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 h-16 lg:w-64'><span><Image
