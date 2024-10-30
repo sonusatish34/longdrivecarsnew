@@ -31,7 +31,9 @@ function CarProducts({ data, branch, phoneno, count }) {
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const sortedData = filteredData.sort((a, b) => a.price_24_hours - b.price_24_hours);
 
+// console.log(sortedData);
   return (
     <div className=' bg-white'>
       <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7 capitalize'>Explore Our Cars in {branch?.length ? branch : 'Hyderabad'}</p>
@@ -45,13 +47,13 @@ function CarProducts({ data, branch, phoneno, count }) {
         />
         <FaSearch size={25} className='text-blue-500 relative right-9 lg:right-20 md:right-14' />
       </div>
-      <div className="flex flex-wrap gap-x-8 gap-y-28 lg:items-start justify-center lg:pl-12 items-center text-white">
+      <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center text-white">
 
         {filteredData?.slice(0, visibleItems).map((item, index) => (
           <React.Fragment key={index}>
-            {<div className=" lg:rounded-md flex flex-col  w-[100%] md:w-72 lg:h-[480px] bg-white  h-[530px] lg:hover:scale-105">
-              <div className="relative lg:h-[480px]  h-[480px] lg:rounded-md bg-white">
-                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md bottom-4">
+            {<div className=" lg:rounded-md flex flex-col  w-[100%] md:w-72  bg-white lg:hover:scale-105">
+              <div className="relative lg:rounded-md h-[560px]">
+                <div className="relative z-20 bg-gradient-to-b from-black opacity-90 lg:rounded-md top-[3.5rem]">
                   <div className="flex flex-col gap-2 items-end pt-5 pr-5">
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 '>{item?.maker_model.toLowerCase()}</p>
                   </div>
@@ -69,30 +71,32 @@ function CarProducts({ data, branch, phoneno, count }) {
                   // autoplay={true}
                   pauseOnFocus={true}
                   pauseOnHover={true}
-                  className="relative bottom-[4.5rem] lg:rounded-md"
+                  className="relative lg:rounded-md"
                 >
                   <div>
-                    <Link href={`${(((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image className={'object-cover rounded-md h-[555px]'} width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_front_view)}></Image>
+                    {
+                      <Link href={`${(((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                        <Image className={' rounded-md h-[500px] object-cover'} width={1000} height={1000} alt="cars" src={replaceText(item?.car_image_front_view)}></Image>
+                      </Link>}
+                  </div>
+                  <div onClick={() => {
+                  }}>
+                    <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
+                      <Image alt="self drive car rental" className=' rounded-md h-[500px] object-cover' width={1000} height={1000} src={replaceText(item?.car_image_back_inner)}></Image>
                     </Link>
                   </div>
                   <div>
                     <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image alt="self drive car rental" className='object-cover rounded-md h-[555px] h-[555px]]' width={1000} height={1000} src={replaceText(item?.car_image_car_right_view)}></Image>
+                      <Image alt="self drive car rental" className=' rounded-md h-[500px] object-cover' width={1000} height={1000} src={replaceText(item?.car_image_reading_view)}></Image>
                     </Link>
                   </div>
                   <div>
                     <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image alt="self drive car rental" className='object-cover rounded-md h-[555px] h-[555px]]' width={1000} height={1000} src={replaceText(item?.car_image_car_left_view)}></Image>
-                    </Link>
-                  </div>
-                  <div>
-                    <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
-                      <Image alt="self drive car rental" className='object-cover rounded-md h-[555px] h-[555px]]' width={1000} height={1000} src={replaceText(item?.car_image_back_view)}></Image>
+                      <Image alt="self drive car rental" className=' rounded-md h-[500px] object-cover' width={1000} height={1000} src={replaceText(item?.car_image_back_view)}></Image>
                     </Link>
                   </div>
                 </Slider>
-                <div className="relative z-20 bottom-48 lg:bottom-[12.1rem] bg-gradient-to-t from-black opacity-90">
+                <div className="relative z-20 bottom-[7.5rem] lg:bottom-[12.1rem] bg-gradient-to-t from-black opacity-90">
                   <div className="flex gap-2 items-center justify-around pt-5 pr-5 pb-2">
                     <p className='font-bold text-lg shadow-black'>Book Now</p>
                     <p className='capitalize p-1 font-bold text-white bg-blue-700 rounded-md  z-50 font-manrope text-base pt-2 px-2 border-[1px] border-white'>₹ {item?.price_24_hours * 24}/day</p>
@@ -105,7 +109,7 @@ function CarProducts({ data, branch, phoneno, count }) {
                 </div>
               </div>
               <div>
-                <div className="z-20 relative flex justify-between  text-white top-[3.5rem] lg:bottom-[2.4rem]">
+                <div className="z-20 relative flex justify-between  text-white lg:bottom-[2.4rem]">
                   <ul className="flex w-full justify-between">
                     <li className="bg-green-500 w-full py-4 lg:py-2 text-center lg:rounded-bl-md">
                       {" "}
@@ -134,7 +138,7 @@ function CarProducts({ data, branch, phoneno, count }) {
             </div>}
             {(index + 1 === 2) && (
               <div className=" ">
-                <div className="bg-[#8d398d] lg:rounded-md  flex flex-col  w-[100%] md:w-72 lg:h-[496px] h-[530px] lg:hover:scale-105 relative bottom-4">
+                <div className="bg-[#8d398d] lg:rounded-md  flex flex-col  w-[100%] md:w-72  lg:hover:scale-105 relative top-4">
                   <div>
                     <Image
                       src={disc}
@@ -149,14 +153,14 @@ function CarProducts({ data, branch, phoneno, count }) {
             )}
             {(index + 1 === 4) && (
               <div className="">
-                <div className="bg-[#000000] lg:rounded-md flex flex-col  w-[100%] md:w-72 lg:h-[496px]   h-[530px] lg:hover:scale-105 relative bottom-4">
+                <div className="bg-[#000000] lg:rounded-md flex flex-col  w-[100%] md:w-72 lg:hover:scale-105 relative top-4">
                   <div>
                     <Image
                       src={discfree}
                       height={1000}
                       width={1000}
                       alt='discount self drive car rental'
-                      className=" rounded-md bg-cover lg:h-[496px] h-[530px]"
+                      className=" rounded-md bg-cover"
                     />
                   </div>
                 </div>
