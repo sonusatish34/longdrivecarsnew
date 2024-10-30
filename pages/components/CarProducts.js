@@ -31,7 +31,7 @@ function CarProducts({ data, branch, phoneno, count }) {
   const filteredData = data?.filter(item =>
     item.maker_model.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  const sortedData = filteredData?.sort((a, b) => a.price_24_hours - b.price_24_hours);
+  // const sortedData = filteredData?.sort((a, b) => a.price_24_hours - b.price_24_hours);
 
 // console.log(sortedData);
   return (
