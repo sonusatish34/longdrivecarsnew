@@ -85,7 +85,7 @@ export default function Place({ cars, canonicalUrl }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(true);
-        }, 6000);
+        }, 4000);
 
         return () => clearTimeout(timer); // Clean up timer
     }, []);
