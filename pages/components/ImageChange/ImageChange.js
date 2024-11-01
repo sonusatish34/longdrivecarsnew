@@ -17,7 +17,7 @@ import { IoCarSportSharp } from "react-icons/io5";
 const ImageChange = ({ locname }) => {
 
   return (
-    <div className='mt-36 xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 px-2'>
+    <div className='xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 px-2'>
       <div className='bg-white'>
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:px-6 xl:px-0'>
           <Image

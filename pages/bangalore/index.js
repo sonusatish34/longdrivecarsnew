@@ -45,8 +45,8 @@ export default function Place({ cars, canonicalUrl }) {
 
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
-                <div className="min-h-screen">
-                    <DynImageChange locname={'bangalore'} />
+                <div className='pt-32 lg:pt-0'>
+                    {/* <DynImageChange locname={'bangalore'} /> */}
                     <div>
                         <DynNearByApi city={'bangalore'} />
                     </div>
