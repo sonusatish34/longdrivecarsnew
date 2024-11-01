@@ -4,12 +4,10 @@ import ImageChange from '../ImageChange/ImageChange';
 const ContactUS = () => {
 
     return (
-
-        <div className='text-black bg-white'>
+        <div className='text-black bg-white pt-7 px-2 py-2'>
             <div className='bg-white text-black lg:text-lg text-sm lg:leading-9 leading-7 lg:pt-2 pt-28'>
                 <p className='font-bold lg:text-4xl text-3xl py-4 lg:px-16 px-2'>Welcome to Long drive cars - Your trusted partner for self drive rental cars </p>
                 <ImageChange />
-
                 <div className='lg:px-16 px-2 pt-4'>
                     <p >Long drive cars -  your go-to solution for all your self-drive car rental needs! Whether you're planning a weekend adventure, a corporate outing or require a car for everyday use, long drive cars are here to ensure that your travel  experience is smooth and hassle free. </p>
                     <p>Explore the places at your own pace with our fleet of well maintained vehicles that give you the best value for your money.  We at Long drive cars do not compromise on quality and are transparent about the pricing policies without any hidden charges. </p>

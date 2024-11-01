@@ -225,7 +225,7 @@ export default function Place({ cars, canonicalUrl }) {
                         ></script>
                         <link rel="canonical" href={canonicalUrl} />
                     </Head>
-                    <div >
+                    <div className='pt-32 lg:pt-0'>
                         {/* <DynImageChange /> */}
                         <div>
                             <DynNearByApi city={''} />

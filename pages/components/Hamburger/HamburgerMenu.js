@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo2 from '../../images/LDC.webp';
+import logo2 from '../../../public/logos/logo3.webp';
 import { LuPhoneCall } from 'react-icons/lu';
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { TbPointFilled } from "react-icons/tb";
