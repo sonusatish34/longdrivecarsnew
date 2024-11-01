@@ -30,6 +30,7 @@ import Loading from './components/Loading';
 export default function Place({ cars, canonicalUrl }) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
+    const [showPopup, setShowPopup] = useState(false); // State for popup visibility
 
     useEffect(() => {
         async function fetchCarDetails() {
@@ -81,6 +82,14 @@ export default function Place({ cars, canonicalUrl }) {
         }
     };
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopup(true);
+        }, 3000);
+
+        return () => clearTimeout(timer); // Clean up timer
+    }, []);
+
     return (
         <div>
             <Head>
@@ -106,10 +115,11 @@ export default function Place({ cars, canonicalUrl }) {
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             {loading && <Loading />}
+
             {(!selectedLocation) && (
                 <div>
                     {/* <p>hiii</p> */}
-                    <div className='w-full flex justify-between items-center gap-3 lg:px-14 xl:px-16 px-2 border-b-2 border-b-purple-200'>
+                    <div className='w-full flex justify-between items-center gap-3 lg:px-14 xl:px-16 px-2'>
                         <div className='xl:w-[86%] w-[60%] '>
                             <Marquee speed={75} >
                                 <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
@@ -136,68 +146,73 @@ export default function Place({ cars, canonicalUrl }) {
                             ))}
                         </ul>
                     </div>
-                    <DynImageChange />
-                    <div className='flex justify-center items-center lg:pt-32 py-20 flex-col gap-4 lg:text-3xl'>
-                        <div className='flex items-center lg:gap-6 gap-3'>
-                            <Image
-                                className="lg:w-32 w-14"
-                                src="/logos/logo3.webp"
-                                alt="Long Drive Cars"
-                                width={500}
-                                height={500}
-                            // placeholder="blur"
-                            />
-                            <p className='font-semibold text-[#0456e8] text-xl xl:text-4xl lg:text-3xl lg:w-[384px] w-48 popins-text'>Long Drive Cars</p>
-                        </div>
-                        <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
-                        <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 lg:px-36'>
-                            <div className='flex gap-6 flex-col lg:flex-row'>
-                                <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 h-16 lg:w-64'><span><Image
-                                    className="w-8 h-8 relative bottom-1"
-                                    src={hyd}
-                                    alt="Long Drive Cars"
-                                    width={110}
-                                    height={110}
-                                // placeholder="blur"
-                                /></span><span className='text-[#0456e8]'>Hyderabad</span></button>
-                                <button onClick={() => handleLocation('bangalore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                    className="w-12 h-12 relative bottom-1"
-                                    src={bang}
-                                    alt="Long Drive Cars"
-                                    width={110}
-                                    height={110}
-                                // placeholder="blur"
-                                /></span><span className='text-[#0456e8]'>Bangalore</span></button>
-                                <button onClick={() => handleLocation('warangal')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                    className="w-8 h-8 relative bottom-1"
-                                    src={wrg}
-                                    alt="Long Drive Cars"
-                                    width={110}
-                                    height={110}
-                                // placeholder="blur"
-                                /></span><span className='text-[#0456e8]'>Warangal</span></button>
-                            </div>
-                            <div className='flex gap-6 flex-col lg:flex-row'>
-                                <button onClick={() => handleLocation('vizag')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                    className="w-10 h-10 relative bottom-1"
-                                    src={viz}
-                                    alt="Long Drive Cars"
-                                    width={110}
-                                    height={110}
-                                // placeholder="blur"
-                                /></span><span className='text-[#0456e8]'>Vizag</span></button>
-                                <button onClick={() => handleLocation('mysore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                    className="w-12 h-12 relative bottom-1"
-                                    src={mys}
-                                    alt="Long Drive Cars"
-                                    width={110}
-                                    height={110}
-                                // placeholder="blur"
-                                /></span><span className='text-[#0456e8]'>Mysore</span></button>
-                            </div>
-                        </div>
-                        {/* <Link href={'/warangal'}> warangal</Link> */}
+                    <div className='flex items-center justify-center lg:gap-6 gap-3 border-4 border-purple-200'>
+                        <Image
+                            className="lg:w-32 w-14"
+                            src="/logos/logo3.webp"
+                            alt="Long Drive Cars"
+                            width={500}
+                            height={500}
+                        // placeholder="blur"
+                        />
+                        <p className='font-semibold text-[#0456e8] text-xl xl:text-4xl lg:text-3xl lg:w-[384px] w-48 popins-text'>Long Drive Cars</p>
                     </div>
+                    {showPopup &&
+                        <div className='flex justify-center items-center flex-col lg:pt-32 py-10'>
+                            <div className='flex justify-center items-center  flex-col gap-4 lg:text-3xl bg- opacity-90 bg-slate-300 w-fit h-fit p-8 rounded-md animate-fadeIn'>
+                                <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
+                                <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 lg:px-36'>
+                                    <div className='flex gap-6 flex-col lg:flex-row'>
+                                        <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 h-16 lg:w-64'><span><Image
+                                            className="w-8 h-8 relative bottom-1"
+                                            src={hyd}
+                                            alt="Long Drive Cars"
+                                            width={110}
+                                            height={110}
+                                        // placeholder="blur"
+                                        /></span><span className='text-[#0456e8]'>Hyderabad</span></button>
+                                        <button onClick={() => handleLocation('bangalore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                                            className="w-12 h-12 relative bottom-1"
+                                            src={bang}
+                                            alt="Long Drive Cars"
+                                            width={110}
+                                            height={110}
+                                        // placeholder="blur"
+                                        /></span><span className='text-[#0456e8]'>Bangalore</span></button>
+                                        <button onClick={() => handleLocation('warangal')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                                            className="w-8 h-8 relative bottom-1"
+                                            src={wrg}
+                                            alt="Long Drive Cars"
+                                            width={110}
+                                            height={110}
+                                        // placeholder="blur"
+                                        /></span><span className='text-[#0456e8]'>Warangal</span></button>
+                                    </div>
+                                    <div className='flex gap-6 flex-col lg:flex-row'>
+                                        <button onClick={() => handleLocation('vizag')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                                            className="w-10 h-10 relative bottom-1"
+                                            src={viz}
+                                            alt="Long Drive Cars"
+                                            width={110}
+                                            height={110}
+                                        // placeholder="blur"
+                                        /></span><span className='text-[#0456e8]'>Vizag</span></button>
+                                        <button onClick={() => handleLocation('mysore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                                            className="w-12 h-12 relative bottom-1"
+                                            src={mys}
+                                            alt="Long Drive Cars"
+                                            width={110}
+                                            height={110}
+                                        // placeholder="blur"
+                                        /></span><span className='text-[#0456e8]'>Mysore</span></button>
+                                    </div>
+                                </div>
+                                {/* <Link href={'/warangal'}> warangal</Link> */}
+                            </div>
+                        </div>
+                    }
+                    {!showPopup && <DynImageChange />}
+
                 </div>
 
             )}
