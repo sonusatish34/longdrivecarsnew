@@ -85,7 +85,7 @@ export default function Place({ cars, canonicalUrl }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(true);
-        }, 4000);
+        }, 6000);
 
         return () => clearTimeout(timer); // Clean up timer
     }, []);
@@ -159,7 +159,7 @@ export default function Place({ cars, canonicalUrl }) {
                     </div>
                     {showPopup &&
                         <div className='flex justify-center items-center flex-col lg:pt-32 py-10'>
-                            <div className='flex justify-center items-center  flex-col gap-4 lg:text-3xl bg- opacity-90 bg-slate-300 w-fit h-fit p-8 rounded-md animate-fadeIn'>
+                            <div className='flex justify-center items-center  flex-col gap-4 lg:text-3xl bg- opacity-90 bg-slate-200 w-fit h-fit lg:w-2/3 p-8 rounded-md animate-fadeIn'>
                                 <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
                                 <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 lg:px-36'>
                                     <div className='flex gap-6 flex-col lg:flex-row'>
