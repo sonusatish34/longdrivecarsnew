@@ -11,6 +11,7 @@ const GetInTouch = dynamic(() => import('../components/GetInTouch/GetInTouch'));
 const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCars'));
 const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
+// import Layout from '../components/Layout/Layout';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';

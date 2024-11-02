@@ -25,9 +25,7 @@ const CarDetails = ({ city, phoneno }) => {
 
   const router = useRouter();
   const { maker_model } = router.query;
-  const mdyfmaker_model = maker_model?.includes('presso')?'maruthi s - presso': maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
-  console.log(mdyfmaker_model,"mdy");
-  
+  const mdyfmaker_model = maker_model?.includes('presso')?'maruthi s - presso': maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");  
   // const mdyfmaker_model = maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
   useEffect(() => {
     async function fetchCarDetails() {
