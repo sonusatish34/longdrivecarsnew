@@ -84,6 +84,8 @@ export default function ExploreCars({ loc,phoneno }) {
         });
     }, [carData, searchQuery, selectedBrand, selectedSeater, selectedFuelType, selectedTransType]);
 
+    const sortedData = filteredData?.sort((a, b) => a.price_24_hours - b.price_24_hours);
+
     const clearFilters = () => {
         setSelectedBrand('');
         setSelectedSeater('');

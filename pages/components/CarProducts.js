@@ -37,7 +37,7 @@ function CarProducts({ data, branch, phoneno, count }) {
   return (
     <div className=' bg-white'>
       <p className='text-black xl:text-5xl lg:text-4xl text-lg font-bold text-center py-7 capitalize'>Explore Our Cars in {branch?.length ? branch : 'Hyderabad'}</p>
-      <div className=' lg:mb-8 pl-3 flex items-center justify-center pt-2 pb-14 lg:pb-2'>
+      <div className=' lg:mb-8 pl-3 flex items-center justify-center pt-2 lg:pb-2'>
         <input
           placeholder='Search for your favourite car'
           className='placeholder-black text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
