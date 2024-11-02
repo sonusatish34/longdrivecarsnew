@@ -54,6 +54,7 @@ export default function Place({ cars, canonicalUrl }) {
     }, [router.events]);
 
     const handleLocation = (location) => {
+        setShowPopup(false);
         if (location === 'hyderabad') {
             router.push('/hyderabad');
         } else if (location === 'bangalore') {
@@ -73,7 +74,7 @@ export default function Place({ cars, canonicalUrl }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(true);
-        }, 12000);
+        }, 8000);
 
         return () => clearTimeout(timer); // Clean up timer
     }, []);
