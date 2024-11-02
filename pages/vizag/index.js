@@ -16,7 +16,6 @@ import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-const DynamicPriceList = dynamic(() => import('../components/PriceList/PriceList'));
 // const allowedKeywords = ['vizag', 'bangalore', 'keyword3'];
 
 export default function Place({cars,canonicalUrl}) {

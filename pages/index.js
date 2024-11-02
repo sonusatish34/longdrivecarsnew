@@ -139,7 +139,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <div className="fixed inset-0 flex items-center justify-center z-50">
                             <div className="absolute inset-0 bg-gray-500 bg-opacity-50 backdrop-blur-sm"></div>
                             <div className='flex justify-center items-center flex-col lg:pt-32 py-10'>
-                                <div className='flex justify-center items-center flex-col gap-4 lg:text-3xl bg-slate-300 w-fit h-fit lg:w-2/3 p-8 rounded-md relative z-10'>
+                                <div className='flex justify-center items-center flex-col gap-4 lg:text-3xl bg-white w-fit h-fit lg:w-2/3 p-8 rounded-md relative z-10'>
                                     <p className='pb-3 lg:text-4xl font-semibold'>Please Select Your location</p>
                                     <div className='flex lg:flex-row flex-wrap justify-center flex-col gap-8 lg:px-36'>
                                         <div className='flex gap-6 flex-col lg:flex-row'>

@@ -1,11 +1,12 @@
 import Image from "next/image";
+import load from '../images/car.gif'
 const Loading = () => {
   return <div className="text-center py-4">
-    <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
-      <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16">
+    <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-100">
+      <div className="spinner w-20 h-20">
         <Image
-          className="lg:w-32 w-14"
-          src="/logos/logo3.webp"
+          className="lg:w-36 w-20"
+          src={load}
           alt="Long Drive Cars"
           width={500}
           height={500}
