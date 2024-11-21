@@ -25,7 +25,7 @@ export default function CarFeatures() {
               src="/slider/youtude.webp"
               width={1500}
               height={1500}
-              alt="Car"
+              alt="Long Drive Cars app"
               className="relative  bottom-5 lg:w-[1100px] border-white  border-[2px] lg:bottom-24 "
             />
           </Link>

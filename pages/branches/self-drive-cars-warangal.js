@@ -3,11 +3,22 @@ import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
 import Image from 'next/image';
 import www from '../images/branchimages/1.webp'
+import Head from 'next/head';
+
 function warangal() {
   return (
     <div className='bg-white'>
+      
+      <Head>
+        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <meta name="description" content="Stop here if you are searching for Self Drive Cars Warangal"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:description" content="Stop here if you are searching for Self Drive Cars Warangal"/> 
+      </Head>
+
       <HamburgerMenu phoneno={'9000-478-478'} />
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
         
         <p className='font-bold text-xl lg:text-3xl py-2'>Stop here if you are searching for Self Drive Cars Warangal</p>
         <div>
@@ -16,7 +27,7 @@ function warangal() {
             height={2000}
             width={2000}
             className='py-3 object-cover w-full'
-            alt="self drive car rental ameerpet"
+            alt="Long Drive Cars app"
           />
         </div>
         <p>It's now near you, get self drive cars in Warangal at Long Drive cars.</p>

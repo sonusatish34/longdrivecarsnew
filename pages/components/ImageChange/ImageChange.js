@@ -22,7 +22,7 @@ const ImageChange = ({ locname }) => {
         <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:px-6 xl:px-0'>
           <Image
             src={homebanner}
-            alt={'self drive car rental hyderabad'}
+            alt="Long Drive Cars app"
             height={1000}
             width={1000}
             className='xl:w-[500px] lg:w-[350px] w-[300px]'
@@ -88,7 +88,7 @@ const ImageChange = ({ locname }) => {
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <IoCarSportSharp className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Swift Dzire {(locname !== 'bangalore') ? '1776' : '2280'} per Day</p>
+                    <p className="ml-2">Swift Dzire {(locname !== 'bangalore') ? '1584' : '2280'} per Day</p>
                   </div>
                   <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
                     <SiContactlesspayment className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />

@@ -10,7 +10,7 @@ function sarjapur() {
         height={2000}
         width={2000}
         className='py-3 object-cover w-full'
-        alt="car rental"
+        alt="Long Drive Cars app"
       />
       <div className='lg:px-28 px-4'>
       <p>Sarjapur, a rapidly developing suburb in eastern Bangalore, strategically located close to some of Bangalore's major tech parks, including the Electronic City, Wipro Limited, and Infosys. A place that offers a unique blend of old-world charm and modern amenities, it is well-connected to the rest of Bangalore with excellent transportation facilities. With several reputed educational institutions and healthcare facilities, Sarjapur has emerged as a thriving hub of Bangalore's modern side.</p>

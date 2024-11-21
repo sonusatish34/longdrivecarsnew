@@ -45,7 +45,7 @@ function WhyChooseUs({locname}) {
             </div>
             {<Image
                 className='lg:w-[400px] lg:scale-110 lg:h-[400px] xl:w-[500px] xl:h-[500px] hidden lg:block'
-                alt="car rental near you creta"
+                alt="Long Drive Cars app"
                 title="car rental near you creta"
                 src={rightimg}
                 width={1000}

@@ -10,7 +10,7 @@ function whitefield() {
         height={2000}
         width={2000}
         className='py-3 object-cover w-full'
-        alt="car rental"
+        alt="Long Drive Cars app"
       />
       <div className='lg:px-28 px-4'>
         <p>Searching for a way to explore Bangalore on your terms? <span className='font-bold'>Long drive cars</span> let you take the wheel for an unforgettable drive. Known as a hub for technology, business, and lifestyle, the city offers a unique blend of modern amenities and rich history, Bangalore hosts numerous tech parks and innovation hubs, and one among them is Whitefield, located in the eastern part of the city. </p>

@@ -20,7 +20,7 @@ const CarImages = () => {
         <div className="flex flex-col  lg:flex-row-reverse lg:justify-between lg:px-16   ">
           <Image
             src='https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/InnovaCrysta.webp'
-            alt="Innova Car"
+            alt="Long Drive Cars app"
             width={500}
             height={500}
             className="px-2 py-2 " />

@@ -174,7 +174,7 @@ export default function CarEarningDashboard() {
                 <div key={index} className="w-24 lg:w-40 mr-2 lg:mr-3">
                   <Image
                     src={car.image}
-                    alt={`Car ${index + 1}`}
+                    alt="Long Drive Cars app"
                     height={1000}
                     width={1000}
                     className="w-24 h-16 lg:w-40 lg:h-32 lg:pt-8"
@@ -192,7 +192,7 @@ export default function CarEarningDashboard() {
                 <div key={index} className="w-24 lg:w-40 mr-2 lg:mr-3">
                   <Image
                     src={car.image}
-                    alt={`Car ${index + 1}`}
+                    alt="Long Drive Cars app"
                     height={1000}
                     width={1000}
                     className="w-24 h-16 lg:w-40 lg:h-32 lg:pt-8"
@@ -210,7 +210,7 @@ export default function CarEarningDashboard() {
             <div key={index} className="w-24 lg:w-40 mr-2 lg:mr-3">
               <Image
                 src={car.image}
-                alt={`Car ${index + 1}`}
+                alt="Long Drive Cars app"
                 height={1000}
                 width={1000}
                 className="w-24 h-16 lg:w-40 lg:h-32 lg:pt-8"

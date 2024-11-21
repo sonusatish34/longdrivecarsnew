@@ -96,7 +96,7 @@ const QuestionAnswerSlider = () => {
         <div className="flex justify-center">
           <Image
             src="/slider/Bg-car.webp"
-            alt="Car"
+            alt="Long Drive Cars app"
             width={1000}
             height={1000}
             className="relative  bg-[#334B35] z-10  lg:w-[650px] lg:scale-105 lg:top-5"

@@ -21,10 +21,8 @@ import { SiLinkedin } from "react-icons/si";
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
-import bang from './images/mysore.png'
 import hyd from './images/hyderabad-charminar.png'
 import wrg from './images/warangal.png'
-import mys from './images/mysore.webp'
 import viz from './images/vizag.webp'
 import Loading from './components/Loading';
 export default function Place({ cars, canonicalUrl }) {
@@ -57,15 +55,11 @@ export default function Place({ cars, canonicalUrl }) {
         setShowPopup(false);
         if (location === 'hyderabad') {
             router.push('/hyderabad');
-        } else if (location === 'bangalore') {
-            router.push('/bangalore');
-        }
+        } 
         else if (location === 'warangal') {
             router.push('/warangal');
         }
-        else if (location === 'mysore') {
-            router.push('/mysore');
-        }
+
         else if (location === 'vizag') {
             router.push('/vizag');
         }
@@ -82,7 +76,7 @@ export default function Place({ cars, canonicalUrl }) {
         if (showPopup) {
             document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = 'unset'; 
+            document.body.style.overflow = 'unset';
         }
 
         return () => {
@@ -91,7 +85,60 @@ export default function Place({ cars, canonicalUrl }) {
     }, [showPopup]);
     return (
         <div>
+            <Head>
+                <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <link rel="canonical" href={canonicalUrl} />
+                <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=AW-16731119855"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16731119855');
+                    `,
+                        }}
+                    ></script>
+                    
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=AW-16647839094">
+                    </script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16647839094');
+                    `,
+                        }}
+                    ></script>
 
+                      <script
+                        async
+                        src='https://www.googletagmanager.com/gtag/js?id=G-E5F1QT47V0'>
+                    </script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-E5F1QT47V0');
+                    `,
+                        }}
+                    ></script>
+
+
+            </Head>
             {loading && <Loading />}
 
             {(!selectedLocation) && (
@@ -101,7 +148,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <div className='xl:w-[86%] w-[60%] '>
                             <Marquee speed={75} >
                                 <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
-                                    {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Baleno, Dzire 1776 per day', 'Just pay 10% Advance & book'].map((text, index) => (
+                                    {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Baleno, Dzire 1584 per day', 'Just pay 10% Advance & book'].map((text, index) => (
                                         <p key={index} className='flex items-center gap-1 justify-center'>
                                             <TbPointFilled /><span>{text}</span>
                                         </p>
@@ -146,21 +193,14 @@ export default function Place({ cars, canonicalUrl }) {
                                             <button onClick={() => handleLocation('hyderabad')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 h-16 lg:w-64'><span><Image
                                                 className="w-8 h-8 relative bottom-1"
                                                 src={hyd}
-                                                alt="Long Drive Cars"
+                                                alt="Long Drive Cars app"
                                                 width={110}
                                                 height={110}
                                             /></span><span className='text-[#0456e8]'>Hyderabad</span></button>
-                                            <button onClick={() => handleLocation('bangalore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                                className="w-12 h-12 relative bottom-1"
-                                                src={bang}
-                                                alt="Long Drive Cars"
-                                                width={110}
-                                                height={110}
-                                            /></span><span className='text-[#0456e8]'>Bangalore</span></button>
                                             <button onClick={() => handleLocation('warangal')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8]  rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
                                                 className="w-8 h-8 relative bottom-1"
                                                 src={wrg}
-                                                alt="Long Drive Cars"
+                                                alt="Long Drive Cars app"
                                                 width={110}
                                                 height={110}
                                             /></span><span className='text-[#0456e8]'>Warangal</span></button>
@@ -169,17 +209,11 @@ export default function Place({ cars, canonicalUrl }) {
                                             <button onClick={() => handleLocation('vizag')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
                                                 className="w-10 h-10 relative bottom-1"
                                                 src={viz}
-                                                alt="Long Drive Cars"
+                                                alt="Long Drive Cars app"
                                                 width={110}
                                                 height={110}
                                             /></span><span className='text-[#0456e8]'>Vizag</span></button>
-                                            <button onClick={() => handleLocation('mysore')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
-                                                className="w-12 h-12 relative bottom-1"
-                                                src={mys}
-                                                alt="Long Drive Cars"
-                                                width={110}
-                                                height={110}
-                                            /></span><span className='text-[#0456e8]'>Mysore</span></button>
+                                           
                                         </div>
                                     </div>
                                 </div>

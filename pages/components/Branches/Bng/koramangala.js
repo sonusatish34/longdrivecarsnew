@@ -10,7 +10,7 @@ function koramangala() {
         height={2000}
         width={2000}
         className='py-3 object-cover w-full'
-        alt="car rental"
+        alt="Long Drive Cars app"
       />
       <div className='lg:px-28 px-4'>
         <p>Looking for the best hidden secrets in Bangalore? Rent your car from  <span className='font-bold'>Long Drive Cars in Koramangala</span> . Regardless of being born here or just on a visit, all should experience this enjoyable travel adventure with no deposit required and no limits on distance. So that you can have the chance to build unforgettable moments, make a reservation now.</p>

@@ -10,7 +10,7 @@ function hsrlayout() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="Long Drive Cars app"
             />
             <div className='lg:px-28 px-4'>
 

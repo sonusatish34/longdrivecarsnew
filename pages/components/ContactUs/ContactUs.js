@@ -27,7 +27,7 @@ const ContactUS = () => {
                                     src={ds}
                                     height={1000}
                                     width={1000}
-                                    alt='self drive car rental'
+                                    alt='Long Drive Cars app'
                                     className='w-16 h-16 pb'
                                 ></Image>
                                 <p>Easy to search</p>
@@ -38,7 +38,7 @@ const ContactUS = () => {
                                     src={clock}
                                     height={1000}
                                     width={1000}
-                                    alt='self drive car rental'
+                                    alt='Long Drive Cars app'
                                     className='w-16 h-16'
                                 ></Image>
                                 <p>Unlimited</p>
@@ -49,7 +49,7 @@ const ContactUS = () => {
                                     src={deposit}
                                     height={1000}
                                     width={1000}
-                                    alt='self drive car rental'
+                                    alt='Long Drive Cars app'
                                     className='w-16 h-16'
                                 ></Image>
                                 <p>Zero </p>
@@ -63,7 +63,7 @@ const ContactUS = () => {
                                         src={ggle}
                                         height={1000}
                                         width={1000}
-                                        alt='self drive car rental'
+                                        alt='Long Drive Cars app'
                                         className='w-32 h-[5.2rem] lg:w-44'
                                     >
                                     </Image>
@@ -75,7 +75,7 @@ const ContactUS = () => {
                                         src={apple}
                                         height={1000}
                                         width={1000}
-                                        alt='self drive car rental'
+                                        alt='Long Drive Cars app'
                                         className='w-28 h-14 lg:w-40'
 
                                     >
@@ -96,7 +96,7 @@ const ContactUS = () => {
                             src={app}
                             height={1000}
                             width={1000}
-                            alt='self drive car rental'
+                            alt='Long Drive Cars app'
                             className='w-[500px] relative bottom-28'
                         >
                         </Image>
@@ -145,7 +145,7 @@ const ContactUS = () => {
                                 src={lady}
                                 height={1000}
                                 width={1000}
-                                alt='self drive car rental'
+                                alt='Long Drive Cars app'
                                 className='w-full '
                             >
                             </Image>

@@ -13,7 +13,7 @@ function NearByApi({ city }) {
                     <Link href={`${city?.length ? city : ''}/get-near-by-cars`} className={` w-fit lg:text-lg text-xs font-semibold text-black flex items-center lg:hover:scale-105 pt-6`}>
                         <Image
                             src={carnearbtn}
-                            alt={'home banner'}
+                            alt="Long Drive Cars app"
                             height={1000}
                             width={1000}
                             className='xl:w-full lg:w-96 lg:h-28 w-full pl-4 '
@@ -25,7 +25,7 @@ function NearByApi({ city }) {
                     <Link href={`${city?.length ? city : ''}/get-near-by-cars`}>
                         <Image
                             src={mapright}
-                            alt={'home banner'}
+                            alt="Long Drive Cars app"
                             height={1000}
                             width={1000}
                             className=':xl-80 lg:w-72 w-48 scale-110 relative lg:hover:scale-125'

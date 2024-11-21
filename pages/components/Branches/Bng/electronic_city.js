@@ -11,7 +11,7 @@ function electroniccity() {
         height={2000}
         width={2000}
         className='py-3 object-cover w-full'
-        alt="car rental"
+        alt="Long Drive Cars app"
       />
       <div className='lg:px-28 px-4'>
       <p>Known for its sprawling tech parks and innovative spirit, Bangalore is often dubbed as Silicon valley of India. Among its most iconic hubs is Electronic city, a major IT and industrial zone situated in the southern outskirts of the city. </p>

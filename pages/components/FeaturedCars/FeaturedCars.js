@@ -120,7 +120,7 @@ function FeaturedCars({ data, branch }) {
                         <Link href={`${branch!=='warangal'?((((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')):'/'}`}>
                           <Image
                             src={(inside.src)}
-                            alt={'carss'}
+                            alt="Long Drive Cars app"
                             width={1000}
                             height={1000}
                             className='w-[250px] h-[150px] '

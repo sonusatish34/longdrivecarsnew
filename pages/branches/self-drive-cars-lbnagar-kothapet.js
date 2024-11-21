@@ -3,11 +3,19 @@ import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
 import Image from 'next/image';
 import www from '../images/branchimages/4.webp'
+import Head from 'next/head';
 function dilshuknagar() {
   return (
     <div className='bg-white'>
+         <Head>
+        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <meta name="description" content="Easy access to self drive cars in Dilsukhnagar"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:description" content="Easy access to self drive cars in Dilsukhnagar"/> 
+      </Head>
       <HamburgerMenu phoneno={'9000-478-478'} />
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
         <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>Easy access to self drive cars in Dilsukhnagar</p>
         <div>
           <Image
@@ -15,7 +23,7 @@ function dilshuknagar() {
             height={2000}
             width={2000}
             className='py-3 object-cover w-full'
-            alt="self drive car rental ameerpet"
+            alt="Long Drive Cars"
           />
         </div>
         <p>Long Drive cars is a market leading provider of self drive cars in Dilsukhnagar with the latest fleet of cars to meet any individual needs. The car rental services offered at Long Drive cars are the very services you would expect from a quality professional self driving solutions company</p>

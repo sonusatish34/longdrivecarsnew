@@ -12,7 +12,7 @@ function NearYou() {
                 src={rightimg}
                 width={2000}
                 height={2000}
-                alt='self drive car rental thar'
+                alt='Long Drive Cars app'
                 className='lg:w-2/5 '
             />
             <div className='py-16 lg:w-2/5 flex flex-col items-center'>

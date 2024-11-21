@@ -144,7 +144,7 @@ const LocationFetcher = () => {
                                                             width={1000}
                                                             height={1000}
                                                             src={replaceText(imageSrc)}
-                                                            alt={`Car image ${index + 1}`}
+                                                            alt="Long Drive Cars app"
                                                         />
                                                     </Link>
                                                 </div>

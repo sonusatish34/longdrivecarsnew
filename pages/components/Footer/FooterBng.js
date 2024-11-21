@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 import { TbPointFilled } from "react-icons/tb";
 import imgs from '../../images/cretafoot_2_11zon-transformed.webp'
-import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed.webp'
+import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp'
 import logo2 from '../../images/logo-white.webp';
 
 function Footer({ branch }) {
@@ -43,7 +43,7 @@ function Footer({ branch }) {
                                 <Image
                                     className="lg:w-72 xl:w-full xl:h-32 lg:20"
                                     src={logo2}
-                                    alt="carrr"
+                                    alt="Long Drive Cars app"
                                     width={1000}
                                     height={1000}
                                 // placeholder="blur"
@@ -126,7 +126,7 @@ function Footer({ branch }) {
                                 width={1000}
                                 height={1000}
                                 className='lg:w-36 lg:h-28 w-16 h-12 relative bottom-1 lg:bottom-[0.55rem]'
-                                alt="car rental"
+                                alt="Long Drive Cars app"
                             >
                             </Image>
                             <Image
@@ -134,7 +134,7 @@ function Footer({ branch }) {
                                 width={1000}
                                 height={1000}
                                 className='lg:w-32 lg:h-28 h-12 w-12 '
-                                alt="car rental"
+                                alt="Long Drive Cars app"
                             >
                             </Image>
                         </div>

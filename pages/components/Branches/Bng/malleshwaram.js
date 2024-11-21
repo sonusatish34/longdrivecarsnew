@@ -10,7 +10,7 @@ function malleshwaram() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="Long Drive Cars app"
             />
             <div className='lg:px-28 px-4'>
             <p>Do you want to travel somewhere with optimum ease and readiness all the time? Find <span className='font-bold'>Long Drive Cars</span> in Malleshwaram! Our fleet of vehicles suits all events, be it you only need a swift move for few hours of running errands or a big car for long hauls for few days. With no deposit and endless kilometers, the sky is the limit of your explorations. Live long and travel more with <span className='font-bold'>Long Drive Cars</span>!</p>

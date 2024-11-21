@@ -1,34 +1,56 @@
+
+
+
 import React from 'react'
 import Image from 'next/image'
 import kushaq from '../../images/branchimages/9.webp'
 function ramanthapur() {
 
     return (
-        <div className='text-black pt-36 lg:py-12  text-xs lg:text-base leading-7 lg:leading-9 '>
-            <h1 className='font-bold text-base lg:text-3xl xl:mx-72 lg:mx-80 mx-6'>Find a Range of Self-Drive Cars in Ramanthapur</h1>
+        <div className='text-black pt-36 lg:py-12 text-xs lg:text-base leading-7 lg:leading-9 '>
+            <h1 className='font-bold text-xl  lg:text-4xl xl:mx-72 lg:mx-80 mx-6 lg:pb-6 py-3'>Drive yourself around Hyderabad with self-drive cars from Ramanthapur </h1>
+            
             <Image
                 src={kushaq}
                 height={2000}
                 width={2000}
-                className='py-3 object-cover w-full'
-                alt="car rental rampally"
+                className='object-cover w-full'
+                alt="Long Drive Cars app"
             />
             <div className='xl:mx-72 lg:mx-80 mx-6'>
-           <p>The ability to travel at your own speed is more crucial than ever in the fast-paced world of today. Self Drive Cars Hyderabad provides the best <strong>self-drive car rental services in Ramanthapur </strong>self-drive car rental services in Ramanthapur, Hyderabad, making them the ideal choice for your travel requirements.<strong> Self Drive Cars Hyderabad </strong> guarantees the greatest rental car experience, whether you're planning a long road trip or a quick break.</p>
-           <p>Self Drive Cars Hyderabad's no-deposit policy is one of its best qualities. <strong>Self Drive Cars Hyderabad</strong> enables you to drive away with no upfront fees, in contrast to many rental companies that demand a sizable deposit. This frees you from worrying about money and allows you to concentrate on having fun on your travels.</p>
-           <p>With Self Drive Cars Hyderabad, locating a dependable <strong>self-drive car rental service </strong> is simple. They provide an easy-to-pick-up and drop-off site in Ramanthapur for your rental automobile convenience. You can select the ideal car from their extensive selection to suit your requirements and tastes.</p>
-           <p>Take advantage of this chance to use the best car rental services Hyderabad has to offer. For your upcoming trip, get in touch with<strong>Self Drive Cars Hyderabad</strong>  and experience the liberty of unrestricted mileage and exploration without any upfront costs. This is where your adventure begins. Reserve your<strong>self-drive cars</strong>  now and go forth with assurance.</p>
-            <p>Take a self-drive car from <strong>Self Drive Cars Hyderabad</strong>  and enjoy the flexibility and convenience of a self-drive vacation to Tirupati and the surrounding temples. You can visit these holy locations at your own speed in your own car, making the trip more relaxing and customized.</p>
-            <ol className='pl-5'>
-                <li className='list-decimal'><strong>Tirumala Venkateswara Temple:</strong> The Tirumala Venkateswara Temple is the most famous and revered temple in Tirupati, dedicated to Lord Venkateswara, an incarnation of Vishnu. Its grandeur and spiritual ambiance attract millions of devotees annually. With a self-drive car, you can comfortably navigate the hilly roads to the temple, avoiding the hassles of public transport. The temple’s intricate architecture and the divine aura offer a profound spiritual experience, making it a must-visit.</li>
-                <li className='list-decimal'><strong>Sri Kapileswara Swamy Temple:</strong> Nestled at the base of the Tirumala Hills, the Sri Kapileswara Swamy Temple is dedicated to Lord Shiva. It is known for its peaceful surroundings and the picturesque Kapila Teertham waterfall nearby. Driving to this temple allows you to enjoy the scenic beauty of the area and take your time to meditate and reflect at your own pace.</li>
-                <li className='list-decimal'><strong>Sri Govindarajaswami Temple:</strong> Located in the heart of Tirupati, the Sri Govindarajaswami Temple is dedicated to Lord Govindaraja, another form of Vishnu. This ancient temple is renowned for its historical significance and architectural beauty. A self-drive car enables you to easily explore this temple and its surroundings, giving you the flexibility to visit during less crowded times.</li>
-                
-            </ol>
-            <p>For an unforgettable journey, <strong>Self Drive Cars Hyderabad</strong>  provides the best<strong> car rental services</strong> if you're looking to visit Hyderabad and its environs. You may start your journey with confidence and convenience because there is No Deposit required, unlimited kilometers, and handy locations in Ramanthapur and beyond. You can travel to these heavenly shrines on a spiritual pilgrimage in total luxury and independence when you use<strong> Self Drive Cars Hyderabad</strong>. Take advantage of the freedom to explore at your own speed and lose yourself in each temple's calm, revered environment. </p>
-        </div>
+            <p className='font-bold text-sm lg:text-3xl lg:pb-3  '>Discover Hyderabad on Your Terms</p>
+                <p>Looking for the freedom to explore Hyderabad at your own pace? <strong>Self-drive car rentals</strong> offer the perfect solution. Ramanthapur, a bustling tech hub, is a convenient starting point for your adventures. With <strong>Self Drive Cars Hyderabad</strong>, you can easily rent a car and embark on exciting journeys.</p>
+                <p className='font-bold lg:text-xl py-1 lg:pt-8 pt-4'>Why Choose Self-Drive in Ramanthapur?</p>
+                <ul>
+                    <li><strong>Flexibility:</strong> Enjoy the liberty to plan your trips without constraints.</li>
+                    <li><strong>Convenience:</strong>  Explore Hyderabad's shopping districts, historical landmarks, and dining hotspots effortlessly.</li>
+                    <li><strong>Cost-Effective:</strong>  Often more economical than traditional cabs or taxis, especially for longer trips.</li>
+                    <li><strong> Comfort:</strong> Experience the comfort and privacy of your own vehicle.</li>
+                </ul>
+                <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>From City Escapes to Weekend Getaways </p>
+                <p className=''>Whether you're craving a day of shopping at Hyderabad's vibrant malls or planning a weekend getaway,&nbsp;<strong>Self Drive Cars Hyderabad</strong>  has you covered. Explore the city's iconic landmarks, indulge in local cuisine, or embark on a road trip to nearby destinations.</p>
+                <ul>
+                    <li>
+                        <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>Lonavala and Khandala: The Twin Hill Stations</p>
+                        <p className=''>Lonavala and Khandala are twin hill stations located close to Mumbai and Pune. These destinations are famous for their scenic beauty, mist-covered hills, and cool climate. Visit the historic Karla and Bhaja Caves, trek to the majestic Rajmachi Fort, or simply relax by the picturesque Lonavala Lake. The region's famous chikki (a sweet made of jaggery and nuts) is a must-try.</p>
+                    </li>
+                    <li>
+                        <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>Mahabaleshwar: The Queen of Hill Stations</p>
+                        <p className=''>Mahabaleshwar, nestled in the Western Ghats, is a popular hill station known for its lush greenery, pleasant climate, and stunning viewpoints. Visit Arthur's Seat, Wilson Point, and Elephant's Head Point for panoramic views of the surrounding valleys. The town is also famous for its strawberry farms, where you can savor fresh strawberries and cream. Don't forget to explore the historic Pratapgad Fort, which offers a glimpse into Maharashtra's rich history. </p>
+                    </li>
+                    <li>
+                        <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>Aurangabad: The City of Gates </p>
+                        <p className=''>Aurangabad is renowned for its historical monuments and architectural marvels. The Ajanta and Ellora Caves, UNESCO World Heritage Sites, are stunning examples of ancient rock-cut architecture. The city's other attractions include the Bibi Ka Maqbara, often referred to as the "Taj of the Deccan," and the majestic Daulatabad Fort. Aurangabad is also a gateway to explore the nearby town of Shirdi, the home of the revered saint Sai Baba. </p>
+                    </li>
+                </ul>
+
+                <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>Experience Unmatched Convenience</p>
+                <p className=''><strong>Self Drive Cars Hyderabad</strong>  offers a wide range of well-maintained vehicles to suit your needs. From compact cars for city driving to spacious SUVs for family adventures, you'll find the perfect ride. Enjoy the convenience of hassle-free <strong>car rental services</strong>  and exceptional customer service.</p>
+                <p className='font-bold lg:text-xl py-2 lg:pt-8 pt-4'>Your Journey Starts Here</p>
+                <p className=''>Ready to hit the road? Book your <strong>self-drive car</strong>  in Ramanthapur today and experience the thrill of exploring Hyderabad and its surroundings at your own pace. With <strong>Self Drive Cars Hyderabad</strong> , every journey is an adventure. Whether you're looking for <strong>self drive cars near me</strong>  or planning a longer trip, we have the perfect vehicle for you</p>
+            </div>
         </div>
     )
 }
 
-export default ramanthapur;
+export default ramanthapur

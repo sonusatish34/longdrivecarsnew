@@ -2,13 +2,25 @@ import React from 'react'
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
 import Image from 'next/image';
-import www from '../images/branchimages/5.webp'
+import www from '../images/branchimages/5.webp';
+import Head from 'next/head';
+
+
 function hyderabadrentalcar() {
   return (
     <div className='bg-white'>
+      
+      <Head>
+        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <meta name="description" content="Now it's easy to get self drive cars in Uppal, Medipally"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:description" content="Now it's easy to get self drive cars in Uppal, Medipally"/> 
+      </Head>
+
       <HamburgerMenu phoneno={'9000-478-478'}/>
       
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-32 lg:pt-16'>
+      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
       <p className='lg:text-3xl text-xl font-bold py-2'>Now it's easy to get self drive cars in Uppal, Medipally</p>
       <div>
           <Image
@@ -16,7 +28,7 @@ function hyderabadrentalcar() {
             height={2000}
             width={2000}
             className='py-3 object-cover w-full'
-            alt="self drive car rental ameerpet"
+            alt="Long Drive Cars"
           />
         </div>
       <p>If you are among the smart people who believe in driving a different car on every outing, than you are among the few who have already self driven a rental car. Another advantage of renting a car is the choice of variants/models that this service provides. So write 'self drive cars in Uppal, Medipally' and see what you get: the many 5 seater and 7-8 seater cars you can rent out at Long Drive Cars!</p>

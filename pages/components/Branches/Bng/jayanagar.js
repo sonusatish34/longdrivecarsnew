@@ -10,7 +10,7 @@ function jayanagar() {
         height={2000}
         width={2000}
         className='py-3 object-cover w-full'
-        alt="car rental"
+        alt="Long Drive Cars app"
       />
       <div className='lg:px-28 px-4'>
         <p>Jayanagar, a delightful place in Bangalore , for those who love to explore locations with colonial style architecture, and never miss the opportunity to visit the historic junction where six roads converge popularly known as South end circle in <span className='font-bold'>Long drive cars</span>. With a wide variety of cuisines the place has some popular food courts to satisfy your taste buds such as Brahmin's Coffee Bar, Mavalli Tiffin Room and Koshy's. </p>

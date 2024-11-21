@@ -129,7 +129,7 @@ export default function ExploreCars({ loc,phoneno }) {
                                 <Image
                                     // priority
                                     src={images[currentIndex]}
-                                    alt={imgalt[currentIndex]}
+                                    alt="Long Drive Cars app"
                                     title={imgalt[currentIndex]}
                                     height={600}
                                     width={600}
@@ -363,7 +363,7 @@ export default function ExploreCars({ loc,phoneno }) {
                                                 src={disc}
                                                 height={1000}
                                                 width={1000}
-                                                alt='discount'
+                                                alt='Long Drive Cars app'
                                                 className="scale-75"
                                             />
                                         </div>

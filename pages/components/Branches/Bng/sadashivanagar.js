@@ -10,7 +10,7 @@ function sadashivanagar() {
                 height={2000}
                 width={2000}
                 className='py-3 object-cover w-full'
-                alt="car rental"
+                alt="Long Drive Cars app"
             />
             <div className='lg:px-28 px-4'>
                 <p>Want to take a vacation without the stresses of contemporary lifestyle? Long Drive Cars in Sadashivanagar is the answer! Our assortment of vehicles is perfect for anything from a simple store run to a fun filled excursion with friends. Aside from providing these amazing cars, there is no deposit needed and there are no limits in kilometers so you can even go out of the town. Reap the benefits that come with travel and Long Drive Cars!</p>
