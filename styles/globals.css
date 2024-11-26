@@ -80,3 +80,12 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.5s forwards; /* Adjust the duration as needed */
 }
+.blog-carousal .slick-track
+{
+  /* background-color: red; */
+  display: flex;
+  gap:8px
+}
+.blog-carousal  .slick-arrow::before {
+  color: black;
+}

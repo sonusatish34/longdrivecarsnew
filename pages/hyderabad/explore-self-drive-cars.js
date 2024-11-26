@@ -10,8 +10,8 @@ const ExploreCars = dynamic(() => import('../components/ExploreCars/ExploreCars'
 function ExploreSelfDriveCars() {
   return (
     <div>
-      <Layout phoneno={'9000-888-922'}>
-        <ExploreCars loc={'hyderabad'} phoneno={"9000888922"} />
+      <Layout phoneno={'9666-677-405'}>
+        <ExploreCars loc={'hyderabad'} phoneno={"9666677405"} />
       </Layout>
     </div>
   );

@@ -65,10 +65,10 @@ const CarDetails = ({ city, phoneno }) => {
         
       </Head>
       <div className='xl:mx-16  mx-4'>
-        <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2 border-purple-500 rounded-md'>
+        <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2  lg:pl-20 border-purple-500 lg:rounded  rounded-md'>
           {loading && <div>Loading...</div>}
           {!loading && (
-            <div className="relative md:w-2/3 lg:w-1/2  w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 lg:h-[634px] overflow-hidden">
+            <div className="relative md:w-2/3 lg:w-[525px]  w-full p-1 xl:pt-6 pt-8 border-1  border-gray-300 lg:h-[634px] overflow-hidden">
               <Slider
                 dots={true}
                 infinite={true}
@@ -85,25 +85,25 @@ const CarDetails = ({ city, phoneno }) => {
                 className="relative bottom-[4.5rem] lg:rounded-md"
               >
                 <div>
-                  <Image className={'lg:h-[655px] h-[450px]  rounded-md'} width={1000} height={1000} alt="Long Drive Cars app" src={replaceText(caritem?.car_image_car_right_view)}></Image>
+                  <Image className={'lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md'} width={1000} height={1000} alt="Long Drive Cars app" src={replaceText(caritem?.car_image_front_view)}></Image>
                 </div>
                 <div onClick={() => {
                 }}>
 
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_inner)}></Image>
+                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_inner)}></Image>
 
                 </div>
                 <div>
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_reading_view)}></Image>
+                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px] rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_reading_view)}></Image>
                 </div>
                 <div>
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_view)}></Image>
+                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_view)}></Image>
                 </div>
               </Slider>
             </div>
           )}
-          <div className='flex flex-col justify-evenly'>
-            <div>
+          <div className='flex flex-col lg:pl-40 '>
+            <div className='lg:py-28'>
               <p className='p-1 font-bold  text-3xl lg:pl-20 capitalize'>{mdyfmaker_model}</p>
               <p className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹{caritem?.price_24_hours * 24}/day</span></p>
             </div>
@@ -124,7 +124,7 @@ const CarDetails = ({ city, phoneno }) => {
             </div>
           </div>
         </div>
-        <div className='pt-6 lg:hidden'>
+        <div className='pt-6 lg:hidden '>
           <p className='font-semibold text-2xl'>Contact us by</p>
           <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
             <button className='bg-green-500 rounded-full p-2 lg:p-3'>

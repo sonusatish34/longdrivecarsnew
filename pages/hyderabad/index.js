@@ -17,9 +17,9 @@ import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
 
 export default function Place({ cars, canonicalUrl }) {
-    return (
+    return ( 
         <div>
-            <Layout locname={'hyderabad'} phoneno={"9000-888-922"}>
+            <Layout locname={'hyderabad'} phoneno={"9666-677-405"}>
             <Head>
                     <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
                     <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
@@ -47,7 +47,7 @@ export default function Place({ cars, canonicalUrl }) {
                     <div>
                         <DynNearByApi city={'hyderabad'} />
                     </div>
-                    <CarProducts data={cars} branch={"hyderabad"} phoneno={'9000888922'} count={6} />
+                    <CarProducts data={cars} branch={"hyderabad"} phoneno={'9666677405'} count={6} />
                     <div><DynNearYou /></div>
                     <FeaturedCars data={cars} branch={"hyderabad"} />
                     <DynCallBackForm />
@@ -56,8 +56,8 @@ export default function Place({ cars, canonicalUrl }) {
                         <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
                         <DynamicFaqComponent city={'hyderabad'} />
                     </div>
-                    <GetInTouch city={'hyderabad'} phoneno={'9000888922'} />
-                    <PriceList city={'hyd'} phoneno={'9000888922'} />
+                    <GetInTouch city={'hyderabad'} phoneno={'9666677405'} />
+                    <PriceList city={'hyd'} phoneno={'9666677405'} />
                 </div>
             </Layout>
         </div>

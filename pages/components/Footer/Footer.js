@@ -28,7 +28,7 @@ function Footer({ locname }) {
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Self drive car rental in Madhapur</Link></li>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Self drive car rental in Kukatapally</Link></li>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Self drive car rental in Ameerpet</Link></li>
-                        <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Car rental services in Bangalore</Link></li>
+                        {/* <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Car rental services in Bangalore</Link></li> */}
                         <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Car rental services in Warangal</Link></li>
                         <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-uppal-medipally'}>Car rental services in Uppal Medipally</Link></li>
                         <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Self drive car rental in ECIL</Link></li>
@@ -64,7 +64,7 @@ function Footer({ locname }) {
                                     <li className='lg:hover:scale-105'> <Link href={'/'}>Vijayawada</Link></li>
                                     {/* <li className='lg:hover:scale-105'><Link href={'/bangalore'}>Bangalore</Link></li> */}
                                     {/* <li className='lg:hover:scale-105'><Link href={'/mysore'}>Mysore</Link></li> */}
-                                    <li className='lg:hover:scale-105'><Link href={'/'}>Mangalore</Link></li>
+                                    {/* <li className='lg:hover:scale-105'><Link href={'/'}>Mangalore</Link></li> */}
                                 </ul>
                             </div>
                         </div>

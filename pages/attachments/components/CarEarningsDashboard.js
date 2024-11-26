@@ -126,7 +126,7 @@ export default function CarEarningDashboard() {
       { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/40000/Mg-Astro-sunroof.webp', description: 'Mg-Astor-sunroof' }
     ],
     60000: [
-      { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/Hector-plus-sunroof.webp', description: 'Hector-plus-sunroof' },
+      { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/Hector-plus-sunroof.webp', description: 'Hector-sunroof' },
       { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/Alcazar-sunroof.webp', description: 'Alcazar-Sunroof' },
       { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/InnovaCrysta.webp', description: 'Innova-Crysta ' },
       { image: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/New-carnival.webp', description: 'New-cranival' },

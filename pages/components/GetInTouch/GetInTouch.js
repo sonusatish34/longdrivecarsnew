@@ -12,7 +12,7 @@ function GetInTouch({city,phoneno}) {
           <p>CONTACT US NOW</p>
           <div className='flex justify-around gap-3 pb-2 text-white'>
             <button className='bg-green-500  rounded-full p-2 '>
-              <Link href={`https://api.whatsapp.com/send?phone=+91${phoneno}text=Hi%0AI%20am%20looking%20for%20a%20car%20booking`} target='_blank'>
+              <Link href={`https://api.whatsapp.com/send?phone=+91${phoneno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking`} target='_blank'>
                 <p className=' flex items-center justify-center gap-1 text-sm text-white'><span><FaWhatsapp size={30} /></span> <span>Whatsapp</span></p>
               </Link>
             </button>
