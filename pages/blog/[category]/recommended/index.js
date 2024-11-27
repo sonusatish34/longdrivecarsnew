@@ -7,6 +7,8 @@ import { MdOutlineExplore } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { FaRegComment } from "react-icons/fa";
+import { GrLike } from "react-icons/gr";
 import Link from 'next/link';
 import Image from 'next/image';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -18,28 +20,7 @@ const ComponentName = (props) => {
     const { category } = router.query; // Get the category name from the URL
     const [postlist, setPostlist] = useState([]);
     const [data, setData] = useState([]);
-    // const timeAgo = (timestamp) => {
-    //     const currentTime = new Date();
-    //     const postTime = new Date(timestamp * 1000); // Convert from seconds to milliseconds
 
-    //     const timeDiff = currentTime - postTime; // Difference in milliseconds
-
-    //     const seconds = Math.floor(timeDiff / 1000);
-    //     const minutes = Math.floor(seconds / 60);
-    //     const hours = Math.floor(minutes / 60);
-    //     const days = Math.floor(hours / 24);
-
-    //     if (days > 0) {
-    //         return `${days} day${days > 1 ? 's' : ''} ago`;
-    //     }
-    //     if (hours > 0) {
-    //         return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-    //     }
-    //     if (minutes > 0) {
-    //         return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-    //     }
-    //     return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
-    // };
     useEffect(() => {
         if (category) {
             console.log(category, "cattt");
@@ -79,10 +60,10 @@ const ComponentName = (props) => {
                         <p className='flex items-center gap-2'><span>{category}</span> <span><MdOutlineKeyboardArrowRight size={20} /></span> <span>Recommended stories</span></p>
                         <p className='text-5xl font-semibold'><span>Recommended stories in "{category}"</span></p>
                         <p className='text-lg font-semibold'>More Topics To Explore</p>
-                        {categories?.map((cat,index)=>{
+                        {categories?.map((cat, index) => {
 
-                           return <Link href={`/blog/${cat?.name}/recommended`} className='p-1 rounded-lg bg-slate-100 w-fit'>{cat?.name}</Link>
-                            
+                            return <Link href={`/blog/${cat?.name}/recommended`} className='p-1 rounded-lg bg-slate-100 w-fit'>{cat?.name}</Link>
+
                         })}
                         <div>
                             <ul>
@@ -107,8 +88,22 @@ const ComponentName = (props) => {
                                     </p>
                                     <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
                                         <li>{StaticData(post?.time?.seconds)}</li>
-                                        <li className="flex items-center gap-1"><span><BiCategory className="text-blue-400" /></span><span>{post?.categoryname}</span></li>
-                                        <li className="flex items-center gap-1"><span><CgProfile className="text-blue-400" /></span><span>{post?.postauthor}</span></li>
+                                        <li>
+                                            <div className='flex gap-8'>
+                                                <p className='flex items-center gap-2'>
+                                                    <span className='hover:cursor-pointer'>
+                                                        <GrLike size={10} />
+                                                    </span>
+                                                    <span>{post?.likes ? post?.likes : '1'}</span> {/* Display likes count from state */}
+                                                </p>
+                                                <p className='flex items-center gap-2'>
+                                                    <span className='hover:cursor-pointer'>
+                                                        <FaRegComment size={10} />
+                                                    </span>
+                                                    <span>{post?.comments?.length ? post?.comments?.length : '1'}</span> {/* Display comments count from state */}
+                                                </p>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div>
