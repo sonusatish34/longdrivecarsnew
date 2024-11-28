@@ -17,6 +17,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'miro.medium.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'ldcars.blr1.digitaloceanspaces.com',
+      },
     ],
   },
 };

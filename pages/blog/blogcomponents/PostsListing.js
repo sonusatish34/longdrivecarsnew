@@ -94,6 +94,7 @@ import Image from 'next/image';
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { FaRegComment } from "react-icons/fa";
+import { GrLike } from "react-icons/gr";
 import StaticData from '@/pages/images/StaticData';
 
 const PostsListing = ({ data }) => {
@@ -119,28 +120,34 @@ const PostsListing = ({ data }) => {
                             />
                         )}
 
-                        <h5 className="mb-2 hover:text-orange-400 font-bold text-lg text-left pt-4">
-                            <Link
-                                href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
-                                className="block hover:text-primary"
-                            >
-                                {post?.title && post?.title.slice(0, 50)}
+                        <h5 className="mb-2">
+                            <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg text-left pt-4 tracking-tight">
+                                {post?.title && post?.title.slice(0, 70)}
                             </Link>
                         </h5>
 
-                        <p className="text-left text-sm lg:text-base">
+                        <p className="text-left text-gray-600 roboto-text text-base pt-1 tracking-tight">
                             {post?.description && post?.description.slice(0, 100)}...
                         </p>
 
                         <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
                             <li>{StaticData(post?.time?.seconds)}</li>
-                            <li className="flex items-center gap-1">
-                                <BiCategory className="text-blue-400" />
-                                <span>{post?.categoryname?.[0]}</span>
-                            </li>
-                            <li className="flex items-center gap-1">
-                                <CgProfile className="text-blue-400" />
-                                <span>LDCars_</span>
+                            <li className="flex items-center gap-1"><span><BiCategory className="text-blue-400" /></span><span>{post?.categoryname[0]}</span></li>
+                            <li>
+                                <div className='flex gap-8'>
+                                    <p className='flex items-center gap-2'>
+                                        <span className='hover:cursor-pointer'>
+                                            <GrLike size={10} />
+                                        </span>
+                                        <span>{post?.likes?post?.likes:'1'}</span> {/* Display likes count from state */}
+                                    </p>
+                                    <p className='flex items-center gap-2'>
+                                        <span className='hover:cursor-pointer'>
+                                            <FaRegComment size={10} />
+                                        </span>
+                                        <span>{post?.comments?.length?post?.comments?.length:'1'}</span> {/* Display comments count from state */}
+                                    </p>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -164,33 +171,35 @@ const PostsListing = ({ data }) => {
                             />
                         )}
 
-                        <h5 className="mb-2 hover:text-orange-400 font-bold text-lg text-left pt-4">
-                            <Link
-                                href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
-                                className="block hover:text-primary"
-                            >
+                        <p className="mb-2 hover:text-orange-400 font-bold text-lg text-left pt-4">
+                            <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                                 {post?.title && post?.title.slice(0, 50)}
                             </Link>
-                        </h5>
-
-                        <p className="text-left text-sm lg:text-base">
+                        </p>
+                        <p className="text-left">
                             {post?.description && post?.description.slice(0, 70)}...
                         </p>
 
                         <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
                             <li>{StaticData(post?.time?.seconds)}</li>
-                            <li className="flex items-center gap-1">
-                                <BiCategory className="text-blue-400" />
-                                <span>{post?.categoryname}</span>
+                            <li className="flex items-center gap-1"><span><BiCategory className="text-blue-400" /></span><span>{post?.categoryname}</span></li>
+                            <li>
+                                <div className='flex gap-8'>
+                                    <p className='flex items-center gap-2'>
+                                        <span className='hover:cursor-pointer'>
+                                            <GrLike size={10} />
+                                        </span>
+                                        <span>{post?.likes?post?.likes:'1'}</span> {/* Display likes count from state */}
+                                    </p>
+                                    <p className='flex items-center gap-2'>
+                                        <span className='hover:cursor-pointer'>
+                                            <FaRegComment size={10} />
+                                        </span>
+                                        <span>{post?.comments?.length?post?.comments?.length:'1'}</span> {/* Display comments count from state */}
+                                    </p>
+                                </div>
                             </li>
-                            <li className="flex items-center gap-1">
-                                <CgProfile className="text-blue-400" />
-                                <span>LDCars_</span>
-                            </li>
-                            <li className="flex items-center gap-1">
-                                <FaRegComment className="text-blue-400" />
-                                <span>LDCars_</span>
-                            </li>
+
                         </ul>
                     </div>
                 )) : (

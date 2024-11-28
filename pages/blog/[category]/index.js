@@ -26,8 +26,10 @@ const CategoryPage = () => {
 
     const settings = {
         className: "center",
-        centerMode: false,
+        // centerMode: true,
         infinite: true,
+        // centerPadding: "60px",
+        slidesToShow: 6,
         speed: 500,
         arrows: true,
         responsive: [
@@ -67,13 +69,6 @@ const CategoryPage = () => {
             const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             console.log(cs, "09876");
             setCList(cs);
-            // setCategories(cs);
-            // Set the posts to the state
-            // setPostlist(posts);
-
-            // Extract unique categories
-            // const uniqueCategories = Array.from(new Set(posts.map(post => post.categoryname)));
-            // setCategories(uniqueCategories);
         };
         fetchCat();
     }, [])
@@ -88,30 +83,26 @@ const CategoryPage = () => {
                 const posts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setPostlist(posts);
             };
-
             fetchPostsByCategory();
-
             const fetchCat = async () => {
                 const querySnapshot = await getDocs(collection(fireDb, "categories"));
                 const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setCategories(cs);
             };
-
             fetchCat();
         }
-    }, [category]); // Re-run the effect when the category changes
+    }, [category]);
 
     useEffect(() => {
         if (searchQuery) {
-            // Filter posts based on the search query
             const filtered = postlist.filter(post =>
                 post.title.toLowerCase().includes(searchQuery.toLowerCase())
             );
             setFilteredPosts(filtered);
         } else {
-            setFilteredPosts(postlist);  // Reset to all posts when search is empty
+            setFilteredPosts(postlist);  
         }
-    }, [searchQuery, postlist]);  // Re-run when searchQuery or postlist changes
+    }, [searchQuery, postlist]); 
 
     return (
         <div>
@@ -139,6 +130,10 @@ const CategoryPage = () => {
                     <div className='py-10 justify-items-center'>
                         <div className=" flex lg:gap-2 gap-1 px-2 items-center ">
                             <Link
+                                href={`/blog/explore-topics`}
+                                className={`text-black text-base py-1 px-4 bg-gray-100 rounded-3xl w-40`}
+                            >
+                                Explore Topics
                                 href={`/blog/explore`}
                                 className={`text-black text-base lg:py-1 lg:px-4 py-1 px-1 bg-gray-100 rounded-full  lg:rounded-3xl lg:w-fit `}
                             >  <div className='flex items-center space-x-3 '>
@@ -150,22 +145,20 @@ const CategoryPage = () => {
                             <div className='lg:w-[800px] w-64 px-9 text-center '>
                                 <Slider  {...settings} className="blog-carousal">
                                     {cList?.length && cList.map((cat, i) => (
-                                        // <p className='bg-gray-200 rounded-3xl p-2 w-[40px]'>{category.name}</p>
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat?.name.toLowerCase()}`}
-                                            className={`text-black text-base py-1 px-4 bg-gray-100 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
+                                            className={`capitalize font-medium text-black text-base py-1 px-4 bg-gray-100 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
                                         >
                                             {cat?.name.toLowerCase()}
                                         </Link>
                                     ))}
                                 </Slider>
                             </div>
-
                         </div>
                         <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
-                            <li>Topic</li>
+                            <li>Topic</li>0
                             <li><GoDotFill /></li>
                             <li>{filteredPosts?.length} stories</li>
                         </ul>

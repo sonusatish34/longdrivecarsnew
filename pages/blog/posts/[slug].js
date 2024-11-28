@@ -1,46 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fireDb } from '../../images/firebase';
-// import { query, collection, where, getDocs,doc,updateDoc,arrayUnion } from "firebase/firestore";
 import { doc, updateDoc, arrayUnion, getDocs, query, collection, where } from "firebase/firestore";
 import StaticData from '@/pages/images/StaticData';
-// import { arrayUnion } from 'firebase/firestore';
+import { GrLike } from "react-icons/gr";
+import { FaRegComment } from "react-icons/fa";
 import Image from 'next/image';
 import Link from "next/link";
 import Footer from '../blogcomponents/Footer';
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { RiRectangleFill } from "react-icons/ri";
+
 import BlogLayout from '../blogcomponents/BlogLayout';
 
 import { MdExpandMore } from "react-icons/md";
 
 
-function singlePost() {
+import { MdExpandMore } from "react-icons/md";
+
+
+function SinglePost() {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug, "sluf");
+  console.log(slug, "slug");
 
   const [postDisplay, setPostDisplay] = useState(null);
   const [postlist, setPostlist] = useState([]);
   const [cat, setCat] = useState('');
+  const [commentShow, setCommentShow] = useState(false);
+
+  // States for likes and comments
+  const [likesCount, setLikesCount] = useState(0);
+  const [comments, setComments] = useState([]);
 
   // States for the comment form
   const [userName, setUserName] = useState("");
   const [commentText, setCommentText] = useState("");
 
+  // Fetch the post data and related posts based on the slug
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        // Fetch the post based on the slug
         const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
         const querySnapshot = await getDocs(q);
 
         if (!querySnapshot.empty) {
           const postDoc = querySnapshot.docs[0];
-          setPostDisplay(postDoc.data());
-          console.log(postDoc.data(), 'value');
-
-          setCat(postDoc.data()?.categoryname);
+          const postData = postDoc.data();
+          setPostDisplay(postData);
+          setLikesCount(postData.likes || 0); // Set the likes count
+          setComments(postData.comments || []); // Set the comments array
+          setCat(postData?.categoryname);
         } else {
           console.log("No such post found!");
         }
@@ -70,12 +81,39 @@ function singlePost() {
     }
   }, [cat]);
 
+  // Handle like button click
+  const handleLike = async () => {
+    try {
+      const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
+      const querySnapshot = await getDocs(q);
 
+      if (querySnapshot.empty) {
+        alert("Post not found.");
+        return;
+      }
 
+      const postDocRef = doc(fireDb, "blogPost", querySnapshot.docs[0].id);
+
+      // Increment the likes count in the local state
+      const newLikesCount = likesCount + 1;
+      setLikesCount(newLikesCount); // Update the local state immediately
+
+      // Update the likes count in Firestore
+      await updateDoc(postDocRef, {
+        likes: newLikesCount
+      });
+
+      alert("Like added!");
+    } catch (error) {
+      console.error("Error updating like:", error);
+      alert("There was an error updating the like.");
+    }
+  };
+
+  // Handle comment form submission
   const handleCommentSubmit = async (e) => {
     e.preventDefault(); // Prevent the form from reloading the page
 
-    // Validate that both name and comment text are provided
     if (!userName || !commentText) {
       alert("Please provide both name and comment.");
       return;
@@ -84,22 +122,24 @@ function singlePost() {
     const date = new Date().toISOString(); // Current date in ISO format
 
     try {
-      // Query the blogPost collection for the post with the given slug
       const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
       const querySnapshot = await getDocs(q);
 
-      // Check if the post exists
       if (querySnapshot.empty) {
         alert("Post not found.");
         return;
       }
 
-      // Get the document reference of the first matched post
       const postDocRef = doc(fireDb, "blogPost", querySnapshot.docs[0].id);
 
-      // Use `arrayUnion` to add the new comment to the `comments` array
+      const newComment = { userName, commentText, date };
+
+      // Update the comments in the local state
+      setComments(prevComments => [...prevComments, newComment]);
+
+      // Use `arrayUnion` to add the new comment to the Firestore `comments` array
       await updateDoc(postDocRef, {
-        comments: arrayUnion({ userName, commentText, date })
+        comments: arrayUnion(newComment)
       });
 
       alert("Comment added successfully!");
@@ -112,8 +152,6 @@ function singlePost() {
       alert("There was an error adding the comment.");
     }
   };
-
-
 
   return (
     <div>
@@ -223,9 +261,7 @@ function singlePost() {
                     </ul>
 
                   </div>
-                )) : (
-                  <p>No posts available for this category.</p>
-                )}
+                )) : <p>No related posts found</p>}
               </div>
 
             </div>
@@ -256,15 +292,11 @@ function singlePost() {
                 ))}
               </ul>
             </div>
-
-            {/* Comment Form */}
-
           </div>
         </section>
-        <Footer />
       </BlogLayout>
     </div>
   );
 }
 
-export default singlePost;
+export default SinglePost;

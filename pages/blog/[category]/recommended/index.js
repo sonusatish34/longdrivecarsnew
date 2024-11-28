@@ -7,6 +7,8 @@ import { MdOutlineExplore } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { FaRegComment } from "react-icons/fa";
+import { GrLike } from "react-icons/gr";
 import Link from 'next/link';
 import Image from 'next/image';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
