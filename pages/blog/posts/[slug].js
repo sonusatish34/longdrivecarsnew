@@ -12,6 +12,9 @@ import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import BlogLayout from '../blogcomponents/BlogLayout';
 
+import { MdExpandMore } from "react-icons/md";
+
+
 function singlePost() {
   const router = useRouter();
   const { slug } = router.query;
@@ -116,9 +119,9 @@ function singlePost() {
     <div>
       <BlogLayout>
         <section className="section">
-          <div className='flex flex-col lg:mx-80'>
-            <p className='text-4xl font-bold py-4'>{postDisplay?.title}</p>
-            <div className='flex gap-6'>
+          <div className='flex flex-col lg:mx-80 px-4'>
+            <p className='lg:text-4xl text-xl font-bold lg:py-4 py-2'>{postDisplay?.title}</p>
+            <div className='flex lg:gap-6 gap-4 py-3'>
               <p>LDCars</p>
               <p>{postDisplay?.timetake} min read</p>
               <p>{StaticData(postDisplay?.time.seconds)}</p>
@@ -133,12 +136,15 @@ function singlePost() {
               <li>{postDisplay?.date}</li>
               <li>{postDisplay?.categoryname}</li>
               <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
-              <li className="flex items-center gap-1"><CgProfile className="text-blue-400" /><span>{postDisplay?.postauthor}</span></li>
+              <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>{postDisplay?.postauthor}</span></li>
             </ul>
-            <div className="text-xs lg:text-lg leading-2 lg:leading-9 pt-6" dangerouslySetInnerHTML={{ __html: postDisplay?.content }} />
+            <div
+              className="text-sm lg:text-base leading-7 lg:leading-loose pt-4 pb-4 px-4 lg:px-6  rounded-lg "
+              dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
+            />
 
             {/* Display Related Posts */}
-            <div className='bg-gray-200 p-4 rounded-sm'>
+            <div className='bg-gray-200 p-4  rounded-sm '>
               <form className="flex flex-col gap-4" onSubmit={handleCommentSubmit}>
                 <input
                   type="text"
@@ -160,7 +166,7 @@ function singlePost() {
                 <button className='bg-blue-400 p-1 rounded-md text-white' type="submit">Submit Comment</button>
               </form>
             </div>
-            <div className="mt-8">
+            <div className=" lg:pl-4 pt-4   ">
               <p className="text-xl font-semibold">Related Posts</p>
               {/* <ul>
                 {postlist.length > 0 ? (
@@ -171,17 +177,17 @@ function singlePost() {
                       </Link>
                     </li>
                   ))
-                ) : (
+                ) : 
                   <p>No related posts found.</p>
                 )}
               </ul> */}
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10 pt-6">
+              <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
                 {postlist?.length > 0 ? postlist.slice(0, 4).map((post, i) => (
-                  <div key={`key-${i}`} className={"w-[350px] h-[400px]"}>
+                  <div key={`key-${i}`} className={"lg:w-[350px] lg:h-[400px]  "}>
                     {post?.coverimages && (
                       <Image
-                        className="rounded-md w-[400px] h-[200px]"
+                        className="rounded-md lg:w-[400px] lg:h-[200px]"
                         src={post?.coverimages?.length ? post?.coverimages : tempimg}
                         alt={post?.coverimages}
                         width={445}
@@ -199,11 +205,23 @@ function singlePost() {
                     <p className="text-left">
                       {post?.description && post?.description.slice(0, 70)}...
                     </p>
+
+
+
                     <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
-                      {/* <li>{timeAgo(post?.time?.seconds)}</li> */}
-                      <li className="flex items-center gap-1"><span><BiCategory className="text-blue-400" /></span><span>{post?.categoryname}</span></li>
-                      <li className="flex items-center gap-1"><span><CgProfile className="text-blue-400" /></span><span>{post?.postauthor}</span></li>
+                      {/* Display category */}
+                      <li className="flex items-center gap-1">
+                        <span><BiCategory className="text-blue-400" /></span>
+                        <span>{post?.categoryname}</span>
+                      </li>
+
+                      {/* Show author on laptops and larger screens only */}
+                      <li className="hidden lg:flex items-center gap-1">
+                        <span><CgProfile className="text-blue-400" /></span>
+                        <span>{post?.postauthor}</span>
+                      </li>
                     </ul>
+
                   </div>
                 )) : (
                   <p>No posts available for this category.</p>
@@ -211,9 +229,19 @@ function singlePost() {
               </div>
 
             </div>
-            <div className='pb-6'>
+            <div className='lg:pb-6 py-4'>
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`}>
-                <span className='border-2 border-black rounded-full p-2 bg-gray-200 text-sm'>See more recommended stories</span>
+                <span className='border-2 border-black rounded-full p-2 bg-gray-200 text-sm'>See more  </span>
+              </Link>
+            </div>
+
+
+            <div className=" py-6 flex flex-row">
+              <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">
+                <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
+                  <span>See more</span>
+                  <MdExpandMore size={20} className="text-lg" />
+                </span>
               </Link>
             </div>
             {/* Comments Section */}

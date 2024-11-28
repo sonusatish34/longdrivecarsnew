@@ -76,6 +76,11 @@ body {
     transform: scale(1);
   }
 }
+  
+
+.card:hover {
+  transform: translate3d(0px);
+}
 
 .animate-fadeIn {
   animation: fadeIn 0.5s forwards; /* Adjust the duration as needed */

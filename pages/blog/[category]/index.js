@@ -12,6 +12,9 @@ import Slider from "react-slick";
 // import React, { useEffect, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { MdExpandMore } from "react-icons/md";
+import { MdExplore } from "react-icons/md";
 const CategoryPage = () => {
     const [categories, setCategories] = useState([]);
     const router = useRouter();
@@ -23,12 +26,40 @@ const CategoryPage = () => {
 
     const settings = {
         className: "center",
-        centerMode: true,
+        centerMode: false,
         infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 5,
         speed: 500,
-        arrows: true
+        arrows: true,
+        responsive: [
+
+            {
+                breakpoint: 320,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                },
+            },
+
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                },
+            },
+
+            {
+                breakpoint: 2080,
+                settings: {
+                    slidesToShow: 7,
+                    slidesToScroll: 5,
+                    infinite: true,
+                },
+            },
+
+        ],
     };
     useEffect(() => {
         const fetchCat = async () => {
@@ -85,7 +116,7 @@ const CategoryPage = () => {
     return (
         <div>
             <BlogLayout onSearch={setSearchQuery}>
-                <div className='px-40 flex justify-center'>
+                <div className=' lg:px-40 flex justify-center'>
                     {/* <div className="flex space-x-4 py-4">
                        ``````````````````````````````````
                         <button
@@ -98,22 +129,25 @@ const CategoryPage = () => {
                             <Link
                                 key={`category-${i}`}
                                 href={`/blog/${cat?.name.toLowerCase()}`}
-                                className={`text-black text-base py-1 px-4 bg-gray-300 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
+                                sl={`text-black text-base py-1 px-4 bg-gray-300 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
                             >
                                 {cat?.name.toLowerCase()}
                             </Link>
                         ))}
                     </div> */}
 
-                    <div className='py-10'>
-                        <div className=" flex gap-16">
+                    <div className='py-10 justify-items-center'>
+                        <div className=" flex lg:gap-2 gap-1 px-2 items-center ">
                             <Link
                                 href={`/blog/explore`}
-                                className={`text-black text-base py-1 px-4 bg-gray-100 rounded-3xl w-full`}
-                            >
-                                Explore Topics
+                                className={`text-black text-base lg:py-1 lg:px-4 py-1 px-1 bg-gray-100 rounded-full  lg:rounded-3xl lg:w-fit `}
+                            >  <div className='flex items-center space-x-3 '>
+                                    <span className='w-fit'><MdExplore size={[32]} /></span>
+                                    <span className="hidden lg:inline lg:w-fit">Explore Topics</span>
+
+                                </div>
                             </Link>
-                            <div className='w-[800px]'>
+                            <div className='lg:w-[800px] w-64 px-9 text-center '>
                                 <Slider  {...settings} className="blog-carousal">
                                     {cList?.length && cList.map((cat, i) => (
                                         // <p className='bg-gray-200 rounded-3xl p-2 w-[40px]'>{category.name}</p>
@@ -138,9 +172,20 @@ const CategoryPage = () => {
                         <div className='text-center flex justify-center pt-10'>
                             <PostsListing data={filteredPosts} />
                         </div>
-                        <div className='pl-10'>
+
+                        {/* <div className='px-3 py-10 lg:py-10 flex flex-row'>
                             <Link href={`/blog/${category ? category + '/' : ''}recommended`}>
-                                <span className='border-2 border-black rounded-full p-2 bg-gray-200 text-sm'>See more recommended stories</span>
+                                <span className='border-2 border-black rounded-full p-2 bg-gray-200 text-sm'>See more  </span>
+
+                            </Link>
+                        </div> */}
+
+                        <div className=" pr-44 lg:pr-[850px] py-10 lg:py-10 flex flex-row">
+                            <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex  space-x-2">
+                                <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
+                                    <span>See more</span>
+                                    <MdExpandMore className="text-lg" />
+                                </span>
                             </Link>
                         </div>
                     </div>

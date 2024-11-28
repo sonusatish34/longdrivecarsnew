@@ -14,17 +14,17 @@ const BlogLayout = ({ children, phoneno, locname, onSearch = () => { } }) => {
 
     return (
         <div>
-            <div className='lg:px-14 pl-4 py-1 border-8 border-blue-100 w-full'>
-                <div className='flex items-center justify-between lg:gap-6 gap-3'>
+            <div className='lg:px-14  py-1 border-8 border-blue-100 '>
+                <div className='flex items-center justify-between lg:gap-6 gap-2 px-2'>
                     <Link href={`/blog`} className='flex items-center lg:gap-6 gap-3'>
                         <Image
-                            className="w-14"
+                            className="w-10 lg:w-20"
                             src="/logos/logo3.webp"
                             alt="Long Drive Cars"
                             width={500}
                             height={500}
                         />
-                        <p className='font-semibold text-[#0456e8] text-base lg:text-xl lg:w-[284px] w-48 popins-text'>Long Drive Cars</p>
+                        <p className='font-semibold text-[#0456e8] text-sm lg:text-xl lg:w-[284px]  popins-text'>Long Drive Cars</p>
                     </Link>
                     <div className='flex items-center'>
                         <p className='relative left-6'><CiSearch size={20} /></p>
@@ -34,7 +34,7 @@ const BlogLayout = ({ children, phoneno, locname, onSearch = () => { } }) => {
                             placeholder="Search"
                             onChange={handleSearch}
                             maxLength={10}
-                            className='lg:rounded-3xl lg:w-full border-none bg-gray-200 w-24 rounded-sm py-1 pl-7'
+                            className='lg:rounded-3xl lg:w-full border-none lg:bg-gray-200 bg-gray-50 w-24 rounded py-1 pl-7'
                         />
                     </div>
                 </div>
@@ -45,3 +45,5 @@ const BlogLayout = ({ children, phoneno, locname, onSearch = () => { } }) => {
 };
 
 export default BlogLayout;
+
+

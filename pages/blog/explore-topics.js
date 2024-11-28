@@ -13,7 +13,7 @@ const ComponentName = (props) => {
         className: "center",
         centerMode: true,
         infinite: true,
-        centerPadding: "60px",
+        // centerPadding: "60px",
         slidesToShow: 4,
         speed: 500,
         arrows: true
