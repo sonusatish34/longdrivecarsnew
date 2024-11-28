@@ -103,7 +103,7 @@ const PostsListing = ({ data }) => {
             {/* <p className="text-xs lg:text-2xl pb-6 font-semibold">Recommended Stories</p> */}
 
             {/* First Section: Two Main Posts */}
-            <div className="lg:grid lg:grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <div className="lg:grid lg:grid-cols-2 md:grid-cols-2 gap-6 lg:gap-8">
                 {data.length > 0 ? data.slice(0, 2).map((post, i) => (
                     <div
                         key={`key-${i}`}
@@ -157,12 +157,12 @@ const PostsListing = ({ data }) => {
             </div>
 
             {/* Second Section: Remaining Posts */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 pt-12">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-8 pt-12">
                 {data.length > 0 ? data.slice(2).map((post, i) => (
-                    <div key={`key-${i}`} className="w-full h-auto px-3">
+                    <div key={`key-${i}`} className=" px-3">
                         {post?.coverimages && (
                             <Image
-                                className="rounded-md w-full h-auto object-cover"
+                                className="rounded-md w-[250px] lg:w-[500px] lg:h-[200px] h-[100px] object-cover"
                                 src={post?.coverimages?.length ? post?.coverimages : '/tempimg.jpg'}
                                 alt={post?.title || 'Post Image'}
                                 width={445}
@@ -171,29 +171,29 @@ const PostsListing = ({ data }) => {
                             />
                         )}
 
-                        <p className="mb-2 hover:text-orange-400 font-bold text-lg text-left pt-4">
+                        <p className=" lg:pb-3 hover:text-orange-400 font-bold lg:text-lg text-sm text-left pt-4">
                             <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
-                                {post?.title && post?.title.slice(0, 50)}
+                                {post?.title && post?.title.slice(0, 60)}
                             </Link>
                         </p>
-                        <p className="text-left">
-                            {post?.description && post?.description.slice(0, 70)}...
+                        <p className="text-left lg:text-xs text-xs ">
+                            {post?.description && post?.description.slice(0, 40)}...
                         </p>
 
-                        <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
-                            <li>{StaticData(post?.time?.seconds)}</li>
-                            <li className="flex items-center gap-1"><span><BiCategory className="text-blue-400" /></span><span>{post?.categoryname}</span></li>
+                        <ul className=" pt-3 lg:pt-4  flex flex-wrap items-center space-x-2 lg:gap-3 text-xs">
+                            <li className='lg:text-sm text-xs'>{StaticData(post?.time?.seconds)}</li>
+                            <li className="flex items-center lg:space-x-2 "><span ><BiCategory className="text-blue-400 lg:size-4" /></span><span className='lg:text-sm'>{post?.categoryname}</span></li>
                             <li>
-                                <div className='flex gap-8'>
+                                <div className='flex gap-6 lg:gap-8 py-2'>
                                     <p className='flex items-center gap-2'>
                                         <span className='hover:cursor-pointer'>
-                                            <GrLike size={10} />
+                                            <GrLike size={14} className='lg:size-[15px]'/>
                                         </span>
                                         <span>{post?.likes?post?.likes:'1'}</span> {/* Display likes count from state */}
                                     </p>
-                                    <p className='flex items-center gap-2'>
+                                    <p className='flex items-center lg:gap-2'>
                                         <span className='hover:cursor-pointer'>
-                                            <FaRegComment size={10} />
+                                            <FaRegComment size={14} className='lg:size-[15px]' />
                                         </span>
                                         <span>{post?.comments?.length?post?.comments?.length:'1'}</span> {/* Display comments count from state */}
                                     </p>

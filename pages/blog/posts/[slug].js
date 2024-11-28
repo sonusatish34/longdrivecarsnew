@@ -17,7 +17,6 @@ import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdExpandMore } from "react-icons/md";
 
 
-import { MdExpandMore } from "react-icons/md";
 
 
 function SinglePost() {
@@ -157,7 +156,7 @@ function SinglePost() {
     <div>
       <BlogLayout>
         <section className="section">
-          <div className='flex flex-col lg:mx-80 px-4'>
+          <div className='flex flex-col lg:mx-80 px-4 py-2 lg:py-2'>
             <p className='lg:text-4xl text-xl font-bold lg:py-4 py-2'>{postDisplay?.title}</p>
             <div className='flex lg:gap-6 gap-4 py-3'>
               <p>LDCars</p>
@@ -222,10 +221,10 @@ function SinglePost() {
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
                 {postlist?.length > 0 ? postlist.slice(0, 4).map((post, i) => (
-                  <div key={`key-${i}`} className={"lg:w-[350px] lg:h-[400px]  "}>
+                  <div key={`key-${i}`} className={"lg:w-[350px] lg:h-[350px] w-32 h-30  "}>
                     {post?.coverimages && (
                       <Image
-                        className="rounded-md lg:w-[400px] lg:h-[200px]"
+                        className="rounded-md lg:w-[400px] lg:h-[200px] w-32 h-20 "
                         src={post?.coverimages?.length ? post?.coverimages : tempimg}
                         alt={post?.coverimages}
                         width={445}
@@ -234,19 +233,19 @@ function SinglePost() {
                       />
                     )}
 
-                    <h5 className="mb-2 hover:text-orange-400 font-bold text-lg text-left pt-4">
+                    <h5 className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4">
                       <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                         {post?.title && post?.title.slice(0, 50)}
                       </Link>
                     </h5>
 
-                    <p className="text-left">
+                    <p className="text-left text-xs lg:text:lg">
                       {post?.description && post?.description.slice(0, 70)}...
                     </p>
 
 
 
-                    <ul className="mb-4 mt-4 flex flex-wrap items-center space-x-4 text-xs">
+                    <ul className=" pt-2 flex flex-wrap items-center space-x-4 text-xs">
                       {/* Display category */}
                       <li className="flex items-center gap-1">
                         <span><BiCategory className="text-blue-400" /></span>
@@ -265,14 +264,10 @@ function SinglePost() {
               </div>
 
             </div>
-            <div className='lg:pb-6 py-4'>
-              <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`}>
-                <span className='border-2 border-black rounded-full p-2 bg-gray-200 text-sm'>See more  </span>
-              </Link>
-            </div>
+           
 
 
-            <div className=" py-6 flex flex-row">
+            <div className=" py-6 lg:py-3 flex flex-row">
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">
                 <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
                   <span>See more</span>

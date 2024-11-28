@@ -6,19 +6,52 @@ import { getDocs, collection } from 'firebase/firestore';
 import { fireDb } from '../images/firebase';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
+
+
+import { MdExplore } from "react-icons/md";
 const ComponentName = (props) => {
     const [cList, setCList] = useState();
 
     const settings = {
         className: "center",
-        centerMode: true,
+        // centerMode: true,
         infinite: true,
         // centerPadding: "60px",
-        slidesToShow: 4,
+        slidesToShow: 6,
         speed: 500,
-        arrows: true
-    };
+        arrows: true,
+        responsive: [
 
+            {
+                breakpoint: 320,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                },
+            },
+
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                },
+            },
+
+            {
+                breakpoint: 2080,
+                settings: {
+                    slidesToShow: 7,
+                    slidesToScroll: 5,
+                    infinite: true,
+                },
+            },
+
+        ],
+    };
 
     useEffect(() => {
         const fetchCat = async () => {
@@ -39,26 +72,40 @@ const ComponentName = (props) => {
 
     return (
         <BlogLayout>
-            <div className="flex flex-col gap-5 justify-center items-center py-20">
-                <div>
+            <div className="flex flex-col gap-5 px-2 lg:px-64 lg:py-10">
+                <div className="flex items-center lg:gap-4 gap-5 ">
                     {/* <h2>Carousel Component</h2> */}
+                    <Link
+                        href={`/blog/explore-topics`}
+                        className={`text-black text-base py-1 px-4 lg:bg-gray-100 lg:rounded-3xl `}
+                    >
+                        <div className='flex items-center space-x-1  '>
+                            <span className='w-fit '><MdExplore size={[32]} /></span>
+                            <span className="hidden lg:inline text-sm    w-fit ">Explore Topics</span>
 
-                    <div className="w-[600px] pl-5 py-5">
+                        </div>
+                    </Link>
+
+                    <div className="lg:w-[800px] w-44 lg:pl-5 py-4 lg:py-2">
                         <Slider  {...settings} className="blog-carousal">
                             {cList?.length && cList.map((category, i) => (
-                                <p className='bg-gray-200 rounded-3xl p-2 w-[40px]'>{category.name}</p>
+                                <p className=' rounded-3xl p-2 w-[40px]'>{category.name}</p>
                             ))}
                         </Slider>
                     </div>
                 </div>
-                <div>
-                    <p className="text-3xl font-bold">Explore Topics</p>
-                    <ul className="flex flex-col w-32">
-                        {cList?.length && cList.map((category, i) => (
-                            <li className='bg-gray-200 p-2'>{category.name}</li>
-                        ))}
+                <div className="justify-items-center ">
+                    <p className="lg:text-3xl text-base font-bold pb-2 lg:pb-6">Explore Topics</p>
+                    <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                        {cList?.length &&
+                            cList.map((category, i) => (
+                                <li key={i} className="p-4  rounded-lg">
+                                    {category.name}
+                                </li>
+                            ))}
                     </ul>
                 </div>
+
             </div>
         </BlogLayout>
     );

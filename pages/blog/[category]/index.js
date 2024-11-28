@@ -46,8 +46,8 @@ const CategoryPage = () => {
             {
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                     infinite: true,
                 },
             },
@@ -100,14 +100,14 @@ const CategoryPage = () => {
             );
             setFilteredPosts(filtered);
         } else {
-            setFilteredPosts(postlist);  
+            setFilteredPosts(postlist);
         }
-    }, [searchQuery, postlist]); 
+    }, [searchQuery, postlist]);
 
     return (
         <div>
             <BlogLayout onSearch={setSearchQuery}>
-                <div className=' lg:px-40 flex justify-center'>
+                <div className=' lg:px-60 flex items-center  '>
                     {/* <div className="flex space-x-4 py-4">
                        ``````````````````````````````````
                         <button
@@ -127,28 +127,25 @@ const CategoryPage = () => {
                         ))}
                     </div> */}
 
-                    <div className='py-10 justify-items-center'>
-                        <div className=" flex lg:gap-2 gap-1 px-2 items-center ">
+                    <div className='py-10 px-[6px] justify-center'>
+                        <div className=" flex lg:gap-14 gap-7   items-center ">
                             <Link
                                 href={`/blog/explore-topics`}
-                                className={`text-black text-base py-1 px-4 bg-gray-100 rounded-3xl w-40`}
+                                className={`text-black text-base py-1 px-4 lg:bg-gray-100 lg:rounded-3xl `}
                             >
-                                Explore Topics
-                                href={`/blog/explore`}
-                                className={`text-black text-base lg:py-1 lg:px-4 py-1 px-1 bg-gray-100 rounded-full  lg:rounded-3xl lg:w-fit `}
-                            >  <div className='flex items-center space-x-3 '>
-                                    <span className='w-fit'><MdExplore size={[32]} /></span>
-                                    <span className="hidden lg:inline lg:w-fit">Explore Topics</span>
+                                <div className='flex items-center space-x-1  '>
+                                    <span className='w-fit rounded-full'><MdExplore size={[32]} /></span>
+                                    <span className="hidden lg:inline text-sm    w-fit ">Explore Topics</span>
 
                                 </div>
                             </Link>
-                            <div className='lg:w-[800px] w-64 px-9 text-center '>
+                            <div className='lg:w-[800px]  w-44 text-center  '>
                                 <Slider  {...settings} className="blog-carousal">
                                     {cList?.length && cList.map((cat, i) => (
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat?.name.toLowerCase()}`}
-                                            className={`capitalize font-medium text-black text-base py-1 px-4 bg-gray-100 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
+                                            className={`capitalize font-medium text-black text-[14px] lg:text-base  lg:bg-gray-100  lg:rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
                                         >
                                             {cat?.name.toLowerCase()}
                                         </Link>
@@ -158,7 +155,7 @@ const CategoryPage = () => {
                         </div>
                         <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
-                            <li>Topic</li>0
+                            <li>Topic</li>
                             <li><GoDotFill /></li>
                             <li>{filteredPosts?.length} stories</li>
                         </ul>
@@ -173,7 +170,7 @@ const CategoryPage = () => {
                             </Link>
                         </div> */}
 
-                        <div className=" pr-44 lg:pr-[850px] py-10 lg:py-10 flex flex-row">
+                        <div className=" py-10 lg:py-10 flex flex-row">
                             <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex  space-x-2">
                                 <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
                                     <span>See more</span>
