@@ -107,25 +107,8 @@ const CategoryPage = () => {
     return (
         <div>
             <BlogLayout onSearch={setSearchQuery}>
-                <div className=' lg:px-60 flex items-center  '>
-                    {/* <div className="flex space-x-4 py-4">
-                       ``````````````````````````````````
-                        <button
-                            className={'text-black text-base px-2 py-2 bg-gray-300 rounded-3xl flex items-center gap-2'}
-                        >
-                            <Link href={'/blog/explore-topics'}> Explore Topics</Link>
-                        </button>
-                        
-                        {categories.map((cat, i) => (
-                            <Link
-                                key={`category-${i}`}
-                                href={`/blog/${cat?.name.toLowerCase()}`}
-                                sl={`text-black text-base py-1 px-4 bg-gray-300 rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
-                            >
-                                {cat?.name.toLowerCase()}
-                            </Link>
-                        ))}
-                    </div> */}
+                <div className=' lg:px-32 flex items-center  '>
+                   
 
                     <div className='py-10 px-[6px] justify-center'>
                         <div className=" flex lg:gap-14 gap-7   items-center ">
@@ -135,7 +118,7 @@ const CategoryPage = () => {
                             >
                                 <div className='flex items-center space-x-1  '>
                                     <span className='w-fit rounded-full'><MdExplore size={[32]} /></span>
-                                    <span className="hidden lg:inline text-sm    w-fit ">Explore Topics</span>
+                                    <span className="hidden lg:inline text-sm p-1 w-fit ">Explore Topics</span>
 
                                 </div>
                             </Link>
@@ -145,7 +128,7 @@ const CategoryPage = () => {
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat?.name.toLowerCase()}`}
-                                            className={`capitalize font-medium text-black text-[14px] lg:text-base  lg:bg-gray-100  lg:rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
+                                            className={`py-1 capitalize font-normal text-black text-[14px] lg:text-sm  lg:bg-gray-100  lg:rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
                                         >
                                             {cat?.name.toLowerCase()}
                                         </Link>
@@ -153,11 +136,11 @@ const CategoryPage = () => {
                                 </Slider>
                             </div>
                         </div>
-                        <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3">{category}</p>
+                        <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3 buch-font">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
                             <li>Topic</li>
                             <li><GoDotFill /></li>
-                            <li>{filteredPosts?.length} stories</li>
+                            <li>{postlist?.length} stories</li>
                         </ul>
                         <div className='text-center flex justify-center pt-10'>
                             <PostsListing data={filteredPosts} />
