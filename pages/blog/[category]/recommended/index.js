@@ -1,7 +1,7 @@
 import BlogLayout from '../../blogcomponents/BlogLayout';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // For routing and getting category from URL
-import { fireDb } from '../../../images/firebase';
+import { fireDb } from '../../../../public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { MdOutlineExplore } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";

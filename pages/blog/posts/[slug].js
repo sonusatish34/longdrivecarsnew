@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { fireDb } from '../../images/firebase';
+import { fireDb } from '../../../public/firebase';
 import { doc, updateDoc, arrayUnion, getDocs, query, collection, where } from "firebase/firestore";
 import StaticData from '@/pages/images/StaticData';
 import { GrLike } from "react-icons/gr";

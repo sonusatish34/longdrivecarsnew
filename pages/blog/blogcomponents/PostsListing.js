@@ -15,7 +15,7 @@ const PostsListing = ({ data }) => {
 
             {/* First Section: Two Main Posts */}
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10">
-                {data.length > 0 ? data.slice(0, 2).map((post, i) => (
+                {data?.length > 0 ? data.slice(0, 2).map((post, i) => (
                     <div key={`key-${i}`} className="lg:w-[570px] lg:h-[500px] h-auto flex flex-col px-3">
                         {/* Image */}
                         {post?.coverimages && (
@@ -73,7 +73,7 @@ const PostsListing = ({ data }) => {
 
             {/* Second Section: Remaining Posts */}
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-1 lg:gap-8 pt-12">
-                {data.length > 0 ? data.slice(2).map((post, i) => (
+                {data?.length > 0 ? data.slice(2).map((post, i) => (
                     <div key={`key-${i}`} className=" px-3 w-full h-[348px]">
                         {post?.coverimages && (
                             <Image

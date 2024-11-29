@@ -2,7 +2,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { fireDb } from '../../images/firebase';
+import { fireDb } from '../../../public/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import { useEffect, useState } from "react";
 import Layout from "@/pages/components/Layout/Layout";
