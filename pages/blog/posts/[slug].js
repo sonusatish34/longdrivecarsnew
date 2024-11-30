@@ -161,6 +161,7 @@ function SinglePost() {
             <div className='flex lg:gap-6 gap-4 py-3'>
               <p>LDCars</p>
               <p>{postDisplay?.timetake} min read</p>
+              
               <p>{StaticData(postDisplay?.time.seconds)}</p>
             </div>
             <Image
@@ -171,7 +172,7 @@ function SinglePost() {
             />
             <ul className="mb-4 mt-4 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-lg">
               <li>{postDisplay?.date}</li>
-              <li>{postDisplay?.categoryname}</li>
+              {/* <li>{postDisplay?.categoryname}</li> */}
               <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
               <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>{postDisplay?.postauthor}</span></li>
             </ul>

@@ -30,42 +30,69 @@ const ComponentName = (props) => {
 
     const settings = {
         className: "center",
-        centerMode: false,
+        // centerMode: true,
         infinite: true,
+        // centerPadding: "60px",
+        // slidesToShow: 6,
         speed: 500,
         arrows: true,
         responsive: [
+            {
+                breakpoint: 2000, // Largest breakpoint first
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    infinite: true,
+                },
+            },
+            {
+                breakpoint: 1020 ,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    infinite: true,
+                },
+            },
 
             {
-                breakpoint: 320,
+                breakpoint: 770 ,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                },
+            },
+            
+
+            {
+                breakpoint: 425 ,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                },
+            },
+            
+            {
+                breakpoint: 370 ,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                },
+            },
+
+            {
+                breakpoint: 320, // Smallest breakpoint last
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
                     infinite: true,
                 },
             },
-
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,  
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 2080,
-                settings: {
-                    slidesToShow: 7,
-                    slidesToScroll: 5,
-                    infinite: true,
-                },
-            },
-
         ],
+        
     };
-
     useEffect(() => {
         if (category) {
             console.log(category, "cattt");
@@ -101,8 +128,8 @@ const ComponentName = (props) => {
         <BlogLayout>
             <div className="flex flex-col lg:flex-row">
                 {/* Sidebar Section */}
-                <div className="w-full lg:w-2/5 bg-gray-200 pt-6 lg:pt-24 px-4 lg:pl-20 sticky top-0">
-                    <div className="flex flex-wrap gap-4 capitalize">
+                <div className="w-full lg:w-2/5 bg-white pt-6 lg:pt-24 px-4 lg:pl-20 sticky top-0">
+                    <div className="flex flex-wrap gap-4 capitalize justify-center">
                         {/* Breadcrumb */}
                         <p className="flex items-center gap-2 text-sm lg:text-base">
                             <span>{category}</span>
@@ -117,20 +144,18 @@ const ComponentName = (props) => {
 
                         {/* Subheading */}
                         <p className="text-lg font-semibold ">More Topics To Explore</p>
-                        <span className='flex lg:flex-col px-4 '>
                             {/* Categories Links */}
-                            <Slider  {...settings} className="blog-carousal lg:w-[480px] w-64 px-10 ">
+                            <Slider  {...settings} className="blog-carousal lg:w-[470px] w-64 text-center ">
                             {categories?.map((cat, index) => (
                                 <Link
                                     key={index}
                                     href={`/blog/${cat?.name}/recommended`}
-                                    className="p-2 "
+                                    className="capitalize font-medium text-black text-sm lg:text-base rounded-3xl p-[2px] lg:p-[1px] bg-gray-200 lg:rounded-3xl "
                                 >
                                     {cat?.name}
                                 </Link>
                             ))}
                             </Slider>
-                        </span>
                     </div>
                 </div>
 
