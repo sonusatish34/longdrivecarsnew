@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { fireDb } from '../../images/firebase';
+import { fireDb } from '../../../public/firebase';
 import { doc, updateDoc, arrayUnion, getDocs, query, collection, where } from "firebase/firestore";
 import StaticData from '@/pages/images/StaticData';
 import { GrLike } from "react-icons/gr";
@@ -156,8 +156,8 @@ function SinglePost() {
     <div>
       <BlogLayout>
         <section className="section">
-          <div className='flex flex-col lg:mx-80 px-4 py-2 lg:py-2'>
-            <p className='lg:text-4xl text-xl font-bold lg:py-4 py-2'>{postDisplay?.title}</p>
+          <div className='flex flex-col lg:mx-96 px-4 lg:px-0 py-2 lg:py-2'>
+            <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 buch-font tracking-tight'>{postDisplay?.title}</p>
             <div className='flex lg:gap-6 gap-4 py-3'>
               <p>LDCars</p>
               <p>{postDisplay?.timetake} min read</p>
@@ -170,19 +170,72 @@ function SinglePost() {
               width={500}
               height={500}
             />
-            <ul className="mb-4 mt-4 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-lg">
+            <ul className="mb-4 mt-4 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-base">
               <li>{postDisplay?.date}</li>
               {/* <li>{postDisplay?.categoryname}</li> */}
               <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
               <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>{postDisplay?.postauthor}</span></li>
             </ul>
             <div
-              className="text-sm lg:text-base leading-7 lg:leading-loose pt-4 pb-4 px-4 lg:px-6  rounded-lg "
+              className="text-[#242424] text-sm lg:text-[20px] leading-8 lg:leading-normal lg:tracking-wide pt-4 pb-4 px-4 lg:px-0  rounded-lg georgia-font"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
             />
 
             {/* Display Related Posts */}
-            <div className='bg-gray-200 p-4  rounded-sm '>
+            {/* <div className="text-xs lg:text-[20px] leading-2 lg:leading-9 pt-6 georgia-font" dangerouslySetInnerHTML={{ __html: postDisplay?.content }} /> */}
+            <div className='flex gap-8 pt-8' >
+              <p className='flex gap-2'>
+                <span className='hover:cursor-pointer'>
+                  <GrLike size={20} onClick={handleLike} />
+                </span>
+                <span>{likesCount}</span> {/* Display likes count from state */}
+              </p>
+              <p className='flex gap-2'>
+                <span className='hover:cursor-pointer'>
+                  <FaRegComment size={20} onClick={() => setCommentShow(true)} />
+                </span>
+                <span>{comments.length}</span> {/* Display comments count from state */}
+              </p>
+            </div>
+            {commentShow && (
+              <div className='rounded-sm w-[400px]'>
+                <span>Please Leave A Reply here</span>
+                <form className="flex flex-col gap-4 bg-gray-100 border-2 p-4" onSubmit={handleCommentSubmit}>
+                  <textarea
+                    id="commentText"
+                    placeholder="Comment Here!"
+                    required
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    className='w-full h-28 rounded-md p-2'
+                  ></textarea>
+                  <div className='flex gap-2'>
+                    <input
+                      type="text"
+                      id="userName"
+                      placeholder="Your Name"
+                      required
+                      value={userName}
+                      onChange={(e) => setUserName(e.target.value)}
+                      className='w-fit rounded-md p-2'
+                    />
+                    <button className='bg-blue-400 p-1 rounded-md text-white' type="submit">Post Comment</button>
+                  </div>
+                </form>
+                <div>
+                  <p className='text-xl font-semibold py-4'>Comments</p>
+                  <ul>
+                    {comments.map((comment, index) => (
+                      <li key={index} className="mb-4">
+                        <p><strong>{comment.userName}</strong> <span className="text-sm text-gray-500">{comment.date}</span></p>
+                        <p>{comment.commentText}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+            {/* <div className='bg-gray-200 p-4  rounded-sm '>
               <form className="flex flex-col gap-4" onSubmit={handleCommentSubmit}>
                 <input
                   type="text"
@@ -203,22 +256,10 @@ function SinglePost() {
                 ></textarea>
                 <button className='bg-blue-400 p-1 rounded-md text-white' type="submit">Submit Comment</button>
               </form>
-            </div>
-            <div className=" lg:pl-4 pt-4   ">
+            </div> */}
+            <div className="pt-4   ">
               <p className="text-xl font-semibold">Related Posts</p>
-              {/* <ul>
-                {postlist.length > 0 ? (
-                  postlist.map((post) => (
-                    <li key={post.id} className="mb-4">
-                      <Link className="text-lg font-medium" href={`/posts/${post.slug}`}>
-                        {post.title}
-                      </Link>
-                    </li>
-                  ))
-                ) : 
-                  <p>No related posts found.</p>
-                )}
-              </ul> */}
+
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
                 {postlist?.length > 0 ? postlist.slice(0, 4).map((post, i) => (
@@ -265,7 +306,7 @@ function SinglePost() {
               </div>
 
             </div>
-           
+
 
 
             <div className=" py-6 lg:py-3 flex flex-row">
@@ -277,7 +318,7 @@ function SinglePost() {
               </Link>
             </div>
             {/* Comments Section */}
-            <div>
+            {/* <div>
               <p className='text-xl font-semibold'>Comments</p>
               <ul>
                 {postDisplay?.comments && postDisplay.comments.map((comment, index) => (
@@ -287,7 +328,7 @@ function SinglePost() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
           </div>
         </section>
       </BlogLayout>

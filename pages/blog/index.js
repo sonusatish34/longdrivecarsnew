@@ -1,5 +1,5 @@
 
-import { fireDb } from '../images/firebase';
+import { fireDb } from '../../public/firebase';
 import { getDocs, collection } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';

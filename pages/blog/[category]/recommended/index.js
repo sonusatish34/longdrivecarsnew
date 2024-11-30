@@ -1,7 +1,7 @@
 import BlogLayout from '../../blogcomponents/BlogLayout';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // For routing and getting category from URL
-import { fireDb } from '../../../images/firebase';
+import { fireDb } from '../../../../public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { MdOutlineExplore } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
@@ -69,6 +69,7 @@ const ComponentName = (props) => {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
+                    slidesToScroll: 3,
                     infinite: true,
                 },
             },
@@ -123,7 +124,7 @@ const ComponentName = (props) => {
             fetchCat();
         }
     }, [category]);
-    
+
     return (
         <BlogLayout>
             <div className="flex flex-col lg:flex-row">
@@ -166,11 +167,11 @@ const ComponentName = (props) => {
                             data.map((post, i) => (
                                 <div
                                     key={i}
-                                    className="border-b-2 border-gray-200 flex flex-col lg:flex-row gap-4 pb-4"
+                                    className="border-b-2 border-gray-100 flex flex-row gap-1 pb-4"
                                 >
                                     {/* Post Content */}
-                                    <div className="lg:w-3/4">
-                                        <h5 className="mb-2 font-bold text-xl lg:text-2xl hover:text-orange-400">
+                                    <div className="lg:w-3/4 w-4/6">
+                                        <h5 className=" mb-2 font-bold text-lg lg:text-2xl hover:text-orange-400">
                                             <Link
                                                 href={`/blog/posts/${post.slug
                                                     .toLowerCase()
@@ -189,7 +190,7 @@ const ComponentName = (props) => {
                                                 <BiCategory className="text-blue-400" />
                                                 {post?.categoryname}
                                             </li>
-                                            <li className="flex items-center gap-1">
+                                            <li className="lg:flex items-center gap-1 hidden ">
                                                 <CgProfile className="text-blue-400" />
                                                 {post?.postauthor}
                                             </li>
@@ -197,14 +198,14 @@ const ComponentName = (props) => {
                                     </div>
 
                                     {/* Post Image */}
-                                    <div className="lg:w-1/4">
+                                    <div className="lg:w-1/4 w-4/12">
                                         {post?.coverimages && (
                                             <Image
-                                                className="rounded-sm w-full h-auto"
+                                                className="rounded-sm lg:w-[150px] lg:h-[104px] w-[80px] h-[80px]"
                                                 src={
                                                     post?.coverimages?.length
                                                         ? post?.coverimages
-                                                        : tempimg   
+                                                        : tempimg
                                                 }
                                                 alt={post?.coverimages}
                                                 width={500}

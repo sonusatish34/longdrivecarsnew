@@ -3,7 +3,7 @@ import Slider from "react-slick";
 // import React, { useEffect, useState } from 'react';
 import BlogLayout from './blogcomponents/BlogLayout';
 import { getDocs, collection } from 'firebase/firestore';
-import { fireDb } from '../images/firebase';
+import { fireDb } from '../../public/firebase';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';

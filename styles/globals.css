@@ -17,6 +17,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'buch'; /* You can name this whatever you like */
+  src: url('/fonts/buch.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Apply the custom font globally */
 .ds {
@@ -25,6 +31,9 @@
 
 .georgia-font {
   font-family: 'georgia', sans-serif;
+}
+.buch-font {
+  font-family: 'buch', sans-serif;
 }
 .kievitot-font {
   font-family: 'kievitot', sans-serif;

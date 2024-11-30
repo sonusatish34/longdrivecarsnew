@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import CarProducts from './components/CarProducts';
-const DynCallBackForm = dynamic(() => import('./components/CallBackForm/CallBackForm'));
-const DynNearYou = dynamic(() => import('./components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('./components/ImageChange/ImageChange'));
-const DynNearByApi = dynamic(() => import('./components/NearByApi/NearByApi'));
-const GetInTouch = dynamic(() => import('./components/GetInTouch/GetInTouch'));
-const FeaturedCars = dynamic(() => import('./components/FeaturedCars/FeaturedCars'));
-const DynamicFaqComponent = dynamic(() => import('./components/FaqAccordian/FaqAccordian'));
-import DynWhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
-import Layout from './components/Layout/Layout';
-const PriceList = dynamic(() => import('./components/PriceList/PriceList'), {
-    ssr: false, // Optionally disable SSR for this component
-});
 import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
@@ -24,12 +12,10 @@ import Image from 'next/image';
 import hyd from './images/hyderabad-charminar.png'
 import wrg from './images/warangal.png'
 import viz from './images/vizag.webp'
+import vij from './images/vijayawada-transformed.webp'
 import Loading from './components/Loading';
 export default function Place({ cars, canonicalUrl }) {
-    const [carData, setCarData] = useState(null);
-    const [carData2, setCarData2] = useState(null);
     const [showPopup, setShowPopup] = useState(false); // State for popup visibility
-
 
 
     const [selectedLocation, setSelectedLocation] = useState(null);
@@ -63,26 +49,30 @@ export default function Place({ cars, canonicalUrl }) {
         else if (location === 'vizag') {
             router.push('/vizag');
         }
+        else if (location === 'vijayawada') {
+            router.push('/vijayawada');
+        }
     };
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(true);
-        }, 8000);
+        }, 5000);
 
         return () => clearTimeout(timer); // Clean up timer
     }, []);
+
     useEffect(() => {
         if (showPopup) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
-
         return () => {
             document.body.style.overflow = 'unset';
         };
     }, [showPopup]);
+
     return (
         <div>
             <Head>
@@ -148,7 +138,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <div className='xl:w-[86%] w-[60%] '>
                             <Marquee speed={75} >
                                 <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
-                                    {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Baleno, Dzire 1584 per day', 'Just pay 10% Advance & book'].map((text, index) => (
+                                    {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Dzire 1992 per day', 'Just pay 10% Advance & book'].map((text, index) => (
                                         <p key={index} className='flex items-center gap-1 justify-center'>
                                             <TbPointFilled /><span>{text}</span>
                                         </p>
@@ -213,6 +203,16 @@ export default function Place({ cars, canonicalUrl }) {
                                                 width={110}
                                                 height={110}
                                             /></span><span className='text-[#0456e8]'>Vizag</span></button>
+                                           
+                                        </div>
+                                        <div className='flex gap-6 flex-col lg:flex-row'>
+                                            <button onClick={() => handleLocation('vijayawada')} className='lg:hover:scale-105 p-2  border-2 border-[#0456e8] rounded-md flex items-center gap-2 w-48 lg:w-64 h-16'><span><Image
+                                                className="w-8 h-10 relative bottom-1"
+                                                src={vij}
+                                                alt="Long Drive Cars app"
+                                                width={110}
+                                                height={110}
+                                            /></span><span className='text-[#0456e8]'>Vijayawada</span></button>
                                            
                                         </div>
                                     </div>

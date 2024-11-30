@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; // For routing and getting category from URL
-import { fireDb } from '../../images/firebase';
+import { fireDb } from '../../../public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import PostsListing from '../blogcomponents/PostsListing';
 import BlogLayout from '../blogcomponents/BlogLayout';
@@ -172,7 +172,7 @@ const CategoryPage = () => {
                             >
                                 <div className='flex items-center space-x-2  '>
                                     <span className='w-fit rounded-full'><MdExplore size={[32]} /></span>
-                                    <span className="hidden lg:inline text-sm   w-fit ">Explore Topics</span>
+                                    <span className="hidden lg:inline text-sm p-1 w-fit ">Explore Topics</span>
 
                                 </div>
                             </Link>
@@ -182,7 +182,7 @@ const CategoryPage = () => {
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat?.name.toLowerCase()}`}
-                                            className={`capitalize font-medium text-black text-[14px] lg:text-base  lg:bg-gray-100  lg:rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
+                                            className={`py-1 capitalize font-normal text-black text-[14px] lg:text-sm  lg:bg-gray-100  lg:rounded-3xl ${cat?.name.toLowerCase() === category ? ' border-2 border-black rounded-3xl' : ''}`}
                                         >
                                             {cat?.name.toLowerCase()}
                                         </Link>
@@ -206,11 +206,11 @@ const CategoryPage = () => {
 
                             </div>
                         </div>
-                        <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3">{category}</p>
+                        <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3 buch-font">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
                             <li>Topic</li>
                             <li><GoDotFill /></li>
-                            <li>{filteredPosts?.length} stories</li>
+                            <li>{postlist?.length} stories</li>
                         </ul>
                         <div className='text-center flex justify-center pt-10'>
                             <PostsListing data={filteredPosts} />
