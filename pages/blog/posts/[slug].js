@@ -102,7 +102,7 @@ function SinglePost() {
         likes: newLikesCount
       });
 
-      alert("Like added!");
+      // alert("Like added!");
     } catch (error) {
       console.error("Error updating like:", error);
       alert("There was an error updating the like.");
@@ -151,39 +151,64 @@ function SinglePost() {
       alert("There was an error adding the comment.");
     }
   };
+  const speakText = () => {
+    // Create a new SpeechSynthesisUtterance object
+    const utterance = new SpeechSynthesisUtterance();
+    
+    // Get all text content of the page
+    const bodyText = document.body.innerText;
+
+    // Set the text to be read out
+    utterance.text = bodyText;
+    
+    // Optionally, you can adjust the speech properties like pitch, rate, and volume
+    utterance.pitch = 1; // Range: 0 to 2
+    utterance.rate = 1;  // Range: 0.1 to 10
+    utterance.volume = 1; // Range: 0 to 1
+
+    // Start speaking the text
+    window.speechSynthesis.speak(utterance);
+  };
+  const stopSpeech = () => {
+    window.speechSynthesis.cancel();  // This will stop the speech immediately
+  };
+
 
   return (
     <div>
       <BlogLayout>
         <section className="section">
-          <div className='flex flex-col lg:mx-96 px-4 lg:px-0 py-2 lg:py-2'>
+          <div className='flex flex-col xl:mx-96 lg:mx-56 px-4 lg:px-0 py-2 lg:py-2'>
             <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 buch-font tracking-tight'>{postDisplay?.title}</p>
-            <div className='flex lg:gap-6 gap-4 py-3'>
-              <p>LDCars</p>
-              <p>{postDisplay?.timetake} min read</p>
-              
-              <p>{StaticData(postDisplay?.time.seconds)}</p>
-            </div>
+            <p className='helvetica-font text-[#6B6B6B] text-sm lg:text-xl lg:pb-6 py-4'>{postDisplay?.description}</p>
             <Image
               className="w-full rounded-sm"
               src={postDisplay?.coverimages}
-              width={500}
-              height={500}
+              width={1000}
+              height={1000}
             />
-            <ul className="mb-4 mt-4 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-base">
+            <div className='flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg'>
+              {/* <button onClick={speakText}>speak</button>
+  <button onClick={stopSpeech}>Stop Speech</button> */}
+              <p>LDCars</p>
+              <p>{postDisplay?.timetake} min read</p>
+
+              <p>{StaticData(postDisplay?.time.seconds)}</p>
+            </div>
+            <ul className="py-2 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-base">
               <li>{postDisplay?.date}</li>
               {/* <li>{postDisplay?.categoryname}</li> */}
               <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
-              <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>{postDisplay?.postauthor}</span></li>
+              <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>LDCars</span></li>
             </ul>
             <div
-              className="text-[#242424] text-sm lg:text-[20px] leading-8 lg:leading-normal lg:tracking-wide pt-4 pb-4 px-4 lg:px-0  rounded-lg georgia-font"
+              className="text-[#242424] text-sm lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-4 lg:px-0  rounded-lg georgia-font"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
             />
 
             {/* Display Related Posts */}
             {/* <div className="text-xs lg:text-[20px] leading-2 lg:leading-9 pt-6 georgia-font" dangerouslySetInnerHTML={{ __html: postDisplay?.content }} /> */}
-            <div className='flex gap-8 pt-8' >
+            <div className='flex gap-8 py-4 border-t-2 border-b-2' >
               <p className='flex gap-2'>
                 <span className='hover:cursor-pointer'>
                   <GrLike size={20} onClick={handleLike} />
@@ -259,11 +284,10 @@ function SinglePost() {
             </div> */}
             <div className="pt-4   ">
               <p className="text-xl font-semibold">Related Posts</p>
-
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
                 {postlist?.length > 0 ? postlist.slice(0, 4).map((post, i) => (
-                  <div key={`key-${i}`} className={"lg:w-[350px] lg:h-[350px] w-32 h-30  "}>
+                  <div key={`key-${i}`} className={"xl:w-[350px] lg:h-[350px] w-full h-30  "}>
                     {post?.coverimages && (
                       <Image
                         className="rounded-md lg:w-[400px] lg:h-[200px] w-32 h-20 "

@@ -1,18 +1,18 @@
 
 import { fireDb } from '../../public/firebase';
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection,where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 const ComponentName = (props) => {
+  
   const router = useRouter();
-
   const [postlist, setPostlist] = useState([]);
   const [isLoading, setIsLoading] = useState(false); // State for loader
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const querySnapshot = await getDocs(collection(fireDb, "blogPost"));
+      const querySnapshot = await getDocs(collection(fireDb, "blogPost"),where("blogfor", "==", "LDC"));
       const posts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
       // Set the posts to the state

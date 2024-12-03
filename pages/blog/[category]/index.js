@@ -29,7 +29,7 @@ const CategoryPage = () => {
         infinite: true,
         // centerPadding: "60px",
         // slidesToShow: 6,
-        width:'100px',
+        width: '100px',
         speed: 500,
         arrows: true,
         responsive: [
@@ -38,24 +38,24 @@ const CategoryPage = () => {
                 settings: {
                     slidesToShow: 5,
                     slidesToScroll: 5,
-                    infinite: true,
+                    // infinite: true,
                 },
             },
             {
-                breakpoint: 1020,
+                breakpoint: 1120,
                 settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 5,
-                    infinite: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    // infinite: true,
                 },
             },
 
             {
                 breakpoint: 770,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    // infinite: true,
                 },
             },
 
@@ -63,8 +63,8 @@ const CategoryPage = () => {
             {
                 breakpoint: 425,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                 },
             },
@@ -91,7 +91,7 @@ const CategoryPage = () => {
     };
     useEffect(() => {
         const fetchCat = async () => {
-            const querySnapshot = await getDocs(collection(fireDb, "categories"));
+            const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
             const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             console.log(cs, "09876");
             setCList(cs);
@@ -101,7 +101,7 @@ const CategoryPage = () => {
 
     useEffect(() => {
         const fetchCat = async () => {
-            const querySnapshot = await getDocs(collection(fireDb, "categories"));
+            const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
             const categoriesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
             // Sort categories to ensure the selected category appears first
@@ -123,11 +123,6 @@ const CategoryPage = () => {
         console.log("Category from URL:", category);
     }, [category]);
 
-
-
-
-
-
     useEffect(() => {
         if (category) {
             console.log(category, "cattt");
@@ -141,7 +136,7 @@ const CategoryPage = () => {
             };
             fetchPostsByCategory();
             const fetchCat = async () => {
-                const querySnapshot = await getDocs(collection(fireDb, "categories"));
+                const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
                 const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setCategories(cs);
             };
@@ -163,12 +158,12 @@ const CategoryPage = () => {
     return (
         <div>
             <BlogLayout onSearch={setSearchQuery}>
-                <div className=' lg:px-60 flex items-center  '>
+                <div className='xl:px-32 lg:px-12 flex items-center  '>
                     <div className='py-10  justify-center   sm:justify-items-center px-[6px]'>
-                        <div className=" flex lg:gap-14 gap-7   items-center ">
+                        <div className="flex lg:gap-7 gap-7 items-center ">
                             <Link
                                 href={`/blog/explore-topics`}
-                                className={`text-black text-base py-1 px-4 lg:bg-gray-100 lg:rounded-3xl `}
+                                className={`text-black text-base py-1 lg:bg-gray-100 lg:rounded-3xl `}
                             >
                                 <div className='flex items-center space-x-2  '>
                                     <span className='w-fit rounded-full'><MdExplore size={[32]} /></span>
@@ -176,7 +171,7 @@ const CategoryPage = () => {
 
                                 </div>
                             </Link>
-                            <div className='lg:w-[800px] w-44 mxs:w-60  text-center  '>
+                            <div className='xl:w-[800px] lg:w-[600px] w-44 mxs:w-60  text-center  '>
                                 {/* <Slider  {...settings} className="blog-carousal">
                                     {cList?.length && cList.map((cat, i) => (
                                         <Link
@@ -223,15 +218,17 @@ const CategoryPage = () => {
                             </Link>
                         </div> */}
 
-                        <div className=" py-5 lg:py-5 flex flex-row lg:pr-[900px] pl-2">
-                            <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex  space-x-2">
-                                <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
-                                    <span>See more</span>
-                                    <MdExpandMore className="text-lg" />
-                                </span>
-                            </Link>
-                        </div>
+
                     </div>
+
+                </div>
+                <div className=" py-5 lg:py-5 flex flex-row pl-32">
+                    <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex  space-x-2">
+                        <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
+                            <span>See more</span>
+                            <MdExpandMore className="text-lg" />
+                        </span>
+                    </Link>
                 </div>
             </BlogLayout>
         </div>

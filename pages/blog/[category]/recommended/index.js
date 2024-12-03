@@ -109,7 +109,7 @@ const ComponentName = (props) => {
 
             fetchPostsByCategory();
             const fetchCat = async () => {
-                const querySnapshot = await getDocs(collection(fireDb, "categories"));
+                const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
                 const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 console.log(cs, "09876");
                 setCategories(cs);
