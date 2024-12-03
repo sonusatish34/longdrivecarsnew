@@ -129,7 +129,10 @@ const CategoryPage = () => {
 
             const fetchPostsByCategory = async () => {
                 // Query posts where the category matches the selected category
-                const q = query(collection(fireDb, "blogPost"), where("categoryname", "array-contains", category));
+                const q = query(collection(fireDb, "blogPost"),
+                 where("categoryname", "array-contains", category)
+                ,where("blog_state", "==", "active")
+            );
                 const querySnapshot = await getDocs(q);
                 const posts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 setPostlist(posts);

@@ -46,7 +46,7 @@ const ComponentName = (props) => {
                 },
             },
             {
-                breakpoint: 1020 ,
+                breakpoint: 1020,
                 settings: {
                     slidesToShow: 5,
                     slidesToScroll: 5,
@@ -55,17 +55,17 @@ const ComponentName = (props) => {
             },
 
             {
-                breakpoint: 770 ,
+                breakpoint: 770,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
                     infinite: true,
                 },
             },
-            
+
 
             {
-                breakpoint: 425 ,
+                breakpoint: 425,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -73,9 +73,9 @@ const ComponentName = (props) => {
                     infinite: true,
                 },
             },
-            
+
             {
-                breakpoint: 370 ,
+                breakpoint: 370,
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
@@ -92,7 +92,7 @@ const ComponentName = (props) => {
                 },
             },
         ],
-        
+
     };
     useEffect(() => {
         if (category) {
@@ -122,6 +122,8 @@ const ComponentName = (props) => {
             };
 
             fetchCat();
+
+
         }
     }, [category]);
 
@@ -145,8 +147,8 @@ const ComponentName = (props) => {
 
                         {/* Subheading */}
                         <p className="text-lg font-semibold ">More Topics To Explore</p>
-                            {/* Categories Links */}
-                            <Slider  {...settings} className="blog-carousal lg:w-[470px] w-64 text-center ">
+                        {/* Categories Links */}
+                        {/* <Slider  {...settings} className="blog-carousal lg:w-[470px] w-64 text-center ">
                             {categories?.map((cat, index) => (
                                 <Link
                                     key={index}
@@ -156,7 +158,25 @@ const ComponentName = (props) => {
                                     {cat?.name}
                                 </Link>
                             ))}
+                        </Slider> */}
+                        <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center  '>
+                            <Slider key={JSON.stringify(categories)} {...settings} className="blog-carousal">
+                                {categories?.length > 0 &&
+                                    categories.map((cat, i) => (
+                                        <Link
+                                            key={`category-${i}`}
+                                            href={`/blog/${cat.name.toLowerCase()}`}
+                                            className={`capitalize font-medium text-black text-[14px] lg:text-base  bg-gray-200 rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-black rounded-3xl' : ''
+                                                }`}
+                                        >
+                                            {cat.name.toLowerCase()}
+                                        </Link>
+                                    ))}
                             </Slider>
+                        </div>
+
+
+
                     </div>
                 </div>
 

@@ -10,6 +10,8 @@ import Link from "next/link";
 import Footer from '../blogcomponents/Footer';
 import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { IoTimeOutline } from "react-icons/io5";
+
 import { RiRectangleFill } from "react-icons/ri";
 
 import BlogLayout from '../blogcomponents/BlogLayout';
@@ -190,7 +192,7 @@ function SinglePost() {
             <div className='flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg'>
               {/* <button onClick={speakText}>speak</button>
   <button onClick={stopSpeech}>Stop Speech</button> */}
-              <p>LDCars</p>
+              {/* <p>LDCars</p> */}
               <p>{postDisplay?.timetake} min read</p>
 
               <p>{StaticData(postDisplay?.time.seconds)}</p>
@@ -199,7 +201,7 @@ function SinglePost() {
               <li>{postDisplay?.date}</li>
               {/* <li>{postDisplay?.categoryname}</li> */}
               <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
-              <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>LDCars</span></li>
+              {/* <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>LDCars</span></li> */}
             </ul>
             <div
               className="text-[#242424] text-sm lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-4 lg:px-0  rounded-lg georgia-font"
@@ -260,28 +262,7 @@ function SinglePost() {
                 </div>
               </div>
             )}
-            {/* <div className='bg-gray-200 p-4  rounded-sm '>
-              <form className="flex flex-col gap-4" onSubmit={handleCommentSubmit}>
-                <input
-                  type="text"
-                  id="userName"
-                  placeholder="Your Name"
-                  required
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  className='w-fit rounded-md p-2'
-                />
-                <textarea
-                  id="commentText"
-                  placeholder="Add Your Comment Here!"
-                  required
-                  value={commentText}
-                  onChange={(e) => setCommentText(e.target.value)}
-                  className='w-full h-28 rounded-md p-2'
-                ></textarea>
-                <button className='bg-blue-400 p-1 rounded-md text-white' type="submit">Submit Comment</button>
-              </form>
-            </div> */}
+            
             <div className="pt-4   ">
               <p className="text-xl font-semibold">Related Posts</p>
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
@@ -309,8 +290,6 @@ function SinglePost() {
                       {post?.description && post?.description.slice(0, 70)}...
                     </p>
 
-
-
                     <ul className=" pt-2 flex flex-wrap items-center space-x-4 text-xs">
                       {/* Display category */}
                       <li className="flex items-center gap-1">
@@ -320,8 +299,9 @@ function SinglePost() {
 
                       {/* Show author on laptops and larger screens only */}
                       <li className="hidden lg:flex items-center gap-1">
-                        <span><CgProfile className="text-blue-400" /></span>
-                        <span>{post?.postauthor}</span>
+                        <span><IoTimeOutline className="text-blue-400" /></span>
+                        {/* <span>{post?.postauthor}</span> */}
+                        <span>{<p>{StaticData(post?.time.seconds)}</p>}</span>
                       </li>
                     </ul>
 

@@ -1,6 +1,6 @@
 
 import { fireDb } from '../../public/firebase';
-import { getDocs, collection,where,query } from 'firebase/firestore';
+import { getDocs, collection,where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
@@ -12,21 +12,19 @@ const ComponentName = (props) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const q2 = query(collection(fireDb, "blogPost"), where("blogfor", "==", "LDC"));
-          const querySnapshot2 = await getDocs(q2);
-          const posts2 = querySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setPostlist(posts2);  // Store the fetched data in the state
+      const querySnapshot = await getDocs(collection(fireDb, "blogPost"),where("blogfor", "==", "LDC"));
+      const posts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
       // Set the posts to the state
-      // setPostlist(posts);
-      console.log(posts2, "pl");
+      setPostlist(posts);
+      console.log(posts, "pl");
 
-      posts2.sort(function (a, b) {
+      posts.sort(function (a, b) {
         return a.time.seconds - b.time.seconds;
       });
 
-      console.log(posts2[posts2?.length - 1]?.categoryname, "zero");
-      const ValidCat = posts2[posts2?.length - 1]?.categoryname[0];
+      console.log(posts[posts?.length - 1]?.categoryname, "zero");
+      const ValidCat = posts[posts?.length - 1]?.categoryname[0];
       if (ValidCat) {
         router.push(`/blog/${ValidCat}`);
       } else {
