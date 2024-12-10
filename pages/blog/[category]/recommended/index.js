@@ -204,11 +204,21 @@ const ComponentName = (props) => {
                                         <p className="text-gray-600 text-sm lg:text-base">
                                             {post?.description?.slice(0, 100)}...
                                         </p>
+                        
                                         <ul className="mt-3 flex items-center text-xs text-gray-500 space-x-4">
-                                            <li>{StaticData(post?.time?.seconds)}</li>
+                                            {/* <li>{StaticData(post?.time?.seconds)}</li>
                                             <li className="flex items-center gap-1">
                                                 <BiCategory className="text-blue-400" />
                                                 {post?.categoryname}
+                                            </li> */}
+                                             <li>{StaticData(post?.time?.seconds)}</li>
+                                            <li className="flex items-center gap-1">
+                                                <BiCategory className="text-blue-400" />
+                                                <span>
+                                                    {Array.isArray(post?.categoryname)
+                                                        ? post.categoryname.join(", ")
+                                                        : post?.categoryname}
+                                                </span>
                                             </li>
                                             <li className="lg:flex items-center gap-1 hidden ">
                                                 <CgProfile className="text-blue-400" />
@@ -219,6 +229,12 @@ const ComponentName = (props) => {
 
                                     {/* Post Image */}
                                     <div className="lg:w-1/4 w-4/12">
+                                    <Link
+                                                href={`/blog/posts/${post.slug
+                                                    .toLowerCase()
+                                                    .replace(/ /g, "-")}`}
+                                                className="block"
+                                            >
                                         {post?.coverimages && (
                                             <Image
                                                 className="rounded-sm lg:w-[150px] lg:h-[104px] w-[80px] h-[80px]"
@@ -233,6 +249,7 @@ const ComponentName = (props) => {
                                                 priority={i === 0}
                                             />
                                         )}
+                                        </Link>
                                     </div>
                                 </div>
                             ))

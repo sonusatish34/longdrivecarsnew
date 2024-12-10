@@ -20,6 +20,7 @@ const PostsListing = ({ data }) => {
                 {data?.length > 0 ? data.slice(0, 2).map((post, i) => (
                     <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[400px]  xl:h-[500px] h-auto flex flex-col px-3 lg:px-0">
                         {/* Image */}
+                        <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
                         {post?.coverimages && (
                             <Image
                                 className="rounded-sm w-full lg:h-[350px] h-auto"
@@ -30,6 +31,7 @@ const PostsListing = ({ data }) => {
                                 priority={i === 0 ? true : false}
                             />
                         )}
+                        </Link>
 
                         {/* Content Section */}
                         <div className="flex-1">
@@ -77,6 +79,7 @@ const PostsListing = ({ data }) => {
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 pt-12">
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
                     <div key={`key-${i}`} className="lg:px-0 w-full lg:w-[250px] xl:w-full">
+                      <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
                         {post?.coverimages && (
                             <Image
                                 className="rounded-md  lg:h-[200px] h-[100px] object-cover"
@@ -87,7 +90,7 @@ const PostsListing = ({ data }) => {
                                 priority={i === 0 ? true : false}
                             />
                         )}
-
+                    </Link>
                         <p className=" lg:pb-3 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-12 lg:h-20">
                             <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                                 {post?.title && post?.title.slice(0, 30)}
