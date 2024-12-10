@@ -147,25 +147,14 @@ const ComponentName = (props) => {
 
                         {/* Subheading */}
                         <p className="text-lg font-semibold ">More Topics To Explore</p>
-                        {/* Categories Links */}
-                        {/* <Slider  {...settings} className="blog-carousal lg:w-[470px] w-64 text-center ">
-                            {categories?.map((cat, index) => (
-                                <Link
-                                    key={index}
-                                    href={`/blog/${cat?.name}/recommended`}
-                                    className="capitalize font-medium text-black text-sm lg:text-base rounded-3xl p-[2px] lg:p-[1px] bg-gray-200 lg:rounded-3xl "
-                                >
-                                    {cat?.name}
-                                </Link>
-                            ))}
-                        </Slider> */}
+                       
                         <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center  '>
                             <Slider key={JSON.stringify(categories)} {...settings} className="blog-carousal">
                                 {categories?.length > 0 &&
                                     categories.map((cat, i) => (
                                         <Link
                                             key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}`}
+                                            href={`/blog/${cat.name.toLowerCase()}/recommended`}
                                             className={`capitalize font-medium text-black text-[14px] lg:text-base  bg-gray-200 rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-black rounded-3xl' : ''
                                                 }`}
                                         >

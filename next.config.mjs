@@ -19,6 +19,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'longdrivecarsnew-lime.vercel.app',
+      },
+      {
+        protocol: 'https',
         hostname: 'ldcars.blr1.digitaloceanspaces.com',
       },
     ],

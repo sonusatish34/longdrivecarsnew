@@ -88,12 +88,17 @@ function SinglePost() {
     if (cat) {
       const fetchPostsByCategory = async () => {
         try {
+          setLoading(true);
           const q = query(collection(fireDb, "blogPost"), where("categoryname", "==", cat));
           const querySnapshot = await getDocs(q);
           const posts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setPostlist(posts);
+          const removeslug = posts.filter(post => post.slug !== slug);
+          setPostlist(removeslug);
         } catch (error) {
           console.error("Error fetching posts by category:", error);
+        }
+        finally{
+          setLoading(false);
         }
       };
 
