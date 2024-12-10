@@ -34,7 +34,7 @@ const BlogLayout = ({ children, phoneno, locname, onSearch = () => { } }) => {
                             placeholder="Search"
                             onChange={handleSearch}
                             maxLength={10}
-                            className='lg:rounded-3xl lg:w-full border-none lg:bg-gray-200 bg-gray-50 w-24 rounded py-3 pl-7'
+                            className='lg:rounded-3xl lg:w-28 border-none lg:bg-gray-200 bg-gray-50  rounded py-1 pl-7'
                         />
                     </div>
                 </div>
