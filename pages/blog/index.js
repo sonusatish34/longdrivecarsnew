@@ -12,7 +12,7 @@ const ComponentName = (props) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const q2 = query(collection(fireDb, "blogPost"), where("blogfor", "==", "LDC"));
+      const q2 = query(collection(fireDb, "blogPost"), where("blogfor", "==", "LDC"),where("blog_state","==","active"));
           const querySnapshot2 = await getDocs(q2);
           const posts2 = querySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
           setPostlist(posts2);  // Store the fetched data in the state

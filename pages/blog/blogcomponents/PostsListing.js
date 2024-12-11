@@ -9,8 +9,6 @@ import { GrLike } from "react-icons/gr";
 import StaticData from '@/pages/images/StaticData';
 
 const PostsListing = ({ data }) => {
-    console.log(data,"daataa");
-    
     return (
         <div className="lg:pt-6 border-t-2 border-gray-300 pt-8">
             {/* <p className="text-xs lg:text-2xl pb-6 font-semibold">Recommended Stories</p> */}
@@ -79,7 +77,7 @@ const PostsListing = ({ data }) => {
             <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 pt-12">
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
                     <div key={`key-${i}`} className="lg:px-0 w-full lg:w-[250px] xl:w-full">
-                      <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
+                      <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
                         {post?.coverimages && (
                             <Image
                                 className="rounded-md  lg:h-[200px] h-[100px] object-cover"

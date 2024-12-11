@@ -283,8 +283,8 @@ function SinglePost() {
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
                 {postlist?.length > 0 ? postlist.slice(0, 4).map((post, i) => (
-                  <div key={`key-${i}`} className={"xl:w-[350px] lg:h-[350px] w-full h-30  "}>
-                    <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
+                  <div key={`key-${i}`} className={"xl:w-[315 px] lg:h-[350px] w-full h-30  "}>
+                    <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
                       {post?.coverimages && (
                         <Image
                           className="rounded-md lg:w-[400px] lg:h-[200px] w-32 h-20 "
@@ -296,7 +296,7 @@ function SinglePost() {
                         />
                       )}
                     </Link>
-                    <h5 className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4">
+                    <h5 className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-20">
                       <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                         {post?.title && post?.title.slice(0, 50)}
                       </Link>
