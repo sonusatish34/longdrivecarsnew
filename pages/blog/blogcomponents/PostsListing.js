@@ -16,28 +16,28 @@ const PostsListing = ({ data }) => {
             {/* First Section: Two Main Posts */}
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10">
                 {data?.length > 0 ? data.slice(0, 2).map((post, i) => (
-                    <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[400px]  xl:h-[500px] h-auto flex flex-col px-3 lg:px-0">
+                    <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[400px]  xl:h-[500px] h-auto flex flex-col gap-y-6 px-3 lg:px-0">
                         {/* Image */}
                         <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
-                        {post?.coverimages && (
-                            <Image
-                                className="rounded-sm w-full lg:h-[350px] h-auto"
-                                src={post?.coverimages?.length ? post?.coverimages : tempimg}
-                                alt={post?.coverimages}
-                                width={500}
-                                height={500}
-                                priority={i === 0 ? true : false}
-                            />
-                        )}
+                            {post?.coverimages && (
+                                <Image
+                                    className="rounded-sm w-full lg:h-[350px] h-auto"
+                                    src={post?.coverimages?.length ? post?.coverimages : tempimg}
+                                    alt={post?.coverimages}
+                                    width={500}
+                                    height={500}
+                                    priority={i === 0 ? true : false}
+                                />
+                            )}
                         </Link>
 
                         {/* Content Section */}
                         <div className="flex-1">
                             <h5 className="mb-2">
                                 <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
-                                    {post?.title && post?.title.slice(0, 50)}
-                                    <p className="text-left text-gray-600 text-sm   pt-1 tracking-tight font-light">
-                                        {post?.description && post?.description.slice(0, 100)}...
+                                    <p className='lg:h-16 h-24 pt'>{post?.title && post?.title.slice(0, 80)}</p>
+                                    <p className="text-left text-gray-600 text-sm   pt-4 tracking-tight font-light">
+                                        {post?.description && post?.description.slice(0, 160)}...
                                     </p>
                                 </Link>
                             </h5>
@@ -74,21 +74,21 @@ const PostsListing = ({ data }) => {
             </div>
 
             {/* Second Section: Remaining Posts */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 pt-12">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:pt-32 pt-10">
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
                     <div key={`key-${i}`} className="lg:px-0 w-full lg:w-[250px] xl:w-full">
-                      <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
-                        {post?.coverimages && (
-                            <Image
-                                className="rounded-md  lg:h-[200px] h-[100px] object-cover"
-                                src={post?.coverimages?.length ? post?.coverimages : '/tempimg.jpg'}
-                                alt={post?.title || 'Post Image'}
-                                width={445}
-                                height={230}
-                                priority={i === 0 ? true : false}
-                            />
-                        )}
-                    </Link>
+                        <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
+                            {post?.coverimages && (
+                                <Image
+                                    className="rounded-md  lg:h-[200px] h-[100px] object-cover"
+                                    src={post?.coverimages?.length ? post?.coverimages : '/tempimg.jpg'}
+                                    alt={post?.title || 'Post Image'}
+                                    width={445}
+                                    height={230}
+                                    priority={i === 0 ? true : false}
+                                />
+                            )}
+                        </Link>
                         <p className=" lg:pb-3 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-12 lg:h-20">
                             <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                                 {post?.title && post?.title.slice(0, 30)}

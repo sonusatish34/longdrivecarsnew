@@ -17,8 +17,8 @@ import { MdExplore } from "react-icons/md";
 const CategoryPage = () => {
     const [categories, setCategories] = useState([]);
     const [postlist, setPostlist] = useState([]);
-    const [searchQuery, setSearchQuery] = useState(''); 
-    const [filteredPosts, setFilteredPosts] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredPosts, setFilteredPosts] = useState([]);
     const [cList, setCList] = useState();
     const [loading, setLoading] = useState(true); // State to manage loading
     const [error, setError] = useState(null); // State to manage errors
@@ -121,7 +121,6 @@ const CategoryPage = () => {
         fetchCatAndPosts();
     }, [category]);
 
-    // Filter posts based on search query
     useEffect(() => {
         if (searchQuery) {
             const filtered = postlist.filter(post =>

@@ -1,21 +1,22 @@
 
 import { fireDb } from '../../public/firebase';
-import { getDocs, collection,where,query } from 'firebase/firestore';
+import { getDocs, collection, where, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Loading from '../components/Loading';
 
 const ComponentName = (props) => {
-  
+
   const router = useRouter();
   const [postlist, setPostlist] = useState([]);
   const [isLoading, setIsLoading] = useState(false); // State for loader
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const q2 = query(collection(fireDb, "blogPost"), where("blogfor", "==", "LDC"),where("blog_state","==","active"));
-          const querySnapshot2 = await getDocs(q2);
-          const posts2 = querySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setPostlist(posts2);  // Store the fetched data in the state
+      const q2 = query(collection(fireDb, "blogPost"), where("blogfor", "==", "LDC"), where("blog_state", "==", "active"));
+      const querySnapshot2 = await getDocs(q2);
+      const posts2 = querySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setPostlist(posts2);  // Store the fetched data in the state
 
       // Set the posts to the state
       // setPostlist(posts);
@@ -59,11 +60,7 @@ const ComponentName = (props) => {
   return (
     <div>
       {isLoading && (
-        <div className="text-center py-4">
-          <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
-            <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
-          </div>
-        </div>
+        <Loading/>
       )}
     </div>
   );

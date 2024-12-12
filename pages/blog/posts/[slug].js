@@ -296,13 +296,13 @@ function SinglePost() {
                         />
                       )}
                     </Link>
-                    <h5 className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-20">
+                    <p className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-20">
                       <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                         {post?.title && post?.title.slice(0, 50)}
                       </Link>
-                    </h5>
+                    </p>
 
-                    <p className="text-left text-xs lg:text:lg">
+                    <p className="text-left text-xs lg:text:lg h-10">
                       {post?.description && post?.description.slice(0, 70)}...
                     </p>
 
@@ -335,7 +335,7 @@ function SinglePost() {
               </div>
 
             </div>
-            <div className=" py-6 lg:py-3 flex flex-row">
+            <div className=" py-6 lg:mt-12 flex flex-row">
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">
                 <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
                   <span>See more</span>

@@ -250,7 +250,7 @@ const ComponentName = (props) => {
                                                 <span>{post?.categoryname[0]}</span>
                                             </li>
                                             <li>
-                                                <div className="flex gap-8">
+                                                <div className="lg:flex gap-8 hidden">
                                                     <p className="flex items-center gap-2">
                                                         <span className="hover:cursor-pointer">
                                                             <GrLike size={10} />
