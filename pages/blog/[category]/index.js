@@ -145,7 +145,7 @@ const CategoryPage = () => {
             <BlogLayout onSearch={setSearchQuery } catg={category}>
                 <div className='xl:px-32 lg:px-12 flex items-center'>
                     <div className='py-10 justify-center sm:justify-items-center px-[6px]'>
-                        <p className="capitalize text-4xl text-center font-semibold lg:pt-11 pb-3 buch-font">{category}</p>
+                        <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
                             <li>Topic</li>
                             <li><GoDotFill /></li>
