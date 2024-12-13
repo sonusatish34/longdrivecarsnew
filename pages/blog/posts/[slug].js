@@ -14,6 +14,7 @@ import { IoTimeOutline } from "react-icons/io5";
 import { RiRectangleFill } from "react-icons/ri";
 import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdExpandMore } from "react-icons/md";
+import Loading from '@/pages/components/Loading';
 
 function SinglePost() {
   const router = useRouter();
@@ -97,7 +98,7 @@ function SinglePost() {
         } catch (error) {
           console.error("Error fetching posts by category:", error);
         }
-        finally{
+        finally {
           setLoading(false);
         }
       };
@@ -181,18 +182,14 @@ function SinglePost() {
   return (
     <div>
       {loading && (
-        <div className="text-center py-4">
-          <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
-            <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
-          </div>
-        </div>
+        <Loading />
       )}
 
       <BlogLayout>
         <section className="section">
           <div className='flex flex-col xl:mx-96 lg:mx-56 px-4 lg:px-0 py-2 lg:py-2'>
-            <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 buch-font tracking-tight'>{postDisplay?.title}</p>
-            <p className='helvetica-font text-[#6B6B6B] text-sm lg:text-xl lg:pb-6 py-4'>{postDisplay?.description}</p>
+            <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</p>
+            <p className='helvetica-font text-[#6B6B6B] text-sm lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
             <Image
               className="w-full rounded-sm"
               src={postDisplay?.coverimages}
@@ -212,14 +209,13 @@ function SinglePost() {
               </p>
             </div>
             {/* Rest of your component */}
-            <ul className="py-2 flex flex-wrap items-center justify-start space-x-4 text-xs lg:text-base">
-              <li>{postDisplay?.date}</li>
-              {/* <li>{postDisplay?.categoryname}</li> */}
-              <li className="flex items-center gap-1"><BiCategory className="text-blue-400" /><span>{postDisplay?.categoryname}</span></li>
-              {/* <li className="hidden lg:flex lg:items-center lg:gap-1"><CgProfile className="text-blue-400" /><span>LDCars</span></li> */}
+            <ul className="py-2 flex  items-center justify-start gap-x-8 text-xs lg:text-base">
+              <li className="flex items-center gap-5"><span>{<p>{StaticData(postDisplay?.time.seconds)}</p>}</span>
+                <p>{postDisplay?.date}</p>
+              </li>
             </ul>
             <div
-              className="text-[#242424] text-sm lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-4 lg:px-0  rounded-lg georgia-font"
+              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
             />
 
@@ -296,14 +292,17 @@ function SinglePost() {
                         />
                       )}
                     </Link>
-                    <p className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-20">
+                    <p className="mb-2 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-16">
                       <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-primary">
                         {post?.title && post?.title.slice(0, 50)}
                       </Link>
                     </p>
 
-                    <p className="text-left text-xs lg:text:lg h-10">
-                      {post?.description && post?.description.slice(0, 70)}...
+                    <p className="text-left text-xs lg:text:lg h-14 lg:block hidden pt-2">
+                      {post?.description && post?.description.slice(0, 150)}...
+                    </p>
+                    <p className="text-left text-xs lg:text:lg h-14 block lg:hidden">
+                      {post?.description && post?.description.slice(0, 40)}...
                     </p>
 
                     <ul className=" pt-2 flex flex-wrap items-center space-x-4 text-xs">

@@ -170,7 +170,7 @@ const ComponentName = (props) => {
             <div className="flex flex-col lg:flex-row">
                 {/* Sidebar Section */}
                 <div className="w-full lg:w-2/5 bg-white pt-6 lg:pt-24 px-4 lg:pl-20 sticky top-0">
-                    <div className="flex flex-wrap gap-4 capitalize justify-center">
+                    <div className="flex flex-wrap flex-col gap-y-9 capitalize items-center">
                         {/* Breadcrumb */}
                         <p className="flex items-center gap-2 text-sm lg:text-base">
                             <span>{category}</span>
@@ -179,14 +179,14 @@ const ComponentName = (props) => {
                         </p>
 
                         {/* Heading */}
-                        <p className="text-center text-2xl lg:text-3xl font-semibold leading-tight">
+                        <p className="text-center text-2xl lg:text-4xl font-semibold lg:w-80 lg:leading-relaxed">
                             Recommended stories in "{category}"
                         </p>
 
                         {/* Subheading */}
                         <p className="text-lg font-semibold ">More Topics To Explore</p>
 
-                        <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center  pb-6'>
+                        <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center '>
                             <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
                                 {cList?.length > 0 &&
                                     cList.map((cat, i) => (

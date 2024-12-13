@@ -142,35 +142,10 @@ const CategoryPage = () => {
 
     return (
         <div>
-            <BlogLayout onSearch={setSearchQuery}>
+            <BlogLayout onSearch={setSearchQuery } catg={category}>
                 <div className='xl:px-32 lg:px-12 flex items-center'>
                     <div className='py-10 justify-center sm:justify-items-center px-[6px]'>
-                        <div className="flex lg:gap-7 gap-7 items-center ">
-                            <Link
-                                href={`/blog/explore-topics`}
-                                className={`text-black text-base py-1 lg:bg-gray-100 lg:rounded-3xl `}
-                            >
-                                <div className='flex items-center space-x-2'>
-                                    <span className='w-fit rounded-full'><MdExplore size={[32]} /></span>
-                                    <span className="hidden lg:inline text-sm p-1 w-fit">Explore Topics</span>
-                                </div>
-                            </Link>
-                            <div className='xl:w-[800px] lg:w-[600px] w-44 mxs:w-60 text-center'>
-                                <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
-                                    {cList?.length > 0 &&
-                                        cList.map((cat, i) => (
-                                            <Link
-                                                key={`category-${i}`}
-                                                href={`/blog/${cat.name.toLowerCase()}`}
-                                                className={`capitalize font-medium text-black text-[14px] lg:text-base bg-gray-200 rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-black rounded-3xl' : ''}`}
-                                            >
-                                                {cat.name.toLowerCase()}
-                                            </Link>
-                                        ))}
-                                </Slider>
-                            </div>
-                        </div>
-                        <p className="capitalize text-4xl text-center font-semibold pt-11 pb-3 buch-font">{category}</p>
+                        <p className="capitalize text-4xl text-center font-semibold lg:pt-11 pb-3 buch-font">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
                             <li>Topic</li>
                             <li><GoDotFill /></li>
