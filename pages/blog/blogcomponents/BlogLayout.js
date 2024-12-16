@@ -165,7 +165,7 @@ const BlogLayout = ({ children, catg, onSearch = () => { } }) => {
 
             </div>
             <main>{children}</main>
-            <Footer/>
+            <Footer forblog={true}/>
         </div>
     );
 };
