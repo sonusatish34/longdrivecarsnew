@@ -166,7 +166,7 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
 
             </div>
             <main>{children}</main>
-            <Footer/>
+            <Footer forblog={true}/>
         </div>
     );
 };

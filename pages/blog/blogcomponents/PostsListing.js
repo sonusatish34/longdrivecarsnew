@@ -89,7 +89,7 @@ const PostsListing = ({ data }) => {
             </div>
 
             {/* Second Section: Remaining Posts */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:pt-32 pt-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:pt-32 px-3 pt-10">
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
                     <div key={`key-${i}`} className="lg:px-0 w-full lg:w-[250px] xl:w-full">
                         <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
