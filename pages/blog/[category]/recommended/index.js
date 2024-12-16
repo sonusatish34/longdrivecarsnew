@@ -18,8 +18,9 @@ import Slider from "react-slick";
 // import React, { useEffect, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Head from 'next/head';
 
-const ComponentName = (props) => {
+const ComponentName = ( { canonicalUrl }) => {
     const [categories, setCategories] = useState([]);
     const router = useRouter();
     const { category } = router.query; // Get the category name from the URL
@@ -167,6 +168,15 @@ const ComponentName = (props) => {
 
     return (
         <BlogLayout onSearch={setSearchQuery}>
+            <Head>
+                <title> No Deposit & Unlimited km - Self-Drive Car Rentals In vizag</title>
+                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In vizag" />
+                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className="flex flex-col lg:flex-row">
                 {/* Sidebar Section */}
                 <div className="w-full lg:w-2/5 bg-white pt-6 lg:pt-24 px-4 lg:pl-20 sticky top-0">
@@ -193,7 +203,7 @@ const ComponentName = (props) => {
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat.name.toLowerCase()}/recommended`}
-                                            className={`capitalize font-medium text-black text-[14px] lg:text-base bg-gray-200 rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-black rounded-3xl' : ''}`}
+                                            className={`capitalize font-medium text-white text-[14px] lg:text-base lg:bg-[#1859c9] rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500 rounded-3xl' : ''}`}
                                         >
                                             {cat.name.toLowerCase()}
                                         </Link>
@@ -308,3 +318,20 @@ const ComponentName = (props) => {
 };
 
 export default ComponentName;
+export async function getServerSideProps(context) {
+    const { req, params } = context; // Extract `params` if using dynamic routes
+
+    const host = req.headers.host || 'localhost';
+    const category = params?.category || 'default-category'; // Example fallback for category
+
+    const canonicalUrl = host.includes('.in')
+        ? `https://www.longdrivecars.in/blog/${category}/recommended`
+        : `https://www.longdrivecars.com/blog/${category}/recommended`;
+
+    return {
+        props: {
+            canonicalUrl,
+        },
+    };
+}
+

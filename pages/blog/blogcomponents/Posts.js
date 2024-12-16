@@ -11,7 +11,9 @@ import { BiCategory } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineExplore } from "react-icons/md";
 import StaticData from "@/pages/images/StaticData";
-const Posts = ({ clickedcat }) => {
+import Head from "next/head";
+
+const Posts = ({ clickedcat },{canonicalUrl}) => {
     const [postlist, setPostlist] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -60,7 +62,15 @@ const Posts = ({ clickedcat }) => {
 
     return (
         <div className="mb-20 ">
+         <Head>
+            <title> {postDisplay?.title}</title>
+            <meta name="description" content={postDisplay?.description} />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta property="og:title" content= {postDisplay?.description} />
+            <meta property="og:description" content={postDisplay?.description} />
 
+            <link rel="canonical" href={canonicalUrl} />
+          </Head>
             {/* Navigation Bar for Categories */}
             <div className="flex space-x-4 px-40 py-4 ">
                 <button

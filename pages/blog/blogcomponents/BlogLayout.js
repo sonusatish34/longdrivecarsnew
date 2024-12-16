@@ -8,12 +8,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { fireDb } from '../../../public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-import { MdExpandMore } from "react-icons/md";
 import { MdExplore } from "react-icons/md";
 import Footer from '../../components/Footer/Footer';
+import Head from 'next/head';
 
-const BlogLayout = ({ children, catg, onSearch = () => { } }) => {
-    console.log(catg,"catg");
+const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
+    console.log(catg,"catg",);
     
     const [cList, setCList] = useState();
     useEffect(() => {
@@ -110,7 +110,8 @@ const BlogLayout = ({ children, catg, onSearch = () => { } }) => {
     };
 
     return (
-        <div>
+        <div> 
+      
             <div className='lg:px-14  py-1 border-8 border-blue-100 '>
                 <div className='flex flex-col lg:flex-row lg:items-center lg:gap-28 gap-2  mxs:px-2'>
                     <div className='flex lg:items-center px-1'>
@@ -171,5 +172,4 @@ const BlogLayout = ({ children, catg, onSearch = () => { } }) => {
 };
 
 export default BlogLayout;
-
 

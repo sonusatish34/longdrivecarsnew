@@ -13,8 +13,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Loading from '@/pages/components/Loading';
 import { MdExpandMore } from "react-icons/md";
 import { MdExplore } from "react-icons/md";
+import Head from 'next/head';
 
-const CategoryPage = () => {
+const CategoryPage = ({canonicalUrl}) => {
     const [categories, setCategories] = useState([]);
     const [postlist, setPostlist] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -142,6 +143,14 @@ const CategoryPage = () => {
 
     return (
         <div>
+     <Head>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals </title>
+        <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals" />
+        <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+        <link rel="canonical" href={canonicalUrl} />   
+        </Head>
             <BlogLayout onSearch={setSearchQuery } catg={category}>
                 <div className='xl:px-32 lg:px-12 flex items-center'>
                     <div className='py-10 justify-center sm:justify-items-center px-[6px]'>
@@ -170,3 +179,21 @@ const CategoryPage = () => {
 };
 
 export default CategoryPage;
+export async function getServerSideProps(context) {
+    const { req, params } = context; // Extract `params` if using dynamic routes
+
+    const host = req.headers.host || 'localhost';
+    const category = params?.category || 'default-category'; // Example fallback for category
+
+    // Ensure that the category is lowercase, as it's used in the URL
+    const canonicalUrl = host.includes('.in')
+        ? `https://www.longdrivecars.in/blog/${category}`
+        : `https://www.longdrivecars.com/blog/${category}`;
+
+    return {
+        props: {
+            canonicalUrl,
+        },
+    };
+}
+
