@@ -7,11 +7,20 @@ import { fireDb } from '../../public/firebase';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
-
+import Head from "next/head";
 
 import { MdExplore } from "react-icons/md";
-const ComponentName = (props) => {
+const ComponentName = ({canonicalUrl}) => {
+    useEffect(() => {
+        const link = document.querySelector('link[rel="canonical"]');
+        if (link) {
+          link.href = canonicalUrl;
+        }
+      }, [canonicalUrl]);
     const [cList, setCList] = useState();
+    console.log("Canonical URL:", canonicalUrl);
+
+
 
     const settings = {
         className: "center",
@@ -77,7 +86,7 @@ const ComponentName = (props) => {
     };
     useEffect(() => {
         const fetchCat = async () => {
-            const querySnapshot = await getDocs(collection(fireDb, "categories"));
+            const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
             const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             console.log(cs, "09876");
             setCList(cs);
@@ -94,6 +103,15 @@ const ComponentName = (props) => {
 
     return (
         <BlogLayout>
+             <Head>
+                <title> No Deposit & Unlimited km - Self-Drive Car Rentals In vizag</title>
+                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In vizag" />
+                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+
+                <link rel="canonical" href={canonicalUrl} />
+                </Head>
             <div className="flex flex-col gap-5  items-center  lg:px-64 lg:py-10">
                 <div className="flex  lg:gap-10 gap-5  py-4 lg:py-4  ">
                    
@@ -143,6 +161,17 @@ const ComponentName = (props) => {
         </BlogLayout>
     );
 };
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host || "localhost";
+    const canonicalUrl = host.includes(".in")
+      ? "https://www.longdrivecars.in/blog/explore-topics"
+      : "https://www.longdrivecars.com/blog/explore-topics";
+  
+    return {
+      props: {
+        canonicalUrl,
+      },
+    };
+  }
 
 export default ComponentName;
-

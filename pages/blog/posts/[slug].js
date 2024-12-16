@@ -15,8 +15,9 @@ import { RiRectangleFill } from "react-icons/ri";
 import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdExpandMore } from "react-icons/md";
 import Loading from '@/pages/components/Loading';
+import Head from 'next/head';
 
-function SinglePost() {
+function SinglePost({canonicalUrl} ) {
   const router = useRouter();
   const { slug } = router.query;
   const [postDisplay, setPostDisplay] = useState(null);
@@ -110,7 +111,7 @@ function SinglePost() {
   // Handle like button click
   const handleLike = async () => {
     try {
-      const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
+      const q = query(collection(fireDb, "blogPost",{canonicalUrl} ), where("slug", "==", slug));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
@@ -158,7 +159,7 @@ function SinglePost() {
 
       const postDocRef = doc(fireDb, "blogPost", querySnapshot.docs[0].id);
 
-      const newComment = { userName, commentText, date };
+      const newComment = { userName, commentText, date, };
 
       // Update the comments in the local state
       setComments(prevComments => [...prevComments, newComment]);
@@ -187,6 +188,15 @@ function SinglePost() {
 
       <BlogLayout>
         <section className="section">
+          <Head>
+            <title> {postDisplay?.title}</title>
+            <meta name="description" content={postDisplay?.description} />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta property="og:title" content= {postDisplay?.description} />
+            <meta property="og:description" content={postDisplay?.description} />
+
+            <link rel="canonical" href={canonicalUrl} />
+          </Head>
           <div className='flex flex-col lg:px-0 py-2 lg:py-2'>
             <div className='xl:mx-96 lg:mx-56 px-4'>
               <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</p>
@@ -354,3 +364,47 @@ function SinglePost() {
 }
 
 export default SinglePost;
+
+
+export async function getServerSideProps({ req, params }) {
+  const host = req.headers.host;
+  const { slug } = params; // Extract slug from dynamic route
+
+  try {
+    // Query Firestore for the blog post with the matching slug
+    const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      return {
+        notFound: true, // Return 404 if no matching post is found
+      };
+    }
+
+    // Extract the data from the first matching document
+    const postData = querySnapshot.docs[0].data();
+
+    // Convert non-serializable fields
+    const postDisplay = {
+      ...postData,
+      time: postData.time?.toDate().toISOString(), // Convert Firestore Timestamp to ISO string
+    };
+
+    // Construct the canonical URL
+    const canonicalUrl = host.includes('.in')
+      ? `http://www.longdrivecars.in/blog/posts/${(postDisplay.slug)}`
+      : `http://www.longdrivecars.com/blog/posts/${(postDisplay.slug)}`;
+
+    return {
+      props: {
+        canonicalUrl,
+        postDisplay, // Pass post data to the component
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
+    return {
+      notFound: true,
+    };
+  }
+}
