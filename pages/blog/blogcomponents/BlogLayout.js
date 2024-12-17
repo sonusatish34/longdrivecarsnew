@@ -12,7 +12,7 @@ import { MdExplore } from "react-icons/md";
 import Footer from '../../components/Footer/Footer';
 import Head from 'next/head';
 
-const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
+const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => { } }) => {
     console.log(catg,"catg",);
     
     const [cList, setCList] = useState();
@@ -153,7 +153,7 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
                                     cList.map((cat, i) => (
                                         <Link
                                             key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}`}
+                                            href={`/blog/${cat.name.toLowerCase()}${recommended?'/recommended':''}`}
                                             className={`p-[5px] capitalize font-medium bg-[#1859c9]  text-[14px] lg:text-base  rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}
                                         >
                                             {cat.name.toLowerCase()}

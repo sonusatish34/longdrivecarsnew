@@ -14,10 +14,11 @@ import Loading from '@/pages/components/Loading';
 import { MdExpandMore } from "react-icons/md";
 import { MdExplore } from "react-icons/md";
 import Head from 'next/head';
-
-const CategoryPage = ({canonicalUrl}) => {
+import RandomPosts from '../blogcomponents/RandomPosts';
+const CategoryPage = ({ canonicalUrl }) => {
     const [categories, setCategories] = useState([]);
     const [postlist, setPostlist] = useState([]);
+    const [randomPostlist, setRandomPostlist] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredPosts, setFilteredPosts] = useState([]);
     const [cList, setCList] = useState();
@@ -105,12 +106,22 @@ const CategoryPage = ({canonicalUrl}) => {
                     const postsQuery = query(collection(fireDb, "blogPost"),
                         where("categoryname", "array-contains", category),
                         where("blog_state", "==", "active"),
-                        where("blogfor","==","LDC")
+                        where("blogfor", "==", "LDC")
                     );
                     const postsQuerySnapshot = await getDocs(postsQuery);
                     const posts = postsQuerySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                     const sortedPosts = posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
                     setPostlist(sortedPosts);
+
+                    // -----------------
+                    const postsQuery2 = query(collection(fireDb, "blogPost"),
+                        where("blog_state", "==", "active"),
+                        where("blogfor", "==", "LDC")
+                    );
+                    const postsQuerySnapshot2 = await getDocs(postsQuery2);
+                    const posts2 = postsQuerySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    setRandomPostlist(posts2);
+
                 }
             } catch (err) {
                 setError('Failed to load data');
@@ -122,6 +133,7 @@ const CategoryPage = ({canonicalUrl}) => {
 
         fetchCatAndPosts();
     }, [category]);
+    console.log(randomPostlist, "erddd");
 
     useEffect(() => {
         if (searchQuery) {
@@ -144,37 +156,43 @@ const CategoryPage = ({canonicalUrl}) => {
 
     return (
         <div>
-     <Head>
-        <title> No Deposit & Unlimited km - Self-Drive Car Rentals </title>
-        <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals" />
-        <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-        <link rel="canonical" href={canonicalUrl} />   
-        </Head>
-            <BlogLayout onSearch={setSearchQuery } catg={category}>
-                <div className='xl:px-32 lg:px-12 flex items-center'>
-                    <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
-                        <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
-                        <ul className='flex justify-center items-center pt-2 gap-3'>
-                            <li>Topic</li>
-                            <li><GoDotFill /></li>
-                            <li>{postlist?.length} stories</li>
-                        </ul>
-                        <div className='text-center flex justify-center pt-10'>
-                            <PostsListing data={filteredPosts} />
+            <Head>
+                <title> No Deposit & Unlimited km - Self-Drive Car Rentals </title>
+                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals" />
+                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
+            <div className='helvetica-font'>
+                <BlogLayout onSearch={setSearchQuery} catg={category}>
+                    <div className='xl:px-32 lg:px-12 flex items-center'>
+                        <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
+                            <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
+                            <ul className='flex justify-center items-center pt-2 gap-3'>
+                                <li>Topic</li>
+                                <li><GoDotFill /></li>
+                                <li>{postlist?.length} stories</li>
+                            </ul>
+                            <div className='text-center flex justify-center pt-10'>
+                                <PostsListing catg={category} data={filteredPosts} />
+                            </div>
+                            {/* <p>kjo</p> */}
+                            <RandomPosts data={randomPostlist} />
                         </div>
                     </div>
-                </div>
-                <div className=" py-2 pb-9 lg:py-5 flex flex-row lg:pl-36 pl-4">
-                    <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
-                        <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
-                            <span>See more</span>
-                            <MdExpandMore className="text-lg" />
-                        </span>
-                    </Link>
-                </div>
-            </BlogLayout>
+
+                    <div className=" py-2 pb-9 lg:py-5 flex flex-row lg:pl-36 pl-4">
+                        <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
+                            <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
+                                <span>See more</span>
+                                <MdExpandMore className="text-lg" />
+                            </span>
+                        </Link>
+                    </div>
+                </BlogLayout>
+            </div>
+
         </div>
     );
 };

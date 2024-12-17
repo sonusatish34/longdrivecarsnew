@@ -167,7 +167,7 @@ const ComponentName = ( { canonicalUrl }) => {
 
 
     return (
-        <BlogLayout onSearch={setSearchQuery}>
+        <BlogLayout onSearch={setSearchQuery} catg={category} recommended={true}>
             <Head>
                 <title> No Deposit & Unlimited km - Self-Drive Car Rentals In vizag</title>
                 <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
@@ -194,9 +194,9 @@ const ComponentName = ( { canonicalUrl }) => {
                         </p>
 
                         {/* Subheading */}
-                        <p className="text-lg font-semibold ">More Topics To Explore</p>
+                        {/* <p className="text-lg font-semibold ">More Topics To Explore</p> */}
 
-                        <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center '>
+                        {/* <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center '>
                             <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
                                 {cList?.length > 0 &&
                                     cList.map((cat, i) => (
@@ -209,7 +209,7 @@ const ComponentName = ( { canonicalUrl }) => {
                                         </Link>
                                     ))}
                             </Slider>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

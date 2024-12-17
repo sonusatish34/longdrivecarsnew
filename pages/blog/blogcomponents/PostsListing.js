@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BiCategory } from "react-icons/bi";
@@ -8,7 +8,7 @@ import { FaRegComment } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 import StaticData from '@/pages/images/StaticData';
 
-const PostsListing = ({ data }) => {
+const PostsListing = ({ data ,catg}) => {
     function ParseP(htmlContent) {
         const parser = new DOMParser();
         const doc = parser.parseFromString(htmlContent, 'text/html');
@@ -28,16 +28,18 @@ const PostsListing = ({ data }) => {
             return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
         }
     };
+    const [showall, setShowAll] = useState(false)
     return (
         <div className="lg:pt-6 border-t-2 border-gray-300 pt-8">
             {/* <p className="text-xs lg:text-2xl pb-6 font-semibold">Recommended Stories</p> */}
 
             {/* First Section: Two Main Posts */}
-            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10">
+            <p className='text-left text-3xl text-gray-900 font-semibold py-4'>Recent stories</p>
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10 xl:h-[700px]">
                 {data?.length > 0 ? data.slice(0, 2).map((post, i) => (
                     <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[600px]  xl:h-[610px] h-auto flex flex-col gap-y-6 px-3 lg:px-0">
                         {/* Image */}
-                        <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
+                        <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight ">
                             {post?.coverimages && (
                                 <Image
                                     className="rounded-md w-full lg:h-[350px] h-auto"
@@ -52,12 +54,12 @@ const PostsListing = ({ data }) => {
                         {/* Content Section */}
                         <div className="flex-1">
                             <h5 className="mb-2">
-                                <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
-                                    <p className='h-20 overflow-hidden'>{post?.title && post?.title.slice(0, 80)}</p>
-                                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide font-light helvetica-font leading-6 lg:block hidden">
+                                <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500  text-lg xl:text-2xl text-left pt-4 tracking-tight helvetica-font">
+                                    <p className='h-20 overflow-hidden font-extrabold'>{post?.title && post?.title.slice(0, 80)}</p>
+                                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide leading-6 lg:block hidden">
                                         {ParseP(post?.content) && ParseP(post?.content).slice(0, 300)}...
                                     </p>
-                                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide font-light helvetica-font leading-5 lg:hidden block">
+                                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide font-lightleading-5 lg:hidden block">
                                         {ParseP(post?.content) && ParseP(post?.content).slice(0, 150)}...
                                     </p>
                                 </Link>
@@ -92,9 +94,9 @@ const PostsListing = ({ data }) => {
                     <p>No posts available for this category.</p>
                 )}
             </div>
-
             {/* Second Section: Remaining Posts */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:mt-32 px-3  lg:px-0 pt-10">
+
+            <div className={`${showall ? '' : 'hidden'} grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:mt-2 px-3  lg:px-0 pt-10`}>
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
                     <div key={`key-${i}`} className="lg:px-0  w-full">
                         <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
@@ -122,13 +124,13 @@ const PostsListing = ({ data }) => {
                         {/* <p className="text-left lg:text-xs text-xs h-12 lg:h-14 pt-3 lg:hidden block">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 40)}...
                         </p> */}
-                        <p className="text-left text-[#6B6B6B] text-xs pt-4 tracking-wide font-light helvetica-font leading-4 lg:hidden block h-28">
+                        <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide leading-6 lg:hidden block  h-28">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 110)}...
                         </p>
-                        <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide font-light helvetica-font leading-6 lg:block hidden h-28">
+                        <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide leading-6  lg:block hidden h-28">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 160)}...
                         </p>
-                        
+
                         {/* <p>{ParseP(post?.content)}</p> */}
 
                         <ul className="mb-4 mt-auto flex flex-wrap justify-items-center space-x-4 text-xs pt-4">
@@ -158,6 +160,12 @@ const PostsListing = ({ data }) => {
                 )) : (
                     <p>No posts available for this category.</p>
                 )}
+            </div>
+            <div className={`${showall?'hidden':''} py-8`}>
+                <button onClick={() => { setShowAll(true) }} className={`capitalize text-white bg-[#1859c9] rounded-md p-1 px-4 text-xl `}>see more {catg} posts</button>
+            </div>
+            <div className={`${showall?'':'hidden'} py-6`}>
+                <button onClick={() => { setShowAll(false) }} className={`text-white bg-[#1859c9] rounded-md p-1 px-4 text-xl`}>Show Less Posts</button>
             </div>
         </div>
     );

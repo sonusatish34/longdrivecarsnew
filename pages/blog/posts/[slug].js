@@ -65,10 +65,11 @@ function SinglePost({ canonicalUrl }) {
   };
 
   // Read aloud function
-  const readAloud = (title, content) => {
+  const readAloud = (title,description, content) => {
     const cleanTitle = cleanTextForSpeech(title);
+    const cleanDescription = cleanTextForSpeech(description);
     const cleanContent = cleanTextForSpeech(content);
-    const textToRead = `${cleanTitle}. ${cleanContent}`.trim();
+    const textToRead = `${cleanTitle}. ${cleanDescription} .${cleanContent}`.trim();
 
     if (!textToRead) {
       console.warn("No text available for reading.");
@@ -341,11 +342,11 @@ function SinglePost({ canonicalUrl }) {
             <link rel="canonical" href={canonicalUrl} />
           </Head>
           <div className='flex flex-col lg:px-0 py-2 lg:py-2'>
-            <div className='xl:mx-96 lg:mx-56 mx-10 px-4'>
+            <div className='xl:mx-96 lg:mx-56 mx-6 lg:px-0'>
               <p className='lg:text-[40px] lg:leading-tight text-xl font-extrabold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</p>
               <p className='helvetica-font text-[#6B6B6B] text-sm lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
             </div>
-            <div className='xl:mx-24 lg:mx-16 px-4 py-3 lg:py-6'>
+            <div className='xl:mx-24 lg:mx-16 px-1 lg:px-0 py-3 lg:py-6'>
               <Image
                 className="w-full rounded-sm"
                 src={postDisplay?.coverimages}
@@ -353,7 +354,7 @@ function SinglePost({ canonicalUrl }) {
                 height={1000}
               />
             </div>
-            <div className="flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg xl:mx-96 lg:mx-56 mx-10 px-4">
+            <div className="flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg xl:mx-96 lg:mx-56 mxs: mx-6">
               <p>{postDisplay?.timetake} min read</p>
               {/* <p>{StaticData(postDisplay?.time.seconds)}</p> */}
               <p className="flex items-center gap-1">
@@ -371,7 +372,7 @@ function SinglePost({ canonicalUrl }) {
                   if (isReading) {
                     stopReading(); // Stop reading
                   } else {
-                    readAloud(postDisplay?.title, postDisplay?.content); // Start reading
+                    readAloud(postDisplay?.title,postDisplay?.description, postDisplay?.content); // Start reading
                   }
                 }}
               >
@@ -384,19 +385,19 @@ function SinglePost({ canonicalUrl }) {
             </div>
 
             {/* Rest of your component */}
-            <ul className="py-2 flex  items-center justify-start gap-x-8 text-xs lg:text-base xl:mx-96 lg:mx-56 mx-10 px-4">
+            <ul className="py-2 flex  items-center justify-start gap-x-8 text-xs lg:text-base xl:mx-96 lg:mx-56 mx-6">
               <li className="flex items-center gap-5"><span>{<p>{StaticData(postDisplay?.time.seconds)}</p>}</span>
                 <p>{postDisplay?.date}</p>
               </li>
             </ul>
             <div
-              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-10"
+              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
             />
 
             {/* Display Related Posts */}
             {/* <div className="text-xs lg:text-[20px] leading-2 lg:leading-9 pt-6 georgia-font" dangerouslySetInnerHTML={{ __html: postDisplay?.content }} /> */}
-            <div className='flex gap-8 py-4 border-t-2 border-b-2 xl:mx-96 lg:mx-56 mx-10 px-4' >
+            <div className='flex gap-8 py-4 border-t-2 border-b-2 xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0' >
               <p className='flex gap-2'>
                 <span className='hover:cursor-pointer'>
                   <GrLike size={20} onClick={handleLike} />
@@ -411,7 +412,7 @@ function SinglePost({ canonicalUrl }) {
               </p>
             </div>
             {commentShow && (
-              <div className='rounded-sm w-[400px] xl:mx-96 lg:mx-56 mx-10 px-4'>
+              <div className='rounded-sm w-[400px] xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0'>
                 <span>Please Leave A Reply here</span>
                 <form className="flex flex-col gap-4 bg-gray-100 border-2 p-4" onSubmit={handleCommentSubmit}>
                   <textarea
@@ -449,7 +450,7 @@ function SinglePost({ canonicalUrl }) {
               </div>
             )}
 
-            <div className="pt-4 xl:mx-96 lg:mx-56 mx-10 px-4">
+            <div className="pt-4 xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0">
               <p className="text-xl font-semibold">Related Posts</p>
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-10  gap-7 pt-6  lg:pt-6">
                 {/* {data.length > 0 ? data.map((post, i) => ( */}
@@ -509,7 +510,7 @@ function SinglePost({ canonicalUrl }) {
               </div>
 
             </div>
-            <div className=" py-6 lg:mt-12 flex flex-row xl:mx-96 lg:mx-56 mx-10 px-4">
+            <div className=" py-6 lg:mt-12 flex flex-row xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0">
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">
                 <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
                   <span>See more</span>
