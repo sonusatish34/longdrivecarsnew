@@ -14,6 +14,7 @@ import StaticData from "@/pages/images/StaticData";
 import Head from "next/head";
 
 const Posts = ({ clickedcat },{canonicalUrl}) => {
+    const [postDisplay, setpostDisplay]=useState([]);
     const [postlist, setPostlist] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
