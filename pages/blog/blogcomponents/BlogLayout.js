@@ -72,7 +72,7 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
             {
                 breakpoint: 1120,
                 settings: {
-                    slidesToShow: 2,
+                    slidesToShow: 4,
                     slidesToScroll: 1,
                 },
             },
@@ -112,9 +112,9 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
     return (
         <div> 
       
-            <div className='lg:px-14  py-1 border-8 border-blue-100 '>
+            <div className='xl:px-14  py-1 border-8 border-blue-100 '>
                 <div className='flex flex-col lg:flex-row lg:items-center lg:gap-28 gap-2  mxs:px-2'>
-                    <div className='flex lg:items-center px-1'>
+                    <div className='flex justify- lg:items-center px-1'>
                         <Link href={`/blog`} className=''>
                             <Image
                                 className="w-10 lg:w-14"
@@ -132,7 +132,7 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
                                 placeholder="Search"
                                 onChange={handleSearch}
                                 maxLength={10}
-                                className='lg:rounded-full lg:w-56 w-52 border-none bg-gray-100   rounded-full lg:py-2 pl-10'
+                                className='lg:rounded-full xl:w-56 w-52 border-none bg-gray-100   rounded-full lg:py-2 pl-10'
                             />
                         </div>
                     </div>
@@ -147,7 +147,7 @@ const BlogLayout = ({canonicalUrl, children, catg, onSearch = () => { } }) => {
                                 <span className=" text-sm text-white px-2 w-fit">Explore Topics</span>
                             </div>
                         </Link>
-                        <div className='xl:w-[600px] lg:w-[600px] w-44 mxs:w-60 text-center'>
+                        <div className='xl:w-[600px] lg:w-[400px] w-44 mxs:w-60 text-center'>
                             <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
                                 {cList?.length > 0 &&
                                     cList.map((cat, i) => (

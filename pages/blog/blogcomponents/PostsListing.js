@@ -21,7 +21,13 @@ const PostsListing = ({ data }) => {
 
         return (selectedParagraphs);
     }
-
+    const replaceText = (str) => {
+        if (str?.includes("cdn"))
+            return str;
+        else {
+            return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+        }
+    };
     return (
         <div className="lg:pt-6 border-t-2 border-gray-300 pt-8">
             {/* <p className="text-xs lg:text-2xl pb-6 font-semibold">Recommended Stories</p> */}
@@ -29,13 +35,13 @@ const PostsListing = ({ data }) => {
             {/* First Section: Two Main Posts */}
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10">
                 {data?.length > 0 ? data.slice(0, 2).map((post, i) => (
-                    <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[400px]  xl:h-[610px] h-auto flex flex-col gap-y-6 px-3 lg:px-0">
+                    <div key={`key-${i}`} className="w-full lg:w-[400px] xl:w-full lg:h-[600px]  xl:h-[610px] h-auto flex flex-col gap-y-6 px-3 lg:px-0">
                         {/* Image */}
                         <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight">
                             {post?.coverimages && (
                                 <Image
                                     className="rounded-md w-full lg:h-[350px] h-auto"
-                                    src={post?.coverimages?.length ? post?.coverimages : tempimg}
+                                    src={post?.coverimages?.length ? replaceText(post?.coverimages) : tempimg}
                                     alt={post?.coverimages}
                                     width={500}
                                     height={500}
@@ -43,7 +49,6 @@ const PostsListing = ({ data }) => {
                                 />
                             )}
                         </Link>
-
                         {/* Content Section */}
                         <div className="flex-1">
                             <h5 className="mb-2">
@@ -89,9 +94,9 @@ const PostsListing = ({ data }) => {
             </div>
 
             {/* Second Section: Remaining Posts */}
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:pt-32 px-3 pt-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:mt-32 px-3  lg:px-0 pt-10">
                 {data?.length > 0 ? data.slice(2, 8).map((post, i) => (
-                    <div key={`key-${i}`} className="lg:px-0 w-full lg:w-[250px] xl:w-full">
+                    <div key={`key-${i}`} className="lg:px-0  w-full">
                         <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
                             {post?.coverimages && (
                                 <Image
@@ -117,10 +122,10 @@ const PostsListing = ({ data }) => {
                         {/* <p className="text-left lg:text-xs text-xs h-12 lg:h-14 pt-3 lg:hidden block">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 40)}...
                         </p> */}
-                        <p className="text-left text-[#6B6B6B] text-xs pt-4 tracking-wide font-light helvetica-font leading-5 lg:hidden block h-28">
+                        <p className="text-left text-[#6B6B6B] text-xs pt-4 tracking-wide font-light helvetica-font leading-4 lg:hidden block h-28">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 110)}...
                         </p>
-                        <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-normal font-light helvetica-font leading-6 lg:block hidden h-28">
+                        <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide font-light helvetica-font leading-6 lg:block hidden h-28">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 160)}...
                         </p>
                         

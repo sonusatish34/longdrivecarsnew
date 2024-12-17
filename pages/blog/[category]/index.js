@@ -104,7 +104,8 @@ const CategoryPage = ({canonicalUrl}) => {
                 if (category) {
                     const postsQuery = query(collection(fireDb, "blogPost"),
                         where("categoryname", "array-contains", category),
-                        where("blog_state", "==", "active")
+                        where("blog_state", "==", "active"),
+                        where("blogfor","==","LDC")
                     );
                     const postsQuerySnapshot = await getDocs(postsQuery);
                     const posts = postsQuerySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -153,7 +154,7 @@ const CategoryPage = ({canonicalUrl}) => {
         </Head>
             <BlogLayout onSearch={setSearchQuery } catg={category}>
                 <div className='xl:px-32 lg:px-12 flex items-center'>
-                    <div className='py-10 justify-center sm:justify-items-center px-[6px]'>
+                    <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
                         <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
                         <ul className='flex justify-center items-center pt-2 gap-3'>
                             <li>Topic</li>
@@ -165,7 +166,7 @@ const CategoryPage = ({canonicalUrl}) => {
                         </div>
                     </div>
                 </div>
-                <div className=" py-2 lg:py-5 flex flex-row lg:pl-32 pl-4">
+                <div className=" py-2 pb-9 lg:py-5 flex flex-row lg:pl-36 pl-4">
                     <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
                         <span className="border-2 border-black rounded-full p-2 bg-gray-200 text-sm flex items-center space-x-2">
                             <span>See more</span>

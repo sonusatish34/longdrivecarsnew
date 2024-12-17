@@ -203,7 +203,7 @@ const ComponentName = ( { canonicalUrl }) => {
                                         <Link
                                             key={`category-${i}`}
                                             href={`/blog/${cat.name.toLowerCase()}/recommended`}
-                                            className={`capitalize font-medium text-white text-[14px] lg:text-base lg:bg-[#1859c9] rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500 rounded-3xl' : ''}`}
+                                            className={`capitalize font-medium text-white text-[14px] lg:text-base bg-[#1859c9] rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500 rounded-3xl' : ''}`}
                                         >
                                             {cat.name.toLowerCase()}
                                         </Link>
