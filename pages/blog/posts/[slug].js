@@ -16,8 +16,8 @@ import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdExpandMore } from "react-icons/md";
 import Loading from '@/pages/components/Loading';
 import Head from 'next/head';
-
-function SinglePost({canonicalUrl} ) {
+import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
+function SinglePost({ canonicalUrl }) {
   const router = useRouter();
   const { slug } = router.query;
   const [postDisplay, setPostDisplay] = useState(null);
@@ -25,6 +25,149 @@ function SinglePost({canonicalUrl} ) {
   const [cat, setCat] = useState('');
   const [commentShow, setCommentShow] = useState(false);
 
+  const [isReading, setIsReading] = useState(false); // Default state: mute
+  const [speechInstance, setSpeechInstance] = useState(null);
+  const [availableVoices, setAvailableVoices] = useState([]);
+  const [femaleVoice, setFemaleVoice] = useState(null);
+
+  // Fetch and log available voices
+  useEffect(() => {
+    const fetchVoices = () => {
+      const voices = window.speechSynthesis.getVoices();
+      console.log("Available voices:", voices); // Debugging: log all voices
+      setAvailableVoices(voices);
+
+      // Try to find a female voice
+      const female = voices.find((voice) =>
+        voice.name.toLowerCase().includes("female") ||
+        voice.name.toLowerCase().includes("samantha") || 
+        voice.name.toLowerCase().includes("zira") // Example names
+      );
+      setFemaleVoice(female || voices[0]); // Fallback to the first voice
+    };
+
+    if (window.speechSynthesis) {
+      fetchVoices();
+
+      // Listen for when voices are loaded asynchronously
+      window.speechSynthesis.onvoiceschanged = fetchVoices;
+    }
+  }, []);
+
+  // Clean and prepare text for speech
+  const cleanTextForSpeech = (text) => {
+    if (!text) return "";
+    return text
+      .replace(/<\/?[^>]+(>|$)/g, "") // Remove HTML tags
+      .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") // Remove special characters
+      .replace(/\s+/g, " ") // Normalize spaces
+      .trim();
+  };
+
+  // Read aloud function
+  const readAloud = (title, content) => {
+    const cleanTitle = cleanTextForSpeech(title);
+    const cleanContent = cleanTextForSpeech(content);
+    const textToRead = `${cleanTitle}. ${cleanContent}`.trim();
+
+    if (!textToRead) {
+      console.warn("No text available for reading.");
+      return;
+    }
+
+    if (speechInstance) {
+      window.speechSynthesis.cancel(); // Stop existing speech
+    }
+
+    const speech = new SpeechSynthesisUtterance(textToRead);
+    if (femaleVoice) {
+      speech.voice = femaleVoice; // Set female voice
+    } else {
+      console.warn("Female voice not found, using default voice.");
+    }
+    speech.lang = "en-US";
+    speech.pitch = 1;
+    speech.rate = 1;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+
+    setSpeechInstance(speech);
+    setIsReading(true);
+
+    speech.onend = () => {
+      setIsReading(false);
+      setSpeechInstance(null);
+    };
+  };
+
+  const stopReading = () => {
+    if (speechInstance) {
+      window.speechSynthesis.cancel();
+      setIsReading(false);
+    }
+  };
+
+  // // Clean and prepare the text to be read aloud
+  // const cleanTextForSpeech = (text) => {
+  //   if (!text) return ""; // Handle null or undefined text
+  //   let cleanText = text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+  //   cleanText = cleanText.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ""); // Remove special characters
+  //   cleanText = cleanText.replace(/\s+/g, " ").trim(); // Normalize whitespace
+  //   return cleanText;
+  // };
+
+  // // Read aloud function
+  // const readAloud = (title, content) => {
+  //   if (!title && !content) {
+  //     console.warn("No text available for reading");
+  //     return;
+  //   }
+
+  //   const cleanTitle = cleanTextForSpeech(title);
+  //   const cleanContent = cleanTextForSpeech(content);
+
+  //   const textToRead = `${cleanTitle}. ${cleanContent}`.trim();
+
+  //   // Stop any existing speech
+  //   if (speechInstance) {
+  //     window.speechSynthesis.cancel();
+  //   }
+
+  //   // Check if there's any text to read
+  //   if (!textToRead) {
+  //     console.warn("Text is empty after cleaning");
+  //     return;
+  //   }
+
+  //   // Create a new speech instance
+  //   const speech = new SpeechSynthesisUtterance(textToRead);
+  //   speech.lang = "en-US";
+  //   speech.pitch = 1;
+  //   speech.rate = 1;
+  //   speech.volume = 1;
+
+  //   // Start speaking
+  //   window.speechSynthesis.speak(speech);
+
+  //   // Track the speech instance
+  //   setSpeechInstance(speech);
+  //   setIsReading(true);
+
+  //   // Handle speech end
+  //   speech.onend = () => {
+  //     setIsReading(false); // Reset state
+  //     setSpeechInstance(null); // Clear instance
+  //   };
+  // };
+
+  // Stop reading function
+  // const stopReading = () => {
+  //   if (speechInstance) {
+  //     window.speechSynthesis.cancel(); // Stop ongoing speech
+  //     setIsReading(false); // Reset state
+  //   }
+  // };
   // States for likes and comments
   const [likesCount, setLikesCount] = useState(0);
   const [comments, setComments] = useState([]);
@@ -111,7 +254,7 @@ function SinglePost({canonicalUrl} ) {
   // Handle like button click
   const handleLike = async () => {
     try {
-      const q = query(collection(fireDb, "blogPost",{canonicalUrl} ), where("slug", "==", slug));
+      const q = query(collection(fireDb, "blogPost", { canonicalUrl }), where("slug", "==", slug));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
@@ -192,7 +335,7 @@ function SinglePost({canonicalUrl} ) {
             <title> {postDisplay?.title}</title>
             <meta name="description" content={postDisplay?.description} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta property="og:title" content= {postDisplay?.description} />
+            <meta property="og:title" content={postDisplay?.description} />
             <meta property="og:description" content={postDisplay?.description} />
 
             <link rel="canonical" href={canonicalUrl} />
@@ -210,7 +353,7 @@ function SinglePost({canonicalUrl} ) {
                 height={1000}
               />
             </div>
-            <div className='flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg xl:mx-96 lg:mx-56 px-4'>
+            <div className="flex lg:gap-6 gap-4 py-3 text-sm lg:text-lg xl:mx-96 lg:mx-56 px-4">
               <p>{postDisplay?.timetake} min read</p>
               {/* <p>{StaticData(postDisplay?.time.seconds)}</p> */}
               <p className="flex items-center gap-1">
@@ -221,7 +364,25 @@ function SinglePost({canonicalUrl} ) {
                     : postDisplay?.categoryname}
                 </span>
               </p>
+
+              <button
+                className="text-blue-600 flex items-center justify-center"
+                onClick={() => {
+                  if (isReading) {
+                    stopReading(); // Stop reading
+                  } else {
+                    readAloud(postDisplay?.title, postDisplay?.content); // Start reading
+                  }
+                }}
+              >
+                {isReading ? (
+                  <IoMdVolumeHigh size={20} className="lg:size-6" />
+                ) : (
+                  <IoMdVolumeOff size={20} className="lg:size-6" />
+                )}
+              </button>
             </div>
+
             {/* Rest of your component */}
             <ul className="py-2 flex  items-center justify-start gap-x-8 text-xs lg:text-base xl:mx-96 lg:mx-56 px-4">
               <li className="flex items-center gap-5"><span>{<p>{StaticData(postDisplay?.time.seconds)}</p>}</span>
@@ -408,3 +569,5 @@ export async function getServerSideProps({ req, params }) {
     };
   }
 }
+
+
