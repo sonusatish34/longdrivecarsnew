@@ -189,7 +189,7 @@ const ComponentName = ( { canonicalUrl }) => {
                         </p>
 
                         {/* Heading */}
-                        <p className="text-center text-2xl lg:text-4xl font-semibold lg:w-80 lg:leading-relaxed">
+                        <p className="text-center text-2xl lg:text-4xl font-semibold lg:w-80 leading-relaxed">
                             Recommended stories in "{category}"
                         </p>
 
@@ -224,17 +224,20 @@ const ComponentName = ( { canonicalUrl }) => {
                                 >
                                     {/* Post Content */}
                                     <div className="lg:w-3/4 w-4/6">
-                                        <h5 className=" mb-2 font-bold text-lg lg:text-2xl hover:text-orange-400">
+                                        <h5 className=" mb-2 font-bold text-lg text lg:text-2xl hover:text-orange-400">
                                             <Link
                                                 href={`/blog/posts/${post.slug
                                                     .toLowerCase()
                                                     .replace(/ /g, "-")}`}
                                                 className="block"
                                             >
-                                                {post?.title?.slice(0, 50)}
+                                                {post?.title?.slice(0, 40)}..
                                             </Link>
                                         </h5>
-                                        <p className="text-gray-600 text-sm lg:text-base">
+                                        <p className="text-gray-600 text-sm lg:text-base lg:hidden block">
+                                            {post?.description?.slice(0, 50)}...
+                                        </p>
+                                        <p className="text-gray-600 text-sm lg:text-base hidden lg:block">
                                             {post?.description?.slice(0, 100)}...
                                         </p>
 

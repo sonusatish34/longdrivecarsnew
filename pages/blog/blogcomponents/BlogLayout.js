@@ -12,9 +12,8 @@ import { MdExplore } from "react-icons/md";
 import Footer from '../../components/Footer/Footer';
 import Head from 'next/head';
 
-const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => { } }) => {
-    console.log(catg,"catg",);
-    
+const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () => { } }) => {
+    console.log(catg, "catg",);
     const [cList, setCList] = useState();
     useEffect(() => {
         const fetchCatAndPosts = async () => {
@@ -110,10 +109,9 @@ const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => 
     };
 
     return (
-        <div> 
-      
+        <div>
             <div className='xl:px-14  py-1 border-8 border-blue-100 '>
-                <div className='flex flex-col lg:flex-row lg:items-center lg:gap-28 gap-2  mxs:px-2'>
+                <div className='flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2  mxs:px-2'>
                     <div className='flex justify- lg:items-center px-1'>
                         <Link href={`/blog`} className=''>
                             <Image
@@ -136,15 +134,14 @@ const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => 
                             />
                         </div>
                     </div>
-
                     <div className="flex lg:gap-20 gap-10 items-center px-2 pt-1 border-t-[1p] ">
                         <Link
                             href={`/blog/explore-topics`}
                             className={`text-base py-1 lg:bg-[#1859c9] lg:rounded-3xl `}
                         >
-                            <div className='hidden lg:flex  items-center space-x-2 p-1'>
+                            <div className='hidden lg:flex  items-center space-x-2 p-1 w-40'>
                                 <span className='w-fit rounded-full'><MdExplore className='size-6 text-white' /></span>
-                                <span className=" text-sm text-white px-2 w-fit">Explore Topics</span>
+                                <span className=" text-sm text-white px-2">Explore Topics</span>
                             </div>
                         </Link>
                         <div className='xl:w-[600px] lg:w-[400px] w-44 mxs:w-60 text-center'>
@@ -153,7 +150,7 @@ const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => 
                                     cList.map((cat, i) => (
                                         <Link
                                             key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}${recommended?'/recommended':''}`}
+                                            href={`/blog/${cat.name.toLowerCase()}${recommended ? '/recommended' : ''}`}
                                             className={`p-[5px] capitalize font-medium bg-[#1859c9]  text-[14px] lg:text-base  rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}
                                         >
                                             {cat.name.toLowerCase()}
@@ -163,10 +160,9 @@ const BlogLayout = ({canonicalUrl,recommended, children, catg, onSearch = () => 
                         </div>
                     </div>
                 </div>
-
             </div>
             <main>{children}</main>
-            <Footer forblog={true}/>
+            <Footer forblog={true} />
         </div>
     );
 };
