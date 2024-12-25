@@ -8,8 +8,7 @@ import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { FaExchangeAlt } from "react-icons/fa";
 import Link from 'next/link';
-import disc from '../../images/discoutn.webp'
-// import disc from '../../images/discoutn.webp'
+import disc1 from '../../images/cashback.webp'
 import { FaSearch } from 'react-icons/fa';
 import StaticData from '../../components/StaticData/StaticData'
 import { useMemo } from "react";
@@ -18,8 +17,37 @@ import img3 from '../../changeimg/polo.webp'
 import img4 from '../../changeimg/swift.webp'
 import img5 from '../../changeimg/i20.webp'
 import HamburgerMenu from "../Hamburger/HamburgerMenu";
-export default function ExploreCars({ loc,phoneno }) {
-    // console.log(loc,"loccc");
+
+
+import { FaGooglePlay } from "react-icons/fa";
+import { FaAppStoreIos } from "react-icons/fa";
+import { RxSlash } from "react-icons/rx";
+
+import { FaIndianRupeeSign } from "react-icons/fa6";
+import { RiArrowRightDoubleLine } from "react-icons/ri";
+
+
+
+export default function ExploreCars({ loc, phoneno }) {
+
+
+
+    const handleStoreRedirect = () => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // Redirect to App Store if iOS
+            window.open('https://apps.apple.com/in/app/long-drive-cars/id6466695391', '_blank');
+        } else if (/android/i.test(userAgent)) {
+            // Redirect to Play Store if Android
+            window.open('https://play.google.com/store/search?q=long+drive+cars&c=apps', '_blank');
+
+        } else {
+            // Optional: Provide a message for non-mobile devices
+            alert("App is available only on mobile devices.");
+        }
+    }
+
 
     const [locationG, setLocationG] = useState('')
     const [carData, setCarData] = useState('')
@@ -28,7 +56,7 @@ export default function ExploreCars({ loc,phoneno }) {
         setLocationG(loc)
         async function fetchCarDetails() {
             try {
-                const response = await fetch(`https://longdrivecarz.in/site/cars-info?location=${locationG}`);
+                const response = await fetch(`https://api.longdrivecarz.in/site/cars-info?location=${locationG}`);
                 const items = await response.json();
                 const cars = items?.data?.results;
                 setCarData(cars);
@@ -291,7 +319,7 @@ export default function ExploreCars({ loc,phoneno }) {
                         Car Rentals</p>
                     <div className=' lg:mb-16 pl-3 flex items-center justify-center pt-2 pb-12'>
                         <input
-                            placeholder='Search for your favourite car'
+                            placeholder='Find Your Favourite Car'
                             className=' text-black px-4 py-3 rounded-full bg-gray-200 w-full  md:max-w-96 lg:max-w-2xl'
                             type='search'
                             value={searchQuery}
@@ -302,11 +330,11 @@ export default function ExploreCars({ loc,phoneno }) {
                     <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 gap-x-8 gap-y-8 flex flex-col gap-2 items-center justify-center lg:max-w-7xl py-4">
                         {filteredData?.map((item, index) => (
                             <React.Fragment key={index}>
-                                <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] md:w-64 h-[500px] lg:hover:scale-105">
-                                    <div className="relative h-80">
+                                <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] md:w-64 h-[580px] lg:h-[500px] lg:hover:scale-105">
+                                    <div className="relative h-[500px] lg:h-80">
                                         <Link href={`${(("car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')}`}>
                                             <Image
-                                                src={replaceText(item?.car_image_front_view)}
+                                                src={replaceText(item?.car_image_car_right_view)}
                                                 alt={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                                                 title={StaticData(String(item?.maker_model.toLowerCase())) + String(item?.maker_model.toLowerCase())}
                                                 layout="fill"
@@ -339,34 +367,103 @@ export default function ExploreCars({ loc,phoneno }) {
                                                 <span>{item.seater}</span>
                                             </div>
                                         </div>
-                                        <div className='pt-2'>
+                                        <div className='pt-6 lg:pt-2'>
                                             <p className='text-black text-lg text-center font-semibold pb-2'>For Booking</p>
                                             <div className="flex justify-around text-white">
-                                                <button className='bg-green-500 w-full rounded-bl-md p-2 flex justify-center'>
+                                                <button className='bg-green-500 w-full  p-2 flex justify-center'>
                                                     <Link href={`https://api.whatsapp.com/send?phone=+91${phoneno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`} target='_blank'>
                                                         <p className=' flex gap-1 text-lg items-center'><span><FaWhatsapp size={20} /></span> <span>Whatsapp</span></p>
                                                     </Link>
                                                 </button>
-                                                <button className='bg-blue-500 w-full rounded-br-md p-2 flex justify-center' >
+                                                <button className='bg-blue-500 w-full  p-2 flex justify-center' >
                                                     <Link href={`tel:${phoneno}`} target='_blank'>
                                                         <p className='flex gap-1 text-lg items-center px-1'><span><BiPhoneCall size={20} /></span> <span>Call Us</span></p>
                                                     </Link>
                                                 </button>
+
+                                            </div>
+                                            <div onClick={handleStoreRedirect} className="cursor-pointer bg-[#001f3d] py-4 lg:py-2 rounded-b-lg lg:rounded-b-lg  shimmer ">
+                                                <div className="flex justify-around place-items-center   ">
+                                                    <span className="flex  "><FaGooglePlay className="lg:size-6" size={20} /> <RxSlash className="lg:size-5" size={24} />  <FaAppStoreIos className="lg:size-6" size={20} /></span>
+                                                    <p className=" text-center  font-semibold text-xl lg:text-xl tracking-wide  "> Download App </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 {(index + 1) % (4) === 0 && (
-                                    <div className="bg-[#8d398d] rounded-lg shadow-lg overflow-hidden flex flex-col  xs:w-[90%] justify-center md:w-64 h-[500px]  lg:hover:scale-105">
-                                        <div>
+                                    <div className=" pt-14 lg:pt-0  items-center ">
+                                        <div className=" lg:rounded-md items-center    lg:w-72 flex flex-col relative">
+
                                             <Image
-                                                src={disc}
+                                                src={disc1}
                                                 height={1000}
                                                 width={1000}
                                                 alt='Long Drive Cars app'
-                                                className="scale-75"
+                                                className="scale-75 mxs:scale-[0.6] lg:scale-90 relative lg:w-80 lg:pr-14  "
                                             />
+
+                                            <div className="w-full px-2 py-1 lg:px-2 lg:py-2 lg:pr-12 ">
+                                                <p className='text-black xl:text-xl lg:text-xl text-lg font-bold text-center lg:hover:scale-105   capitalize'>On Booking </p>
+
+                                                <div className="place-items-center items-center lg:py-1 lg:hover:scale-105 p-2 ">
+                                                    <div className="w-full bg-[#660066] text-white border border-white lg:w-[265px] lg:text-[11px] text-xs ">
+                                                        <div className="flex justify-between border-b border-white p-2   font-bold">
+                                                            <span className=" border-white px-3 ">200 Cashback</span>
+                                                            <span className=" border-white px-[5px]  lg:px-[4.5px] border-r-2"></span>
+                                                            <span className=" border-white px-4 ">2 days Booking</span>
+                                                        </div>
+                                                        <div className="flex justify-between border-b border-white p-2   font-bold">
+                                                            <span className=" border-white px-3 ">500 Cashback</span>
+                                                            <span className=" border-white px-[5px] lg:px-[4.5px]  border-r-2"></span>
+                                                            <span className=" border-white px-4   ">4 days Booking</span>
+                                                        </div>
+                                                        <div className="flex justify-between border-b border-white p-2   font-bold">
+                                                            <span className=" border-white px-3 w-18 ">2000 Cashback</span>
+                                                            <span className=" border-white px-[1px] lg:px-[1px]  border-r-2"></span>
+                                                            <span className=" border-white px-4   ">7 days Booking</span>
+                                                        </div>
+                                                        <div className="flex justify-between border-b border-white p-2   font-bold">
+                                                            <span className=" border-white px-3 ">3000 Cashback</span>
+                                                            <span className=" border-white px-[0.5px] lg:px-0 border-r-2"></span>
+                                                            <span className=" border-white px-3   ">10 days Booking</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className='text-black xl:text-lg  lg:text-lg text-lg font-bold text-center lg:py-[1px] capitalize lg:hover:scale-105 '> 30 Days Booking </p>
+                                                <div className="place-items-center lg:py-1 lg:hover:scale-105 p-2 lg:p-1">
+                                                    <div className="w-full bg-[#660066] text-white border border-white  text-[12px] lg:text-[11px] font-bold flex flex-col items-center gap-1 lg:gap-0 p-2 lg:p-1 px-[64px] lg:px-[60px] lg:py-2 lg:w-[265px]">
+                                                        <div className="flex items-center ">
+                                                            <FaIndianRupeeSign className="text-white" />
+                                                            <span className="text-[13px] lg:text-[12px]"><span className="text-sm">10000 </span> Hand Cashback</span>
+                                                        </div>
+                                                        <span className="text-xl">+</span>
+                                                        <div className="flex items-center ">
+                                                            <FaIndianRupeeSign className="text-white" />
+                                                            <span className="text-[13px] lg:text-[12px]"><span className="text-sm">10000 </span> Into LDC Wallet</span>
+                                                        </div>
+                                                        <span></span>
+                                                    </div>
+                                                </div>
+                                                <div className="place-items-center lg:py-1 lg:hover:scale-105 p-2 lg:p-1  ">
+                                                    <div className="w-full bg-[#660066] text-white border border-white rounded-sm p-2 lg:p-1 lg:px-1 lg:w-[265px]">
+                                                        <div className="flex items-center gap-2 mb-2 text-[11px] lg:text-[12px] font-bold">
+                                                            <span><RiArrowRightDoubleLine size={24} /></span>
+                                                            <span>Cashback Credited into LDC Wallet</span>
+                                                        </div>
+                                                        <div className="flex items-center gap-2 mb-2 text-[11px] lg:text-[12px] font-bold">
+                                                            <span><RiArrowRightDoubleLine size={24} /></span>
+                                                            <span>Cashback Can Be Used Monday To Thursday Pickup</span>
+                                                        </div>
+                                                        <div className="flex items-center gap-2 text-[11px] lg:text-[12px] font-bold">
+                                                            <span><RiArrowRightDoubleLine size={24} /></span>
+                                                            <span>Maximum 50% Of Car Amount</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+
                                     </div>
                                 )}
                             </React.Fragment>

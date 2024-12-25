@@ -41,7 +41,6 @@ const Posts = ({ clickedcat },{canonicalUrl}) => {
         const fetchCat = async () => {
             const querySnapshot = await getDocs(collection(fireDb, "categories"));
             const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            console.log(cs,"09876");
             setCategories(cs);
             // Set the posts to the state
             // setPostlist(posts);
@@ -59,7 +58,6 @@ const Posts = ({ clickedcat },{canonicalUrl}) => {
     const filteredPosts = selectedCategory
         ? postlist.filter(post => post.categoryname === selectedCategory)
         : postlist;
-    console.log(filteredPosts, "fp");
 
     return (
         <div className="mb-20 ">
@@ -73,13 +71,13 @@ const Posts = ({ clickedcat },{canonicalUrl}) => {
             <link rel="canonical" href={canonicalUrl} />
           </Head>
             {/* Navigation Bar for Categories */}
-            <div className="flex space-x-4 px-40 py-4 ">
+            <div className="flex space-x-4 px-40 py-4  ">
                 <button
                     onClick={() => setSelectedCategory(null)}
                     className={'text-black text-base px-2 py-2 bg-gray-300 rounded-3xl flex items-center gap-2'}
                 >
                     {/* <span><MdOutlineExplore size={20} /></span><span></span> */}
-                    <Link href={'/blog/explore-topics'}> Explore Topics</Link>
+                    <Link href={'/blog/explore-topics'} className="lg:text-xs"> Explore Topics</Link>
                 </button>
                 <button
                     onClick={() => setSelectedCategory(null)}

@@ -17,16 +17,10 @@ const ComponentName = (props) => {
       const querySnapshot2 = await getDocs(q2);
       const posts2 = querySnapshot2.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setPostlist(posts2);  // Store the fetched data in the state
-
-      // Set the posts to the state
-      // setPostlist(posts);
-      console.log(posts2, "pl");
-
       posts2.sort(function (a, b) {
         return a.time.seconds - b.time.seconds;
       });
 
-      console.log(posts2[posts2?.length - 1]?.categoryname, "zero");
       const ValidCat = posts2[posts2?.length - 1]?.categoryname[0];
       if (ValidCat) {
         router.push(`/blog/${ValidCat}`);
@@ -39,23 +33,8 @@ const ComponentName = (props) => {
   }, []);
 
   useEffect(() => {
-    const handleRouteChangeStart = () => {
-      setIsLoading(true); // Show loader when route change starts
-    };
-
-    const handleRouteChangeComplete = () => {
-      setIsLoading(false); // Hide loader when route change completes
-    };
-
-    router.events.on('routeChangeStart', handleRouteChangeStart);
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-    // Cleanup listeners on unmount
-    return () => {
-      router.events.off('routeChangeStart', handleRouteChangeStart);
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, [router]);
+    setIsLoading(true)
+  }, []);
 
   return (
     <div>

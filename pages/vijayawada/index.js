@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import Router from 'next/router';
+
 import CarProducts from '../components/CarProducts';
+import Header from '../components/Hamburger/HamburgerMenu';
+// import { useEffect } from 'react';
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
@@ -14,11 +16,10 @@ import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
+
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function fetchCarDetails() {
@@ -33,16 +34,17 @@ export default function Place({cars,canonicalUrl}) {
         }
         fetchCarDetails();
     }, []);
-    
+
     return (
         <div>
-            <Layout locname={'warangal'} phoneno={"9000-777-665"}>
+            <Layout locname={'vijayawada'} phoneno={"96666-99583"}>
                 <Head>
-                    <title> No Deposit & Unlimited km - Rent a car under 5 kms with Self-drive car rental services</title>
-                    <meta name="description" content="Plan your trips with Lowest Price Self-Drive car rentals starting at just ₹1488/day. So book Dzire for ₹1680/day or Ertiga at ₹2496/day now with Unlimited kms at No Deposit." />
+                    <title>No Deposit & Unlimited km - Travel with low-cost Self drive car rentals services</title>
+                    <meta name="description" content="Explore with Self-drive cars starting at ₹1488/day. With low prices, Book Dzire ₹1680/day,Ertiga ₹2496/day or Install Long Drive Cars app for more options." />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta property="og:title" content=" No Deposit & Unlimited km - Rent a car under 5 kms with Self-drive car rental services" />
-                    <meta property="og:description" content="Plan your trips with Lowest Price Self-Drive car rentals starting at just ₹1488/day. So book Dzire for ₹1680/day or Ertiga at ₹2496/day now with Unlimited kms at No Deposit." />
+                    <meta property="og:title" content=" No Deposit & Unlimited km - Travel with low-cost Self drive car rentals services" />
+                    <meta property="og:description" content="Explore with Self-drive cars starting at ₹1488/day. With low prices, Book Dzire ₹1680/day,Ertiga ₹2496/day or Install Long Drive Cars app for more options." />
+                    
                     <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=AW-16647839094"
@@ -62,18 +64,18 @@ export default function Place({cars,canonicalUrl}) {
                 <div className='pt-32 lg:pt-0'>
                     <DynImageChange />
                     <div>
-                        <DynNearByApi city={'warangal'} />
+                        <DynNearByApi city={'vijayawada'}/>
                     </div>
-                    <CarProducts data={cars} branch={"warangal"} phoneno={'9000777665'} count={7}/>
+                    <CarProducts data={cars} branch={"vijayawada"} phoneno={'9666699583'} count={7}/>
                     <div><DynNearYou /></div>
-                    <FeaturedCars data={carData2} branch={"warangal"} />
+                    <FeaturedCars data={carData2} branch={"vijayawada"} />
                     <DynCallBackForm />
                     <DynWhyChooseUs />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>
                         <p className='uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl font-manrope'>Frequently asked questions</p>
                         <DynamicFaqComponent />
                     </div>
-                    <GetInTouch phoneno={'9000777665'} />
+                    <GetInTouch phoneno={'9666699583'} />
                     <PriceList city={'hyd'} />
                 </div>
             </Layout>
@@ -84,13 +86,13 @@ export default function Place({cars,canonicalUrl}) {
 
 
 export async function getServerSideProps({req}) {
-    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=warangal');
+    const response = await fetch('https://api.longdrivecarz.in/site/cars-info?location=vijayawada');
     const items = await response.json();
     const cars = items?.data?.results;
     const host = req.headers.host;
     const canonicalUrl = host.includes('.in')
-      ? 'https://www.longdrivecars.in/warangal'
-      : 'https://www.longdrivecars.com/warangal';
+      ? 'https://www.longdrivecars.in/vijayawada'
+      : 'https://www.longdrivecars.com/vijayawada';
   
     return {
       props: {

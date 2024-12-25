@@ -16,7 +16,6 @@ import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-// const allowedKeywords = ['vizag', 'bangalore', 'keyword3'];
 
 export default function Place({cars,canonicalUrl}) {
     const [carData, setCarData] = useState(null);
@@ -40,18 +39,32 @@ export default function Place({cars,canonicalUrl}) {
         <div>
             <Layout locname={'vizag'} phoneno={"96666-99583"}>
                 <Head>
-                    <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In vizag</title>
-                    <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                    <title> No Deposit & Unlimited km - Lowest priced Self-drive car rental for Sedans in Vizag</title>
+                    <meta name="description" content="Rent a 5 Seater- Dzire for ₹1680/day with Unlimited Kms for a stress-free travel. With prices starting at ₹1488/day, Choose Your Own Hours with self-drive car rentals." />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In vizag" />
-                    <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-                    
+                    <meta property="og:title" content=" No Deposit & Unlimited km - Lowest priced Self-drive car rental for Sedans in Vizag" />
+                    <meta property="og:description"  content="Rent a 5 Seater- Dzire for ₹1680/day with Unlimited Kms for a stress-free travel. With prices starting at ₹1488/day, Choose Your Own Hours with self-drive car rentals." />
+              
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=AW-16647839094"
+                    ></script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16647839094');
+                    `,
+                        }}
+                    ></script>
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className='pt-32 lg:pt-0'>
                     <DynImageChange />
                     <div>
-                        <DynNearByApi city={'vizag'} />
+                        <DynNearByApi city={'vizag'}/>
                     </div>
                     <CarProducts data={cars} branch={"vizag"} phoneno={'9666699583'} count={7}/>
                     <div><DynNearYou /></div>

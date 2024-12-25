@@ -9,14 +9,14 @@ function madhapur() {
     <div className='bg-white'>
       
       <Head>
-        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="Self Drive Cars Madhapur ends here It's not far, find Self Drive Cars near Madhapur"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
         <meta property="og:description" content="Self Drive Cars Madhapur ends here It's not far, find Self Drive Cars near Madhapur"/> 
       </Head>
 
-      <HamburgerMenu  phoneno={'9000-478-478'}/>
+      <HamburgerMenu  locname={'hyderabad'}  phoneno={'9000-478-478'}/>
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-40 lg:pt-16'>
         <p className='text-xl lg:text-5xl font-bold'>Self Drive Cars Madhapur ends here</p>
         <p className='text-lg font-bold lg:text-2xl py-2 lg:py-4'>It's not far, find Self Drive Cars near Madhapur</p>
@@ -69,7 +69,7 @@ function madhapur() {
         <p className='text-lg font-bold py-2 lg:py-4'>Feel comfortable in the quality self driven cars of Long Drive Cars, always</p>
         <p>While you and your family/friends would feel comfortable in the quality self driven cars offered by Long Drive Cars, however, it is worth noting that Warangal is a less visited tourist spot during the summer season when the sun is blazing, the weather is hot and a bit unpleasant.</p>
       </div>
-      <Footer/>
+      <Footer locname={'hyderabad'}/>
     </div>
   )
 }

@@ -150,27 +150,29 @@ const ContactUS = () => {
                             >
                             </Image>
                         </div>
-
-
                     </div>
                     <div>
-                        <ul className='flex flex-col lg:flex-row flex-wrap gap-4 lg:gap-x-40 lg:gap-y-10'>
+                        <ul className='grid grid-cols-1  lg:grid-cols-3 gap-4 lg:gap-x-40 lg:gap-y-10 lg:py-8'>
                             <li >
                                 <p className='bg-[#0556e8] p-2 w-32 text-white'>Telangana</p>
                                 <p className='flex flex-col gap-2 pt-3'><span>For Attachments Call us on</span><span><Link href="tel:9888988828" target="_blank">9888-9888-28</Link></span></p>
                                 <p className='flex flex-col gap-2 pt-3'><span>For Bookings Call us on</span><span><Link href="tel:9000478478" target="_blank">9000-478-478</Link></span></p>
                             </li>
                             <li>
-                                <p className='bg-[#0556e8] p-2 w-32 text-white'>Bangalore</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
+                                <p className='bg-[#0556e8] p-2 w-32 text-white'>Vizag</p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9666699583" target="_blank">96666-99583</Link></span></p>
                             </li>
                             <li>
-                                <p className='bg-[#0556e8] p-2 w-32 text-white'>Goa</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
+                                <p className='bg-[#0556e8] p-2 w-32 text-white'>Warangal</p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments</span><span><Link href="tel:9000777665" target="_blank">9000-777-665</Link></span></p>
+                            </li>
+                            <li>
+                                <p className='bg-[#0556e8] p-2 w-32 text-white'>Vijayawada</p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9666699583" target="_blank">96666-99583</Link></span></p>
                             </li>
                             <li>
                                 <p className='bg-[#0556e8] p-2 w-52 text-white'>Helpline Numbers</p>
-                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9129122525" target="_blank">912-912-2525</Link></span></p>
+                                <p className='flex flex-col gap-2 pt-3'><span>Call us on for Attachments & Bookings</span><span><Link href="tel:9888988828" target="_blank">9888-9888-28</Link></span></p>
                             </li>
                         </ul>
 

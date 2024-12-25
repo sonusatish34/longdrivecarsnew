@@ -11,14 +11,14 @@ function hyderabadrentalcar() {
     <div className='bg-white'>
       
       <Head>
-        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="Now it's easy to get self drive cars in Uppal, Medipally"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
         <meta property="og:description" content="Now it's easy to get self drive cars in Uppal, Medipally"/> 
       </Head>
 
-      <HamburgerMenu phoneno={'9000-478-478'}/>
+      <HamburgerMenu locname={'hyderabad'} phoneno={'9000-478-478'}/>
       
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
       <p className='lg:text-3xl text-xl font-bold py-2'>Now it's easy to get self drive cars in Uppal, Medipally</p>
@@ -59,7 +59,7 @@ function hyderabadrentalcar() {
       <p>Want to self drive or rent out a Maruti Suzuki Ignis, get this Dzire, Swift, Baleno, Ertiga, innova Crysta car easily at Long Drive Cars. With a google customer rating of 4.9, Long Drive Cars provides the cleanest cars With 24/7 Car Washing at their Own Garage Now you can gain points too on every booking, and the earned points can be redeemed in the subsequent bookings. Do Check Car Prices at https://www.longdrivecars.com/ closely as the company announces attractive offers and great discount options from time to time. Another great reason to book Ignis, an SUV-styled city car, for rental or self drive, at Long Drive Cars.</p>
       <p className='lg:text-lg font-bold py-2'></p>
     </div>
-    <Footer/>
+    <Footer  locname={'hyderabad'}/>
     </div>
     
     

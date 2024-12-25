@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout"
 function contact() {
 
     return (
-        <Layout locname={'hyderabad'} phoneno={'9666-677-405'}>
+        <Layout locname={'vijayawada'} phoneno={"9666699583"}>
             <ContactUS />
         </Layout>
     )

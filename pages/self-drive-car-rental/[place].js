@@ -35,16 +35,13 @@ const metadata = {
 
   },
 
-  
   ecil:{
     title:"Top Self Drive Rentals ECIL- Unlimited KM, No Deposit",
     description:'Explore with freedom using Self Drive Cars Hyderabad!No deposit, unlimited kilometers, and a wide car range for your perfectjourney around ECIL and beyond',
     ogDescription:'Explore with freedom using Self Drive Cars Hyderabad!No deposit, unlimited kilometers, and a wide car range for your perfectjourney around ECIL and beyond',
 
   },
-
-
-
+  
   kukatpally: {
     title: 'Best Prices on Self Drive Cars in Kukatpally– Book Now',
     description: "Rent self-drive cars in Hyderabad with Self Drive Cars Kukatpally. Enjoy unlimited kms, no deposit, and flexible rental options for a comfortable journey",
@@ -58,7 +55,7 @@ const metadata = {
   },
   
   medipally: {
-    title: 'No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad',
+    title: ' No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad',
     description: 'Self Drive Car Rentals in Uppal, Medipally',
     ogDescription: 'Self Drive Car Rentals in Uppal, Medipally',
   },
@@ -77,7 +74,7 @@ const metadata = {
 
 
   shamshabad: {
-    title: 'No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad',
+    title: ' No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad',
     description: "Explore the variety of self-drive car services in Shamshabad",
     ogDescription: 'Explore the variety of self-drive car services in Shamshabad',
   },
@@ -131,7 +128,7 @@ function Place({ place, title, description, ogDescription, canonicalUrl }) {  //
   }, [place]);
 
   return (
-    <Layout>
+    <Layout locname={'hyderabad'}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />

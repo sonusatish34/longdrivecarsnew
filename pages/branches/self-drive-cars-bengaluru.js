@@ -11,10 +11,10 @@ function Bangalore() {
     <div className='leading-8 lg:leading-9 bg-white'>
 
       <Head>
-        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="Right here for you: Self Drive Cars in Bengaluru" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
         <meta property="og:description" content="Right here for you: Self Drive Cars in Bengaluru" />
       </Head>
 
@@ -89,7 +89,7 @@ function Bangalore() {
           Customers earn reward points on every booking, and the earned points can be redeemed in the subsequent bookings. So, visit<Link href='https://www.longdrivecars.com/'>https://www.longdrivecars.com/</Link>  often as the company announces attractive offers and great discount options from time to time.
           Happy journey!</p>
       </div>
-      <Footer />
+      <Footer locname={'hyderabad'} />
     </div>
 
   )

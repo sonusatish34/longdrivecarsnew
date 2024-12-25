@@ -25,7 +25,7 @@ function Footer() {
                             <div className=' '>
 
                                 <p className=' block font-bold text-lg  py-2  lg:text-2xl  '>About Long Drive Cars</p>
-                                <p className='text-sm lg:leading-7  lg:w-96  lg:text-[20px] lg:pt-4 '>Long drive cars a leading car rental company offers rental cars for self drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal and Bangalore, Long drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan</p>
+                                <p className='text-sm lg:leading-7  lg:w-96  lg:text-[20px] lg:pt-4 '>Long drive cars a leading car rental company offers rental cars for self drive in Hyderabad and various other cities. Currently operational in Hyderabad, Warangal Long drive cars offer a huge selection of cars ranging from luxury suvs or a sensible sedan</p>
                             </div>
 
                             {/* Contact Info Section */}

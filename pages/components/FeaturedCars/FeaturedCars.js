@@ -117,7 +117,7 @@ function FeaturedCars({ data, branch }) {
                     >
                       <div className='relative border-2 border-[#660066]-200 bg-white rounded-md'>
                         <p className='bg-[#660066] text-white rounded-t-md pl-5'>Make Year {item?.manufacture_date}</p>
-                        <Link href={`${branch!=='warangal'?((((branch?.length ? branch : '') + "/car-rental/" + item.maker_model).toLowerCase()).replace(/ /g, '-')):'/'}`}>
+                        <div>
                           <Image
                             src={(inside.src)}
                             alt="Long Drive Cars app"
@@ -125,7 +125,7 @@ function FeaturedCars({ data, branch }) {
                             height={1000}
                             className='w-[250px] h-[150px] '
                           />
-                        </Link>
+                        </div>
                         <div className={`flex flex-col gap-3 text-center $`}>
                         </div>
                         <div

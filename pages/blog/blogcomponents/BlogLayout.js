@@ -1,28 +1,36 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
 import { CiSearch } from "react-icons/ci";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { fireDb } from '../../../public/firebase';
-import { getDocs, collection, query, where } from 'firebase/firestore';
+import { fireDb } from "../../../public/firebase";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import { MdExplore } from "react-icons/md";
-import Footer from '../../components/Footer/Footer';
-import Head from 'next/head';
+import Footer from "../../components/Footer/Footer";
+import Head from "next/head";
 
-const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () => { } }) => {
-    console.log(catg, "catg",);
+const BlogLayout = ({
+    canonicalUrl,
+    recommended,
+    children,
+    catg,
+    onSearch = () => { },
+}) => {
     const [cList, setCList] = useState();
     useEffect(() => {
         const fetchCatAndPosts = async () => {
-
             try {
                 // Fetch categories
-                const catQuerySnapshot = await getDocs(collection(fireDb, "catgforldc"));
-                const categoriesData = catQuerySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                console.log(categoriesData, "categoriesData");
+                const catQuerySnapshot = await getDocs(
+                    collection(fireDb, "catgforldc")
+                );
+                const categoriesData = catQuerySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
 
                 if (0) {
                     const sortedCategories = categoriesData.sort((a, b) => {
@@ -30,7 +38,6 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
                         if (b.name.toLowerCase() === category.toLowerCase()) return 1;
                         return 0;
                     });
-                    console.log(sortedCategories, "sortedCategories");
 
                     setCList(sortedCategories);
                 } else {
@@ -49,11 +56,11 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
         fetchCatAndPosts();
     }, []);
 
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
 
     const handleSearch = (e) => {
         setSearch(e?.target?.value);
-        onSearch(e?.target?.value);  // Pass the search query to CategoryPage
+        onSearch(e?.target?.value); // Pass the search query to CategoryPage
     };
     const settings = {
         className: "center",
@@ -71,7 +78,7 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
             {
                 breakpoint: 1120,
                 settings: {
-                    slidesToShow: 4,
+                    slidesToShow: 3,
                     slidesToScroll: 1,
                 },
             },
@@ -93,15 +100,15 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
             {
                 breakpoint: 370,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 320,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                 },
             },
@@ -110,27 +117,30 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
 
     return (
         <div>
-            <div className='xl:px-14  py-1 border-8 border-blue-100 '>
-                <div className='flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2  mxs:px-2'>
-                    <div className='flex justify- lg:items-center px-1'>
-                        <Link href={`/blog`} className=''>
+            <div className="xl:px-14  py-1 lg:border-8 lg:border-blue-100 ">
+                <div className="flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2">
+                    <div className="flex justify-between px-4 mxs:px-6 lg:items-center border-8 border-blue-100 lg:border-none">
+                        <Link href={`/blog`} className="">
                             <Image
-                                className="w-10 lg:w-14"
+                                className="w-10 lg:w-14 lg:block hidden"
                                 src="/logos/logo3.webp"
                                 alt="Long Drive Cars"
                                 width={500}
                                 height={500}
                             />
+                            <p className="lg:hidden block  capitalize font-bold text-sm py-4 text-blue-600">long drive cars</p>
                         </Link>
-                        <div className='flex items-center'>
-                            <p className='relative left-8'><CiSearch className='size-5' /></p>
+                        <div className="flex items-center">
+                            <p className="relative left-8">
+                                <CiSearch className="size-5" />
+                            </p>
                             <input
                                 value={search}
                                 type="text"
                                 placeholder="Search"
                                 onChange={handleSearch}
                                 maxLength={10}
-                                className='lg:rounded-full xl:w-56 w-52 border-none bg-gray-100   rounded-full lg:py-2 pl-10'
+                                className="lg:rounded-full xl:w-56 w-32 border-none bg-gray-100   rounded-full lg:py-2 pl-10"
                             />
                         </div>
                     </div>
@@ -139,19 +149,31 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
                             href={`/blog/explore-topics`}
                             className={`text-base py-1 lg:bg-[#1859c9] lg:rounded-3xl `}
                         >
-                            <div className='hidden lg:flex  items-center space-x-2 p-1 w-40'>
-                                <span className='w-fit rounded-full'><MdExplore className='size-6 text-white' /></span>
-                                <span className=" text-sm text-white px-2">Explore Topics</span>
+                            <div className=" lg:flex  items-center space-x-2 ">
+                                <span className="w-fit rounded-full lg:pl-1">
+                                    <MdExplore className="size-6 text-black lg:text-white" />
+                                </span>
+                                <span className=" hidden lg:block text-sm text-white lg:pr-2 ">
+                                    Explore Topics
+                                </span>
                             </div>
                         </Link>
-                        <div className='xl:w-[600px] lg:w-[400px] w-44 mxs:w-60 text-center'>
-                            <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
+                        <div className="xl:w-[600px] lg:w-[315px] w-48 mxs:w-60 text-center">
+                            <Slider
+                                key={JSON.stringify(cList)}
+                                {...settings}
+                                className="blog-carousal"
+                            >
                                 {cList?.length > 0 &&
                                     cList.map((cat, i) => (
                                         <Link
                                             key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}${recommended ? '/recommended' : ''}`}
-                                            className={`p-[5px] capitalize font-medium bg-[#1859c9]  text-[14px] lg:text-base  rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}
+                                            href={`/blog/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
+                                                }`}
+                                            className={`p-[5px] capitalize font-medium bg-[#1859c9]  text-[14px] lg:text-sm  rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase()
+                                                    ? "border-2 border-yellow-500 text-yellow-500"
+                                                    : "text-white"
+                                                }`}
                                         >
                                             {cat.name.toLowerCase()}
                                         </Link>
@@ -162,10 +184,11 @@ const BlogLayout = ({ canonicalUrl, recommended, children, catg, onSearch = () =
                 </div>
             </div>
             <main>{children}</main>
-            <Footer forblog={true} />
+            <div>
+                <Footer forblog={true} />
+            </div>
         </div>
     );
 };
 
 export default BlogLayout;
-

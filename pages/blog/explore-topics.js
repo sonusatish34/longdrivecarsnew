@@ -18,85 +18,13 @@ const ComponentName = ({canonicalUrl}) => {
         }
       }, [canonicalUrl]);
     const [cList, setCList] = useState();
-    console.log("Canonical URL:", canonicalUrl);
-
-
-
-    const settings = {
-        className: "center",
-        infinite: true,
-       speed: 500,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 2000, // Largest breakpoint first
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 5,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 1020 ,
-                settings: {
-                    slidesToShow: 5,
-                    slidesToScroll: 5,
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 770 ,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                },
-            },
-            
-
-            {
-                breakpoint: 425 ,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                },
-            },
-            
-            {
-                breakpoint: 370 ,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 320, // Smallest breakpoint last
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                },
-            },
-        ],
-        
-    };
+   
     useEffect(() => {
         const fetchCat = async () => {
             const querySnapshot = await getDocs(collection(fireDb, "catgforldc"));
             const cs = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            console.log(cs, "09876");
             setCList(cs);
-            // setCategories(cs);
-            // Set the posts to the state
-            // setPostlist(posts);
-
-            // Extract unique categories
-            // const uniqueCategories = Array.from(new Set(posts.map(post => post.categoryname)));
-            // setCategories(uniqueCategories);
+            
         };
         fetchCat();
     }, [])

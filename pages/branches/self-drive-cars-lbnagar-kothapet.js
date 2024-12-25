@@ -8,13 +8,13 @@ function dilshuknagar() {
   return (
     <div className='bg-white'>
          <Head>
-        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="Easy access to self drive cars in Dilsukhnagar"/>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
         <meta property="og:description" content="Easy access to self drive cars in Dilsukhnagar"/> 
       </Head>
-      <HamburgerMenu phoneno={'9000-478-478'} />
+      <HamburgerMenu  locname={'hyderabad'} phoneno={'9000-478-478'} />
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
         <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>Easy access to self drive cars in Dilsukhnagar</p>
         <div>
@@ -67,7 +67,7 @@ function dilshuknagar() {
         <p>Please note that if you are out on a road trip with a number of friends, or find yourself behind the wheels after a party, it can be tempting to invite in as many passengers as possible in your rental car. However, know that stringent passenger restriction laws exist throughout India and non-compliance can result in fines and even jail term In a few cases. So ensure that a 5 seater has only 5 people on board and a 7-8 seater car has an equal number of passengers while you are in charge of the car. Happy self driving!
         </p>
       </div>
-      <Footer />
+      <Footer locname={'hyderabad'} />
     </div>
   )
 }

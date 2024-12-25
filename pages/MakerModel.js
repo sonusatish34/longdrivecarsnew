@@ -25,7 +25,7 @@ const CarDetails = ({ city, phoneno }) => {
 
   const router = useRouter();
   const { maker_model } = router.query;
-  const mdyfmaker_model = maker_model?.includes('presso')?'maruthi s - presso': maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");  
+  const mdyfmaker_model = maker_model?.includes('presso') ? 'maruthi s - presso' : maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
   // const mdyfmaker_model = maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
   useEffect(() => {
     async function fetchCarDetails() {
@@ -34,9 +34,10 @@ const CarDetails = ({ city, phoneno }) => {
         const response = await fetch(`https://api.longdrivecarz.in/site/cars-info?location=${city}`);
         const items = await response.json();
         const cars = items?.data?.results;
-        const car = cars?.find(i => i?.maker_model.toLowerCase() == mdyfmaker_model);
+        const car = cars?.find(i => i?.maker_model.toLowerCase() === mdyfmaker_model);
         setCarItem(car);
       } catch (error) {
+        console.error(error);
       } finally {
         setLoading(false);
       }
@@ -46,24 +47,22 @@ const CarDetails = ({ city, phoneno }) => {
       fetchCarDetails();
     }
   }, [maker_model]);
+
   const replaceText = (str) => {
-    if (str?.includes("cdn"))
-      return str;
-    else {
-      return str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-    }
+    return str?.includes("cdn")
+      ? str
+      : str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
   };
 
   return (
     <div className='bg-white text-black'>
       <Head>
-        <title>No Deposit & Unlimited km - Self-Drive Car Rentals In {city}</title>
-        <meta name="description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+      <title> Check Real Car Images and Book Self-drive cars with No deposit</title>
+        <meta name="description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In {city}" />
-        <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Self Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-        
-      </Head>
+        <meta property="og:title" content=" Check Real Car Images and Book Self-drive cars with No deposit" />
+        <meta property="og:description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
+            </Head>
       <div className='xl:mx-16  mx-4'>
         <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2  lg:pl-20 border-purple-500 lg:rounded  rounded-md'>
           {loading && <div>Loading...</div>}
@@ -75,29 +74,46 @@ const CarDetails = ({ city, phoneno }) => {
                 speed={500}
                 slidesToShow={1}
                 slidesToScroll={1}
-                centerMode={true}
-                centerPadding={0}
-                focusOnSelect={true}
                 arrows={false}
                 autoplay={true}
-                pauseOnFocus={true}
-                pauseOnHover={true}
                 className="relative bottom-[4.5rem] lg:rounded-md"
               >
                 <div>
-                  <Image className={'lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md'} width={1000} height={1000} alt="Long Drive Cars app" src={replaceText(caritem?.car_image_front_view)}></Image>
-                </div>
-                <div onClick={() => {
-                }}>
-
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_inner)}></Image>
-
-                </div>
-                <div>
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px] rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_reading_view)}></Image>
+                  <Image
+                    src={replaceText(caritem?.car_image_front_view)}
+                    alt="Front View"
+                    width={525}
+                    height={634}
+                    className="lg:w-[525px] lg:h-[634px] h-[450px] rounded-md"
+                    priority
+                  />
                 </div>
                 <div>
-                  <Image alt="Long Drive Cars app" className='lg:h-[655px] h-[450px] lg:w-[525px]  rounded-md' width={1000} height={1000} src={replaceText(caritem?.car_image_back_view)}></Image>
+                  <Image
+                    src={replaceText(caritem?.car_image_back_inner)}
+                    alt="Back Inner View"
+                    width={525}
+                    height={634}
+                    className="lg:w-[525px] lg:h-[634px] h-[450px] rounded-md"
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={replaceText(caritem?.car_image_reading_view)}
+                    alt="Reading View"
+                    width={525}
+                    height={634}
+                    className="lg:w-[525px] lg:h-[634px] h-[450px] rounded-md"
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={replaceText(caritem?.car_image_back_view)}
+                    alt="Back View"
+                    width={525}
+                    height={634}
+                    className="lg:w-[525px] lg:h-[634px] h-[450px] rounded-md"
+                  />
                 </div>
               </Slider>
             </div>
@@ -203,5 +219,3 @@ const CarDetails = ({ city, phoneno }) => {
 };
 
 export default CarDetails;
-
-

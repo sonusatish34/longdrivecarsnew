@@ -9,13 +9,14 @@ function kukatpally() {
   return (
     <div className='bg-white'>
       <Head>
-        <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
+        <title> No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad</title>
         <meta name="description" content="It's time for self drive cars in Kukatpally" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
+        <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
         <meta property="og:description" content="It's time for self drive cars in Kukatpally" />
       </Head>
-      <HamburgerMenu phoneno={'9000-478-478'} />
+
+      <HamburgerMenu forblog={true} locname={'hyderabad'} phoneno={'9000-478-478'} />
       <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-40 lg:pt-16'>
         <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>It's time for self drive cars in Kukatpally</p>
         <div>
@@ -78,18 +79,18 @@ function kukatpally() {
           <p>Hiring a car from Long Drive Cars can offer you a lot of conveniences. Since most of its cars come equipped with a navigation system, it can greatly assist you in reaching your destination, whether it's on the highway or city downtown. So with Google Maps on your smartphone and the latest car navigation system available in Long Drive Cars, it's even easier to reach your destination.</p>
           <li className=''>Save Money</li>
           <p>While most cab/taxi drivers generally charge more money by taking longer routes, by using car rental service you can take shorter routes which saves time and money.</p>
-          <li> Go where bus or cab cannot take you</li>
-          <p>With car hire, you can self drive your rented vehicle and explore really cool parts of the city or off-the-beaten-path destinations.</p>
-          <li>Enjoy rural India as you like</li>
-          <p>In a self driven car, you can enjoy driving to the less visited parts of India, and stop wherever on highways and roads that offer wonderful sightseeing.</p>
-          <p>After you have had enough of Hyderabad, then what's next. Worry not, because the Telangana state and the rest of southern India make an impressive region. The rich and colourful landscapes range from breezy coastlines to the mountaintops/ hill stations. You can go from busy beaches to leafy villages that lay in between urban areas. It’s safe to say that there’s plenty to explore in one of India's more prominent southern states. While there is a good railway system and many other public transportation options such as buses, however, driving yourself is the best way to discover Hyderabad and the nearby getaways, at your own pace.</p>
+           <li> Go where bus or cab cannot take you</li>
+           <p>With car hire, you can self drive your rented vehicle and explore really cool parts of the city or off-the-beaten-path destinations.</p>
+            <li>Enjoy rural India as you like</li>
+            <p>In a self driven car, you can enjoy driving to the less visited parts of India, and stop wherever on highways and roads that offer wonderful sightseeing.</p>
+            <p>After you have had enough of Hyderabad, then what's next. Worry not, because the Telangana state and the rest of southern India make an impressive region. The rich and colourful landscapes range from breezy coastlines to the mountaintops/ hill stations. You can go from busy beaches to leafy villages that lay in between urban areas. It’s safe to say that there’s plenty to explore in one of India's more prominent southern states. While there is a good railway system and many other public transportation options such as buses, however, driving yourself is the best way to discover Hyderabad and the nearby getaways, at your own pace.</p>
 
         </ul>
-
+     
         <p className='text-lg font-bold py-2 lg:py-4'>Visit Long Drive Cars for 'Self drive car rental in Kukatpally'</p>
         <p>Since no two cities of India are similar in comparison, similarly no two car rental service companies are alike. Truly, Long Drive Cars as a unique car rental company is in a league of its own. So if you are looking for self drive car rental in Kukatpally, then Long Drive Cars is the place to be. The company's promoters and people are the secret to the popularity of its success.</p>
       </div>
-      <Footer />
+      <Footer locname={'hyderabad'}/>
     </div>
   )
 }

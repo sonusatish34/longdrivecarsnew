@@ -93,7 +93,7 @@ const ComponentName = ( { canonicalUrl }) => {
                 breakpoint: 320, // Smallest breakpoint last
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2,
+                    slidesToScroll: 1,
                     infinite: true,
                 },
             },
@@ -180,7 +180,7 @@ const ComponentName = ( { canonicalUrl }) => {
             <div className="flex flex-col lg:flex-row">
                 {/* Sidebar Section */}
                 <div className="w-full lg:w-2/5 bg-white pt-6 lg:pt-24 px-4 lg:pl-20 sticky top-0">
-                    <div className="flex flex-wrap flex-col gap-y-9 capitalize items-center">
+                    <div className="flex flex-wrap flex-col gap-y-9 capitalize items-center py-7">
                         {/* Breadcrumb */}
                         <p className="flex items-center gap-2 text-sm lg:text-base">
                             <span>{category}</span>
@@ -291,13 +291,13 @@ const ComponentName = ( { canonicalUrl }) => {
                                         >
                                             {post?.coverimages && (
                                                 <Image
-                                                    className="rounded-sm lg:w-[150px] lg:h-[104px] w-[80px] h-[80px]"
+                                                    className="rounded-sm lg:w-[150px] lg:h-[104px] w-[70px] h-[70px] mxs:w-[80px] mxs:h-[80px]"
                                                     src={
                                                         post?.coverimages?.length
                                                             ? post?.coverimages
                                                             : tempimg
                                                     }
-                                                    alt={post?.coverimages}
+                                                    alt={post?.cialt}
                                                     width={500}
                                                     height={500}
                                                     priority={i === 0}

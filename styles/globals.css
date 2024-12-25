@@ -167,3 +167,7 @@ body {
   color: black;
   background-color: white;
 }
+.htmlContent a {
+  color: blue;
+  text-decoration: underline;
+}

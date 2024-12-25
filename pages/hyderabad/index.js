@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 import CarProducts from '../components/CarProducts';
 
@@ -11,21 +12,47 @@ const GetInTouch = dynamic(() => import('../components/GetInTouch/GetInTouch'));
 const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCars'));
 const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
-// import Layout from '../components/Layout/Layout';
 import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
-import Head from 'next/head';
+
+const metaData = [
+    {
+        title: "Choose your own hours - Book Self Drive car @ LongDriveCars App",
+        description: "Book your Self-drive car rental starting at ₹1488/day. Install the Long Drive Cars app to book Dzire ₹1680/day, Ertiga ₹2496/day or explore other options for your next trip",
+    },
+    {
+        title: "Check Real Car Images and Book Self-drive cars with No deposit",
+        description: "Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day. You can also check Real Car Images on the Long Drive Cars App.",
+    },
+    {
+        title: "Self Drive Rental Under 5 kms - Unlimited Kms - No Deposit",
+        description: "All Cars @ lowest prices, rent your Self-drive car at just ₹1488/day. From Dzire ₹1680/day Ertiga ₹2496/day, check the real car images on Long Drive Cars appDrive through Hyderabad with comfort. Best prices on Dzire, Baleno, Ertiga, Swift, and Thar.",
+    },
+];
 
 export default function Place({ cars, canonicalUrl }) {
-    return ( 
+    const [currentMeta, setCurrentMeta] = useState(metaData[0]);
+
+    useEffect(() => {
+        // Get the current index from localStorage (default to 0)
+        const lastIndex = localStorage.getItem('metaIndex') || 0;
+        const newIndex = (parseInt(lastIndex) + 1) % metaData.length;
+
+        setCurrentMeta(metaData[newIndex]);
+
+        // Save the updated index to localStorage
+        localStorage.setItem('metaIndex', newIndex);
+    }, []);
+
+    return (
         <div>
             <Layout locname={'hyderabad'} phoneno={"9666-677-405"}>
-            <Head>
-                    <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
-                    <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <Head>
+                    <title>{currentMeta.title}</title>
+                    <meta name="description" content={currentMeta.description} />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
-                    <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                    <meta property="og:title" content={currentMeta.title} />
+                    <meta property="og:description" content={currentMeta.description} />
                     <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=AW-16731119855"
@@ -40,9 +67,44 @@ export default function Place({ cars, canonicalUrl }) {
                     `,
                         }}
                     ></script>
+
+                    <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=G-8RGJTJSJCW">
+                    </script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-8RGJTJSJCW');
+                    `,
+                        }}
+                    ></script>
+
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KBCJDV6F');`,
+                        }}
+                    />
+
+
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className="pt-32 lg:pt-0">
+                    <noscript>
+                        <iframe
+                            src="https://www.googletagmanager.com/ns.html?id=GTM-KBCJDV6F"
+                            height="0"
+                            width="0"
+                            style={{ display: 'none', visibility: 'hidden' }}
+                        />
+                    </noscript>
                     <DynImageChange locname={'hyderabad'} />
                     <div>
                         <DynNearByApi city={'hyderabad'} />

@@ -12,7 +12,7 @@ import Image from 'next/image';
 import hyd from './images/hyderabad-charminar.png'
 import wrg from './images/warangal.png'
 import viz from './images/vizag.webp'
-import vij from './images/vijayawada-transformed.webp'
+import vij from './images/vijayawada-removebg-preview2.png'
 import Loading from './components/Loading';
 export default function Place({ cars, canonicalUrl }) {
     const [showPopup, setShowPopup] = useState(false); // State for popup visibility
@@ -75,13 +75,13 @@ export default function Place({ cars, canonicalUrl }) {
 
     return (
         <div>
-            <Head>
-                <title>No Deposit & Unlimited Km - Self-Drive Car Rentals In Hyderabad</title>
-                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="No Deposit & Unlimited km - Self-Drive Car Rentals In Hyderabad" />
-                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km & No Deposit, Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
-                <link rel="canonical" href={canonicalUrl} />
+             <Head>
+        <title> Check Real Car Images and Book Self-drive cars with No deposit</title>
+        <meta name="description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content=" Check Real Car Images and Book Self-drive cars with No deposit" />
+        <meta property="og:description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
+       
                 <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=AW-16731119855"
@@ -126,7 +126,21 @@ export default function Place({ cars, canonicalUrl }) {
                     `,
                         }}
                     ></script>
-
+                   
+                   <script
+                        async
+                        src="https://www.googletagmanager.com/gtag/js?id=G-8RGJTJSJCW">
+                    </script>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-8RGJTJSJCW');
+                    `,
+                        }}
+                    ></script>
 
             </Head>
             {loading && <Loading />}
@@ -138,7 +152,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <div className='xl:w-[86%] w-[60%] '>
                             <Marquee speed={75} >
                                 <div className={'flex p-1 text-xs gap-24 lg:text-lg'}>
-                                    {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Dzire 1992 per day', 'Just pay 10% Advance & book'].map((text, index) => (
+                                    {['No Deposit','Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1488/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Dzire 1992 per day', 'Just pay 10% Advance & book'].map((text, index) => (
                                         <p key={index} className='flex items-center gap-1 justify-center'>
                                             <TbPointFilled /><span>{text}</span>
                                         </p>
