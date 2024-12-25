@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-
+import { useRouter } from 'next/router';
 import CarProducts from '../components/CarProducts';
-
 const DynCallBackForm = dynamic(() => import('../components/CallBackForm/CallBackForm'));
 const DynNearYou = dynamic(() => import('../components/NearYou/NearYou'));
 const DynImageChange = dynamic(() => import('../components/ImageChange/ImageChange'));
@@ -31,6 +30,24 @@ const metaData = [
 ];
 
 export default function Place({ cars, canonicalUrl }) {
+    const router = useRouter();
+    const { customlink } = router.query;
+
+    // Allowed links
+    const allowedLinks = ['hyderabad', 'selfdrivecars_hyderabad','car_rentals_in_hyderabad'];
+
+    // Check if the customlink is valid
+    useEffect(() => {
+        if (allowedLinks.includes(customlink)) {
+            // Redirect to a 404 page if the link is not valid
+            router.push(`/${customlink}`);
+            return
+        }
+        else{
+            router.push('/404');
+        }
+    }, [customlink]);
+
     const [currentMeta, setCurrentMeta] = useState(metaData[0]);
 
     useEffect(() => {
@@ -67,7 +84,6 @@ export default function Place({ cars, canonicalUrl }) {
                     `,
                         }}
                     ></script>
-
                     <script
                         async
                         src="https://www.googletagmanager.com/gtag/js?id=G-8RGJTJSJCW">
@@ -82,7 +98,6 @@ export default function Place({ cars, canonicalUrl }) {
                     `,
                         }}
                     ></script>
-
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -92,8 +107,6 @@ export default function Place({ cars, canonicalUrl }) {
             })(window,document,'script','dataLayer','GTM-KBCJDV6F');`,
                         }}
                     />
-
-
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className="pt-32 lg:pt-0">
@@ -109,9 +122,9 @@ export default function Place({ cars, canonicalUrl }) {
                     <div>
                         <DynNearByApi city={'hyderabad'} />
                     </div>
-                    <CarProducts data={cars} branch={"hyderabad"} phoneno={'9666677405'} count={6} />
+                    <CarProducts data={cars} branch={'hyderabad'} phoneno={'9666677405'} count={6} />
                     <div><DynNearYou /></div>
-                    <FeaturedCars data={cars} branch={"hyderabad"} />
+                    <FeaturedCars data={cars} branch={'hyderabad'} />
                     <DynCallBackForm />
                     <DynWhyChooseUs locname={'hyderabad'} />
                     <div className='bg-white rounded shadow-md xl:py-12 lg:px-14 xl:px-14 p-2'>

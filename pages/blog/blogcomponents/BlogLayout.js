@@ -128,7 +128,7 @@ const BlogLayout = ({
                                 width={500}
                                 height={500}
                             />
-                            <p className="lg:hidden block  capitalize font-bold text-sm py-4 text-blue-600">long drive cars</p>
+                            <p className="lg:hidden block  capitalize font-bold text-sm py-4 text-blue-00">long drive cars</p>
                         </Link>
                         <div className="flex items-center">
                             <p className="relative left-8">

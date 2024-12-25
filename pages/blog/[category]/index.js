@@ -172,7 +172,7 @@ const CategoryPage = ({ canonicalUrl }) => {
                             <ul className='lg:flex justify-center items-center pt-2 gap-3 hidden'>
                                 <li>Topic</li>
                                 <li><GoDotFill /></li>
-                                <li>{postlist?.length} stories</li>
+                                <li className='font-light'>{postlist?.length} stories</li>
                             </ul>
                             <div className='text-center flex justify-center lg:pt-10 pt-4'>
                                 <PostsListing catg={category} data={filteredPosts} />
