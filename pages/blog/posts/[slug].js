@@ -367,8 +367,8 @@ const stopReading = () => {
                 className="w-full rounded-sm"
                 src={postDisplay?.coverimages}
                 alt={postDisplay?.cialt}
-                width={1000}
-                height={1000}
+                width={1500}
+                height={1500}
               />
             </div>
             <div className=''>
