@@ -8,10 +8,7 @@ async function generateSiteMap(keyword, city) {
 
   // Start the XML sitemap with the basic structure
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-        <loc>https://longdrivecarsnew-lime.vercel.app/vijayawada/car-rental/${encodeURIComponent(keyword)}/contact</loc>
-      </url>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">  
   `;
 
   // Loop through the car data and add additional URLs for each car
@@ -19,7 +16,7 @@ async function generateSiteMap(keyword, city) {
     const carSlug = encodeURIComponent(car.maker_model.replace(/ /g, "-").toLowerCase()); // Assuming 'name' is a property in the car object
     sitemap += `
       <url>
-        <loc>https://longdrivecarsnew-lime.vercel.app/vijayawada/car-rental/${carSlug}</loc>
+        <loc>http://localhost:3000/vijayawada/car-rental/${encodeURIComponent(keyword)}_${carSlug}</loc>
       </url>
     `;
   });

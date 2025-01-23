@@ -24,9 +24,44 @@ const CarDetails = ({ city, phoneno }) => {
   const [loading, setLoading] = useState(true);
 
   const router = useRouter();
+  console.log(router.asPath, "router.path");
+
   const { maker_model } = router.query;
-  const mdyfmaker_model = maker_model?.includes('presso') ? 'maruthi s - presso' : maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
+  // const mdyfmaker_model = maker_model?.includes('presso') ? 'maruthi s - presso' : maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
   // const mdyfmaker_model = maker_model?.toLowerCase().replace(/-/g, " ").replace("car-rental/", "");
+
+  function getMdyfmakerModel(maker_model) {
+
+    const keywords = [
+      'book-a-rental-car-in-vijayawada_',
+      'book-a-rental-car-in-hyderabad_',
+      'book-a-rental-car-in-chennai_',
+      // Add more keywords as necessary
+    ];
+
+    if (maker_model) {
+      // Specific case for 'presso'
+      if (maker_model?.includes('presso')) {
+        return 'maruthi s - presso';
+      }
+
+      // Handle dynamic removal of keywords
+      keywords.forEach(keyword => {
+        const pattern = new RegExp(keyword, 'gi'); // Case-insensitive global regex
+        maker_model = maker_model.replace(pattern, '');
+      });
+
+      // Clean up remaining unwanted characters or words
+      return maker_model
+        .toLowerCase()
+        .replace(/-/g, " ")         // Replace hyphens with spaces
+        .replace("car-rental/", ""); // Remove "car-rental/"
+    }
+    return maker_model;
+  }
+
+  const mdyfmaker_model = getMdyfmakerModel(maker_model);
+
   useEffect(() => {
     async function fetchCarDetails() {
       setLoading(true);
@@ -57,12 +92,12 @@ const CarDetails = ({ city, phoneno }) => {
   return (
     <div className='bg-white text-black'>
       <Head>
-      <title> Check Real Car Images and Book Self-drive cars with No deposit</title>
+        <title> Check Real Car Images and Book Self-drive cars with No deposit</title>
         <meta name="description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content=" Check Real Car Images and Book Self-drive cars with No deposit" />
         <meta property="og:description" content="Starting at just ₹1488/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day.You can also check Real Car Images on the Long Drive Cars App." />
-            </Head>
+      </Head>
       <div className='xl:mx-16  mx-4'>
         <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2  lg:pl-20 border-purple-500 lg:rounded  rounded-md'>
           {loading && <div>Loading...</div>}
@@ -165,7 +200,7 @@ const CarDetails = ({ city, phoneno }) => {
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
                 <SlSpeedometer className="bg-blue-200 rounded-md p-1" size={40} />
-                <p className="  ml-2 text-xs">Unlimited Kilometers</p>
+                <p className="  ml-2 text-xs">Unlimited +*++Kilometers</p>
               </div>
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
                 <GiTowTruck className="bg-blue-200 rounded px-[4px]" size={40} />

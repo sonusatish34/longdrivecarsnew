@@ -4,16 +4,16 @@ function generateSiteMap() {
   return `
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap>
-<loc>https://longdrivecarsnew-lime.vercel.app/hyderabad/sitemap.xml</loc>
+<loc>http://localhost:3000/hyderabad/sitemap.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://longdrivecarsnew-lime.vercel.app/vizag/sitemap.xml</loc>
+<loc>http://localhost:3000/vizag/sitemap.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://longdrivecarsnew-lime.vercel.app/vijayawada/sitemap.xml</loc>
+<loc>http://localhost:3000/vijayawada/sitemap.xml</loc>
 </sitemap>
 <sitemap>
-<loc>https://longdrivecarsnew-lime.vercel.app/warangal/sitemap.xml</loc>
+<loc>http://localhost:3000/warangal/sitemap.xml</loc>
 </sitemap>
 </sitemapindex>
    `;

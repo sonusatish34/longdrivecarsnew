@@ -11,7 +11,7 @@ function generateSiteMap(cars) {
        ${cars?.map((item) => {
         return `
         <sitemap>
-            <loc>${`https://longdrivecarsnew-lime.vercel.app/vijayawada/${item}.xml`}</loc>
+            <loc>${`http://localhost:3000/vijayawada/${item}.xml`}</loc>
         </sitemap>
        `;
     })
@@ -28,7 +28,7 @@ export async function getServerSideProps({ res }) {
     // Fetch the car data
     const response = await fetch(EXTERNAL_DATA_URL);
     const items = await response.json();
-    const cars = ['book-a-rental-car-in-hyderabad','sedan-cars-for-rent-in-hyderabad','cars-rental-services-in-hyderabad'];
+    const cars = ['book-a-rental-car-in-vijayawada','sedan-cars-for-rent-in-vijayawada','cars-rental-services-in-vijayawada'];
 
     // Generate the XML sitemap
     const sitemap = generateSiteMap(cars);
