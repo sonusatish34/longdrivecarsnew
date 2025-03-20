@@ -1,19 +1,18 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ScrollServices from "@/components/ScrollServices/ScrollServices";
 import Footer from "@/components/Footer/Footer";
 import CTA from "@/components/CTA/CTA";
+import SliderComponent from "@/components/Slider/SliderComponent";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 import OurServices from "@/components/OurServices/OurServices";
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import About from "@/components/About/About";
+
 
 export default function Home() {
   const text = "Welcome to Zebrank";
@@ -39,40 +38,38 @@ export default function Home() {
       return () => clearTimeout(resetTimeout);
     }
   }, [currentIndex, text])
+
+  const [inputValue, setInputValue] = useState("");
+
+
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] bg-white`}
-    >
+      className="bg-white">
       <Header />
       <div className="">
         <video
           autoPlay
           loop
           muted
-          className="lg:w-full lg:h-full w-fit h-[500px] object-cover"
+          className="lg:w-full h-[100vh] object-cover "
         >
           <source src="/videos/2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
         <div className="absolute top-44 z-10">
           <p className="text-[#CA7373] font-bold lg:text-5xl text-2xl pl-4"> {displayText}</p>
           <p className="text-white font-bold lg:text-5xl text-xl pl-4 w-3/4 pt-10 leading-relaxed">Transforming Ideas into Innovative Software Solutions</p>
-          {/* <div className="">
-            <h1 className="text-4xl font-mono text-white">
-              {displayText}
-              <span className="animate-blink">|</span> 
-            </h1>
-          </div> */}
         </div>
       </div>
-      {/* <p>kkkkk</p> */}
-      {/* <ScrollServices /> */}
+      {/* <p>kkk</p> */}
       <div>
-        <OurServices />
+        {/* <OurServices /> */}
+        {/* <SliderComponent /> */}
+        <About/>
         <CTA />
         <Footer />
       </div>
+
     </div>
   );
 }

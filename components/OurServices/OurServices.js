@@ -7,7 +7,7 @@ import Image from 'next/image';
 const ComponentName = (props) => {
     return (
         <div>
-            <section id="ourservices" className="py-20 lg:py-25 xl:py-30 bg-gray-100 pt-10">
+            <section id="ourservices" className="py-20 lg:py-25 xl:py-30 bg-gray-100 pt-32">
                 <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0 ">
                     <p className="text-center text-black text-4xl font-bold">Our Services</p>
                     <div className="md:grid-cols- mt-12.5 grid grid-cols-1 gap-7.5 lg:mt-15 lg:grid-cols-3 xl:mt-20 xl:gap-12 px-9  py-5">
@@ -48,7 +48,6 @@ const ComponentName = (props) => {
                                     </Link>
                                 </div>
                                 <div className="">
-
                                 </div>
                             </motion.div>
                         ))}
