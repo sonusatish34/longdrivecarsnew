@@ -16,7 +16,8 @@
     "react-icons": "^5.4.0",
     "react-intersection-observer": "^9.15.1",
     "react-typewriter-effect": "^1.1.0",
-    "swiper": "^11.2.5"
+    "swiper": "^11.2.5",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
