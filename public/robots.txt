@@ -1,0 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+
+# Block access to admin and private areas
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://www.longdrivecars.com/sitemap.xml
