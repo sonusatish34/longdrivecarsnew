@@ -53,6 +53,11 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script 
+      src="https://uat.nabo.enterprises/widget/chat-widget.js" 
+      data-bot-key="bot_6620b7a0c5feabdbd0d297071f4b43aa" 
+      async>
+    </script>
       </body>
     </Html>
   );
