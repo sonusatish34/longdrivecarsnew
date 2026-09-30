@@ -36,5 +36,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/app'],
+  matcher: ['/app-download'],
 };
