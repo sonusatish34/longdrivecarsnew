@@ -161,7 +161,7 @@ async function getCachedBannerPrices(secretKey) {
 }
 
 export async function getServerSideProps({ req }) {
-    const SECRET_KEY = process.env.LDC_SECRET_KEY;
+    const SECRET_KEY = 'ucNeetRrC1md0UPoe8fkG1/qugAq4YZQ20OmSncNbxw=';
 
     // Run dynamic cars API and cached banner call in parallel
     const [response, finalPrices] = await Promise.all([
