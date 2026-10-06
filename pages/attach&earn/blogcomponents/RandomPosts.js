@@ -42,6 +42,9 @@ const RandomPosts = ({ data,loc }) => {
       setPageGroup(pageGroup - 1);
     }
   };
+  const replaceText = (str) => {
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
 
   // Create page numbers (1, 2, 3, 4, 5, ...)
   const pageNumbers = [];
@@ -76,7 +79,7 @@ const RandomPosts = ({ data,loc }) => {
                     className="rounded-md xl:h-[220px] lg:h-[160px] h-[80px] mxs:h-[120px] object-cover"
                     src={
                       post?.coverimages?.length
-                        ? post?.coverimages
+                        ? replaceText(post?.coverimages)
                         : "/tempimg.jpg"
                     }
                     alt={post?.cialt || "Post Image"}
@@ -106,9 +109,7 @@ const RandomPosts = ({ data,loc }) => {
                 {post?.description && post?.description.slice(0, 110)}...
               </p>
               <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-xs lg:text-xs lg:pt-4">
-                {/* <li className="hidden lg:block">
-                  <p>{post?.date.slice(0, 12)}</p>
-                </li> */}
+                
                 <li className="flex items-center gap-1">
                   <span>
                     <BiCategory className="text-blue-400" />

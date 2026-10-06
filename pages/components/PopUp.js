@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import ldcqr from '../images/ldcqr.png'
 import { MdOutlineCancel } from 'react-icons/md'
-import onerupee from '../images/offersimages/250cashback.webp'
+import onerupee from '@/public/oandd/3.webp'
 import { handleStoreRedirect } from '../../utils/redirectUtils'
 
-const PopUp = props => {
+const PopUp = ({banner}) => {
   const [isVisible, setIsVisible] = useState(false)
   const [isVisible1ruppe, setIsVisible1ruppe] = useState(false)
 
@@ -125,7 +125,7 @@ const PopUp = props => {
               className='absolute top-0 right-0 p-2 bg-transparent focus:outline-none flex items-center justify-center z-40 pt-4 pr-4'
             >
               <span className='text-lg w-6 h-6 rounded-full relative hover:scale-105 bottom-1 flex justify-center items-center'>
-                <MdOutlineCancel size={30} />
+                <MdOutlineCancel color='red' size={30} />
               </span>
             </button>
           </div>
@@ -139,7 +139,7 @@ const PopUp = props => {
             style={{ opacity: isVisible1ruppe ? 1 : 0 }}
           >
             <Image
-              src={onerupee}
+              src={banner?.duplicate_banner_image_url}
               alt={` for rent`}
               width={1025}
               height={1034}
@@ -151,7 +151,7 @@ const PopUp = props => {
               className='absolute -top-1 -right-2 p-2 bg-transparent focus:outline-none flex items-center justify-center z-40 pt-4 pr-4'
             >
               <span className='text-lg w-6 h-6 rounded-full relative hover:scale-105 bottom-1 flex justify-center items-center'>
-                <MdOutlineCancel size={30} />
+                <MdOutlineCancel color='red' size={30} />
               </span>
             </button>
           </div>

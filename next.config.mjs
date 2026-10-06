@@ -6,6 +6,10 @@ const nextConfig = {
         source: "/robots.txt",
         destination: "/api/robots",
       },
+      {
+        source: '/api/proxy/:path*',
+        destination: 'https://api.longdrivecars.com/:path*',
+      },
     ];
   },
   reactStrictMode: true,
@@ -22,15 +26,21 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'miro.medium.com',
+        hostname: 'images.unsplash.com',
       },
       {
         protocol: 'https',
         hostname: 'longdrivecarsnew-lime.vercel.app',
-      }
+      },
+       {
+        protocol: "https",
+        hostname: "cdn.longdrivecars.com",
+      },
+
 
     ],
-    formats: ["image/avif", "image/webp"]
+    formats: ["image/avif", "image/webp"],
+    unoptimized:true,
   },
   compress: true
 

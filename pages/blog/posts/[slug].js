@@ -181,7 +181,9 @@ function SinglePost({ canonicalUrl, postDisplay }) {
       alert("There was an error updating the like.");
     }
   };
-
+const replaceText = (str) => {
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
   // Handle comment form submission
   const handleCommentSubmit = async (e) => {
     e.preventDefault(); // Prevent the form from reloading the page
@@ -240,16 +242,25 @@ function SinglePost({ canonicalUrl, postDisplay }) {
           </Head>
           <div className='flex flex-col lg:px-0 py-2 lg:py-2 text-black'>
             <div className='xl:mx-96 lg:mx-56 mx-6 lg:px-0'>
-              <p className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</p>
-              <p className='helvetica-font text-[#6B6B6B] text-base lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
+              <p className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2  tracking-tight'>{postDisplay?.title}</p>
+              <p className=' text-[#6B6B6B] text-base lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
             </div>
             <div className='xl:mx-24 lg:mx-16 px-1 lg:px-0 py-3 lg:py-6'>
-              <Image
+              {/* <Imagejnknk
                 className="w-full rounded-sm"
                 src={postDisplay?.coverimages}
                 alt={postDisplay?.cialt}
                 width={2000}
                 height={2000}
+              /> */}
+              <Image
+                className="w-full rounded-sm"
+                src={postDisplay?.coverimages?.length ? replaceText(postDisplay?.coverimages) : tempimg}
+                alt={postDisplay?.cialt}
+                width={600}
+                height={400}
+                priority={ 0}
+                unoptimized
               />
             </div>
             <div className=''>
@@ -284,7 +295,7 @@ function SinglePost({ canonicalUrl, postDisplay }) {
               </ul>
             </div>
             <div
-              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6 blogContent"
+              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6 blogContent sun-editor"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
             />
             <div className='flex gap-8 py-4 border-t-2 border-b-2 xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0' >
@@ -348,7 +359,7 @@ function SinglePost({ canonicalUrl, postDisplay }) {
                       {post?.coverimages && (
                         <Image
                           className="rounded-md lg:w-[400px] lg:h-[200px] w-32 h-20 "
-                          src={post?.coverimages?.length ? post?.coverimages : tempimg}
+                          src={post?.coverimages?.length ? replaceText(post?.coverimages) : tempimg}
                           alt={post?.cialt}
                           width={2000}
                           height={2000}

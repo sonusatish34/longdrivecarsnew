@@ -123,7 +123,7 @@ function SinglePost({ canonicalUrl, postDisplay }) {
             </ul>
           </div>
           <Image
-            src={postDisplay?.coverimages}
+            src={postDisplay?.coverimages.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/")}
             alt={postDisplay?.cialt || postDisplay?.title}
             height={800}
             width={800}
@@ -150,7 +150,7 @@ function SinglePost({ canonicalUrl, postDisplay }) {
               </header>
 
               <div
-                className="prose prose-lg max-w-none blogContent georgia-font text-[#242424] leading-[1.8]"
+                className="prose prose-lg max-w-none blogContent sun-editor georgia-font text-[#242424] leading-[1.8]"
                 dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
               />
 
@@ -202,18 +202,34 @@ function SinglePost({ canonicalUrl, postDisplay }) {
             <aside className="lg:col-span-4">
               <div className="sticky top-24">
                 <h2 className="text-xl font-bold border-b-2 border-blue-600 pb-2 mb-6">Related Posts</h2>
-                <div className="space-y-8">
+                <div className="space-y-8 ">
                   {postlist.map((post, i) => (
-                    <Link href={`/attach&earn/posts/${post.slug}`} key={i} className="group flex flex-col gap-3">
-                      <div className="relative h-44 w-full overflow-hidden rounded-lg">
+                    <Link  href={`/attach&earn/posts/${post.slug}`} key={i} className="group flex flex-col gap-3 w-[420px]">
+                      {/* <div className="relative h-44 w-full overflow-hidden rounded-lg">
                         <Image
-                          src={post.coverimages}
+                          src={post.coverimages.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/")}
                           alt={post.title}
                           layout="fill"
-                          objectFit="cover"
-                          className="group-hover:scale-105 transition duration-300"
+                          objectFit="contain"
+                          className="group-hover:scale-105 transition duration-300 "
                         />
-                      </div>
+                      </div> */}
+                    
+            <div className="relative w-full aspect-[16/9] rounded-lg">
+              <Image
+                src={post.coverimages.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/")}
+                alt={`Long Drive Cars banner `}
+                fill
+                sizes="100vw"
+                quality={75}
+                className="object-cover object-center"
+              />
+
+              <div
+                className="absolute inset-0 bg-black/0"
+                aria-hidden="true"
+              />
+            </div>
                       <div>
                         <h3 className="font-bold text-lg leading-snug group-hover:text-blue-600 transition">
                           {post.title.slice(0, 60)}...
@@ -226,14 +242,13 @@ function SinglePost({ canonicalUrl, postDisplay }) {
                   ))}
                 </div>
                 <Link
-                  href={`/blog/recommended`}
+                  href={`/attach&earn/recommended`}
                   className="mt-8 inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
                 >
                   View All Posts <MdExpandMore className="-rotate-90" />
                 </Link>
               </div>
             </aside>
-
           </div>
         </div>
       </article>
@@ -243,26 +258,27 @@ function SinglePost({ canonicalUrl, postDisplay }) {
 
 export default SinglePost;
 
-export async function getServerSideProps({ req, params }) {
-  const host = req.headers.host;
-  const { slug } = params;
-  try {
-    const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
-    const querySnapshot = await getDocs(q);
-    if (querySnapshot.empty) return { notFound: true };
+  export async function getServerSideProps({ req, params }) {
+    const host = req.headers.host;
+    const { slug } = params;
+    try {
+      const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.empty) return { notFound: true };
 
-    const postData = querySnapshot.docs[0].data();
-    const postDisplay = {
-      ...postData,
-      time: postData.time?.toDate().toISOString() || new Date().toISOString(),
-      date: postData.date || ""
-    };
+      const postData = querySnapshot.docs[0].data();
+      
+      const postDisplay = {
+        ...postData,
+        time: postData.time?.toDate().toISOString() || new Date().toISOString(),
+        date: postData.date || ""
+      };
 
-    const protocol = host.includes('localhost') ? 'http' : 'https';
-    const canonicalUrl = `${protocol}://${host}/blog/posts/${postDisplay.slug}`;
+      const protocol = host.includes('localhost') ? 'http' : 'https';
+      const canonicalUrl = `${protocol}://${host}/blog/posts/${postDisplay.slug}`;
 
-    return { props: { canonicalUrl, postDisplay } };
-  } catch (error) {
-    return { notFound: true };
+      return { props: { canonicalUrl, postDisplay } };
+    } catch (error) {
+      return { notFound: true };
+    }
   }
-}

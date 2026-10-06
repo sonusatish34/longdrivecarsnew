@@ -144,7 +144,7 @@ const LocationFetcher = ({ phoneno, locname, wspno }) => {
         <div className="bg-white">
           {!error && (
             <p className="text-center py-5 text-xl font-bold text-black lg:text-3xl lg:pb-8">
-              Explore Cars Near You in 20 Kms
+              Explore Cars Near You
             </p>
           )}
           <div className="flex flex-col gap-x-8 gap-y-12 lg:flex-wrap lg:flex-row lg:pl-36">

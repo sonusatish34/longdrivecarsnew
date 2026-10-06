@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
+        
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -15,6 +15,10 @@ export default function Document() {
           id="meta-keywords"
           name="keywords"
           content="best car rental, rent a car, car rental, self drive car rental, self drive car, monthly car rental, car on rent without driver, luxury car rental, car rent for one day, booking car rental, airport car rental, online car rental"
+        />
+        <meta
+          name="facebook-domain-verification"
+          content="4a5060u6ifh2t04q3dtfpzbudg4tgp"
         />
         <meta
           id="meta-keyphrases"
@@ -53,11 +57,6 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <script 
-      src="https://uat.nabo.enterprises/widget/chat-widget.js" 
-      data-bot-key="bot_6620b7a0c5feabdbd0d297071f4b43aa" 
-      async>
-    </script>
       </body>
     </Html>
   );

@@ -15,7 +15,7 @@ import Layout from '../components/Layout/Layout';
 import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
 import { decryptFernetData } from '@/utils/crypto';
-export default function Place({ cars, canonicalUrl }) {
+export default function Place({ cars, canonicalUrl,prices }) {
 
     const [loading, setLoading] = useState(false);
 
@@ -51,7 +51,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9000777665'} />
-                    <PriceList city={'hyd'} />
+                    <PriceList prices={prices} city={'hyd'} />
                 </div>
             </Layout>
         </div>
@@ -63,6 +63,11 @@ export async function getServerSideProps({ req }) {
     const items = await response.json();
     const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
     const cars = decryptedCars;
+
+    const priceRes = await fetch('https://api.longdrivecars.com/l-site-dc/hyd-prices');
+    const priceData = await priceRes.json();
+    const decryptedPrices = decryptFernetData(priceData?.results, process.env.LDC_SECRET_KEY);
+    const finalPrices = decryptedPrices || {};
 
     const filteredCars = cars?.map(car => ({
         maker_model: car.maker_model,
@@ -85,6 +90,7 @@ export async function getServerSideProps({ req }) {
         props: {
             cars: filteredCars,  // Return only the filtered data
             canonicalUrl,
+            prices:finalPrices
         },
     };
 }

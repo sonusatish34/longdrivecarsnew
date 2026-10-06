@@ -34,7 +34,8 @@ const useIsMobile = () => {
     return isMobile;
 };
 
-const CardFragment = ({ item, wspno, phoneno }) => {
+const CardFragment = ({ item, wspno, phoneno,banner }) => {
+    
     const [showDown, setShowDown] = useState(false);
     const isMobile = useIsMobile();
 
@@ -103,7 +104,7 @@ const carImages = rawImages
                     <div className="flex gap-x-8 mxs:gap-x-16 items-center justify-center pt-5 pb-2">
                         <p className="text-[15px]">Book Now</p>
                         <p className="capitalize p-1 font-bold text-white font-manrope text-base">
-                            ₹ {item?.price_24_hours * 24} / 24hrs
+                            ₹ {item?.price_24_hours} / 24hrs
                         </p>
                     </div>
                     <ul className="flex gap-4 justify-center text-xs mxs:text-sm pt-2 pb-6">

@@ -5,9 +5,12 @@ import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
 import ecil from '../components/Branches/ecil';
+import dilshuknagar from '../components/Branches/dilshuknagar';
+import ramanthapur from '../components/Branches/ramanthapur';
 
 const components = {
   ameerpet: dynamic(() => import('../components/Branches/ameerpet'), { ssr: false }),
+  balanagar: dynamic(() => import('../components/Branches/balanagar'), { ssr: false }),
   dilshuknagar: dynamic(() => import('../components/Branches/dilshuknagar')),
   ecil: dynamic(() => import('../components/Branches/ecil')),
   kukatpally: dynamic(() => import('../components/Branches/kukatpally')),
@@ -18,6 +21,26 @@ const components = {
   shamshabad: dynamic(() => import('../components/Branches/shamshabad')),
   ramanthapur: dynamic(() => import('../components/Branches/ramanthapur')),
   gachibowli: dynamic(() => import('../components/Branches/gachibowli')),
+  manikonda: dynamic(() => import('../components/Branches/manikonda')),
+  warangal: dynamic(() => import('../components/Branches/warangal')),
+  uppal: dynamic(() => import('../components/Branches/uppal')),
+  begumpet: dynamic(() => import('../components/Branches/begumpet')),
+  lbnagar: dynamic(() => import('../components/Branches/lbnagar')),
+  shamirpet: dynamic(() => import('../components/Branches/shamirpet')),
+  alwal: dynamic(() => import('../components/Branches/alwal')),
+  ecil: dynamic(() => import('../components/Branches/ecil')),
+  nacharam: dynamic(() => import('../components/Branches/nacharam')),
+  habsiguda: dynamic(() => import('../components/Branches/habsiguda')),
+  tarnaka: dynamic(() => import('../components/Branches/tarnaka')),
+  dilshuknagar: dynamic(() => import('../components/Branches/dilshuknagar')),
+  bachupally: dynamic(() => import('../components/Branches/bachupally')),
+  bowenpally: dynamic(() => import('../components/Branches/bowenpally')),
+  vanasthalipuram: dynamic(() => import('../components/Branches/vanasthalipuram')),
+  hayatnagar: dynamic(() => import('../components/Branches/hayatnagar')),
+  nampally: dynamic(() => import('../components/Branches/nampally')),
+  saroornagar: dynamic(() => import('../components/Branches/saroornagar')),
+  kachiguda: dynamic(() => import('../components/Branches/kachiguda')),
+  bnreddynagar: dynamic(() => import('../components/Branches/bnreddynagar')),
 };
 
 const metadata = {
@@ -30,7 +53,6 @@ const metadata = {
   dilshuknagar: {
     title: 'Car Rentals Dilsukhnagar Without a Driver',
     description: 'Find the best self drive rentals in Dilsukhnagar for solo or group travel. Simple online booking and great customer support.'
-
   },
 
   ecil: {
@@ -81,6 +103,15 @@ const metadata = {
 
   },
 
+  manikonda: {
+    title: 'Self Drive Car Rental in Manikonda | Long Drive Cars',
+    description: 'Rent self drive cars in Manikonda with flexible hourly, daily, and weekend plans. Clean cars, quick booking, and easy pickup nearby.'
+  },
+
+  lbnagar: {
+    title: 'Car Rentals in LB Nagar | Affordable & Convenient Travel Guide',
+    description: 'Book affordable self-drive and chauffeur car rentals in LB Nagar Hyderabad. Flexible rentals, transparent pricing, and easy booking for daily or outstation travel.'
+  },
 
   // Add other branches here...
 };

@@ -18,6 +18,8 @@ const ComponentName = ({canonicalUrl}) => {
   const [postlist, setPostlist] = useState([]);
   const [sortedPostlist, setSortedPostlist] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // State for loader
+  const [searchQuery, setSearchQuery] = useState('');
+    const [filteredPosts, setFilteredPosts] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -44,6 +46,17 @@ const ComponentName = ({canonicalUrl}) => {
     fetchPosts();
   }, []);
 
+  useEffect(() => {
+    if (searchQuery) {
+      const filtered = sortedPostlist.filter(post =>
+        post.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredPosts(filtered);
+    } else {
+      setFilteredPosts(sortedPostlist);
+    }
+  }, [searchQuery, sortedPostlist]);
+
 
   return (
     <div>
@@ -60,8 +73,8 @@ const ComponentName = ({canonicalUrl}) => {
       {isLoading ? (
         <Loading />
       ) :
-        <BlogLayout catg={"Blog"}>
-          <div className='xl:px-32 lg:px-12 flex flex-col items-center helvetica-font'>
+        <BlogLayout onSearch={setSearchQuery} catg={"Blog"}>
+          <div className='xl:px-32 lg:px-12 flex flex-col items-center '>
             <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
               <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">Blogs</p>
               <ul className='flex justify-center items-center pt-2 gap-3'>
@@ -71,11 +84,11 @@ const ComponentName = ({canonicalUrl}) => {
               </ul>
             </div>
             <div className='text-center flex justify-center lg:pt-10 pt-4'>
-              <PostsListing data={sortedPostlist} />
+              <PostsListing data={filteredPosts} />
             </div>
-            <RandomPosts data={postlist} />
+            <RandomPosts data={filteredPosts} />
           </div>
-          <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 helvetica-font">
+          <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 ">
             <Link href={`/blog/${'travel'}`} className="flex space-x-2">
               <span className="border-2 text-white rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
                 <span>See more</span>

@@ -19,7 +19,7 @@ import Head from 'next/head';
 import PopUp from '../components/PopUp';
 import { decryptFernetData } from '@/utils/crypto';
 
-export default function Place({ cars, canonicalUrl }) {
+export default function Place({ cars, canonicalUrl, prices }) {
     const [carData, setCarData] = useState(null);
     const [carData2, setCarData2] = useState(null);
 
@@ -67,7 +67,7 @@ export default function Place({ cars, canonicalUrl }) {
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9666699583'} />
-                    <PriceList city={'hyd'} />
+                    <PriceList city={'hyd'} prices={prices}/>
                     <PopUp />
                 </div>
             </Layout>
@@ -77,28 +77,16 @@ export default function Place({ cars, canonicalUrl }) {
 
 
 
-// export async function getServerSideProps({req}) {
-//     const response = await fetch('https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad');
-//     const items = await response.json();
-//     const cars = items?.data?.results;
-//     const host = req.headers.host;
-//     const canonicalUrl = host.includes('.in')
-//       ? 'https://www.longdrivecars.in/vijayawada'
-//       : 'https://www.longdrivecars.com/vijayawada';
-
-//     return {
-//       props: {
-//         cars,
-//         canonicalUrl,
-//       },
-//     };
-//   }
-
 export async function getServerSideProps({ req }) {
     const response = await fetch('https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad');
     const items = await response.json();
     const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
     const cars = decryptedCars;
+
+    const priceRes = await fetch('https://api.longdrivecars.com/l-site-dc/hyd-prices');
+    const priceData = await priceRes.json();
+    const decryptedPrices = decryptFernetData(priceData?.results, process.env.LDC_SECRET_KEY);
+    const finalPrices = decryptedPrices || {};
 
     const filteredCars = cars?.map(car => ({
         maker_model: car.maker_model,
@@ -121,6 +109,7 @@ export async function getServerSideProps({ req }) {
         props: {
             cars: filteredCars,  // Return only the filtered data
             canonicalUrl,
+            prices:finalPrices
         },
     };
 }

@@ -30,9 +30,9 @@ const ImageChange = ({ locname }) => {
             fetchpriority="high"
           />
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl lg:pt-10 pt-3">
-            <h1 className='xl:text-3xl lg:text-2xl text-xl text-center lg:text-left  font-bold  lg:w-2/3 capitalize'>Self Drive Car Rentals {locname ? ` in ${locname}` : ""}</h1>
-            <h2 className='xl:text-2xl lg:text-xl text-lg text-center lg:text-left font-semibold lg:w-2/3 pt-7'>1 Lakh + Cars Near You</h2>
-            <h3 className='pt-2 xl:text-2xl lg:text-xl text-lg text-center lg:text-left font-semibold lg:w-3/5'>Download Long Drive Cars App to Check Available Cars & Book</h3>
+            <p className='xl:text-3xl lg:text-2xl text-xl text-center lg:text-left  font-bold  lg:w-2/3 capitalize'>Self Drive Car Rentals {locname ? ` in ${locname}` : ""}</p>
+            <p className='xl:text-2xl lg:text-xl text-lg text-center lg:text-left font-semibold lg:w-2/3 pt-7'>1 Lakh + Cars Near You</p>
+            <p className='pt-2 xl:text-2xl lg:text-xl text-lg text-center lg:text-left font-semibold lg:w-3/5'>Download Long Drive Cars App to Check Available Cars & Book</p>
             <div className='flex flex-wrap justify-center lg:justify-normal lg:gap-8 pt-2 gap-2 lg:w-full text-sm md:text-xs xl:text-base'>
               <div className="flex gap-2 py-2 justify-center lg:justify-normal items-center">
                 <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>

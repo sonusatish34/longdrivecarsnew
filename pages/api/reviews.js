@@ -3,7 +3,7 @@ export default async function handler(req, res) {
     const { car_owner_id } = req.query;
 
     const response = await fetch(
-      `https://dev.longdrivecars.com/l-site-dc/car-reviews?car_owner_id=${car_owner_id}`
+      `https://api.longdrivecars.com/l-site-dc/car-reviews?car_owner_id=${car_owner_id}`
     );
 
     const data = await response.json();

@@ -28,7 +28,9 @@ const ComponentName = ({ canonicalUrl }) => {
     const [error, setError] = useState(null); // State to manage errors
     const [cLis, setCList] = useState();
 
-
+     const replaceText = (str) => {
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
 
     useEffect(() => {
         const fetchCatAndPosts = async () => {
@@ -96,11 +98,11 @@ const ComponentName = ({ canonicalUrl }) => {
     return (
         <BlogLayoutForAttch onSearch={setSearchQuery} catg={category} recommended={true}>
             <Head>
-                <title>  No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U</title>
+                <title>  Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
                 <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="  No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U" />
-                <meta property="og:description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+                <meta property="og:title" content="  Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans" />
+                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
 
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
@@ -203,13 +205,13 @@ const ComponentName = ({ canonicalUrl }) => {
                                                     className="rounded-sm lg:w-[150px] lg:h-[104px] w-[70px] h-[70px] mxs:w-[80px] mxs:h-[80px]"
                                                     src={
                                                         post?.coverimages?.length
-                                                            ? post?.coverimages
+                                                            ? replaceText(post?.coverimages)
                                                             : tempimg
                                                     }
                                                     alt={post?.cialt}
                                                     width={2000}
                                                     height={2000}
-                                                    fetchPriority={i === 0 ? 'high' : 'low'}
+                                                    
                                                 />
                                             )}
                                         </Link>

@@ -2,6 +2,15 @@ import "@/styles/globals.css";
 import React from 'react';
 import Script from 'next/script';
 import Head from 'next/head';
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  preload: true,
+  variable: "--font-poppins",
+});
 function MyApp({ Component, pageProps }) {
     return (
         <>
@@ -90,7 +99,7 @@ function MyApp({ Component, pageProps }) {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '2086274652216753');
+            fbq('init', '2480970719039521');
             fbq('track', 'PageView');
           `,
                 }}
@@ -100,10 +109,13 @@ function MyApp({ Component, pageProps }) {
                     height="1"
                     width="1"
                     style={{ display: "none" }}
-                    src="https://www.facebook.com/tr?id=2086274652216753&ev=PageView&noscript=1"
+                    src="https://www.facebook.com/tr?id=2480970719039521&ev=PageView&noscript=1"
                 />
             </noscript>
+            <main className={`${poppins.className} ${poppins.variable}`}>
+
             <Component {...pageProps} />
+            </main>
         </>
     );
 }

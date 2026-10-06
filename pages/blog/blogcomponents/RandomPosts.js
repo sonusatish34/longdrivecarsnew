@@ -5,7 +5,7 @@ import { BiCategory } from "react-icons/bi";
 import { FaRegComment } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 
-const RandomPosts = ({ data,loc }) => {
+const RandomPosts = ({ data, loc }) => {
   const postsPerPage = 6; // Adjust this number based on how many posts you want per page
   const [currentPage, setCurrentPage] = useState(1);
   const [pageGroup, setPageGroup] = useState(0); // This controls which group of pages to show
@@ -55,6 +55,10 @@ const RandomPosts = ({ data,loc }) => {
     pageGroup * 4 + 4
   );
 
+  const replaceText = (str) => {
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
+
   return (
     <div className="pt-1 border-t-2 border-gray-300 px-3">
       <p className="text-left text-2xl font-semibold pt-4 leading-6 capitalize">
@@ -66,29 +70,30 @@ const RandomPosts = ({ data,loc }) => {
         {currentPosts?.length > 0 ? (
           currentPosts.map((post, i) => (
             <Link
-              href={`${loc?`/${loc}`:''}/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
+              href={`${loc ? `/${loc}` : ''}/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
               key={`key-${i}`}
               className="lg:px-0 w-full"
             >
               <p className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight">
                 {post?.coverimages && (
                   <Image
-                    className="rounded-md xl:h-[220px] lg:h-[160px] h-[80px] mxs:h-[120px] object-cover"
+                    className="rounded-md xl:h-[220px] lg:h-[160px] h-[80px] mxs:h-[120px] object-cover w-full"
                     src={
                       post?.coverimages?.length
-                        ? post?.coverimages
+                        ? replaceText(post?.coverimages)
                         : "/tempimg.jpg"
                     }
                     alt={post?.cialt || "Post Image"}
-                    width={2000}
-                    height={2000}
-                    priority={i === 0 ? true : false}
+                    width={600}
+                    height={400}
+                    priority={i === 0}
+                    unoptimized
                   />
                 )}
               </p>
               <p className="lg:pb-3 hover:text-[#556ee6] font-bold lg:text-lg text-sm text-left pt-4 h-20 mxs:h-16 mxs:first-letter:h-16 lg:h-20 block lg:hidden">
                 <span className="block hover:text-primary">
-                  {post?.title && post?.title.slice(0, 35)}..
+                  {post?.title && post?.title.slice(0, 35)}
                 </span>
               </p>
               <p className="lg:pb-3 hover:text-[#556ee6] font-bold xl:text-lg lg:text-base text-xs text-left pt-4 h-10 xl:h-20 lg:h-16 lg:block hidden">
@@ -96,19 +101,19 @@ const RandomPosts = ({ data,loc }) => {
                   href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
                   className="block hover:text-primary"
                 >
-                  {post?.title && post?.title.slice(0, 65)}..
+                  {post?.title && post?.title.slice(0, 68)}
                 </span>
               </p>
               <p className="text-left text-[#6B6B6B] lowercase text-xs pt-1 tracking-wide leading-5 lg:hidden block h-20 capitalize-first-letter">
-                {post?.description && post?.description.slice(0, 60)}...
+                {post?.description && post?.description.slice(0, 65)}
               </p>
               <p className="text-left text-[#6B6B6B] xl:text-base lg:text-sm text-xs pt-1 tracking-wide lowercase leading-6 lg:block hidden h-28 lg:h-20 xl:h-24 capitalize-first-letter">
-                {post?.description && post?.description.slice(0, 110)}...
+                {post?.description && post?.description.slice(0, 120)}
               </p>
               <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-xs lg:text-xs lg:pt-4">
-                {/* <li className="hidden lg:block">
+                <li className="hidden lg:block">
                   <p>{post?.date.slice(0, 12)}</p>
-                </li> */}
+                </li>
                 <li className="flex items-center gap-1">
                   <span>
                     <BiCategory className="text-blue-400" />

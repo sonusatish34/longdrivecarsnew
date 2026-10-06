@@ -1,10 +1,4 @@
 /* Define the font using @font-face */
-@font-face {
-  font-family: 'HVFont'; /* You can name this whatever you like */
-  src: url('/font/Helvetica-Light.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'georgia'; /* You can name this whatever you like */
@@ -13,29 +7,19 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'buch'; /* You can name this whatever you like */
-  src: url('/font/buch.otf') format('otf');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 /* Apply the custom font globally */
-.helvetica-font {
+/* . {
   font-family: 'HVFont', sans-serif;
-}
+} */
 
 
 .georgia-font {
   font-family: 'georgia', sans-serif;
 }
-.buch-font {
-  font-family: 'buch', sans-serif;
-}
-body {
-  font-family: "Poppins", sans-serif;
-  /* letter-spacing: 0.3 !important; */
-}
+
+
 
 @tailwind base;
 @tailwind components;
@@ -109,10 +93,10 @@ body {
   }
 }
 
-.grotesk-text {
+/* . {
   font-family: "Space Grotesk", sans-serif;
   font-display: swap;
-}
+} */
 
 
 /* styles/globals.css */
@@ -139,6 +123,23 @@ body {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* Style all tables */
+.sun-editor table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Style table cells */
+.sun-editor table td {
+  border: 1px solid #000; /* black border */
+  padding: 8px; /* optional spacing inside cells */
+}
+
+/* Optional: style table headers or divs inside cells */
+.sun-editor table td div {
+  /* You can add text alignment, font styling, etc. */
 }
   
 

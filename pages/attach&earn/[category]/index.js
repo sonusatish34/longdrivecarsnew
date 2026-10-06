@@ -153,22 +153,22 @@ const CategoryPage = ({ canonicalUrl }) => {
     return (
         <div>
             <Head>
-                <title> No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U</title>
+                <title> Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
                 <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="  No Deposit & Unlimited km - Self-Drive Car Rentalss" />
-                <meta property="og:description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div >
                 <BlogLayoutForAttch onSearch={setSearchQuery} catg={category}>
-                    <div className='xl:px-32 lg:px-12  helvetica-font'>
+                    <div className='xl:px-32 lg:px-12  '>
                         <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
                             <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
                             <ul className='flex justify-center items-center pt-2 gap-3'>
                                 <li>Topic</li>
                                 <li><GoDotFill /></li>
-                                <li>{postlist?.length} sto---ries</li>
+                                <li>{postlist?.length} stories</li>
                             </ul>
                             {/* <div className='text-center flex justify-center lg:pt-10 pt-4'>
                                 <PostsListing catg={category} data={filteredPosts} />
@@ -176,7 +176,7 @@ const CategoryPage = ({ canonicalUrl }) => {
                             <RandomPostsAttach data={randomPostlist} />
                         </div>
                     </div>
-                    <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 helvetica-font">
+                    <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 ">
                         <Link href={`/attach&earn/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
                             <span className="border-2 text-white rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
                                 <span>See more</span>

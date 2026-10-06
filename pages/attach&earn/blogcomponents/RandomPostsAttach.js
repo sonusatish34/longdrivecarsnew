@@ -33,7 +33,9 @@ const RandomPosts = ({ data, loc }) => {
   const totalPages = Math.ceil(processedData.length / postsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
   const pageNumbersToDisplay = pageNumbers.slice(pageGroup * 4, pageGroup * 4 + 4);
-
+  const replaceText = (str) => {
+    return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
   return (
     <div className="lg:pl-20 mx-auto px-4 py-12">
       <h1 className="lg:text-4xl text-enter mb-12 font-bold tracking-wide text-gray-800">
@@ -86,16 +88,24 @@ const RandomPosts = ({ data, loc }) => {
               href={`${loc ? `/${loc}` : ""}/attach&earn/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
               className="group flex flex-col items-center text-center bg-white transition-all border rounded-lg p-5"
             >
-              <div className="w-full overflow-hidden mb-6 rounded-lg">
-                <Image
-                  className="w-full h-52 rounded-lg grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 object-cover"
-                  src={post?.coverimages || "/tempimg.jpg"}
+              <div className="relative w-full aspect-[16/9] rounded-lg">
+                {/* <Image
+                  className="w-full h-52 rounded-lg grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 object-cover "
+                  src={replaceText(post?.coverimages)|| "/tempimg.jpg"}
                   alt={post?.cialt || "Post Image"}
                   width={600}
                   height={600}
+                /> */}
+                <Image
+                  src={post.coverimages.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/")}
+                  alt={`Long Drive Cars banner `}
+                  fill
+                  sizes="100vw"
+                  quality={75}
+                  className="object-cover object-center"
                 />
               </div>
-              <span className="text-[10px] tracking-[0.2em] text-gray-400 uppercase mb-3">
+              <span className="text-[10px] tracking-[0.2em] text-gray-400 uppercase my-3">
                 {post?.date?.slice(0, 12) || "August 11, 2015"}
               </span>
               <h3 className="text-xl md:text-2xl font-serif text-gray-700 uppercase tracking-wider leading-tight px-4 hover:text-blue-600 transition-colors">
@@ -132,9 +142,8 @@ const RandomPosts = ({ data, loc }) => {
               <button
                 key={num}
                 onClick={() => setCurrentPage(num)}
-                className={`w-8 h-8 rounded-full text-xs transition-all ${
-                  currentPage === num ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
+                className={`w-8 h-8 rounded-full text-xs transition-all ${currentPage === num ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
               >
                 {num}
               </button>

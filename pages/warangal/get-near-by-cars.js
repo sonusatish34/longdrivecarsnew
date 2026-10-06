@@ -10,10 +10,10 @@ function getnearbycars({ canonicalUrl }) {
   return (
     <div className='bg-white'>
       <Head>
-        <title>No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U</title>
+        <title>Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
         <meta name="description" content="Plan your trips with Lowest Price Self-Drive car rentals starting at just ₹1776/day. So book Dzire for ₹1680/day or Ertiga at ₹2496/day now with No Deposit &  Unlimited kms." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U" />
+        <meta property="og:title" content="Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans" />
         <meta property="og:description" content="Plan your trips with Lowest Price Self-Drive car rentals starting at just ₹1776/day. So book Dzire for ₹1680/day or Ertiga at ₹2496/day now with Unlimited kms" />
 
         <link rel="canonical" href={canonicalUrl} />

@@ -5,7 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo2 from '../../../public/logos/logo3.webp';
 import { LuPhoneCall } from 'react-icons/lu';
-import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaYoutube, FaQuora  } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+
 import { TbPointFilled } from "react-icons/tb";
 import Marquee from 'react-fast-marquee';
 import { SiLinkedin } from "react-icons/si";
@@ -39,7 +42,7 @@ const HamburgerMenu = ({ locname, phoneno }) => {
   return (
     <div className='fixed lg:relative top-0 left-0 right-0 z-50 bg-white text-black shadow-md '>
       <div className='w-full flex justify-between items-center gap-3 lg:px-14 xl:px-16 px-2'>
-        <div className='xl:w-[86%] w-[60%] '>
+        <div className='xl:w-[79%] lg:w-[70%] w-[48%] '>
           <Marquee speed={70}>
             <div className={'flex p-1 text-xs gap-x-20 lg:text-lg'}>
               {['No Deposit', 'Unlimited Kilometers', 'Neatly Washed Car', 'Choose your Favourite Color Car', 'Check Original Car Photos & Book', 'Choose Your Own Hours 36hr, 50hr', 'Car Starts ₹1776/day, min 24hrs', 'Any Problem 24/7 Service', 'Lowest Price Challenge', 'Dzire 1992 per day', 'Just pay 10% Advance & book'].map((text, index) => (
@@ -55,20 +58,22 @@ const HamburgerMenu = ({ locname, phoneno }) => {
           </Marquee>
 
         </div>
-        <ul className='flex lg:gap-6 gap-4 border-l-2 border-l-black lg:w-1/5 lg:pl-4 px-1'>
-          {[
-            { href: 'https://www.facebook.com/selfdrivecarsbylongdrivecars/', icon: <FaFacebook /> },
-            { href: 'https://www.instagram.com/longdrivecars_hyderabad/', icon: <FaInstagram /> },
-            { href: 'https://in.linkedin.com/company/long-drive-cars', icon: <SiLinkedin /> },
-            { href: 'https://www.youtube.com/@longdrivecars_official', icon: <FaYoutube /> },
-          ].map(({ href, icon }, index) => (
-            <li key={index}>
-              <Link href={href} target='_blank'>
-                {React.cloneElement(icon, { className: 'hover:text-blue-500 cursor-pointer lg:size-6' })}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ul className='flex lg:gap-6 gap-[10px] border-l-2  border-l-black xl:w-1/5 lg:w-2/3 lg:pl-4 px-1'>
+        {[
+          { href: 'https://www.facebook.com/Longdrivecarshyderabad/', icon: <FaFacebook /> },
+          { href: 'https://www.instagram.com/longdrivecars_app/', icon: <FaInstagram /> },
+          { href: 'https://x.com/Long_drive_cars', icon: <FaXTwitter /> },
+          { href: 'https://www.linkedin.com/company/long-drive-cars/', icon: <FaLinkedin /> },
+          { href: 'https://www.youtube.com/@longdrivecars_app', icon: <FaYoutube /> },
+          { href: 'https://www.quora.com/profile/Long-Drive-Cars', icon: <FaQuora /> },
+        ].map(({ href, icon }, index) => (
+          <li key={index}>
+            <Link href={href} target='_blank' rel='noopener noreferrer'>
+              {React.cloneElement(icon, { className: 'hover:text-blue-500 cursor-pointer lg:size-6' })}
+            </Link>
+          </li>
+        ))}
+      </ul>
       </div>
       <div className="flex bg-gray-800 justify-between text-white text-base py-2 lg:px-14 xl:px-16 px-2">
         <p className='lg:text-2xl lg:font-bold'>For Booking Help</p>

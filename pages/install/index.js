@@ -49,7 +49,7 @@ export default function InstallPage() {
     <div className="relative min-h-screen bg-white flex flex-col justify-center items-center px-4">
       
       <Image
-        src="/250cashback.webp"
+        src="/oandd/3.webp"
         alt="Long Drive Cars App"
         width={420}
         height={420}

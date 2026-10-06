@@ -48,7 +48,6 @@ const CarDetails = ({ city, phoneno, wspno }) => {
   const mdyfmaker_model = formatMakerModel(maker_model);
 
   const [reviews, setReviews] = useState([]);
-  // console.log(reviews, 'reviews');
 
   useEffect(() => {
 
@@ -85,11 +84,11 @@ const CarDetails = ({ city, phoneno, wspno }) => {
   return (
     <div className='bg-white text-black'>
       <Head>
-        <title> No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U </title>
-        <meta id="meta-desc" name="description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+        <title> Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans </title>
+        <meta id="meta-desc" name="Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content=" No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U " />
-        <meta property="og:description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+        <meta property="og:title" content=" Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans " />
+        <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
       </Head>
       <div className='xl:mx-16 mx-4'>
         <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2  lg:pl-20 border-purple-500 lg:rounded  rounded-md'>
@@ -150,7 +149,7 @@ const CarDetails = ({ city, phoneno, wspno }) => {
           <div className='flex flex-col xl:pl-40 '>
             <div className='lg:py-28'>
               <p className='p-1 font-bold  text-3xl lg:pl-20 capitalize'>{mdyfmaker_model}</p>
-              <p className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹{caritem?.price_24_hours * 24}/day</span></p>
+              <p className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹{caritem?.price_24_hours}/day</span></p>
             </div>
             <div className='pt-6 flex flex-col xs:hidden lg:flex lg:pl-20'>
               <p className='font-semibold text-2xl '>Contact us  by</p>

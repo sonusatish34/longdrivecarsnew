@@ -1,32 +1,32 @@
 import React, { useRef, useEffect, useState } from 'react';
 import apple from '../../images/apple.webp';
 import google from '../../images/ggle.webp';
+
+import Image from 'next/image';
+import Link from 'next/link';
 import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-import Image from 'next/image';
-import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const fddata = [
-  { carname: "MARUTHI WAGON R", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/14k/Wagon-R_8_11zon-transformed.webp" },
-  { carname: "MARUTHI SWIFT", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Swift.webp" },
-  { carname: "MARUTHI DZIRE", src: 'https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Swift-Dzire.webp' },
-  { carname: "GRAND NIOS", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Grand-I10-Nios.webp" },
-  { carname: "MARUTHI BALENO", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Baleno.webp" },
-  { carname: "HYUNDAI I20", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/I20.webp" },
-  { carname: "HYUNDAI VENUE", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Venue.webp" },
-  { carname: "KIA SONET", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/sonnet.webp" },
-  { carname: "KIA SELTOS", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/20000/Seltos.webp" },
-  { carname: "KIA SONET SUNROOF", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/30000/Kia-Sonet-sunroof.webp" },
-  { carname: "SELTOS SUNROOF", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/40000/seltos-sunroof.webp" },
-  { carname: "MARUTHI ERTIGA", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/30000/ERTIGA_RED.webp" },
-  { carname: "MAHINDRA THAR 2024", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/Mahindra-Thar.webp" },
-  { carname: "INNOVA CRYSTA", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/InnovaCrysta.webp" },
-  { carname: "MAHINDRA XUV 700", src: "https://ldcars.blr1.cdn.digitaloceanspaces.com/ldcars_nextjs_images/cars/60000/XUV700.webp" },
+  { carname: "MARUTHI WAGON R", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/14k/Wagon-R_8_11zon-transformed.webp" },
+  { carname: "MARUTHI SWIFT", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Swift.webp" },
+  { carname: "MARUTHI DZIRE", src: 'https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Swift-Dzire.webp' },
+  { carname: "GRAND NIOS", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Grand-I10-Nios.webp" },
+  { carname: "MARUTHI BALENO", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Baleno.webp" },
+  { carname: "HYUNDAI I20", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/I20.webp" },
+  { carname: "HYUNDAI VENUE", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Venue.webp" },
+  { carname: "KIA SONET", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/sonnet.webp" },
+  { carname: "KIA SELTOS", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/20000/Seltos.webp" },
+  { carname: "KIA SONET SUNROOF", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/30000/Kia-Sonet-sunroof.webp" },
+  { carname: "SELTOS SUNROOF", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/40000/seltos-sunroof.webp" },
+  { carname: "MARUTHI ERTIGA", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/30000/ERTIGA_RED.webp" },
+  { carname: "MAHINDRA THAR 2024", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/60000/Mahindra-Thar.webp" },
+  { carname: "INNOVA CRYSTA", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/60000/InnovaCrysta.webp" },
+  { carname: "MAHINDRA XUV 700", src: "https://cdn.longdrivecars.com/ldcars_nextjs_images/cars/60000/XUV700.webp" },
 ];
 
 
@@ -103,9 +103,9 @@ function FeaturedCars({ data, branch }) {
                         </div>
                         <p className='text-left text-lg pt-2 font-bold px-3 border-t-2 border-b-2 border-gray-200'>{item?.maker_model}</p>
                         <div className='flex flex-col gap-1'>
-                          <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {item?.price_24_hours * 24}</span></p>
-                          <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 24 * 4}</span></p>
-                          <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {(item?.price_24_hours * 24 * 10) - 2000}</span></p>
+                          <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {item?.price_24_hours}</span></p>
+                          <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 4}</span></p>
+                          <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {(item?.price_24_hours * 10) - 2000}</span></p>
                         </div>
                         <div className="flex items-center justify-center gap-4 pt-1 border-t-2 border-gray-200">
                           <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>

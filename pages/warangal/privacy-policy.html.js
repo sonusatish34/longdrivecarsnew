@@ -13,7 +13,7 @@ function privacypolicyhtml({ canonicalUrl }) {
                     <meta property="og:description" content="Discover how your personal info is protected while booking self drive car rentals with Long Drive Cars." />
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
-                <div className=' text-[#666] lg:px-20 pl-8 pr-6 pt-40 lg:pt-4 text-sm lg:text-base font-light grotesk-text leading-6 lg:leading-7'>
+                <div className=' text-[#666] lg:px-20 pl-8 pr-6 pt-40 lg:pt-4 text-sm lg:text-base font-light  leading-6 lg:leading-7'>
                     <p className='font-bold text-xs text-right'>Updated On: 12th November, 2025.</p>
                     <p className='text-center font-bold pt-3 text-base text-black'>PRIVACY POLICY</p>
                     <ol className='pt-3'>
@@ -33,7 +33,7 @@ function privacypolicyhtml({ canonicalUrl }) {
                     </ol>
                     <div className='pt-2 border-t-2 border-t-gray-200 pb-2'>
                         <p id='cancel_refund_policy' className='font-bold py-3 text-base text-black '>Cancellation & Refund policy</p>
-                        <p>Cancel <bold> before pickup</bold> for 50% refund or equivalent LDC Wallet credit </p> <p><strong>No refund </strong> for cancellations after pickup or no-shows.</p>
+                        <p>👉 No Refund After Pickup time</p><p>👉 Your Booking Will be Automatically Cancelled if you did not pickup Car Within 3hrs of Pickup Time & No Refund</p><p>👉 if your Late Change Pickup Time in App</p><p>👉 100% Refund before 12hr of Pickup time</p><p>👉 50% Refund before 6hr of Pickup Time</p><p>👉 25% Refund before Pickup Time</p><p>👉 No Refund for modified bookings</p><p>👉 Savings pass & ldc credits will be Refunded</p>
                     </div>
                     <div className='pt-2 border-t-2 border-t-gray-200'>
                         <p className='font-bold pt-3 text-base text-black'>WHAT DATA IS COLLECTED</p>

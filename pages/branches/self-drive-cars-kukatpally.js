@@ -1,112 +1,523 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Car,
+  Compass,
+  Calendar,
+  CheckCircle2,
+  ChevronDown,
+  ShoppingBag,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  Shield,
+  ArrowRight,
+  Sparkles,
+  HelpCircle,
+  TrendingUp,
+  FileText
+} from 'lucide-react';
 import HamburgerMenu from '../components/Hamburger/HamburgerMenu';
 import Footer from '../components/Footer/Footer';
-import Image from 'next/image';
-import www from '../images/branchimages/6.webp'
-import Head from 'next/head';
 
-function kukatpally({canonicalUrl}) {
+// ============================================================================
+// SEO METADATA
+// ============================================================================
+export const metadata = {
+  title: 'Self Drive Car Rentals Kukatpally | The Ultimate Travel Guide',
+  description:
+    'Discover hassle-free travel with self drive car rentals in Kukatpally. Enjoy zero deposit options, unlimited kilometers, hourly, daily, and monthly plans.',
+  keywords: [
+    'Self drive car rentals in Kukatpally',
+    'Best self drive car rentals in Kukatpally',
+    'Cheap self drive cars in Kukatpally without deposit',
+    'Kukatpally Car Rental Hyderabad',
+    'Zero Deposit Car Rental Kukatpally',
+    'Self Drive Cars Hyderabad'
+  ],
+  alternates: {
+    canonical: 'https://www.longdrivecars.com/kukatpally-car-rentals'
+  },
+  openGraph: {
+    title: 'Self Drive Car Rentals Kukatpally – Hassle-Free Travel Guide',
+    description:
+      'Rent self drive cars in Kukatpally with zero deposit and unlimited kilometers. Explore Hyderabad at your own pace.',
+    url: 'https://www.longdrivecars.com',
+    siteName: 'Long Drive Cars',
+    images: [
+      {
+        url: '/locationpages/shamshabad.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Self Drive Car Rentals in Kukatpally'
+      }
+    ],
+    locale: 'en_IN',
+    type: 'article'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Self Drive Car Rentals Kukatpally | The Ultimate Guide',
+    description:
+      'Compare plans, rental types, and book affordable zero deposit self-drive cars in Kukatpally.',
+    images: ['/locationpages/shamshabad.webp']
+  }
+};
+
+// ============================================================================
+// PAGE COMPONENT
+// ============================================================================
+export default function KukatpallyCarRentalsPage() {
+  const targetUrl = 'https://www.longdrivecars.com';
+
+  const rentalTypes = [
+    {
+      icon: Clock,
+      title: '1. Hourly Car Rentals',
+      subtitle: 'Perfect for short trips and quick errands',
+      sectionLabel: 'Best for:',
+      points: ['Shopping at malls', 'Office meetings', 'Short city rides']
+    },
+    {
+      icon: Calendar,
+      title: '2. Daily Car Rentals',
+      subtitle: 'Ideal for full-day usage',
+      sectionLabel: 'Benefits:',
+      points: ['Budget-friendly pricing', 'No time pressure', 'Suitable for family outings']
+    },
+    {
+      icon: Car,
+      title: '3. Monthly Car Rentals',
+      subtitle: 'Great for long-term usage',
+      sectionLabel: 'Why Choose:',
+      points: ['Lower daily cost', 'Perfect for professionals', 'No maintenance worries']
+    }
+  ];
+
+  const mustVisitPlaces = [
+    { name: 'HITEC City', desc: 'Corporate hub and vibrant nightlife' },
+    { name: 'Durgam Cheruvu', desc: 'Perfect for scenic lakeside drives & hanging bridge' },
+    { name: 'Inorbit Mall', desc: 'Premier shopping, dining, and entertainment' },
+    { name: 'Shilparamam', desc: 'Renowned cultural and traditional handicraft village' }
+  ];
+
+  const features = [
+    { title: 'Unlimited Kilometers', desc: 'Drive without limits and zero per-km anxiety' },
+    { title: 'Zero Deposit Options', desc: 'Affordable booking with no security locks' },
+    { title: '24/7 Roadside Assistance', desc: 'Round-the-clock on-road safety guaranteed' },
+    { title: 'Transparent Pricing', desc: 'No hidden charges, surge fees, or unexpected costs' },
+    { title: 'Easy Booking Process', desc: 'Quick and hassle-free instant digital reservations' }
+  ];
+
+  const bookingSteps = [
+    'Choose your preferred car model',
+    'Select rental duration',
+    'Upload necessary documents',
+    'Pay a small advance amount',
+    'Confirm your booking'
+  ];
+
+  const dealTips = [
+    { title: 'Book Early', desc: 'Get lower prices and better availability' },
+    { title: 'Compare Plans', desc: 'Choose the best package for your schedule' },
+    { title: 'Select the Right Vehicle', desc: 'Based on your group size and luggage needs' },
+    { title: 'Avoid Peak Days', desc: 'Weekends may have higher demand and pricing' },
+    { title: 'Check Reviews', desc: 'Ensure verified service quality and customer support' }
+  ];
+
+  const faqs = [
+    {
+      q: '1. What documents are required for Self drive car rentals Kukatpally?',
+      a: 'You need a valid driving license and government-issued ID proof for verification.'
+    },
+    {
+      q: '2. Are Self drive car rentals Kukatpally available without deposit?',
+      a: 'Yes, providers offer zero deposit options for convenient booking.'
+    },
+    {
+      q: '3. Can I book Self drive car rentals Kukatpally for long-term use?',
+      a: 'Absolutely, monthly rental plans are available at discounted rates for extended requirements.'
+    },
+    {
+      q: '4. Is it safe to use Self drive car rentals Kukatpally?',
+      a: 'Yes, with verified providers, well-maintained fleets, and proper documentation, it is completely safe.'
+    },
+    {
+      q: '5. Are unlimited kilometer options available?',
+      a: 'Yes, most services offer unlimited kilometers for seamless and stress-free travel.'
+    }
+  ];
+
   return (
-    <div className='bg-white'>
-      <Head>
-        <title>Kukatpally Self Drive Car Rental Service</title>
-        <meta name="description" content="Looking for car rental in Kukatpally? Rent self drive cars online for daily, hourly or weekend travel needs." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Kukatpally Self Drive Car Rental Service" />
-        <meta property="og:description" content="Looking for car rental in Kukatpally? Rent self drive cars online for daily, hourly or weekend travel needs." />
-        <link rel="canonical" href={canonicalUrl} />
-      </Head>
+    <div className="min-h-screen bg-slate-50 text-slate-900 antialiased pt-24 lg:pt-0">
+      <HamburgerMenu/>
+      {/* 1. HEADER SECTION */}
+      <header className="bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-slate-100 text-slate-700 rounded-full">
+            Travel &amp; Rental Guide
+          </span>
 
-      <HamburgerMenu forblog={true} locname={'hyderabad'} phoneno={'9000-478-478'} />
-      <div className='text-black lg:px-16 px-4 leading-9 lg:leading-10 pt-40 lg:pt-16'>
-        <p className='text-xl lg:text-5xl font-bold py-2 lg:py-4'>It's time for self drive cars in Kukatpally</p>
-        <div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 md:leading-snug">
+            Self Drive Car Rentals Kukatpally – The Ultimate Guide to Hassle-Free Travel
+          </h1>
+
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+            Kukatpally, one of Hyderabad’s busiest residential and commercial hubs, is known for its connectivity, shopping centers, and vibrant lifestyle. Whether you’re commuting daily, planning a weekend getaway, or running errands,{' '}
+            <Link href={targetUrl} className="font-bold text-slate-900">
+              Self drive car rentals in Kukatpally
+            </Link>{' '}
+            offer the perfect blend of flexibility, comfort, and affordability.
+          </p>
+        </div>
+      </header>
+
+      {/* 2. DEDICATED COVER IMAGE CONTAINER (max-h-[480px]) */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6">
+        <div className="rounded-2xl overflow-hidden shadow-sm border border-slate-200 bg-white">
           <Image
-            src={www}
+            src="/locationpages/kukatpally.webp"
             height={2000}
             width={2000}
-            className='py-3 object-cover w-full'
-            alt="Long Drive Cars"
+            className="rounded-2xl object-cover w-full max-h-[480px]"
+            alt="Self drive car rentals in Kukatpally Hyderabad cover guide"
           />
         </div>
-        <p className='text-lg font-bold py-2 lg:py-4'>Are you looking for Best Self Drive Cars Kukatpally?</p>
-        <p>Buying a car comes with immense responsibilities and massive costs – not just for your personal savings account but for the environment as well. And as Indian cities turn more and more crowded, the burden on the environment is only getting worse. Plus there is the issue of finding a parking space, which is turning even scarier. But there is a shining light: it's today's no nonsense generation.</p>
-        <p className='py-1 lg:py-1'>It's hard to believe but the car rental segment in India in the year 2019 looked refreshingly different compared to what it appears today.</p>
-        <p>There’s no doubt that the smart generation of today knows how to make the most out of life. They have utilised innovations to change their lifestyles in many positive ways. For instance, instead of owning a car, they believe in driving a number of cars - a model of their choice that's based on the day, mood and use, and the best part, they pay a nominal rent on it from one of the best quality car rental companies like Long Drive Cars.</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>Feel happy to select self drive cars from Kukatpally</p>
-        <p>So the new age customers and the young at heart are ever happy to self drive cars from Kukatpally - through Long Drive Cars, of course. Not owning a car while still having fast access to a car when they need one. And why not, the advancements in technology have changed car rental services with better customer services than ever before. The use of smartphones is also helping customers find their choice of car for self driving. For instance, you are reading about the most happening car rental service - Long Drive Cars - that provides reliable services for less.</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>Say yes to self drive cars rental, Hyderabad</p>
-        <p>Long Drive Cars is known for helping its growing customers in selecting the best possible vehicles to fulfil their needs, whenever, and at their convenience. So no wonder that self drive cars rental, Hyderabad is now synonymous with Long Drive Cars.</p>
-        <p className='py-1 lg:py-1'>When you hear of Hyderabad you quickly think of the world famous Biryani with its aromatic spices or the famed pearls that the city is known for. However, in between and above much more remains to be explored, as the city is a haven for sensory delights.</p>
-        <p>Whether you are a local or new to Hyderabad, one of India's historical cities, you need a car to get around. From stunning shopping centres perfect for retail therapy and diverse cuisine that the city's restaurants have to offer the epicureans, there's undoubtedly a lot to experience in Hyderabad. And the ideal way to do that is by car. Explore the city at your own pace and reach hidden places in your very own signature style</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>Kukatpally self drive cars Long Drive Cars</p>
-        <p>Choosing the ideal vehicle is arguably one of the most vital decisions you can make when you are planning for self driving. At Long Drive Cars, the team always helps you decide which is the perfect vehicle to rent for your short or long road trip. The rental vehicles offered at Long Drive Cars are relatively new, modern cars with contemporary features, including the latest safety features. Therefore, the next time you are planning on self driving, know that Kukatpally self drive cars Long Drive Cars!</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>For hiring self drive cars near Kukatpally, read on…</p>
-        <p>Driving comfort is tremendously important to remain safe while you are self driving on the road. So at the planning stage itself, when you are considering the type of vehicle to self drive, ask yourself honestly whether it would be comfortable to drive? Also, does it have the necessary space and features for your particular journey - especially if it is an outstation trip or a long one. Of course, for the best self drive cars near Kukatpally, you need not have second thoughts, just go to Long Drive Cars!</p>
-        <p className='py-1 lg:py-1'>Coming back to the discussion, remember that driving long distances can be tedious and when you are very tired it can be life-threatening, more so if you’re not used to driving at night. Watch out for state highways, and most Indian roads outside of state capitals are narrow, undivided, not so well maintained asphalt roads. These rural roads in remote areas of almost every state have single lane space, each way. These are chiefly long, flat roads but in some areas they are winding and sometimes abruptly steep. So keeping these factors in mind when planning your self driving trip, maintain a speed you are comfortable in handling. Needless to say that if you are traveling a short distance, then you need not be particular about car features. However, if you are going to self drive for many hours then it's recommended that you rent a vehicle with features/conveniences like more legroom space, strong air conditioning and vital safety features like extra airbags and so on</p>
-        <p>Continuing on, if you are merely looking to save money on car hire and fuel, then you will naturally want to self drive the smallest available car. This is okay for those shorter trips within the city, but the car model and its size has certain safety issues when you are going to spend long hours self driving. When in an impact with another car of differing size, it’s almost always that the bigger car is the safest. So do keep this aspect in consideration.</p>
-        <p>If you are touring with more people - your family (and importantly, if elderly and young children are onboard), you certainly would want to book a sizable sedan or SUV (sport utility vehicle). In this scenario, opt for a model with ample bottle & cup holders space. Flexible back seats too would come handy when the elderly and kids want to relax after getting tired. Also consider a car model with movie streaming and robust audio system for much needed entertainment.</p>
-
-        <p className='text-lg font-bold pt-4 lg:pt-4'></p>
-        <p className='text-lg font-bold py-2 lg:py-4'>Self drive car rental in Kukatpally doesn't get better than this</p>
-        <p>The more the people, the more the luggage, and therefore it naturally means you need a lot more trunk/boot space. It is a must. After all, it is vital for a car to accommodate all necessary luggage and yet make it easily accessible (you never know when an elderly or a child may need a medicine or toy). In this case, the SUV’s score is better, as the trunk/boot space in them is reachable from inside the moving vehicle, which aids in avoiding too many halts while self driving.</p>
-        <p>Alone, with a companion, or travelling in a group, spending long hours in a car requires comfortable and smart interiors that ensure a comfortable ambience inside. So ample drinks holders, flexible back seats, peppy music system, spacious seats and no or minimal cabin noise, all add to the joy.</p>
-        <p>With Long Drive Cars having a range of small as well as SUVs, the self drive car rental in Kukatpally doesn't get better than this!</p>
-        <p>Once the essential aspects are attended to in utmost detail, you would realise too that renting a car and self driving it is a cost-effective and convenient route to make your travel experience more enjoyable and hassle free. Not only self driving can make getting around the city a lot easier, you will also discover that it can give you more flexibility to move around wherever and whenever, plus the freedom to start and end your trip as per your whim and fancy.</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>Good news for 'car rental for self driven' in Kukatpally</p>
-        <p>If you have made up your mind about car rental, first consider the quality services of Long Drive Cars. For your information, here are some common requirements for self driving in Hyderabad as well as India:</p>
-        <ul className="list-disc pl-5">
-          <li>Firstly, you need to possess a valid driver’s license, either Indian or international.</li>
-          <li>Secondly, you must be an adult, in simple words over 21 years of age.</li>
-          <li>Nextly, when you go to collect the vehicle, you are required to pay a damage deposit in advance.</li>
-        </ul>
-
-
-        <p>You are expected not to drive recklessly or not be allowed to take your rental car for illegal activities.</p>
-        <p>Do remember some basic road rules for self driving in India:</p>
-        <p>When self driving on Indian roads, the seat belts are compulsory for both the driver and passenger sitting next to the driver in front.</p>
-        <p>In Hyderabad and elsewhere in India, you drive on the left side of the street, and generally, the cars have steering wheels on the right side. It can be a little inconvenient for people who belong to other countries where the rule is to drive on the right side.</p>
-        <p>It is illegal to drink and drive in India. Please check the blood alcohol limit and ensure you do not have alcohol running in your system while driving.</p>
-        <p>And if you break any traffic rules while self driving, a notice will be sent to your car hire company, which will reach you if the date happens to be of the day(s) you booked. A few great tips when renting a car in Hyderabad or rest of the Indian cities:</p>
-        <p>ake a good look at your rental obligations and feel free to clear any doubts you have before you pick up your self driving car.</p>
-        <p>Ensure to meticulously inspect the car before you drive away, and closely look for any damage, no matter how petty or minor. Do it all in the presence of the sales assistant</p>
-        <p>If your purpose of hiring is to travel to another city in your self driven car, check beforehand as to how you can pay for the tolls on the way.</p>
-        <p>With its exceptional service, excellent team and economical rates, Long Drive Cars is good news for 'car rental for self driven' in Kukatpally.</p>
-        <p className='text-lg font-bold py-2 lg:py-4'>There are many benefits of self driving a rental car on your visit to Hyderabad, India:</p>
-        <ul className="list-decimal pl-5 ">
-          <li className=''>No waiting for driving to your destination</li>
-          <p >If you are among those who wants to make the most of your time and hates to wait, then a self driving car rental is just for you.</p>
-          <li className=''>Convenience of navigation system</li>
-          <p>Hiring a car from Long Drive Cars can offer you a lot of conveniences. Since most of its cars come equipped with a navigation system, it can greatly assist you in reaching your destination, whether it's on the highway or city downtown. So with Google Maps on your smartphone and the latest car navigation system available in Long Drive Cars, it's even easier to reach your destination.</p>
-          <li className=''>Save Money</li>
-          <p>While most cab/taxi drivers generally charge more money by taking longer routes, by using car rental service you can take shorter routes which saves time and money.</p>
-           <li> Go where bus or cab cannot take you</li>
-           <p>With car hire, you can self drive your rented vehicle and explore really cool parts of the city or off-the-beaten-path destinations.</p>
-            <li>Enjoy rural India as you like</li>
-            <p>In a self driven car, you can enjoy driving to the less visited parts of India, and stop wherever on highways and roads that offer wonderful sightseeing.</p>
-            <p>After you have had enough of Hyderabad, then what's next. Worry not, because the Telangana state and the rest of southern India make an impressive region. The rich and colourful landscapes range from breezy coastlines to the mountaintops/ hill stations. You can go from busy beaches to leafy villages that lay in between urban areas. It’s safe to say that there’s plenty to explore in one of India's more prominent southern states. While there is a good railway system and many other public transportation options such as buses, however, driving yourself is the best way to discover Hyderabad and the nearby getaways, at your own pace.</p>
-
-        </ul>
-     
-        <p className='text-lg font-bold py-2 lg:py-4'>Visit Long Drive Cars for 'Self drive car rental in Kukatpally'</p>
-        <p>Since no two cities of India are similar in comparison, similarly no two car rental service companies are alike. Truly, Long Drive Cars as a unique car rental company is in a league of its own. So if you are looking for self drive car rental in Kukatpally, then Long Drive Cars is the place to be. The company's promoters and people are the secret to the popularity of its success.</p>
       </div>
-      <Footer locname={'hyderabad'}/>
+
+      {/* 3. MAIN BODY */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+
+        {/* SECTION: WHY CHOOSE */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <h2 className="text-2xl font-bold text-slate-900">Why Choose Self Drive Car Rentals Kukatpally?</h2>
+          <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+            With increasing traffic and the need for convenience, many residents prefer self-drive alternatives over traditional taxis or public transport.
+          </p>
+
+          <h3 className="text-base font-bold text-slate-800 pt-1">Key Benefits:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[
+              { label: 'Freedom to Travel Anytime', desc: 'No dependency on drivers' },
+              { label: 'Cost-Effective Solution', desc: 'Ideal for daily and long trips' },
+              { label: 'Privacy & Comfort', desc: 'Enjoy your personal space' },
+              { label: 'Flexible Plans', desc: 'Hourly, daily, and monthly options' }
+            ].map((benefit, idx) => (
+              <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+                <div className="flex items-center gap-2 text-slate-900 font-semibold text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-slate-600 shrink-0" />
+                  <span>{benefit.label}</span>
+                </div>
+                <p className="text-xs text-slate-600 mt-1 pl-6">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-slate-600 text-sm pt-2">
+            Choosing{' '}
+            <Link href={targetUrl} className="font-bold text-slate-900">
+              Self drive car rentals in Kukatpally
+            </Link>{' '}
+            ensures you have full control over your journey without any restrictions.
+          </p>
+        </section>
+
+        {/* SECTION: TYPES OF RENTALS */}
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Types of Self Drive Car Rentals Available in Kukatpally</h2>
+            <p className="text-slate-600 text-sm mt-1">Select the duration plan that best fits your routine.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {rentalTypes.map((type, idx) => {
+              const Icon = type.icon;
+              return (
+                <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                  <div>
+                    <div className="p-2.5 rounded-xl bg-slate-100 text-slate-700 w-fit mb-3">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900">{type.title}</h3>
+                    <p className="text-xs text-slate-500 mt-0.5">{type.subtitle}</p>
+
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mt-4 mb-2">
+                      {type.sectionLabel}
+                    </h4>
+                    <ul className="space-y-1.5 text-xs sm:text-sm text-slate-600">
+                      {type.points.map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 shrink-0" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* SECTION: TOP PLACES TO VISIT */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Top Places to Visit from Kukatpally</h2>
+            <p className="text-slate-600 text-sm sm:text-base mt-1">
+              One of the biggest advantages of{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Best self drive car rentals in Kukatpally
+              </Link>{' '}
+              is the ability to explore nearby attractions at your own pace.
+            </p>
+          </div>
+
+          <h3 className="text-base font-bold text-slate-800 pt-1">Must-Visit Places:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {mustVisitPlaces.map((place, idx) => (
+              <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+                <span className="font-bold text-slate-900 text-sm">{place.name}: </span>
+                <span className="text-xs sm:text-sm text-slate-600">{place.desc}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION: FEATURES TO LOOK FOR */}
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Features to Look for in Self Drive Car Rentals Kukatpally</h2>
+            <p className="text-slate-600 text-sm mt-1">
+              Not all rental services offer the same quality. When choosing{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Best self drive car rentals in Kukatpally
+              </Link>
+              , consider the following features:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {features.map((feat, idx) => (
+              <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+                <div className="flex items-center gap-2 font-bold text-slate-900 text-sm mb-1">
+                  <ShieldCheck className="w-4 h-4 text-slate-600 shrink-0" />
+                  <span>{feat.title}</span>
+                </div>
+                <p className="text-xs text-slate-600 pl-6">{feat.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION: HOW TO BOOK */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <h2 className="text-2xl font-bold text-slate-900">How to Book Self Drive Car Rentals Kukatpally</h2>
+          
+          <h3 className="text-base font-bold text-slate-800">Step-by-Step Process:</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {bookingSteps.map((step, idx) => (
+              <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-center gap-3">
+                <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs font-bold flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-slate-700">{step}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-500 italic pt-1">
+            Most providers offer mobile apps for instant booking and real-time availability.
+          </p>
+        </section>
+
+        {/* SECTION: TIPS TO GET BEST DEALS */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Tips to Get the Best Deals on Self Drive Car Rentals Kukatpally</h2>
+            <p className="text-slate-600 text-sm mt-1">
+              To maximize value, follow these expert tips when booking{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Cheap self drive cars in Kukatpally without deposit
+              </Link>
+              :
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {dealTips.map((tip, idx) => (
+              <div key={idx} className="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+                <span className="font-bold text-slate-900 text-sm">{tip.title}: </span>
+                <span className="text-xs sm:text-sm text-slate-600">{tip.desc}</span>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 pt-1">
+            Using these strategies helps you save money while enjoying premium services.
+          </p>
+        </section>
+
+        {/* SECTION: COMPARISON TABLE */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <div>
+            <h2 className="text-2xl font-bold text-slate-900">Self Drive Car Rentals Kukatpally vs Traditional Cabs</h2>
+            <p className="text-slate-600 text-sm mt-1">
+              Still unsure? Here’s why{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Self drive car rentals Kukatpally
+              </Link>{' '}
+              are a better option:
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-200 bg-slate-50 text-slate-800">
+                  <th className="p-3 font-bold">Feature</th>
+                  <th className="p-3 font-bold">Self Drive Rentals</th>
+                  <th className="p-3 font-bold">Cabs</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-slate-600">
+                <tr>
+                  <td className="p-3 font-semibold text-slate-800">Flexibility</td>
+                  <td className="p-3 font-medium text-slate-900">High</td>
+                  <td className="p-3">Limited</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-slate-800">Cost</td>
+                  <td className="p-3 font-medium text-slate-900">Lower for long use</td>
+                  <td className="p-3">Higher with surge pricing</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-slate-800">Privacy</td>
+                  <td className="p-3 font-medium text-slate-900">Complete</td>
+                  <td className="p-3">Limited</td>
+                </tr>
+                <tr>
+                  <td className="p-3 font-semibold text-slate-800">Waiting Time</td>
+                  <td className="p-3 font-medium text-slate-900">None</td>
+                  <td className="p-3">Yes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-600 pt-1">
+            Clearly,{' '}
+            <Link href={targetUrl} className="font-bold text-slate-900">
+              Self drive car rentals Kukatpally
+            </Link>{' '}
+            offer better value and convenience.
+          </p>
+        </section>
+
+        {/* SECTION: BEST TIME & SAFETY TIPS */}
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+              <Calendar className="w-4 h-4 text-slate-600" /> Best Time to Use Self Drive Car Rentals Kukatpally
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600">
+              You can opt for{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Self drive car rentals Kukatpally
+              </Link>{' '}
+              anytime, but certain situations make it even more beneficial:
+            </p>
+            <ul className="text-xs sm:text-sm text-slate-600 space-y-1.5 pt-1">
+              <li>• Weekend trips</li>
+              <li>• Family outings</li>
+              <li>• Business travel</li>
+              <li>• Airport pickups</li>
+              <li>• Long-distance journeys</li>
+            </ul>
+            <p className="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100">
+              With 24/7 availability,{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Self drive car rentals Kukatpally
+              </Link>{' '}
+              fit perfectly into your schedule.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-3">
+            <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
+              <Shield className="w-4 h-4 text-slate-600" /> Safety Tips for Using Self Drive Car Rentals Kukatpally
+            </div>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Safety should always be a priority when using{' '}
+              <Link href={targetUrl} className="font-bold text-slate-900">
+                Cheap self drive cars in Kukatpally without deposit
+              </Link>
+              .
+            </p>
+            <h4 className="text-xs font-bold uppercase text-slate-400 tracking-wider pt-1">Important Tips:</h4>
+            <ul className="text-xs sm:text-sm text-slate-600 space-y-1">
+              <li>• Inspect the vehicle before driving</li>
+              <li>• Carry valid driving documents</li>
+              <li>• Follow traffic rules strictly</li>
+              <li>• Avoid over-speeding</li>
+              <li>• Keep emergency contacts handy</li>
+            </ul>
+            <p className="text-xs sm:text-sm text-slate-600 pt-2 border-t border-slate-100">
+              A little precaution ensures a smooth and safe journey.
+            </p>
+          </div>
+        </section>
+
+        {/* SECTION: FAQS */}
+        <section className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+          <h2 className="text-2xl font-bold text-slate-900">FAQs – Self Drive Car Rentals Kukatpally</h2>
+
+          <div className="space-y-2.5">
+            {faqs.map((faq, idx) => (
+              <details key={idx} className="group border border-slate-200/80 rounded-xl overflow-hidden">
+                <summary className="w-full flex items-center justify-between p-4 text-left font-semibold text-slate-800 hover:bg-slate-50 transition text-sm sm:text-base cursor-pointer list-none">
+                  <span>{faq.q}</span>
+                  <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 ml-2 group-open:rotate-180 transition-transform duration-200" />
+                </summary>
+                <div className="px-4 pb-4 text-xs sm:text-sm text-slate-600 bg-slate-50/50 border-t border-slate-100 pt-3 leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* SECTION: CONCLUSION & CTA */}
+        <section className="bg-white border border-slate-200 rounded-2xl p-8 sm:p-10 text-center space-y-4 shadow-xs">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Conclusion</h2>
+          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+            Choosing{' '}
+            <Link href={targetUrl} className="font-bold text-slate-900">
+              Self drive car rentals Kukatpally
+            </Link>{' '}
+            is the smartest way to travel in and around Hyderabad. It gives you the freedom to explore, saves money, and ensures a comfortable experience.
+          </p>
+          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed font-medium">
+            Whether you’re planning a quick ride, a weekend getaway, or a long-term commute,{' '}
+            <Link href={targetUrl} className="font-bold text-slate-900">
+              Self drive car rentals Kukatpally
+            </Link>{' '}
+            provide unmatched convenience and flexibility. Make the switch today and enjoy a seamless driving experience tailored to your needs.
+          </p>
+          <div className="pt-2">
+            <Link
+              href={targetUrl}
+              className="px-6 py-3 bg-slate-900 text-white font-bold rounded-xl shadow-xs hover:bg-slate-800 transition inline-flex items-center gap-2 text-sm"
+            >
+              Self drive car rentals Kukatpally <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
+
+      </main>
+            <Footer/>
+      
+
     </div>
-  )
-}
-
-export default kukatpally;
-export async function getServerSideProps({ req }) {
-  
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-      ? 'https://www.longdrivecars.in/branches/self-drive-cars-kukatpally'
-      : 'https://www.longdrivecars.com/branches/self-drive-cars-kukatpally';
-
-  return {
-      props: {
-          canonicalUrl,
-      },
-  };
+  );
 }

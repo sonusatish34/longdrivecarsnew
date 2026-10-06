@@ -24,13 +24,13 @@ const PostsListing = ({ data, catg }) => {
     return '';
   }
 
-  const replaceText = (str) => {
-    if (str?.includes("cdn")) return str;
-    else {
-      return str?.replace("https://ldcars.blr1.", "https://ldcars.blr1.cdn.");
-    }
-  };
+  
   const [showall, setShowAll] = useState(false);
+   const replaceText = (str) => {
+    // if (str?.includes("cdn")) return str;
+     
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
+  };
   return (
     <div className="lg:pt-6 border-t-2 border-gray-300 pt-8 px-3 lg:px-0">
       <p className="text-left text-3xl text-gray-900 font-semibold py-4">
@@ -67,15 +67,14 @@ const PostsListing = ({ data, catg }) => {
                 <section>
                   <h5 className="mb-1">
                     <p
-                      className="block hover:text-[#556ee6]  text-lg xl:text-2xl text-left pt-4 helvetica-font"
+                      className="block hover:text-[#556ee6]  text-lg xl:text-2xl text-left pt-4 "
                     >
                       <span className="h-14 xl:h-20 overflow-hidden font-bold tracking-normal">
-                        {post?.title && post?.title.slice(0, 60)}..
+                        {post?.title && post?.title.slice(0, 60)}
                       </span>
                       <span className="text-left text-[#6B6B6B] text-base pt-4 tracking-normal leading-6 lg:block hidden">
                         {(post?.description) &&
                           (post?.description).slice(0, 300)}
-                        ...
                       </span>
                       <span className="text-left text-[#6B6B6B] text-sm lowercase tracking-normal font-light leading-5 lg:hidden block">
                         {ParseP(post?.content) &&
@@ -154,7 +153,7 @@ const PostsListing = ({ data, catg }) => {
 
                     className="block hover:text-primary"
                   >
-                    {post?.title && post?.title.slice(0, 35)}..
+                    {post?.title && post?.title.slice(0, 35)}
                   </span>
                 </p>
                 <p className=" lg:pb-3 hover:text-[#556ee6] font-bold xl:text-lg lg:text-base text-xs text-left pt-4 h-10 lg:h-24 lg:block hidden">
@@ -164,14 +163,14 @@ const PostsListing = ({ data, catg }) => {
                       .replace(/ /g, "-")}`}
                     className="block hover:text-primary"
                   >
-                    {post?.title && post?.title.slice(0, 115)}..
+                    {post?.title && post?.title.slice(0, 115)}
                   </span>
                 </p>
                 <p className="text-left text-[#6B6B6B] text-xs pt-1 tracking-normal leading-5 lowercase lg:hidden block xl:h-24 lg:h-32">
-                  {post?.description.slice(0, 50)}...
+                  {post?.description.slice(0, 50)}
                 </p>
                 <p className="text-left text-[#6B6B6B] text-base pt-1 tracking-normal leading-6  lg:block hidden xl:h-28 lg:h-32">
-                  {post?.description.slice(0, 150)}...
+                  {post?.description.slice(0, 150)}
                 </p>
 
                 <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-[10px] xl:text-sm lg:text-xs pt-4">

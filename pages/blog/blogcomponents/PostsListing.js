@@ -24,11 +24,10 @@ const PostsListing = ({ data, catg }) => {
     return '';
   }
 
-  const replaceText = (str) => {
-    if (str?.includes("cdn")) return str;
-    else {
-      return str?.replace("https://ldcars.blr1.", "https://ldcars.blr1.cdn.");
-    }
+   const replaceText = (str) => {
+    // if (str?.includes("cdn")) return str;
+     
+      return str?.replace("https://ldcars.blr1.cdn.digitaloceanspaces.com/", "https://cdn.longdrivecars.com/");
   };
   const [showall, setShowAll] = useState(false);
   return (
@@ -55,19 +54,20 @@ const PostsListing = ({ data, catg }) => {
                       src={
                         post?.coverimages?.length
                           ? replaceText(post?.coverimages)
-                          : tempimg
+                          : "/tempimg.jpg"
                       }
-                      alt={post?.cialt}
-                      width={2000}
-                      height={2000}
-                      priority={i === 0 ? true : false}
+                      alt={post?.cialt || "Post Image"}
+                      width={600}
+                      height={400}
+                      priority={i === 0}
+                      unoptimized
                     />
                   )}
                 </p>
                 <section>
                   <h5 className="mb-1">
                     <p
-                      className="block hover:text-[#556ee6]  text-lg xl:text-2xl text-left pt-4 helvetica-font"
+                      className="block hover:text-[#556ee6]  text-lg xl:text-2xl text-left pt-4 "
                     >
                       <span className="h-14 xl:h-20 overflow-hidden font-bold tracking-normal">
                         {post?.title && post?.title.slice(0, 60)}..
@@ -75,7 +75,7 @@ const PostsListing = ({ data, catg }) => {
                       <span className="text-left text-[#6B6B6B] text-base pt-4 tracking-normal leading-6 lg:block hidden">
                         {(post?.description) &&
                           (post?.description).slice(0, 300)}
-                        ...
+                        
                       </span>
                       <span className="text-left text-[#6B6B6B] text-sm lowercase tracking-normal font-light leading-5 lg:hidden block">
                         {ParseP(post?.content) &&
@@ -87,9 +87,9 @@ const PostsListing = ({ data, catg }) => {
                 </section>
 
                 <ul className=" pt-1 flex flex-wrap items-center space-x-2 lg:gap-3 gap-x-2 text-xs">
-                  {/* <li className="lg:text-sm text-xs">
+                  <li className="lg:text-sm text-xs">
                     {StaticData(post?.time?.seconds)}
-                  </li> */}
+                  </li>
                   <li className="flex items-center gap-1 ">
                     <span>
                       <BiCategory className="text-blue-400 lg:size-4" />
@@ -139,7 +139,7 @@ const PostsListing = ({ data, catg }) => {
                       className="rounded-md lg:h-[160px] xl:h-[220px] h-[80px] mxs:h-[100px] object-cover"
                       src={
                         post?.coverimages?.length
-                          ? post?.coverimages
+                          ? replaceText(post?.coverimages)
                           : "/tempimg.jpg"
                       }
                       alt={post?.cialt || "Post Image"}
@@ -164,14 +164,14 @@ const PostsListing = ({ data, catg }) => {
                       .replace(/ /g, "-")}`}
                     className="block hover:text-primary"
                   >
-                    {post?.title && post?.title.slice(0, 115)}..
+                  {post?.title && post?.title.slice(0, 115)}..
                   </span>
                 </p>
                 <p className="text-left text-[#6B6B6B] text-xs pt-1 tracking-normal leading-5 lowercase lg:hidden block xl:h-24 lg:h-32">
-                  {post?.description.slice(0, 50)}...
+                  {post?.description.slice(0, 50)}
                 </p>
                 <p className="text-left text-[#6B6B6B] text-base pt-1 tracking-normal leading-6  lg:block hidden xl:h-28 lg:h-32">
-                  {post?.description.slice(0, 150)}...
+                  {post?.description.slice(0, 150)}
                 </p>
 
                 <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-[10px] xl:text-sm lg:text-xs pt-4">

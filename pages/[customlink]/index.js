@@ -22,7 +22,7 @@ const metaData = [
         description: "Book your Self-drive car rental starting at ₹1776/day. Install the Long Drive Cars app to book Dzire ₹1680/day, Ertiga ₹2496/day or explore other options for your next trip",
     },
     {
-        title: "No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U ",
+        title: "Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans ",
         description: "Starting at just ₹1776/day, rent a Self-drive car like the Dzire ₹1680/day or Ertiga ₹2496/day. You can also check Real Car Images on the Long Drive Cars App.",
     },
     {
@@ -67,11 +67,11 @@ export default function Place({ cars, canonicalUrl }) {
         <div>
             <Layout locname={'hyderabad'} phoneno={"9000-478-478"}>
                 <Head>
-                    <title>No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U</title>
-                    <meta id="meta-desc" name="description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+                    <title>Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
+                    <meta id="meta-desc" name="Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta property="og:title" content="No Deposit | Unlimited Kms - Cheapest Self Drive Cars Near U" />
-                    <meta property="og:description" content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery" />
+                    <meta property="og:title" content="Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans" />
+                    <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className="pt-32 lg:pt-0">

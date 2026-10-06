@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { MdExpandMore } from "react-icons/md";
 import Head from 'next/head';
 
-const ComponentName = ({canonicalUrl}) => {
+const ComponentName = ({ canonicalUrl }) => {
 
   const router = useRouter();
   const [postlist, setPostlist] = useState([]);
@@ -47,7 +47,7 @@ const ComponentName = ({canonicalUrl}) => {
     <div>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Self Drive Car Rental Blog by Long Drive Cars</title>
+        <title>Self Drives Car Rental Blog by Long Drive Cars</title>
         <meta property="og:title" content="Self Drive Car Rental Blog by Long Drive Cars" />
         <meta name="description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
         <meta name="og:description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
@@ -59,21 +59,9 @@ const ComponentName = ({canonicalUrl}) => {
         <Loading />
       ) :
         <BlogLayoutForAttch catg={"ldcattachments"}>
-          <div className=' helvetica-font'>
-            
-            {/* <div className='text-center flex justify-center lg:pt-10 pt-4'>
-              <PostsListing data={sortedPostlist} />
-            </div> */}
+          <div className=' '>
             <RandomPostsAttach data={postlist} />
           </div>
-          {/* <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 helvetica-font">
-            <Link href={`/attach&earn/${'travel'}`} className="flex space-x-2">
-              <span className="border-2 text-white rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
-                <span>See more</span>
-                <MdExpandMore className="text-lg" />
-              </span>
-            </Link>
-          </div> */}
         </BlogLayoutForAttch>
       }
     </div>

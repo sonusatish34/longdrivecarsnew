@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
 import { RiArrowDownWideLine } from "react-icons/ri";
 import dnf from '../images/datanotfound.webp';
-import disc1 from "../images/offersimages/250cashback.webp";
+import disc1 from "@/public/oandd/3.webp";
 import ldcqr from '../images/ldcqr.png'
 import { MdOutlineCancel } from 'react-icons/md'
 
@@ -12,7 +12,8 @@ import { MdOutlineCancel } from 'react-icons/md'
 import CardFragment from "./CardFragment/CardFragment";
 import { handleStoreRedirect } from "../../utils/redirectUtils";
 import { decryptFernetData } from "@/utils/crypto";
-function CarProducts({ data, branch, phoneno, count, wspno }) {
+function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
+
     const [searchQuery, setSearchQuery] = useState("");
     const [debouncedQuery, setDebouncedQuery] = useState("");
     const [carResults, setCarResults] = useState([]);
@@ -36,11 +37,11 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
             setLoading(true);
             try {
                 const res = await fetch(
-                `/api/search-cars?location=hyderabad&search_key=${debouncedQuery}`
-            );
+                    `/api/search-cars?location=hyderabad&search_key=${debouncedQuery}`
+                );
 
                 const data = await res.json();
-                
+
                 setCarResults(data.results || []);
             } catch (err) {
                 console.error("Failed to fetch cars:", err);
@@ -67,6 +68,9 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
 
     return (
         <div className="bg-white">
+            <h1 className="text-blue-400  text-lg mxs:text-xl font-bold text-center py-4 capitalize">
+                Self Drive Car Rentals In Hyderabad | Long Drive Cars
+            </h1>
             <h2 className="text-black xl:text-5xl lg:text-4xl text-lg mxs:text-xl font-bold text-center py-7 capitalize">
                 Explore Car Rentals Near You
             </h2>
@@ -90,6 +94,7 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
                     ) : carResults.length > 0 ? (
                         carResults.map((item, index) => (
                             <CardFragment
+                                banner={a}
                                 key={`${item?.maker_model}-${index}`}
                                 item={item}
                                 wspno={wspno}
@@ -113,7 +118,7 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
                                 <div className="items-center block lg:hidden pb-5">
                                     <div className="lg:rounded-md items-center lg:w-72 flex flex-col relative">
                                         <Image
-                                            src={disc1}
+                                            src={banner?.duplicate_banner_image_url}
                                             alt="Offer"
                                             width={1000}
                                             height={1000}
@@ -127,7 +132,7 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
                                     <>
                                         <div
                                             className='border-2 p-2 rounded-md'
-                                            
+
                                         >
                                             <div>
                                                 <div className='flex justify-between items-center'>
@@ -200,11 +205,10 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
                                             </div>
 
                                             <button
-                                               
                                                 className='absolute top-0 right-0 p-2 bg-transparent focus:outline-none flex items-center justify-center z-40 pt-4 pr-4'
                                             >
                                                 <span className='text-lg w-6 h-6 rounded-full relative hover:scale-105 bottom-1 flex justify-center items-center'>
-                                                   
+
                                                 </span>
                                             </button>
                                         </div>
@@ -215,7 +219,7 @@ function CarProducts({ data, branch, phoneno, count, wspno }) {
                             {(index + 1 === 2) && (
                                 <div className="lg:block hidden pt-14 lg:pt-0 items-center md:w-72">
                                     <Image
-                                        src={disc1}
+                                        src={banner?.duplicate_banner_image_url}
                                         height={1000}
                                         width={1000}
                                         alt="Long Drive Cars app"

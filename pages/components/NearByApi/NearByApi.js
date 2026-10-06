@@ -1,29 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import carnearbtn from "../../images/carnearbtn.png";
 import mapright from "../../images/mapright.webp";
-import hundredcash from '../../images/offersimages/250cashback.webp'
-import freecarshare from '../../images/offersimages/freecarshare.webp'
-import selfie from '../../images/offersimages/selfie.webp'
-import onerupee from '../../images/offersimages/1RupeeCar.webp'
-import bdaymobile from '../../images/offersimages/Birthdayoffer2.webp'
-import specoff from '../../images/offersimages/7DaysFree.webp'
-import sharemobile from '../../images/offersimages/share.webp'
-import freecarshare100 from '../../images/offersimages/freecarshare100.webp'
-import specialoff from '../../images/offersimages/Discount&Cashback2.webp'
-import tenBooking1bookingfree from '../../images/offersimages/10Booking1bookingfree.webp'
-import FreeHomeDelivery from '../../images/offersimages/freehome.webp'
-import freetoll from '../../images/offersimages/freetoll.webp'
-import subscription from '../../images/offersimages/subscription.webp'
-import NoDeposit from '../../images/offersimages/NoDeposit.webp'
-import image1 from '../../images/offersimages/image1.webp'
-import image2 from '../../images/offersimages/image2.webp'
-import image3 from '../../images/offersimages/image3.webp'
-import image4 from '../../images/offersimages/image4.webp'
-import image5 from '../../images/offersimages/image5.webp'
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
-function NearByApi({ city }) {
+function NearByApi({ city,banners }) {
+  const swiperRef = useRef(null);
+  const bannerItems = Array.isArray(banners) ? banners : [];
+
   return (
     <div className="xl:px-20 lg:px-16 px-2 py-6 lg:py-14">
       <div className="text-white font-bold xl:px-28 lg:px-12 bg-[#660066] rounded-md py-4 flex flex-row items-center lg:justify-between poppins-text">
@@ -60,165 +47,68 @@ function NearByApi({ city }) {
           </Link>
         </div>
       </div>
-      <div className="lg:pt-20 pt-4">
-        <p className="lg:flex hidden text-4xl font-bold py-2">Offers And Discounts</p>
-        <div className="pt-5 lg:grid lg:grid-cols-3 lg:gap-10 grid gap-y-4">
+      
+      <div className="lg:pt-20 lg:py-4 py-8">
+        <p className="flex lg:text-4xl text-2xl font-bold py-2">Offers And Discounts</p>
+      </div>
 
-          {/* <div className=" ">
-            <Image
-              src={freecarshare}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={specialoff}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          <div className="flex  items-center justify-center ">
-            <Image
-              src={image1}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          <div className="flex  items-center justify-center ">
-            <Image
-              src={image2}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          <div className="flex  items-center justify-center ">
-            <Image
-              src={image3}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          <div className="flex  items-center justify-center ">
-            <Image
-              src={image4}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={image5}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
+      {/* Slider Container with padding to make room for custom buttons */}
+      <div className="slider-container h-[600px] mx-auto relative px-4 lg:px-1 group">
+        
+        {/* Custom Left Button */}
+        <button className="custom-prev absolute left-0 top-1/3 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 text-[#660066] transition-all hover:bg-[#660066] hover:text-white hover:scale-110 opacity-0 group-hover:opacity-100 disabled:opacity-50">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+        </button>
 
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={bdaymobile}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={specoff}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={tenBooking1bookingfree}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          <div className="flex  items-center justify-center ">
-            <Image
-              src={FreeHomeDelivery}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          {/* <div className="flex  items-center justify-center ">
-            <Image
-              src={NoDeposit}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          {/* <div className=" ">
-            <Image
-              src={selfie}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          <div className="flex items-center justify-center ">
-            <Image
-              src={hundredcash}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          {/* <div className=" ">
-            <Image
-              src={onerupee}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-          <div className=" ">
-            <Image
-              src={freetoll}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div>
-          {/* <div className=" ">
-            <Image
-              src={subscription}
-              width={1000}
-              height={1000}
-              className="rounded-md"
-              alt="long drive cars app"
-            />
-          </div> */}
-        </div>
+        <Swiper
+          ref={swiperRef}
+          spaceBetween={30}
+          slidesPerView={4}
+          loop={true}
+          modules={[Autoplay, Pagination, Navigation]}
+          navigation={{
+            nextEl: '.custom-next', // Linking the custom next button
+            prevEl: '.custom-prev', // Linking the custom prev button
+          }}
+          autoplay={{
+            delay: 2000, 
+            disableOnInteraction: false, 
+            pauseOnMouseEnter: true, // FIX: Pauses sliding when hovering or touching
+          }}
+          breakpoints={{
+            1440: { slidesPerView: 4 },
+            1024: { slidesPerView: 3 },
+            768: { slidesPerView: 1 },
+            200: { 
+              slidesPerView: 1, 
+              // Keep navigation off for very small screens if desired
+            },
+          }}
+          className="w-full h-full"
+        >
+          {bannerItems.map((item, idx) => (
+            <SwiperSlide key={idx} className="pb-10">
+              {/* <p>{item.banner_title} = {idx+1}</p> */}
+              <Image
+                src={`${item.banner_image_url}`}
+                height={1000}
+                width={1000}
+                alt={`Offer ${idx + 1}`}
+                className="rounded-xl object-cover h-auto w-full transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Custom Right Button */}
+        <button className="custom-next absolute right-0 top-1/3 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 text-[#660066] transition-all hover:bg-[#660066] hover:text-white hover:scale-110 opacity-0 group-hover:opacity-100 disabled:opacity-50">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+
       </div>
     </div>
   );
