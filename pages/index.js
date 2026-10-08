@@ -100,6 +100,11 @@ export default function Place({ cars, canonicalUrl, prices, res, decryptedCars, 
                             }),
                         }}
                     />
+                    <script 
+      src="https://uat.nabo.enterprises/widget/chat-widget.js" 
+      data-bot-key="bot_6620b7a0c5feabdbd0d297071f4b43aa" 
+      async>
+    </script>
                 </Head>
                 <div className='pt-32 lg:pt-0'>
                     <HeroBanner />
