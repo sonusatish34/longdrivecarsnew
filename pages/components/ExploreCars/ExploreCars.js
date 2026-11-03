@@ -128,7 +128,7 @@ export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars =
     return (
         <div>
             {loader ? <Loading /> : <div className="produvt-page flex flex-col lg:flex-row gap-10 bg-slate-100">
-                <h1 className="sr-only">Self-drive car rentals in {loc || 'Hyderabad'}</h1>
+                <h1 className="sr-only">Self-drive car rentals in_ {loc || 'Hyderabad'}</h1>
                 <div className='lg:pt-12 pt-40 bg-white'>
                     <div className="text-black-400 lg:px-20  text-black pl-10 pt-4">
                         <div>
