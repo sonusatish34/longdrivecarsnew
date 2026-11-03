@@ -36,33 +36,47 @@ export async function getCarsByLocation(location) {
     return cached.cars;
   }
 
-  try {
-    const response = await fetch(
-      `https://api.longdrivecars.com/l-site-dc/cars-info?location=${encodeURIComponent(normalizedLocation)}`,
-      { signal: AbortSignal.timeout(10000) }
-    );
-    if (!response.ok) {
-      throw new Error(`Car inventory API returned ${response.status}`);
-    }
+  let lastError;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch(
+        `https://api.longdrivecars.com/l-site-dc/cars-info?location=${encodeURIComponent(normalizedLocation)}`,
+        { signal: AbortSignal.timeout(10000) }
+      );
+      if (!response.ok) {
+        throw new Error(`Car inventory API returned ${response.status}`);
+      }
 
-    const payload = await response.json();
-    const decryptedCars = decryptFernetData(payload?.data?.results, process.env.LDC_SECRET_KEY);
-    if (!Array.isArray(decryptedCars)) {
-      throw new Error('Car inventory API returned invalid car data');
-    }
+      const payload = await response.json();
+      const encryptedCars = payload?.data?.results;
+      if (typeof encryptedCars !== 'string' || !encryptedCars) {
+        throw new Error('Car inventory API returned no encrypted car data');
+      }
 
-    const cars = decryptedCars
-      .filter((car) => car && typeof car.maker_model === 'string')
-      .map(getPublicCarFields);
-    carCache.set(normalizedLocation, { cars, updatedAt: Date.now() });
-    return cars;
-  } catch (error) {
-    if (cached && Date.now() - cached.updatedAt < STALE_TTL) {
-      console.warn(`Using cached ${normalizedLocation} car inventory after API failure:`, error);
-      return cached.cars;
+      const decryptedCars = decryptFernetData(encryptedCars, process.env.LDC_SECRET_KEY);
+      if (!Array.isArray(decryptedCars)) {
+        throw new Error('Car inventory API returned invalid car data');
+      }
+
+      const cars = decryptedCars
+        .filter((car) => car && typeof car.maker_model === 'string')
+        .map(getPublicCarFields);
+      carCache.set(normalizedLocation, { cars, updatedAt: Date.now() });
+      return cars;
+    } catch (error) {
+      lastError = error;
+      if (attempt === 0) {
+        await new Promise((resolve) => setTimeout(resolve, 300));
+      }
     }
-    throw error;
   }
+
+  if (cached && Date.now() - cached.updatedAt < STALE_TTL) {
+    console.warn(`Using cached ${normalizedLocation} car inventory after API failure:`, lastError);
+    return cached.cars;
+  }
+
+  throw lastError;
 }
 
 export async function getCarBySlug(location, slug) {

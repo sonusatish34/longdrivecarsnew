@@ -7,9 +7,12 @@ import fernet from 'fernet';
  * @returns {any|null} - The parsed JSON data or null if decryption fails.
  */
 export function decryptFernetData(encryptedData, secretKey) {
+  if (!encryptedData) return null;
+  if (typeof secretKey !== 'string' || !secretKey.trim()) {
+    throw new Error('Missing LDC_SECRET_KEY environment variable');
+  }
+
   try {
-    if (!encryptedData) return null;
-    
     // 1. Clean up the string (remove extra quotes and whitespace)
     const cleanedToken = encryptedData.replace(/['"]+/g, '').trim();
 
