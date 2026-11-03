@@ -7,23 +7,9 @@ import { CgProfile } from "react-icons/cg";
 import { FaRegComment } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 import StaticData from "@/pages/images/StaticData";
+import { getBlogPostExcerpt } from "@/utils/blogText";
 
 const PostsListing = ({ data, catg }) => {
-  function ParseP(htmlContent) {
-    if (typeof window !== 'undefined') {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(htmlContent, "text/html");
-      const paragraphs = Array.from(doc.querySelectorAll("p"));
-      const selectedParagraphs = paragraphs
-        .slice(0, 3)
-        .map((p) => p.innerText)
-        .join(" ");
-
-      return selectedParagraphs;
-    }
-    return '';
-  }
-
   
   const [showall, setShowAll] = useState(false);
    const replaceText = (str) => {
@@ -77,8 +63,7 @@ const PostsListing = ({ data, catg }) => {
                           (post?.description).slice(0, 300)}
                       </span>
                       <span className="text-left text-[#6B6B6B] text-sm lowercase tracking-normal font-light leading-5 lg:hidden block">
-                        {ParseP(post?.content) &&
-                          ParseP(post?.content).slice(0, 140)}
+                        {getBlogPostExcerpt(post?.content).slice(0, 140)}
 
                       </span>
                     </p>

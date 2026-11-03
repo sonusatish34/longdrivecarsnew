@@ -78,11 +78,7 @@ function madhapur({canonicalUrl}) {
 export default madhapur;
 
 export async function getServerSideProps({ req }) {
-  
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-      ? 'https://www.longdrivecars.in/branches/self-drive-cars-madhapur'
-      : 'https://www.longdrivecars.com/branches/self-drive-cars-madhapur';
+  const canonicalUrl = `https://www.longdrivecars.com/branches/self-drive-cars-madhapur`;
 
   return {
       props: {

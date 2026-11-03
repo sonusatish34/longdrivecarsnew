@@ -21,47 +21,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Car Rental in Madhapur | Your Complete Guide to Hassle-Free Travel',
-  description:
-    'Discover hassle-free car rental in Madhapur Hyderabad. Explore self-drive options, zero deposit bookings, hourly, daily, and monthly plans for IT commutes and weekend trips.',
-  keywords: [
-    'Car rental in Madhapur',
-    'Best car rental services in Madhapur',
-    'Cheap self drive cars in Madhapur Hyderabad',
-    'Madhapur Car Rental Hyderabad',
-    'Self Drive Cars Madhapur',
-    'HITEC City Car Rental'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/car-rental-madhapur'
-  },
-  openGraph: {
-    title: 'Car Rental in Madhapur – Your Complete Guide to Hassle-Free Travel',
-    description:
-      'Rent a self-drive car in Madhapur with zero deposit, unlimited kilometers, and complete schedule freedom in Hyderabad’s IT hub.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Car Rental in Madhapur Hyderabad'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Car Rental in Madhapur | Travel Guide',
-    description:
-      'Explore Madhapur, HITEC City, and Hyderabad attractions with affordable self-drive car rentals.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

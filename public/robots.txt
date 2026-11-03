@@ -7,8 +7,8 @@ Allow: /
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
-Disallow: /_next/
 Disallow: /api/
+Disallow: /analytics/
 
 # Sitemaps
 Sitemap: https://www.longdrivecars.com/sitemap.xml

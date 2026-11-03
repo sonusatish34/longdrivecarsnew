@@ -1,6 +1,4 @@
-import { decryptFernetData } from "@/utils/crypto";
-
-const EXTERNAL_DATA_URL = 'https://api.longdrivecars.com/l-site-dc/cars-info?location=vijayawada';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 function generateSiteMap(cars) {
     return `
@@ -36,7 +34,7 @@ function generateSiteMap(cars) {
         return `
 
         <url>
-            <loc>${`hhttps://www.longdrivecars.com/vijayawada/car-rental/${item?.maker_model.replaceAll(' ', '-').toLowerCase()}`}</loc>
+            <loc>${`https://www.longdrivecars.com/vijayawada/car-rental/${item?.maker_model.replaceAll(' ', '-').toLowerCase()}`}</loc>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>
         </url>
@@ -51,21 +49,20 @@ function SiteMap() {
     // This will be handled by getServerSideProps, no need for content in the component itself
 }
 
-export async function getServerSideProps({ res, req }) {
-    // Fetch the car data
-    const host = req.headers.host;
-
-    const response = await fetch(EXTERNAL_DATA_URL);
-    const items = await response.json();
-    // const cars = ['book-a-rental-car-in-vijayawada','sedan-cars-for-rent-in-vijayawada','cars-rental-services-in-vijayawada'];
-    // const cars = items?.data?.results;
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-    const cars = decryptedCars;
+export async function getServerSideProps({ res }) {
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('vijayawada');
+    } catch (error) {
+        console.error('Unable to load Vijayawada cars for sitemap:', error);
+    }
     const sitemap = generateSiteMap(cars)
 
     // Generate the XML sitemap
 
     // Set the response header for XML
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
     res.setHeader('Content-Type', 'text/xml');
 
     // Write the generated sitemap to the response
@@ -78,4 +75,3 @@ export async function getServerSideProps({ res, req }) {
 }
 
 export default SiteMap;
-

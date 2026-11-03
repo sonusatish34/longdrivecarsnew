@@ -1,35 +1,18 @@
-import { decryptFernetData } from '@/utils/crypto';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 export default async function handler(req, res) {
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', 'GET');
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  const location = String(req.query.location || 'hyderabad').toLowerCase();
   try {
-    const response = await fetch(
-      'https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad',
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-        },
-      }
-    );
-
-    const data = await response.json();
-
-    // 🔐 Decrypt here using server env key
-    const decryptedCars = decryptFernetData(
-      data?.data?.results,
-      process.env.LDC_SECRET_KEY
-    );
-
-    res.status(200).json({
-      ...data,
-      data: {
-        ...data.data,
-        results: decryptedCars || [],
-      },
-    });
-
+    const cars = await getCarsByLocation(location);
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+    return res.status(200).json({ results: cars });
   } catch (error) {
     console.error("API ERROR:", error);
-    res.status(500).json({ error: 'Failed to fetch data' });
+    return res.status(502).json({ error: 'Failed to fetch car inventory' });
   }
 }

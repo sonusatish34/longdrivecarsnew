@@ -101,7 +101,7 @@ const SITUATIONS = [
 const BENEFITS = [
   { title: 'Choose Your Own Hours', desc: 'Flexible hourly and daily rental durations tailored to your exact travel plans.' },
   { title: 'Unlimited Kilometres', desc: 'Travel across northeast Hyderabad and beyond without worrying about mileage caps or extra distance fees.' },
-  { title: 'No Deposit', desc: 'Enjoy complete convenience with zero security deposit required to confirm your booking.' },
+  { title: 'Zero Deposit Option', desc: 'Enjoy complete convenience with zero security deposit required to confirm your booking.' },
   { title: 'Check Original Car Photos', desc: 'Inspect original, real photos of vehicles before booking to ensure complete transparency.' },
   { title: '24/7 Breakdown Service', desc: 'Drive with peace of mind backed by round-the-clock roadside assistance across the city.' }
 ];
@@ -161,7 +161,7 @@ export default function EcilGuidePage() {
         <title>Self Drive Car Rental in ECIL, Hyderabad | Long Drive Cars</title>
         <meta
           name="description"
-          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta
           name="keywords"
@@ -172,7 +172,7 @@ export default function EcilGuidePage() {
         <meta property="og:title" content="Self Drive Car Rental in ECIL, Hyderabad | Long Drive Cars" />
         <meta
           property="og:description"
-          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta property="og:url" content={CANONICAL_URL} />
         <meta property="og:site_name" content="Long Drive Cars" />
@@ -181,7 +181,7 @@ export default function EcilGuidePage() {
         <meta name="twitter:title" content="Self Drive Car Rental in ECIL, Hyderabad | Long Drive Cars" />
         <meta
           name="twitter:description"
-          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in ECIL, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta name="twitter:image" content="https://www.longdrivecars.com/locationpages/ecil.webp" />
       </Head>
@@ -230,7 +230,7 @@ export default function EcilGuidePage() {
               This makes self drive cars in ECIL useful when your journey involves multiple stops. For example, you might start at ECIL X Roads, meet someone in AS Rao Nagar, shop around Sainikpuri and later drive towards Moula Ali without having to arrange a separate cab for every part of the journey.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              Long Drive Cars offers features including choose your own hours, unlimited kilometres, no deposit, 24/7 breakdown service and the option to check original car photos before booking.
+              Long Drive Cars offers features including choose your own hours, unlimited kilometres, Zero Deposit Option, 24/7 breakdown service and the option to check original car photos before booking.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Key Travel Advantages in ECIL</h3>
@@ -407,7 +407,7 @@ export default function EcilGuidePage() {
               Book Your Self-Drive Car in ECIL
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Self Drive Car Rental in ECIL gives you the flexibility to explore ECIL, AS Rao Nagar, Sainikpuri, Kapra, Kushaiguda, Safilguda and Moula Ali according to your own schedule. Whether you need a car for everyday travel, shopping, family outings, airport travel or a weekend road trip, Long Drive Cars provides different vehicle options with features such as flexible hours, unlimited kilometres, no deposit and 24/7 breakdown service.
+              Self Drive Car Rental in ECIL gives you the flexibility to explore ECIL, AS Rao Nagar, Sainikpuri, Kapra, Kushaiguda, Safilguda and Moula Ali according to your own schedule. Whether you need a car for everyday travel, shopping, family outings, airport travel or a weekend road trip, Long Drive Cars provides different vehicle options with features such as flexible hours, unlimited kilometres, Zero Deposit Option and 24/7 breakdown service.
             </p>
             <p className="text-slate-900 font-semibold text-sm">
               Choose your car, plan your route and drive your own way with Long Drive Cars.

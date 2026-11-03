@@ -20,46 +20,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Hyderabad Self Drive Car Rentals in Begumpet | Travel Guide',
-  description:
-    'Explore Begumpet with freedom and convenience. Discover the Spanish Mosque, Jalavihar, Central Mall, and top dining spots with Hyderabad self drive car rentals.',
-  keywords: [
-    'Hyderabad Self Drive Car Rentals',
-    'Rent self drive cars in Hyderabad',
-    'Luxury self drive car rental Hyderabad',
-    'Begumpet Travel Guide',
-    'Car Rental Begumpet Hyderabad'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/begumpet-car-rentals'
-  },
-  openGraph: {
-    title: 'Hyderabad Self Drive Car Rentals: Exploring Begumpet with Freedom',
-    description:
-      'Discover Begumpet with seamless self-drive car rentals. Enjoy complete schedule flexibility and affordable rates.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Hyderabad Self Drive Car Rentals in Begumpet'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Hyderabad Self Drive Car Rentals in Begumpet',
-    description:
-      'Explore Begumpet heritage and commercial spots with trusted self-drive car rentals in Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

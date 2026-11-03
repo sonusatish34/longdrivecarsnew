@@ -10,24 +10,43 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const slides = [
-  { id: 1, url: '/herobanners/1.jpeg' },
-  { id: 2, url: '/herobanners/2.jpeg' },
-  { id: 3, url: '/herobanners/3.jpeg' },
-  // { id: 4, url: '/herobanners/of4.webp' },
-  // { id: 5, url: '/herobanners/of5.webp' },
-  // { id: 6, url: '/herobanners/of6.webp' },
+  { url: '/herobanners/1.webp' },
+  { url: '/herobanners/2.webp' },
+  { url: '/herobanners/3.webp' },
+  { url: '/herobanners/9.webp' },
+  { url: '/herobanners/10.webp' },
+  { url: '/herobanners/11.webp' },
+  { url: '/herobanners/12.webp' },
+  { url: '/herobanners/13.webp' },
+  { url: '/herobanners/14.webp' },
+  { url: '/herobanners/15.webp' },
+  { url: '/herobanners/16.webp' },
+  { url: '/herobanners/17.webp' },
+  { url: '/herobanners/18.webp' },
+  { url: '/herobanners/19.webp' },
+  { url: '/herobanners/21.webp' },
+  { url: '/herobanners/22.webp' },
+  { url: '/herobanners/23.webp' },
+  { url: '/herobanners/24.webp' },
+  { url: '/herobanners/25.webp' },
+  { url: '/herobanners/28.webp' },
+  { url: '/herobanners/30.webp' },
+  { url: '/herobanners/31.webp' },
+  { url: '/herobanners/32.webp' },
+  { url: '/herobanners/33.webp' },
+  { url: '/herobanners/34.webp' },
 ];
 
 export default function HeroBanner() {
   return (
     <section className="relative w-full overflow-hidden bg-[#a8a0d0]">
       <Swiper
-        modules={[Autoplay, EffectFade, Navigation, Pagination]}
+        modules={[Autoplay, EffectFade, Navigation]}
         effect="fade"
         speed={700}
         loop
         navigation
-        pagination={{ clickable: true }}
+        // pagination={{ clickable: true }}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -36,18 +55,22 @@ export default function HeroBanner() {
         className="w-full"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={slide.id}>
-            <div className="relative w-full aspect-[3/2]">
+          <SwiperSlide key={index+1}>
+            {/* 
+              aspect-[2367/1742] matches your exact banner dimension.
+              max-h-[85vh] prevents it from stretching too tall on ultra-wide screens.
+            */}
+            <div className="relative w-full aspect-[2367/1742] ">
               <Image
                 src={slide.url}
                 alt={`Long Drive Cars banner ${index + 1}`}
                 fill
                 priority={index === 0}
-                fetchPriority={index === 0 ? 'high' : 'auto'}
+                fetchPriority={index === 0 ? 'high' : 'low'}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 sizes="100vw"
-                quality={75}
-                className="object-cover object-center"
+                quality={70}
+                className="object-contain sm:object-cover object-center"
               />
 
               <div

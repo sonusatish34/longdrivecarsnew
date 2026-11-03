@@ -1,22 +1,5 @@
 
-import { fireDb } from '@/public/firebase';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-const fetchCatAndPosts = async () => {
-
-    try {
-        const postsQueryNew = query(collection(fireDb, "blogPost"),
-            where("blog_state", "==", "active"),
-            where("blogfor", "==", "LDC")
-        );
-        const postsQuerySnapshotNew = await getDocs(postsQueryNew);
-        const postsnew = postsQuerySnapshotNew.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        return postsnew
-    } catch (err) {
-        console.error(err);
-    } finally {
-    }
-};
+import { getActiveBlogPosts } from '@/utils/blogPosts';
 function generateSiteMap(cars) {
 
 
@@ -42,14 +25,18 @@ function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-    // Fetch the car data
-    const cars = await fetchCatAndPosts(); // Fetching posts using the fixed function
+    let posts = [];
+    try {
+        posts = await getActiveBlogPosts();
+    } catch (error) {
+        console.error('Unable to load posts for blog sitemap:', error);
+    }
 
-
-    // Generate the XML sitemap
-    const sitemap = generateSiteMap(cars);
+    const sitemap = generateSiteMap(posts);
 
     // Set the response header for XML
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
     res.setHeader('Content-Type', 'text/xml');
 
     // Write the generated sitemap to the response

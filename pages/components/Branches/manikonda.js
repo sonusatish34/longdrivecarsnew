@@ -20,47 +20,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Manikonda Travel & Lifestyle Guide | Rent a Self Drive Car in Manikonda',
-  description:
-    'Explore the ultimate Manikonda travel and lifestyle guide. Discover Khajaguda Hills, Puppalaguda Lake, top cafes, and nearby getaways by booking a self-drive car rental in Manikonda.',
-  keywords: [
-    'Rent a Self Drive Car in Manikonda',
-    'Book self drive cars in Manikonda Hyderabad',
-    'Low cost self drive car rental in Manikonda',
-    'Manikonda Travel Guide',
-    'Self Drive Cars Hyderabad',
-    'Car Rental Manikonda'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/manikonda-travel-guide'
-  },
-  openGraph: {
-    title: 'Manikonda Travel & Lifestyle Guide | Self Drive Car Rentals',
-    description:
-      'Plan your trip to Manikonda with ease. Find top attractions, dining hubs, and travel tips with flexible self-drive car rentals.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/manikonda.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Manikonda Travel and Lifestyle Guide'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Manikonda Travel & Lifestyle Guide | Rent a Self Drive Car',
-    description:
-      'Explore Manikonda, local eateries, and weekend getaways with affordable self-drive car rentals in Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

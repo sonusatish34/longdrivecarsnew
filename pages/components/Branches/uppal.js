@@ -20,46 +20,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Self Drive Car Rentals in Uppal | The Smart Way to Travel in Hyderabad',
-  description:
-    'Complete guide to self drive car rentals in Uppal Hyderabad. Discover hourly, daily, and monthly rental options, pricing, and tips for budget self-drive car rentals.',
-  keywords: [
-    'Self Drive Car rentals in Uppal',
-    'Best Self Drive Car Rentals in Uppal',
-    'Budget self drive car Rental services in Uppal Hyderabad',
-    'Uppal Car Rental Hyderabad',
-    'Self Drive Cars Uppal'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/self-drive-car-rentals-uppal'
-  },
-  openGraph: {
-    title: 'Self Drive Car Rentals in Uppal: The Smart Way to Travel in Hyderabad',
-    description:
-      'Rent self-drive cars in Uppal with complete freedom, flexible pricing, and verified fleets for city commutes and outstation trips.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Self Drive Car Rentals in Uppal Hyderabad'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Self Drive Car Rentals in Uppal | Travel Guide',
-    description:
-      'Explore Uppal and nearby Hyderabad destinations with affordable self-drive car rentals.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

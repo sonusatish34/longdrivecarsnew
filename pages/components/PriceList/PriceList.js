@@ -180,9 +180,9 @@ export default function PriceList({ city, prices }) {
                             <FeatureItem icon={<FaRegClock size={40} />} text="Choose Your Own Hours" />
                             <FeatureItem icon={<GiTowTruck size={40} />} text="24/7 Breakdown Service" />
                             <FeatureItem icon={<SlSpeedometer size={40} />} text="Unlimited Kilometers" />
-                            <FeatureItem icon={<RiMoneyRupeeCircleFill size={40} />} text="No Deposit" />
+                            <FeatureItem icon={<RiMoneyRupeeCircleFill size={40} />} text="Zero Deposit Option" />
                             <FeatureItem icon={<FaCar size={40} />} text="Check Original Photos & Book" />
-                            <FeatureItem icon={<FaCarSide size={40} />} text="Car Starts at ₹1448/Day" />
+                            <FeatureItem icon={<FaCarSide size={40} />} text="Car Starts at ₹ 1180/day" />
                             <FeatureItem icon={<IoMdArrowDropdownCircle size={40} />} text="Lowest Price Challenge" />
                             <FeatureItem icon={<SiContactlesspayment size={40} />} text="Just pay 10% Advance & book" />
                         </div>

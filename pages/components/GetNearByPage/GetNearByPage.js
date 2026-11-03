@@ -15,9 +15,8 @@ import { TbManualGearbox } from "react-icons/tb";
 import { FaAppStore } from "react-icons/fa";
 import { BiLogoPlayStore } from "react-icons/bi";
 import { handleStoreRedirect } from '../../../utils/redirectUtils';
-
-import ldcqr from '../../images/ldcqr.png'
 import { trackEvent } from "@/utils/trackEvent";
+import { getWhatsAppUrl } from '@/utils/whatsapp';
 const LocationFetcher = ({ phoneno, locname, wspno }) => {
 
   const [location, setLocation] = useState(null);
@@ -197,10 +196,11 @@ const LocationFetcher = ({ phoneno, locname, wspno }) => {
                         <div className="flex gap-x-8 mxs:gap-x-16 items-center justify-center pt-5 pb-2">
                           <p className="text-[15px]">Book Now</p>
                           <p className="capitalize p-1 font-bold text-white font-manrope text-base">
-                            ₹ {item?.price_24_hours * 24} / 24hrs
+                            ₹ {(item?.price_24_hours)} / 24hrs
                           </p>
                         </div>
-                        <ul className="flex gap-4 justify-center text-xs mxs:text-sm pt-2 pb-6">
+                        <ul className="flex gap-3 justify-center text-xs mxs:text-[12px] pt-2 pb-6">
+                          
                           <li className="border-r-2 border-white flex items-center gap-1 pr-2">
                             <BsFillFuelPumpFill /> {item?.fuel_type}
                           </li>
@@ -219,7 +219,7 @@ const LocationFetcher = ({ phoneno, locname, wspno }) => {
                       <ul className="flex justify-center gap-x-8 px-3">
                         <li onClick={() => trackEvent({ eventName: 'Contact', customData: { content_name: 'Whatsapp Button' } })} className="bg-green-500 w-32 py-2 text-center rounded-md">
                           <Link
-                            href={`https://api.whatsapp.com/send?phone=+91${wspno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`}
+                            href={getWhatsAppUrl(wspno)}
                             target="_blank"
                           >
                             <p className="flex gap-1 text-sm justify-center items-center">
@@ -274,7 +274,7 @@ const LocationFetcher = ({ phoneno, locname, wspno }) => {
                                   </ul>
                                 </div>
                                 <Image
-                                  src={ldcqr}
+                                  src={'/qr.webp'}
                                   height={1000}
                                   width={1000}
                                   alt="Long Drive Cars App"

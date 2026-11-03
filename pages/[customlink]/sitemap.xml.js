@@ -1,6 +1,4 @@
-import { decryptFernetData } from "@/utils/crypto";
-
-const EXTERNAL_DATA_URL = 'https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 function generateSiteMap(cars) {
     return `
@@ -58,22 +56,24 @@ function SiteMap() {
     // This will be handled by getServerSideProps, no need for content in the component itself
 }
 
-export async function getServerSideProps({ res, req }) {
-    // Fetch the car data
-    const host = req.headers.host;
-
-    const response = await fetch(EXTERNAL_DATA_URL);
-    const items = await response.json();
-    // const cars = ['book-a-rental-car-in-hyderabad','sedan-cars-for-rent-in-hyderabad','cars-rental-services-in-hyderabad'];
-    // const cars = items?.data?.results;
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-    const cars = decryptedCars;
+export async function getServerSideProps({ res, params }) {
+    if (String(params.customlink).toLowerCase() !== 'hyderabad') {
+        return { notFound: true };
+    }
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('hyderabad');
+    } catch (error) {
+        console.error('Unable to load Hyderabad cars for sitemap:', error);
+    }
     
       const  sitemap = generateSiteMap(cars)
     
     // Generate the XML sitemap
 
     // Set the response header for XML
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
     res.setHeader('Content-Type', 'text/xml');
 
     // Write the generated sitemap to the response
@@ -137,6 +137,7 @@ export default SiteMap;
 //     }
 
 //     // Set the response header for XML (if sitemap exists)
+//     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
 //     res.setHeader('Content-Type', 'text/xml');
 
 //     if (sitemap) {
@@ -229,6 +230,7 @@ export default SiteMap;
 //   const sitemap = generateSiteMap();
 
 //   // Set the correct header for XML content
+//   res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
 //   res.setHeader('Content-Type', 'text/xml');
 
 //   // Send the XML sitemap to the browser
@@ -240,5 +242,3 @@ export default SiteMap;
 // }
 
 // export default SiteMap;
-
-

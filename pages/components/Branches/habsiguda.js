@@ -110,7 +110,7 @@ const SITUATIONS = [
 const BENEFITS = [
   { title: 'Choose Your Own Hours', desc: 'Customizable rental periods to match your exact itinerary without rigid constraints.' },
   { title: 'Unlimited Kilometres', desc: 'Explore freely around eastern Hyderabad and beyond without per-km penalties or distance limits.' },
-  { title: 'No Deposit', desc: 'Book with complete transparency and zero security deposit required.' },
+  { title: 'Zero Deposit Option', desc: 'Book with complete transparency and zero security deposit required.' },
   { title: 'Check Original Car Photos', desc: 'Review real, original vehicle photos before confirming your booking.' },
   { title: '24/7 Breakdown Service', desc: 'Round-the-clock roadside assistance ensures a safe, supported journey wherever you go.' }
 ];
@@ -170,7 +170,7 @@ export default function HabsigudaGuidePage() {
         <title>Self Drive Car Rental in Habsiguda, Hyderabad | Long Drive Cars</title>
         <meta
           name="description"
-          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta
           name="keywords"
@@ -181,7 +181,7 @@ export default function HabsigudaGuidePage() {
         <meta property="og:title" content="Self Drive Car Rental in Habsiguda, Hyderabad | Long Drive Cars" />
         <meta
           property="og:description"
-          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta property="og:url" content={CANONICAL_URL} />
         <meta property="og:site_name" content="Long Drive Cars" />
@@ -190,7 +190,7 @@ export default function HabsigudaGuidePage() {
         <meta name="twitter:title" content="Self Drive Car Rental in Habsiguda, Hyderabad | Long Drive Cars" />
         <meta
           name="twitter:description"
-          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Habsiguda, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta name="twitter:image" content="https://www.longdrivecars.com/locationpages/habsiguda.webp" />
       </Head>
@@ -239,7 +239,7 @@ export default function HabsigudaGuidePage() {
               This is where self drive cars in Habsiguda can be useful. Instead of arranging separate rides for every destination, you can use one rental car and manage your journey according to your own schedule.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              Long Drive Cars currently highlights features such as choosing your own hours, unlimited kilometres, no deposit, 24/7 breakdown service and original car photos before booking.
+              Long Drive Cars currently highlights features such as choosing your own hours, unlimited kilometres, Zero Deposit Option, 24/7 breakdown service and original car photos before booking.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Key Travel Advantages in Habsiguda</h3>
@@ -403,7 +403,7 @@ export default function HabsigudaGuidePage() {
                 Long Drive Cars focuses on self-drive rentals with features designed around flexibility.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                For customers travelling from Habsiguda, features such as choose your own hours, unlimited kilometres, no deposit, 24/7 breakdown service and original car photos before booking can be useful when the journey involves several destinations instead of a simple point-to-point trip.
+                For customers travelling from Habsiguda, features such as choose your own hours, unlimited kilometres, Zero Deposit Option, 24/7 breakdown service and original car photos before booking can be useful when the journey involves several destinations instead of a simple point-to-point trip.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Whether your plan is around Habsiguda and Tarnaka or extends towards Uppal, Nacharam and other parts of Hyderabad, the rental car can be selected according to your travel requirement and availability.
@@ -449,7 +449,7 @@ export default function HabsigudaGuidePage() {
               If you are planning to travel from Habsiguda to nearby areas or explore different parts of Hyderabad, a self-drive car can give you greater control over your journey. From short local trips and daily travel to airport transfers and weekend drives, Self Drive Cars in Habsiguda can provide a flexible way to plan your travel around your own time and route.
             </p>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Whether you need a car for office travel, shopping, family outings, an educational visit, airport travel or a weekend road trip, Long Drive Cars provides multiple vehicle options with features such as flexible hours, unlimited kilometres, no deposit and 24/7 breakdown service.
+              Whether you need a car for office travel, shopping, family outings, an educational visit, airport travel or a weekend road trip, Long Drive Cars provides multiple vehicle options with features such as flexible hours, unlimited kilometres, Zero Deposit Option and 24/7 breakdown service.
             </p>
             <p className="text-slate-900 font-semibold text-sm">
               Choose your car, plan your route and drive your own way with Long Drive Cars.

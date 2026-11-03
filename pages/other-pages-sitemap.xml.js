@@ -1,7 +1,6 @@
-import { decryptFernetData } from "@/utils/crypto";
+import { getCarsByLocation } from '@/utils/serverCars';
 
 // pages/sitemap.xml.js
-const EXTERNAL_DATA_URL = 'https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad';
 
 function generateSiteMap(cars) {
     return `
@@ -146,7 +145,7 @@ ${cars?.map((item) => {
         return `
 
         <url>
-            <loc>${`hhttps://www.longdrivecars.com/car-rental/${item?.maker_model.replaceAll(' ', '-').toLowerCase()}`}</loc>
+            <loc>${`https://www.longdrivecars.com/car-rental/${item?.maker_model.replaceAll(' ', '-').toLowerCase()}`}</loc>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>
         </url>
@@ -161,26 +160,19 @@ function SiteMap() {
     // This function doesn't need to return anything as it’s only used for the server-side logic
 }
 
-export async function getServerSideProps({ req, res }) {
-    const host = req.headers.host;
-
-    // Check if the domain contains ".com"
-    if (host.includes('.com)')) {
-        res.statusCode = 404;
-        res.end();
-        return {
-            props: {},
-        };
+export async function getServerSideProps({ res }) {
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('hyderabad');
+    } catch (error) {
+        console.error('Unable to load Hyderabad cars for sitemap:', error);
     }
-    const response = await fetch(EXTERNAL_DATA_URL);
-    const items = await response.json();
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-    // const cars = ['book-a-rental-car-in-warangal','sedan-cars-for-rent-in-warangal','cars-rental-services-in-warangal'];
-    const cars = decryptedCars;
     // Generate the XML sitemap with manually entered URLs
     const sitemap = generateSiteMap(cars);
 
     // Set the correct header for XML content
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
+
     res.setHeader('Content-Type', 'text/xml');
 
     // Send the XML sitemap to the browser

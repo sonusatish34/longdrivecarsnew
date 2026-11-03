@@ -100,7 +100,7 @@ const BlogLayout = ({
                     {/* Navigation & Categories */}
                     <div className="flex xl:gap-20 gap-10 items-center">
                         <p
-                            // href={`/attach&earn/explore-topics`}
+                            // href={`/attach-and-earn/explore-topics`}
                             className={`text-base py-1 lg:bg-[#1859c9] lg:rounded-3xl`}
                         >
                             <div className="lg:flex items-center space-x-2">
@@ -142,7 +142,7 @@ const BlogLayout = ({
                                     cList.map((cat, i) => (
                                         <SwiperSlide key={`category-${i}`}>
                                             <Link
-                                                href={`/attach&earn/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
+                                                href={`/attach-and-earn/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
                                                     }`}
                                                 className={`flex justify-center items-center w-[80%] p-1 capitalize font-medium bg-[#1859c9] text-[14px] lg:text-sm rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase()
                                                     ? "border-2 border-yellow-500 text-yellow-500"

@@ -106,7 +106,7 @@ const SITUATIONS = [
 const BENEFITS = [
   { title: 'Choose Your Own Hours', desc: 'Flexible hourly and daily rental bookings designed around your own schedule.' },
   { title: 'Unlimited Kilometres', desc: 'Drive freely across Tarnaka, central-eastern Hyderabad, and beyond without per-km penalty anxiety.' },
-  { title: 'No Deposit', desc: 'Enjoy complete booking transparency and convenience with zero security deposit required.' },
+  { title: 'Zero Deposit Option', desc: 'Enjoy complete booking transparency and convenience with zero security deposit required.' },
   { title: 'Check Original Car Photos', desc: 'Review real, original vehicle photos directly on the platform before confirming your reservation.' },
   { title: '24/7 Breakdown Service', desc: 'Round-the-clock roadside assistance ensures complete peace of mind throughout your journey.' }
 ];
@@ -166,7 +166,7 @@ export default function TarnakaGuidePage() {
         <title>Self Drive Car Rental in Tarnaka, Hyderabad | Long Drive Cars</title>
         <meta
           name="description"
-          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta
           name="keywords"
@@ -177,7 +177,7 @@ export default function TarnakaGuidePage() {
         <meta property="og:title" content="Self Drive Car Rental in Tarnaka, Hyderabad | Long Drive Cars" />
         <meta
           property="og:description"
-          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta property="og:url" content={CANONICAL_URL} />
         <meta property="og:site_name" content="Long Drive Cars" />
@@ -186,7 +186,7 @@ export default function TarnakaGuidePage() {
         <meta name="twitter:title" content="Self Drive Car Rental in Tarnaka, Hyderabad | Long Drive Cars" />
         <meta
           name="twitter:description"
-          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit."
+          content="Looking for self drive car rental in Tarnaka, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and zero deposit option."
         />
         <meta name="twitter:image" content="https://www.longdrivecars.com/locationpages/tarnaka.webp" />
       </Head>
@@ -235,7 +235,7 @@ export default function TarnakaGuidePage() {
               This is where self drive cars in Tarnaka can be useful. Instead of arranging separate rides for different destinations, you can use one rental car and manage your journey according to your own schedule.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              Long Drive Cars currently highlights features such as choosing your own hours, unlimited kilometres, no deposit, 24/7 breakdown service and original car photos before booking.
+              Long Drive Cars currently highlights features such as choosing your own hours, unlimited kilometres, Zero Deposit Option, 24/7 breakdown service and original car photos before booking.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Key Travel Advantages in Tarnaka</h3>
@@ -421,7 +421,7 @@ export default function TarnakaGuidePage() {
                 Long Drive Cars focuses on self-drive rentals with features designed around flexibility.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                For customers travelling from Tarnaka, features such as choose your own hours, unlimited kilometres, no deposit, 24/7 breakdown service and original car photos before booking can be useful when the journey involves several destinations instead of a simple point-to-point trip.
+                For customers travelling from Tarnaka, features such as choose your own hours, unlimited kilometres, Zero Deposit Option, 24/7 breakdown service and original car photos before booking can be useful when the journey involves several destinations instead of a simple point-to-point trip.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 Whether your plan is around Tarnaka and Osmania University or extends towards Habsiguda, Mettuguda, Nacharam, Uppal and Secunderabad, the rental car can be selected according to your travel requirement and availability.
@@ -467,7 +467,7 @@ export default function TarnakaGuidePage() {
               Self Drive Car Rental in and around Tarnaka gives you the flexibility to travel around Tarnaka, Osmania University, Habsiguda, Mettuguda, Nacharam, Uppal, Malkajgiri and nearby parts of Hyderabad according to your own schedule.
             </p>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Whether you need a car for office travel, university visits, shopping, family outings, airport travel or a weekend road trip, Long Drive Cars provides multiple vehicle options with features such as flexible hours, unlimited kilometres, no deposit and 24/7 breakdown service.
+              Whether you need a car for office travel, university visits, shopping, family outings, airport travel or a weekend road trip, Long Drive Cars provides multiple vehicle options with features such as flexible hours, unlimited kilometres, Zero Deposit Option and 24/7 breakdown service.
             </p>
             <p className="text-slate-900 font-semibold text-sm">
               Choose your car, plan your route and drive your own way with Long Drive Cars.

@@ -23,46 +23,6 @@ import Head from 'next/head';
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Car Rentals in LB Nagar | Affordable & Convenient Travel Guide',
-  description:
-    'Complete guide to car rentals in LB Nagar Hyderabad. Explore self-drive, chauffeur-driven, outstation packages, pricing, and tips for affordable car rentals in LB Nagar.',
-  keywords: [
-    'Car Rentals in LB Nagar',
-    'Affordable Car Rentals in LB Nagar',
-    'Low-cost vehicle rental services in LB Nagar area',
-    'Self Drive Cars LB Nagar',
-    'Hyderabad Car Rentals'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/car-rentals-lb-nagar'
-  },
-  openGraph: {
-    title: 'Car Rentals in LB Nagar: Complete Guide to Affordable Travel',
-    description:
-      'Discover top rental options, flexible packages, and pricing tips for car rentals in LB Nagar Hyderabad.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/lbnagar.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Car Rentals in LB Nagar Hyderabad'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Car Rentals in LB Nagar | Affordable & Convenient Travel',
-    description:
-      'Book affordable self-drive and chauffeur car rentals in LB Nagar Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

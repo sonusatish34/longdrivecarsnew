@@ -47,10 +47,10 @@ const ComponentName = ({ canonicalUrl }) => {
     <div>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Self Drives Car Rental Blog by Long Drive Cars</title>
-        <meta property="og:title" content="Self Drive Car Rental Blog by Long Drive Cars" />
-        <meta name="description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
-        <meta name="og:description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
+        <title>Attach Your Car and Earn | Long Drive Cars App</title>
+        <meta property="og:title" content="Attach Your Car and Earn | Long Drive Cars App" />
+        <meta name="description" content="Interested in attaching your car to Long Drive Cars App? Review the vehicle-partner opportunity, eligibility details and next steps before enquiring." />
+        <meta name="og:description" content="Interested in attaching your car to Long Drive Cars App? Review the vehicle-partner opportunity, eligibility details and next steps before enquiring." />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={canonicalUrl} />
@@ -71,11 +71,7 @@ const ComponentName = ({ canonicalUrl }) => {
 export default ComponentName;
 
 export async function getServerSideProps({ req, query, params }) {
-
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in`
-    : `https://www.longdrivecars.com`;
+  const canonicalUrl = 'https://www.longdrivecars.com/attach-and-earn';
 
   return {
     props: {

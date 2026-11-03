@@ -22,47 +22,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Self Drive Car Rentals Kukatpally | The Ultimate Travel Guide',
-  description:
-    'Discover hassle-free travel with self drive car rentals in Kukatpally. Enjoy zero deposit options, unlimited kilometers, hourly, daily, and monthly plans.',
-  keywords: [
-    'Self drive car rentals in Kukatpally',
-    'Best self drive car rentals in Kukatpally',
-    'Cheap self drive cars in Kukatpally without deposit',
-    'Kukatpally Car Rental Hyderabad',
-    'Zero Deposit Car Rental Kukatpally',
-    'Self Drive Cars Hyderabad'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/kukatpally-car-rentals'
-  },
-  openGraph: {
-    title: 'Self Drive Car Rentals Kukatpally – Hassle-Free Travel Guide',
-    description:
-      'Rent self drive cars in Kukatpally with zero deposit and unlimited kilometers. Explore Hyderabad at your own pace.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Self Drive Car Rentals in Kukatpally'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Self Drive Car Rentals Kukatpally | The Ultimate Guide',
-    description:
-      'Compare plans, rental types, and book affordable zero deposit self-drive cars in Kukatpally.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

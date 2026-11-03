@@ -19,47 +19,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Shamshabad Travel & Lifestyle Guide | Self Drive Car Rental in Shamshabad',
-  description:
-    'Complete travel guide to Shamshabad Hyderabad. Discover airport connectivity, Escape Water Park, Wonderla, food spots, and seamless outstation getaways with self drive car rentals in Shamshabad.',
-  keywords: [
-    'Self Drive car rental in Shamshabad',
-    'Book self drive cars in Shamshabad',
-    'Online self drive car rental Shamshabad',
-    'Shamshabad Travel Guide',
-    'Hyderabad Airport Car Rental',
-    'Self Drive Cars Shamshabad'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/shamshabad-travel-guide'
-  },
-  openGraph: {
-    title: 'Shamshabad Travel & Lifestyle Guide | Self Drive Car Rentals',
-    description:
-      'Explore Shamshabad with complete freedom. Discover airport transit perks, amusement parks, lakes, and highway dining with self-drive car rentals.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Self Drive Car Rental in Shamshabad Hyderabad'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Shamshabad Travel & Lifestyle Guide | Self Drive Car Rental',
-    description:
-      'Book self-drive cars in Shamshabad near Hyderabad International Airport for city drives and outstation road trips.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

@@ -27,11 +27,7 @@ function getnearbycars({ canonicalUrl }) {
 export default getnearbycars;
 
 export async function getServerSideProps({ req }) {
-
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in/vizag/get-near-by-cars`
-    : `https://www.longdrivecars.com/vizag/get-near-by-cars`;
+  const canonicalUrl = `https://www.longdrivecars.com/vizag/get-near-by-cars`;
   return {
     props: {
       canonicalUrl,

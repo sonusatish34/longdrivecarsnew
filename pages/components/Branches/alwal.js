@@ -99,7 +99,7 @@ const SITUATIONS = [
 const BENEFITS = [
   { title: 'Choose Your Own Hours', desc: 'Flexibility to reserve vehicles based on your personal travel requirements and schedule without strict hourly blocks.' },
   { title: 'Unlimited Kilometres', desc: 'Drive freely across Alwal, Secunderabad, and beyond without keeping an eye on an odometer cap or worrying about per-km penalties.' },
-  { title: 'Zero Security Deposit', desc: 'Enjoy complete convenience and transparency with no deposit required to confirm your booking.' },
+  { title: 'Zero Security Deposit', desc: 'Enjoy complete convenience and transparency with Zero Deposit Option required to confirm your booking.' },
   { title: 'Check Original Car Photos', desc: 'The platform allows customers to review original car photos directly before making a reservation so you know the exact vehicle you get.' },
   { title: '24/7 Breakdown Service', desc: 'Travel with complete peace of mind supported by round-the-clock roadside assistance wherever your journey takes you.' }
 ];
@@ -144,7 +144,6 @@ export default function AlwalGuidePage() {
     {
         const response = await fetch('https://dev.longdrivecars.com/l-site-dc/reviews?limit=10&offset=0')
     let res = await response.json()
-    console.log(res,'jello');
     }
     Fetch()
   },[])
@@ -152,18 +151,18 @@ export default function AlwalGuidePage() {
     <>
       <Head>
         <title>Self Drive Car Rental in Alwal, Hyderabad | Long Drive Cars</title>
-        <meta name="description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit." />
+        <meta name="description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and Zero Deposit Option." />
         <meta name="keywords" content="Self Drive Car Rental in Alwal, self drive cars in Alwal, Self driving cars in Hyderabad, Rent Self Drive Cars Hyderabad, self drive cars near Alwal, Self Drive Cars Secunderabad" />
         <link rel="canonical" href={CANONICAL_URL} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content="Self Drive Car Rental in Alwal, Hyderabad | Long Drive Cars" />
-        <meta property="og:description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit." />
+        <meta property="og:description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and Zero Deposit Option." />
         <meta property="og:url" content={CANONICAL_URL} />
         <meta property="og:site_name" content="Long Drive Cars" />
         <meta property="og:image" content="https://www.longdrivecars.com/locationpages/alwal.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Self Drive Car Rental in Alwal, Hyderabad | Long Drive Cars" />
-        <meta name="twitter:description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and no deposit." />
+        <meta name="twitter:description" content="Looking for self drive car rental in Alwal, Hyderabad? Choose hatchbacks, sedans, SUVs & 7-seaters with flexible hours, unlimited km and Zero Deposit Option." />
         <meta name="twitter:image" content="https://www.longdrivecars.com/locationpages/alwal.webp" />
       </Head>
 
@@ -208,7 +207,7 @@ export default function AlwalGuidePage() {
               This is where self drive cars in Alwal can be useful. Instead of booking a separate cab for every part of your journey, you can take one rental car and manage the entire trip yourself.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              Long Drive Cars provides self-drive vehicles with features including choose your own hours, unlimited kilometres, no deposit and 24/7 breakdown service. Customers can check available cars and book through the Long Drive Cars app.
+              Long Drive Cars provides self-drive vehicles with features including choose your own hours, unlimited kilometres, Zero Deposit Option and 24/7 breakdown service. Customers can check available cars and book through the Long Drive Cars app.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Key Travel Advantages in Alwal</h3>
@@ -356,7 +355,7 @@ export default function AlwalGuidePage() {
           <section className="bg-white border border-slate-200 rounded-2xl p-8 sm:p-10 text-center space-y-4 shadow-xs">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Book Your Self-Drive Car in Alwal</h2>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Self Drive Car Rental in Alwal gives you the flexibility to explore Alwal, Bolarum, Suchitra, Kompally, Bowenpally and other parts of Hyderabad according to your own schedule. From everyday travel and family outings to airport journeys and weekend road trips, Long Drive Cars offers different vehicle options with features such as flexible hours, unlimited kilometres, no deposit and 24/7 breakdown service.
+              Self Drive Car Rental in Alwal gives you the flexibility to explore Alwal, Bolarum, Suchitra, Kompally, Bowenpally and other parts of Hyderabad according to your own schedule. From everyday travel and family outings to airport journeys and weekend road trips, Long Drive Cars offers different vehicle options with features such as flexible hours, unlimited kilometres, Zero Deposit Option and 24/7 breakdown service.
             </p>
             <p className="text-slate-900 font-semibold text-sm">Choose your car, plan your route and drive your own way with Long Drive Cars.</p>
             <div className="pt-2">

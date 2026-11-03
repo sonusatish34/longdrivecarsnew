@@ -7,122 +7,114 @@ import {
   ChevronDown,
   ArrowRight,
   ShoppingBag,
-  Waves,
-  Landmark,
-  Compass,
-  Route,
-  Navigation,
-  ShieldCheck,
-  Wrench,
-  Sparkles
+  Building2,
+  Train,
+  Sunset,
+  Film,
+  Car,
+  Briefcase,
+  Users
 } from 'lucide-react';
 
 const TARGET_URL = 'https://www.longdrivecars.com';
 const CANONICAL_URL = 'https://www.longdrivecars.com/self-drive-car-rental-near-balanagar';
 
-const HIGHLIGHTS = [
-  'North-west Hyderabad locality with residential and industrial character, plus strong road and metro connectivity',
-  'Direct access to Balanagar Metro station on the Red Line, linking to Moosapet and greater Hyderabad',
-  'Close proximity to IDL Lake, Exhibition Grounds, Metro Cash & Carry, and local temples',
-  'Seamless travel across Kukatpally, Moosapet, Bowenpally, Sanath Nagar, and Jeedimetla in one vehicle',
-  'Total freedom to decide departure time, choose routes, and make multiple stops without fixed public transport timings'
+const WHY_BALANAGAR = [
+  'Established industrial and commercial hub, serving as a practical starting point for everyday travel and business trips',
+  'Visit offices, workshops, and commercial establishments without the hassle of booking separate cabs for every stop',
+  'Seamless connectivity across neighbouring residential zones, Kukatpally, Moosapet, and central Hyderabad',
+  'Complete control over your itinerary, stops, and schedules for local errands, meetings, or family outings'
 ];
 
-const EXPLORE_PLACES = [
-  {
-    icon: Waves,
-    title: 'IDL Lake',
-    badge: 'Scenic Waterfront',
-    desc: 'IDL Lake is one of the landmarks listed around the Balanagar Metro station. It can be included in a relaxed local drive, especially when you want to combine nearby areas rather than travel to a single destination.',
-    note: 'Ideal for an easy-going morning or evening drive as part of a multi-stop itinerary.'
-  },
-  {
-    icon: Landmark,
-    title: 'Exhibition Grounds',
-    badge: 'Events & Civic Landmark',
-    desc: 'The Exhibition Grounds is another listed landmark around Balanagar. A self-drive car can make it easier to include the area along with other north-west Hyderabad destinations in the same outing.',
-    note: 'Great starting or transit point for events and local visits in the northern corridor.'
-  },
-  {
-    icon: Landmark,
-    title: 'Sri Prasanna Venkateshwara Swamy Vari Devasthanam',
-    badge: 'Religious Landmark',
-    desc: 'For a religious outing, Sri Prasanna Venkateshwara Swamy Vari Devasthanam is among the landmarks identified around the Balanagar Metro area.',
-    note: 'Convenient to combine with family temple visits and local dining without rushing.'
-  },
+const LOCAL_LANDMARKS = [
+  'IDL Lake',
+  'NKNR Gardens',
+  'Sri Prasanna Venkateshwara Swamy Temple',
+  'Nearby commercial establishments and business zones'
+];
+
+const POPULAR_DESTINATIONS = [
   {
     icon: ShoppingBag,
-    title: 'Kukatpally',
-    badge: 'Retail & Dining Hub',
-    desc: 'Kukatpally is one of the major nearby localities connected with Balanagar. You can combine a drive through Balanagar with shopping, food and entertainment around Kukatpally. The Balanagar area is connected toward Kukatpally through its main road network.',
-    note: 'Perfect for shopping sprees, family dinners, and entertainment runs without coordinating cabs.'
+    destination: 'Kukatpally',
+    purpose: 'Shopping and everyday errands',
+    desc: 'Easily accessible via the main road network for retail hubs, shopping malls, and dining runs.'
   },
   {
-    icon: Navigation,
-    title: 'Moosapet',
-    badge: 'Red Line Corridor',
-    desc: 'Moosapet is another nearby destination that can be easily included in a north-west Hyderabad driving plan. The Moosapet and Balanagar metro stations are both on Hyderabad Metro’s Red Line.',
-    note: 'Allows smooth transitions between commercial spots, wholesale hubs, and residential zones.'
+    icon: Building2,
+    destination: 'Hitech City',
+    purpose: 'Office visits and business meetings',
+    desc: 'Direct commute to major IT hubs, tech parks, and corporate offices across the western corridor.'
   },
   {
-    icon: Route,
-    title: 'Bowenpally and Sanath Nagar',
-    badge: 'Neighbouring Hubs',
-    desc: 'For a longer local drive, you can continue from Balanagar toward Bowenpally and Sanath Nagar. These neighbouring areas provide additional options for shopping, food, work-related visits and city exploration.',
-    note: 'Easily extend your route across north-west Hyderabad for commercial errands and visits.'
+    icon: Train,
+    destination: 'Secunderabad',
+    purpose: 'Railway station and city travel',
+    desc: 'Practical self-drive route for station drop-offs, transit pickups, and twin-city exploration.'
+  },
+  {
+    icon: Sunset,
+    destination: 'Hussain Sagar',
+    purpose: 'Evening outings and sightseeing',
+    desc: 'Ideal for relaxed family leisure drives, Tank Bund views, and iconic central city attractions.'
+  },
+  {
+    icon: Film,
+    destination: 'Ramoji Film City',
+    purpose: 'Family day trips and entertainment',
+    desc: 'Great starting point for full-day leisure escapes and highway outings with ample luggage space.'
   }
 ];
 
-const CUSTOMER_TABLE = [
-  { need: 'Want to compare cars', info: 'Compare thousands of self-drive cars in the app' },
-  { need: 'Want to reserve a car', info: 'Pay ₹200 to hold your car' },
-  { need: 'Need a quick booking', info: '30-second booking option is promoted' },
-  { need: 'First-time customer', info: 'Submit required ID and driving licence details' },
-  { need: 'Returning customer', info: 'Old customers don’t need to submit documents again from the second booking' }
-];
-
-const LDC_FEATURES = [
-  'Choose Your Own Hours',
-  'Unlimited Kilometres',
-  'Exact Car Guaranteed',
-  'Original Car Photos',
-  'Compare thousands of self-drive cars in the app',
-  'Zero Deposit option available',
-  '₹200 option to hold your car',
-  '24/7 Breakdown Help',
-  'Free car replacement and towing service',
-  'Free toll on National Highways'
+const CAR_OPTIONS = [
+  {
+    icon: Car,
+    type: 'Hatchbacks',
+    bestFor: 'Short city trips & busy parking areas',
+    desc: 'Compact, fuel-efficient, and easy to maneuver through dense traffic corridors and tight parking slots.'
+  },
+  {
+    icon: Briefcase,
+    type: 'Sedans',
+    bestFor: 'Business visits & comfortable everyday journeys',
+    desc: 'Delivers a smooth, professional driving experience with spacious boot capacity for luggage and gear.'
+  },
+  {
+    icon: Users,
+    type: 'SUVs & 7-Seaters',
+    bestFor: 'Family outings & longer road trips',
+    desc: 'Generous seating capacity, superior legroom, and maximum luggage room for group excursions and highway drives.'
+  }
 ];
 
 const BOOKING_STEPS = [
-  'Open the Long Drive Cars app and select your preferred dates and hours.',
-  'Compare available vehicles across 5-seater and 7-seater categories.',
-  'Check the original car photos directly in the app.',
-  'Select your preferred car model with Exact Car Guaranteed.',
-  'Optionally pay ₹200 to hold your car and complete the 30-second booking.',
-  'Book → pick up → drive → explore.'
+  'Open the Long Drive Cars app.',
+  'Enter your location and required rental dates.',
+  'Check available cars, rental durations and prices.',
+  'Complete the booking and submit the required documents.',
+  'Follow the confirmed booking instructions to find your vehicle and pickup details.'
 ];
 
 const FAQS = [
   {
-    q: '1. Can I choose my own rental hours?',
-    a: 'Yes. The document highlights "Choose Your Own Hours", allowing customers to select their preferred rental duration.'
+    q: 'Can I check self-drive car availability near Balanagar?',
+    a: 'Yes. Enter your location in the Long Drive Cars app or website to check available vehicles and pickup options.'
   },
   {
-    q: '2. Does Long Drive Cars offer unlimited kilometres?',
-    a: 'Yes. Unlimited Kilometres is listed as one of the rental features in the document.'
+    q: 'Which car is suitable for business travel from Balanagar?',
+    a: 'A hatchback or sedan may suit individual travel and business visits. Choose based on your passenger and luggage requirements.'
   },
   {
-    q: '3. Can I get the exact car I selected?',
-    a: 'The document highlights "Exact Car Guaranteed" as a feature.'
+    q: 'Can I book a car for a weekend trip from Balanagar?',
+    a: 'Check the available rental durations and choose a car that suits your planned journey.'
   },
   {
-    q: '4. Is a zero-deposit option available?',
-    a: 'Yes. The document states that a Zero Deposit option is available.'
+    q: 'What documents are needed to book a car?',
+    a: 'Follow the current app instructions for identity verification and driving licence submission. Complete the required verification before pickup.'
   },
   {
-    q: '5. What support is available if the car breaks down?',
-    a: 'The document highlights 24/7 breakdown help, along with free car replacement and towing service.'
+    q: 'How do I find my booked car’s pickup location?',
+    a: 'Check your confirmed booking details in the Long Drive Cars app for the applicable vehicle location and pickup instructions.'
   }
 ];
 
@@ -144,30 +136,30 @@ export default function BalanagarGuidePage() {
   return (
     <>
       <Head>
-        <title>Self Drive Car Rental near Balanagar, Hyderabad | Long Drive Cars</title>
+        <title>Self Drive Car Rental in Balanagar, Hyderabad | Long Drive Cars App</title>
         <meta
           name="description"
-          content="Looking for self drive car rental near Balanagar, Hyderabad? Choose 5-seater & 7-seater cars with flexible hours, unlimited km and zero deposit."
+          content="Book a self-drive car for travel from Balanagar, Hyderabad. Explore available hatchbacks, sedans and SUVs for work, shopping and weekend trips."
         />
         <meta
           name="keywords"
-          content="Self Drive Car Rental near Balanagar, self drive cars in Balanagar, Self driving cars in Hyderabad, Rent Self Drive Cars Hyderabad, self drive cars near Balanagar, Self Drive Cars Secunderabad"
+          content="Self Drive Car Rental in Balanagar, self drive cars in Balanagar, Self driving cars in Hyderabad, Rent Self Drive Cars Hyderabad, self drive cars near Balanagar, Self Drive Cars Secunderabad"
         />
         <link rel="canonical" href={CANONICAL_URL} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="Self Drive Car Rental near Balanagar, Hyderabad | Long Drive Cars" />
+        <meta property="og:title" content="Self Drive Car Rental in Balanagar, Hyderabad | Long Drive Cars App" />
         <meta
           property="og:description"
-          content="Looking for self drive car rental near Balanagar, Hyderabad? Choose 5-seater & 7-seater cars with flexible hours, unlimited km and zero deposit."
+          content="Book a self-drive car for travel from Balanagar, Hyderabad. Explore available hatchbacks, sedans and SUVs for work, shopping and weekend trips."
         />
         <meta property="og:url" content={CANONICAL_URL} />
         <meta property="og:site_name" content="Long Drive Cars" />
         <meta property="og:image" content="https://www.longdrivecars.com/locationpages/balanagar.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Self Drive Car Rental near Balanagar, Hyderabad | Long Drive Cars" />
+        <meta name="twitter:title" content="Self Drive Car Rental in Balanagar, Hyderabad | Long Drive Cars App" />
         <meta
           name="twitter:description"
-          content="Looking for self drive car rental near Balanagar, Hyderabad? Choose 5-seater & 7-seater cars with flexible hours, unlimited km and zero deposit."
+          content="Book a self-drive car for travel from Balanagar, Hyderabad. Explore available hatchbacks, sedans and SUVs for work, shopping and weekend trips."
         />
         <meta name="twitter:image" content="https://www.longdrivecars.com/locationpages/balanagar.webp" />
       </Head>
@@ -180,13 +172,13 @@ export default function BalanagarGuidePage() {
               Rental Guide & Travel Information
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              How Easy Is It to Get a Self Drive Car Near Balanagar?
+              Where Can You Find Self Drive Car Rentals in Balanagar?
             </h1>
             <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-              Self Drive Car Rental near Balanagar can be a convenient option when you want to explore Balanagar, Kukatpally, Moosapet, IDPL Colony, Bowenpally and nearby parts of Hyderabad on your own schedule. Balanagar is a north-west Hyderabad locality known for its residential and industrial character, with good road and metro connectivity.
+              <Link className='text-blue-700 font-semibold' href={'https://www.longdrivecars.com/'}>Self Drive Car Rentals in Balanagar</Link> make it easier to plan your next journey from Balanagar, Hyderabad. Long Drive Cars app lets you check available vehicles through its website or app and compare car options and rental durations for work visits, local errands, shopping and family trips.
             </p>
-            <p className="text-slate-600 text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
-              The Balanagar Metro area also provides access to nearby landmarks such as IDL Lake, Exhibition Grounds, Metro Cash & Carry, Sri Prasanna Venkateshwara Swamy Vari Devasthanam and NKNR Gardens.
+            <p className="text-slate-500 text-xs sm:text-sm max-w-2xl mx-auto">
+              Check vehicle availability and pickup instructions before confirming your booking.
             </p>
           </div>
         </header>
@@ -199,7 +191,7 @@ export default function BalanagarGuidePage() {
               height={2000}
               width={2000}
               className="rounded-2xl object-cover w-full max-h-[480px]"
-              alt="Self drive car rental near Balanagar Hyderabad for local travel and weekend trips"
+              alt="Self drive car rental in Balanagar Hyderabad for work, shopping and weekend trips"
               priority
             />
           </div>
@@ -207,76 +199,78 @@ export default function BalanagarGuidePage() {
 
         {/* MAIN BODY */}
         <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-          {/* WHY CHOOSE A SELF-DRIVE CAR IN BALANAGAR */}
-          <SectionCard title="Why Choose a Self Drive Car for a Balanagar Trip?">
+          {/* WHY DO PEOPLE NEED SELF-DRIVE CARS IN BALANAGAR */}
+          <SectionCard title="Why Do People Need Self-Drive Cars in Balanagar?">
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              For people looking for Self drive car rental in Balanagar, choosing a self-drive vehicle can be useful when the day’s plan includes several stops. You can decide your departure time, select your preferred vehicle and change your route according to your plans instead of depending on fixed transport timings.
+              Balanagar has an established industrial and commercial area, making it a practical starting point for work-related journeys and everyday travel. A self-drive car can help you visit offices, workshops, commercial establishments and nearby residential areas without arranging a separate cab for every stop.
             </p>
-            <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              The Long Drive Cars information document highlights Choose Your Own Hours and Unlimited Kilometres, which can be useful for both short local drives and longer road trips.
-            </p>
-            <div className="pt-2">
-              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">
-                Key Travel Advantages in Balanagar
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {HIGHLIGHTS.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-medium text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 text-slate-600 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </SectionCard>
-
-          {/* EXPLORE BALANAGAR AND NEARBY PLACES BY CAR */}
-          <div className="space-y-4">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">Explore Balanagar and Nearby Places by Car</h2>
-              <p className="text-slate-600 text-sm sm:text-base mt-1">
-                If you are searching for self drive cars in Balanagar, you can plan a short city outing or a longer Hyderabad drive depending on your available time. Balanagar connects with places such as Kukatpally, Moosapet, Bowenpally, Sanath Nagar and Jeedimetla, making it possible to combine several destinations in one trip.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {EXPLORE_PLACES.map(({ icon: Icon, title, badge, desc, note }, idx) => (
-                <div key={idx} className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="p-2.5 rounded-xl bg-slate-100 text-slate-800">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-xs font-semibold text-slate-500 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200">
-                        {badge}
-                      </span>
-                    </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">{desc}</p>
-                  </div>
-                  <div className="pt-3 border-t border-slate-100 text-xs text-slate-700 italic">{note}</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {WHY_BALANAGAR.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5 p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-sm font-medium text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-slate-600 shrink-0 mt-0.5" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </SectionCard>
 
-          {/* BOOKING & CUSTOMER INFORMATION TABLE */}
+          {/* WHICH PLACES CAN YOU VISIT AROUND BALANAGAR */}
+          <SectionCard title="Which Places Can You Visit Around Balanagar?">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Balanagar Metro Station is near Balanagar Y Junction. Local landmarks listed by Hyderabad Metro include IDL Lake, NKNR Gardens, the Sri Prasanna Venkateshwara Swamy temple and nearby commercial establishments. You can plan local outings around these places or travel towards Kukatpally and Moosapet, depending on your destination and traffic conditions.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {LOCAL_LANDMARKS.map((landmark, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs sm:text-sm font-semibold text-slate-800">
+                  <span className="w-2 h-2 rounded-full bg-slate-500 shrink-0" />
+                  <span>{landmark}</span>
+                </div>
+              ))}
+            </div>
+          </SectionCard>
+
+          {/* WHICH CAR IS SUITABLE FOR TRAVEL FROM BALANAGAR */}
           <SectionCard
-            title="Long Drive Cars – Booking & Customer Information"
-            subtitle="Transparent and convenient booking features matched to customer needs:"
+            title="Which Car Is Suitable for Travel from Balanagar?"
+            subtitle="Check the live vehicle listings and applicable rental charges before booking:"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-1">
+              {CAR_OPTIONS.map(({ icon: Icon, type, bestFor, desc }, idx) => (
+                <div key={idx} className="bg-slate-50 p-5 rounded-xl border border-slate-200 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="p-2.5 rounded-lg bg-white border border-slate-200 text-slate-800 w-fit mb-2">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900">{type}</h3>
+                    <p className="text-xs font-semibold text-slate-600 mt-0.5">{bestFor}</p>
+                    <p className="text-xs text-slate-500 leading-relaxed mt-2">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </SectionCard>
+
+          {/* POPULAR PLACES TO VISIT FROM BALANAGAR AND THEIR TRAVEL PURPOSES */}
+          <SectionCard
+            title="Popular Places to Visit from Balanagar and Their Travel Purposes"
+            subtitle="Key travel corridors and what to plan for:"
           >
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs sm:text-sm border-collapse">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-800 font-semibold">
-                    <th className="py-3 px-3">Customer Need</th>
-                    <th className="py-3 px-3">Long Drive Cars Information</th>
+                    <th className="py-3 px-3">Popular Destination from Balanagar</th>
+                    <th className="py-3 px-3">What to Plan For</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-600">
-                  {CUSTOMER_TABLE.map((row, idx) => (
+                  {POPULAR_DESTINATIONS.map((row, idx) => (
                     <tr key={idx} className="hover:bg-slate-50/50 transition">
-                      <td className="py-3 px-3 font-medium text-slate-900">{row.need}</td>
-                      <td className="py-3 px-3">{row.info}</td>
+                      <td className="py-3 px-3 font-semibold text-slate-900 flex items-center gap-2">
+                        <row.icon className="w-4 h-4 text-slate-600 shrink-0" />
+                        {row.destination}
+                      </td>
+                      <td className="py-3 px-3">{row.purpose}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -284,72 +278,10 @@ export default function BalanagarGuidePage() {
             </div>
           </SectionCard>
 
-          {/* CHOOSE THE CAR YOU WANT */}
-          <SectionCard title="Choose the Car You Want">
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              If you are looking for self drive cars near Balanagar, Long Drive Cars provides different vehicle categories, including 5-seater and 7-seater collections. The uploaded information also highlights Exact Car Guaranteed, allowing customers to select from available vehicles rather than simply choosing a general car category.
-            </p>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              The company information also promotes checking original car photos in the app, allowing customers to see vehicle images before booking.
-            </p>
-          </SectionCard>
-
-          {/* FEATURES THAT MAKE YOUR DRIVE EASIER */}
+          {/* HOW CAN YOU BOOK A SELF-DRIVE CAR FROM BALANAGAR */}
           <SectionCard
-            title="Features That Make Your Drive Easier"
-            subtitle="Long Drive Cars’ uploaded information highlights several features that can be useful when planning a drive from Balanagar:"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-              {LDC_FEATURES.map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm font-medium text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-slate-600 shrink-0" />
-                  <span>{feat}</span>
-                </div>
-              ))}
-            </div>
-          </SectionCard>
-
-          {/* DOCUMENTS, ZERO HEADACHE PASS & BREAKDOWN DUAL/TRIPLE SECTION */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <SectionCard title="Documents for Booking">
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                The uploaded information states that a new customer can provide one government ID photo or passport photo along with a driving licence photo. It also states that from the second booking, old customers do not need to submit documents again.
-              </p>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Customers should check the current requirements shown during booking because applicable requirements can vary.
-              </p>
-            </SectionCard>
-
-            <SectionCard title="Zero Headache Pass">
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                For customers concerned about minor scratches or damages, the uploaded Long Drive Cars information presents a Zero Headache Pass with zero payment for eligible scratches and damages below the applicable limit.
-              </p>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                The document shows coverage information associated with the plan, so customers should check the current terms before booking.
-              </p>
-            </SectionCard>
-
-            <SectionCard title="24/7 Breakdown Support">
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                A road trip does not always go exactly as planned. Long Drive Cars’ information highlights 24/7 breakdown help, free car replacement and towing service for customers who experience vehicle problems during their rental.
-              </p>
-            </SectionCard>
-          </div>
-
-          {/* PLAN A DRIVE FROM BALANAGAR */}
-          <SectionCard title="Plan a Drive From Balanagar">
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              A simple local itinerary could start with Balanagar → IDL Lake → Moosapet → Kukatpally → return to Balanagar. For a longer city outing, you can extend the drive toward Sanath Nagar, Bowenpally or other Hyderabad destinations depending on your available rental period.
-            </p>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Because Balanagar is connected to several major roads and neighbouring localities, it can also work as a starting point for longer drives beyond the immediate neighbourhood.
-            </p>
-          </SectionCard>
-
-          {/* HOW TO BOOK */}
-          <SectionCard
-            title="How to Book"
-            subtitle="The uploaded information promotes a simple 30-second booking process with car comparison through the app and the option to pay ₹200 to hold a selected car:"
+            title="How Can You Book a Self-Drive Car from Balanagar?"
+            subtitle="Availability and pickup arrangements depend on the options shown during booking:"
           >
             <ol className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700">
               {BOOKING_STEPS.map((step, idx) => (
@@ -363,7 +295,7 @@ export default function BalanagarGuidePage() {
             </ol>
           </SectionCard>
 
-          {/* FAQS */}
+          {/* FREQUENTLY ASKED QUESTIONS */}
           <SectionCard title="Frequently Asked Questions">
             <div className="space-y-2.5">
               {FAQS.map((faq, idx) => (
@@ -386,10 +318,7 @@ export default function BalanagarGuidePage() {
               Conclusion
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Planning Self Drive Car Rental near Balanagar gives you the flexibility to explore local landmarks such as IDL Lake and Exhibition Grounds while also connecting with Kukatpally, Moosapet, Bowenpally and Sanath Nagar. With features such as flexible hours, unlimited kilometres, vehicle selection, original car photos and 24/7 breakdown support highlighted by Long Drive Cars, you can plan your Balanagar drive around your own schedule.
-            </p>
-            <p className="text-slate-900 font-semibold text-sm">
-              Book → pick up → drive → explore.
+              <Link className='text-blue-700 font-semibold' href={'https://www.longdrivecars.com/'}>Self Drive Car Rentals in Balanagar</Link>  offer a convenient way to plan local travel, business visits, family outings and weekend trips around Hyderabad. Long Drive Cars app lets you check available vehicles and compare rental options before booking. Choose a car based on your travel needs, passenger count and luggage, and confirm the pickup details in the app.
             </p>
             <div className="pt-2">
               <Link

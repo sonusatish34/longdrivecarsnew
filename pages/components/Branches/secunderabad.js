@@ -18,47 +18,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Secunderabad Travel & Lifestyle Guide | Best Car Rentals in Secunderabad',
-  description:
-    'Explore the ultimate Secunderabad travel and lifestyle guide. Discover Hussain Sagar, Clock Tower, Necklace Road, food spots, and getaways with the best car rentals in Secunderabad.',
-  keywords: [
-    'Best Car Rentals in Secunderabad',
-    'Top car rentals in Secunderabad',
-    'Online car booking in Secunderabad',
-    'Secunderabad Travel Guide',
-    'Self Drive Cars Secunderabad',
-    'Hyderabad Car Rentals'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/secunderabad-travel-guide'
-  },
-  openGraph: {
-    title: 'Secunderabad Travel & Lifestyle Guide | Car Rentals',
-    description:
-      'Plan your trip to Secunderabad with ease. Find top attractions, dining hubs, and travel tips with flexible car rentals.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Secunderabad Travel and Lifestyle Guide'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Secunderabad Travel & Lifestyle Guide | Best Car Rentals',
-    description:
-      'Explore Secunderabad, heritage spots, and weekend getaways with flexible car rental options in Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

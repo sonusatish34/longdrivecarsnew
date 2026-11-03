@@ -2,7 +2,9 @@ import React from 'react'
 import ExploreCars from '../components/ExploreCars/ExploreCars'
 import Layout from '../components/Layout/Layout'
 import Head from 'next/head'
-function exploreselfdrivecars({ canonicalUrl }) {
+import { getCarsByLocation } from '../../utils/serverCars';
+
+function exploreselfdrivecars({ canonicalUrl, cars }) {
 
   return (
     <div>
@@ -16,7 +18,7 @@ function exploreselfdrivecars({ canonicalUrl }) {
         <link rel="canonical" href={canonicalUrl} />
       </Head>
       <Layout locname={'warangal'} phoneno={"9000-777-665"}>
-        <ExploreCars loc={'warangal'} phoneno={"9000777665"} />
+        <ExploreCars loc="warangal" phoneno="9000777665" initialCars={cars} />
       </Layout>
     </div>
   )
@@ -24,15 +26,17 @@ function exploreselfdrivecars({ canonicalUrl }) {
 
 export default exploreselfdrivecars
 
-export async function getServerSideProps({ req }) {
-
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in/warangal/explore-self-drive-cars`
-    : `https://www.longdrivecars.com/warangal/explore-self-drive-cars`;
+export async function getServerSideProps() {
+  let cars = [];
+  try {
+    cars = await getCarsByLocation('warangal');
+  } catch (error) {
+    console.error('Unable to load Warangal car inventory:', error);
+  }
   return {
     props: {
-      canonicalUrl,
+      canonicalUrl: 'https://www.longdrivecars.com/warangal/explore-self-drive-cars',
+      cars,
     },
   };
 }

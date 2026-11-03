@@ -14,6 +14,7 @@ import { MdExpandMore } from "react-icons/md";
 import Loading from '@/pages/components/Loading';
 import Head from 'next/head';
 import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
+import { getActiveBlogPosts } from '../../../utils/blogPosts';
 function SinglePost({ canonicalUrl, postDisplay }) {
   const router = useRouter();
   const { slug } = router.query;
@@ -236,13 +237,51 @@ const replaceText = (str) => {
             <title>{String(postDisplay?.title || 'LDC Blog')}</title>
             <meta name="description" content={postDisplay?.description} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta property="og:title" content={postDisplay?.description} />
+            <meta property="og:title" content={postDisplay?.title} />
             <meta property="og:description" content={postDisplay?.description} />
+            <meta property="og:image" content={postDisplay?.shareImage || postDisplay?.coverimages} />
             <link rel="canonical" href={canonicalUrl} />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'BlogPosting',
+                  headline: postDisplay?.title,
+                  description: postDisplay?.description,
+                  image: postDisplay?.shareImage || postDisplay?.coverimages,
+                  datePublished: postDisplay?.createdAt || postDisplay?.date,
+                  dateModified: postDisplay?.updatedAt || postDisplay?.createdAt || postDisplay?.date,
+                  author: postDisplay?.author
+                    ? { '@type': 'Person', name: postDisplay.author }
+                    : undefined,
+                  keywords: [...(postDisplay?.cityTags || []), ...(postDisplay?.areaTags || [])],
+                  url: canonicalUrl,
+                }).replace(/</g, '\\u003c'),
+              }}
+            />
+            {postDisplay?.faqs?.length > 0 && (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'FAQPage',
+                    mainEntity: postDisplay.faqs
+                      .filter((faq) => (faq?.question || faq?.q) && (faq?.answer || faq?.a))
+                      .map((faq) => ({
+                        '@type': 'Question',
+                        name: faq.question || faq.q,
+                        acceptedAnswer: { '@type': 'Answer', text: faq.answer || faq.a },
+                      })),
+                  }).replace(/</g, '\\u003c'),
+                }}
+              />
+            )}
           </Head>
           <div className='flex flex-col lg:px-0 py-2 lg:py-2 text-black'>
             <div className='xl:mx-96 lg:mx-56 mx-6 lg:px-0'>
-              <p className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2  tracking-tight'>{postDisplay?.title}</p>
+              <h1 className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2 tracking-tight'>{postDisplay?.title}</h1>
               <p className=' text-[#6B6B6B] text-base lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
             </div>
             <div className='xl:mx-24 lg:mx-16 px-1 lg:px-0 py-3 lg:py-6'>
@@ -275,6 +314,10 @@ const replaceText = (str) => {
                       : postDisplay?.categoryname}
                   </span>
                 </p>
+                {postDisplay?.author && <p>By {postDisplay.author}</p>}
+                {[...(postDisplay?.cityTags || []), ...(postDisplay?.areaTags || [])].map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
                 <button
                   onClick={speakText}
                   disabled={!postDisplay || !postDisplay.content}
@@ -420,35 +463,15 @@ export default SinglePost;
 
 
 export async function getServerSideProps({ req, params }) {
-  const host = req.headers.host;
   const { slug } = params;
 
   try {
 
-    const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
-    const querySnapshot = await getDocs(q);
-    if (querySnapshot.empty) {
-      return {
-        notFound: true,
-      };
-    }
+    const posts = await getActiveBlogPosts();
+    const postDisplay = posts.find((post) => post.slug === slug);
+    if (!postDisplay) return { notFound: true };
 
-    const postData = querySnapshot.docs[0].data();
-
-    const postDisplay = {
-      ...postData,
-      time: postData.time?.toDate().toISOString(),
-    };
-
-    if (postDisplay?.blogfor !== 'LDC') {
-      return {
-        notFound: true, // This will render the 404 page
-      };
-    }
-
-    const canonicalUrl = host.includes('.in')
-      ? `https://www.longdrivecars.in/blog/posts/${(postDisplay.slug)}`
-      : `https://www.longdrivecars.com/blog/posts/${(postDisplay.slug)}`;
+    const canonicalUrl = `https://www.longdrivecars.com/blog/posts/${postDisplay.slug}`;
 
     return {
       props: {
@@ -463,6 +486,4 @@ export async function getServerSideProps({ req, params }) {
     };
   }
 }
-
-
 

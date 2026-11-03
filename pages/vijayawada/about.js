@@ -7,10 +7,10 @@ function about({ canonicalUrl }) {
         <Layout locname={'vijayawada'} phoneno={'96666-99583"'}>
             <Head>
                 <title>Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
-                <meta id="meta-desc" name="Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
+                <meta id="meta-desc" name="Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1180 per 24 hours." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans" />
-                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
+                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1180 per 24 hours." />
 
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
@@ -23,13 +23,9 @@ function about({ canonicalUrl }) {
 export default about
 export async function getServerSideProps(context) {
     const { req } = context; // Extract `params` if using dynamic routes
-
-    const host = req.headers.host;
     // <link rel="canonical" href={canonicalUrl} />
     // Ensure that the category is lowercase, as it's used in the URL
-    const canonicalUrl = host.includes('.in')
-        ? `https://www.longdrivecars.in/vijayawada/about`
-        : `https://www.longdrivecars.com/vijayawada/about`;
+    const canonicalUrl = `https://www.longdrivecars.com/vijayawada/about`;
 
     return {
         props: {

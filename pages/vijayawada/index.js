@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React from 'react';
 import dynamic from 'next/dynamic';
 
 import CarProducts from '../components/CarProducts';
@@ -14,29 +13,11 @@ const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCa
 const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
-import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
 import PopUp from '../components/PopUp';
-import { decryptFernetData } from '@/utils/crypto';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 export default function Place({ cars, canonicalUrl, prices }) {
-    const [carData, setCarData] = useState(null);
-    const [carData2, setCarData2] = useState(null);
-
-    useEffect(() => {
-        async function fetchCarDetails() {
-            try {
-                const response = await fetch(`api/cars`);
-                const items = await response.json();
-                const cars = items?.data?.results;
-                setCarData2(cars);
-            } catch (error) {
-                ``
-                console.error('Error fetching car details:', error);
-            }
-        }
-        fetchCarDetails();
-    }, []);
     return (
         <div>
             <Layout locname={'vijayawada'} phoneno={"96666-99583"}>
@@ -59,7 +40,7 @@ export default function Place({ cars, canonicalUrl, prices }) {
                         <DynNearByApi city={'vijayawada'} />
                     </div>
                     <div><DynNearYou /></div>
-                    <FeaturedCars data={carData2} branch={"vijayawada"} />
+                    <FeaturedCars data={cars} branch={"vijayawada"} />
                     <DynCallBackForm />
                     <DynWhyChooseUs />
                     <div className='bg-white rounded xl:py-12 lg:px-14 xl:px-14 p-2'>
@@ -67,7 +48,7 @@ export default function Place({ cars, canonicalUrl, prices }) {
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9666699583'} />
-                    <PriceList city={'hyd'} prices={prices}/>
+                    {/* <PriceList city={'hyd'} prices={prices}/> */}
                     <PopUp />
                 </div>
             </Layout>
@@ -77,39 +58,18 @@ export default function Place({ cars, canonicalUrl, prices }) {
 
 
 
-export async function getServerSideProps({ req }) {
-    const response = await fetch('https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad');
-    const items = await response.json();
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-    const cars = decryptedCars;
-
-    const priceRes = await fetch('https://api.longdrivecars.com/l-site-dc/hyd-prices');
-    const priceData = await priceRes.json();
-    const decryptedPrices = decryptFernetData(priceData?.results, process.env.LDC_SECRET_KEY);
-    const finalPrices = decryptedPrices || {};
-
-    const filteredCars = cars?.map(car => ({
-        maker_model: car.maker_model,
-        price_24_hours: car.price_24_hours,
-        car_image_front_view: car.car_image_front_view_duplicate,
-        car_image_back_view: car.car_image_back_view_duplicate,
-        car_image_car_left_view: car.car_image_car_left_view_duplicate,
-        car_image_reading_view: car.car_image_reading_view_duplicate,
-        fuel_type: car.fuel_type,
-        transmission_type: car.transmission_type,
-        seater: car.seater,
-    }));
-
-    const host = req.headers.host;
-    const canonicalUrl = host.includes('.in')
-        ? 'https://www.longdrivecars.in/vijayawada'
-        : 'https://www.longdrivecars.com/vijayawada';
+export async function getServerSideProps() {
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('vijayawada');
+    } catch (error) {
+        console.error('Unable to load Vijayawada car inventory:', error);
+    }
 
     return {
         props: {
-            cars: filteredCars,  // Return only the filtered data
-            canonicalUrl,
-            prices:finalPrices
+            cars,
+            canonicalUrl: 'https://www.longdrivecars.com/vijayawada',
         },
     };
 }

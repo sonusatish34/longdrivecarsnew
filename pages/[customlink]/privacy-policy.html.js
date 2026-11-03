@@ -70,15 +70,9 @@ function privacypolicyhtml({ canonicalUrl }) {
 
 export default privacypolicyhtml
 export async function getServerSideProps(context) {
-    const { req, params } = context; // Extract `params` if using dynamic routes
-    const { customlink } = params; // Example fallback for category
-
-    const host = req.headers.host;
-    // <link rel="canonical" href={canonicalUrl} />
-    // Ensure that the category is lowercase, as it's used in the URL
-    const canonicalUrl = host.includes('.in')
-        ? `https://www.longdrivecars.in/${customlink}/privacy-policy.html`
-        : `https://www.longdrivecars.com/${customlink}/privacy-policy.html`;
+    const { customlink } = context.params;
+    if (String(customlink).toLowerCase() !== 'hyderabad') return { notFound: true };
+    const canonicalUrl = `https://www.longdrivecars.com/${customlink}/privacy-policy.html`;
 
     return {
         props: {

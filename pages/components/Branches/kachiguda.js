@@ -93,7 +93,7 @@ const LDC_FEATURES = [
   'Pay ₹200 to hold your car',
   '24/7 Breakdown Help',
   'Free car replacement and towing service',
-  'Zero-deposit and refundable deposit options'
+  'zero deposit and refundable deposit options'
 ];
 
 const FAQS = [
@@ -335,7 +335,7 @@ export default function KachigudaGuidePage() {
                 For a new customer, Long Drive Cars states that an identification photo or passport photo along with a driving licence photo is required. From the second booking onward, existing customers do not need to submit documents again.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                The company information also mentions a zero-deposit option. Security-deposit options are also listed for certain vehicle categories, including a refundable ₹2,000 option for premium cars and ₹5,000 for luxury cars.
+                The company information also mentions a zero deposit option. Security-deposit options are also listed for certain vehicle categories, including a refundable ₹2,000 option for premium cars and ₹5,000 for luxury cars.
               </p>
             </SectionCard>
 

@@ -4,15 +4,21 @@ import homebanner from '../../images/homebanner.webp'
 import apple from '../../images/apple.webp'
 import google from '../../images/ggle.webp'
 import Link from 'next/link';
-import { FaRegClock } from "react-icons/fa";
-import { RiMoneyRupeeCircleFill } from "react-icons/ri";
-import { SlSpeedometer } from "react-icons/sl";
-import { GiTowTruck } from "react-icons/gi";
-import { FaCar } from "react-icons/fa";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
-import { SiContactlesspayment } from "react-icons/si";
-import { FaCarSide } from "react-icons/fa";
-import { FaSmile } from "react-icons/fa";
+import { TbDiscount } from "react-icons/tb";
+
+import {
+  FaRegClock,
+  FaCar,
+  FaShieldAlt,
+  FaCarSide,
+  FaPlaneArrival,
+  FaCheckCircle,
+} from 'react-icons/fa';
+import { GiTowTruck, GiRoad } from 'react-icons/gi';
+import { SlSpeedometer } from 'react-icons/sl';
+import { RiMoneyRupeeCircleFill } from 'react-icons/ri';
+import { TbTagStarred } from 'react-icons/tb';
+import { IoFlashOutline } from 'react-icons/io5';
 
 
 const ImageChange = ({ locname }) => {
@@ -27,7 +33,9 @@ const ImageChange = ({ locname }) => {
             height={1000}
             width={1000}
             className='xl:w-[500px] lg:w-[350px] w-[300px]'
-            fetchpriority="high"
+            sizes="(min-width: 1280px) 500px, (min-width: 1024px) 350px, 300px"
+            loading="lazy"
+            fetchPriority="low"
           />
           <div className="lg:text-left xl:pl-0 lg:pl-4 text-black font-[500] xl:text-base text-xl lg:pt-10 pt-3">
             <p className='xl:text-3xl lg:text-2xl text-xl text-center lg:text-left  font-bold  lg:w-2/3 capitalize'>Self Drive Car Rentals {locname ? ` in ${locname}` : ""}</p>
@@ -42,7 +50,7 @@ const ImageChange = ({ locname }) => {
                     alt="apple"
                     className="lg:w-40 lg:h-14 w-28 h-11 lg:hover:scale-105"
                     src={apple}
-                    fetchpriority="high"
+                    loading="lazy"
                   />
                 </Link>
                 <Link href="https://play.google.com/store/search?q=long+drive+cars&c=apps">
@@ -52,54 +60,89 @@ const ImageChange = ({ locname }) => {
                     alt="google"
                     className="lg:w-48 lg:h-20 w-32 h-16 lg:hover:scale-105"
                     src={google}
-                    fetchpriority="high"
+                    loading="lazy"
                   />
                 </Link>
               </div>
-              <div className=''>
-                <div className="flex gap-4  pt-4 pr-4  text-xs font-medium lg:text-sm  flex-wrap text-white">
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <FaRegClock className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="">Choose Your Own Hours</p>
+              <div>
+                <div className="flex gap-4 pt-4 pr-4 text-xs font-medium lg:text-sm flex-wrap text-white">
+                  {/* Free Toll gate on NH */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <GiRoad className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Free Toll Gate on NH</p>
                   </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <GiTowTruck className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className=" ml-2">24/7 Breakdown Service</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className=" ml-2">Unlimited Kilometers</p>
-                  </div>
-                  {<div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2 ">No Deposit</p>
-                  </div>}
 
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
+                  {/* Scratches & minor damage pass */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <FaShieldAlt className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Scratches & Minor Damage Pass</p>
+                  </div>
+
+                  {/* Exact Car guaranteed */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
                     <FaCar className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Check Original Car Photos & Book</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <FaCarSide className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Car Starts at {(locname !== 'bangalore') ? '₹ 1776/day' : '₹1848/Day'}</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <IoMdArrowDropdownCircle className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Lowest Price Challenge</p>
-                  </div>
-                  {/* <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <IoCarSportSharp className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Swift Dzire {(locname !== 'bangalore') ? '₹ 1776' : '2280'} per Day</p>
-                  </div> */}
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <SiContactlesspayment className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Just pay 10% Advance & book</p>
-                  </div>
-                  <div className="flex items-center gap-1 p-2 bg-[#660066] xl:text-base lg:text-xs text-sm  border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[250px]  w-full">
-                    <FaSmile className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
-                    <p className="ml-2">Zero Headache Pass</p>
+                    <p className="ml-2">Exact Car Guaranteed</p>
                   </div>
 
+                  {/* Free Home delivery On branch cars */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <FaCarSide className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Free Home Delivery on Branch Cars</p>
+                  </div>
+
+                  {/* 500 off on mon-thu */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <TbDiscount className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">₹500 Off on Mon–Thu</p>
+                  </div>
+
+                  {/* New User 200 off */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <TbTagStarred className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">New User ₹200 Off</p>
+                  </div>
+
+                  {/* Home & Airport Delivery */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <FaPlaneArrival className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Home & Airport Delivery</p>
+                  </div>
+
+                  {/* Free trial and take */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <FaCheckCircle className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Free Trial & Take</p>
+                  </div>
+
+                  {/* Unlimited kilometers */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <SlSpeedometer className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Unlimited Kilometres</p>
+                  </div>
+
+                  {/* Choose your own hours */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <FaRegClock className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Choose Your Own Hours</p>
+                  </div>
+
+                  {/* 30 second booking */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <IoFlashOutline className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">30-Second Booking</p>
+                  </div>
+
+                  {/* 24/7 breakdown help */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <GiTowTruck className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">24/7 Breakdown Help</p>
+                  </div>
+
+                  {/* Zero deposit option */}
+                  <div className="flex items-center gap-1 px-2 py-1 bg-[#660066] xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[280px] lg:w-[250px] w-full">
+                    <RiMoneyRupeeCircleFill className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                    <p className="ml-2">Zero Deposit Option</p>
+                  </div>
                 </div>
               </div>
             </div>

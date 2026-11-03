@@ -14,9 +14,9 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ldcqr from "../../images/ldcqr.png";
 import { handleStoreRedirect } from "../../../utils/redirectUtils";
 import { trackEvent } from "@/utils/trackEvent";
+import { getWhatsAppUrl } from "@/utils/whatsapp";
 
 // ✅ Custom hook to detect mobile device
 const useIsMobile = () => {
@@ -34,7 +34,7 @@ const useIsMobile = () => {
     return isMobile;
 };
 
-const CardFragment = ({ item, wspno, phoneno,banner }) => {
+const CardFragment = ({ item, wspno, phoneno }) => {
     
     const [showDown, setShowDown] = useState(false);
     const isMobile = useIsMobile();
@@ -77,7 +77,7 @@ const carImages = rawImages
                                         alt={`${item?.maker_model?.toLowerCase()} view ${i + 1}`}
                                         src={replaceText(img)}
                                         fill
-                                        sizes="(max-width: 768px) 100vw, 412px"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         priority={i === 0}
                                         loading={i === 0 ? "eager" : "lazy"}
                                         fetchPriority={i === 0 ? "high" : "low"}
@@ -104,11 +104,11 @@ const carImages = rawImages
                     <div className="flex gap-x-8 mxs:gap-x-16 items-center justify-center pt-5 pb-2">
                         <p className="text-[15px]">Book Now</p>
                         <p className="capitalize p-1 font-bold text-white font-manrope text-base">
-                            ₹ {item?.price_24_hours} / 24hrs
+                            ₹ {(item?.price_24_hours)} / 24hrs
                         </p>
                     </div>
-                    <ul className="flex gap-4 justify-center text-xs mxs:text-sm pt-2 pb-6">
-                        <li className="border-r-2 border-white flex items-center gap-1 pr-2">
+                    <ul className="flex gap-3 justify-center text-xs mxs:text-[12px] pt-2 pb-6">
+                        <li className="border-r-2  border-white flex items-center gap-1 pr-2">
                             <BsFillFuelPumpFill /> {item?.fuel_type}
                         </li>
                         <li className="border-r-2 border-white flex items-center gap-1 pr-2">
@@ -126,7 +126,7 @@ const carImages = rawImages
                 <ul className="flex justify-center gap-x-8 px-3">
                     <li onClick={() => trackEvent({ eventName: 'Contact', customData: { content_name: 'WhatsApp Button' } })}  className="bg-green-500 w-32 py-2 text-center rounded-md">
                         <Link
-                            href={`https://api.whatsapp.com/send?phone=+91${wspno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`}
+                            href={getWhatsAppUrl(wspno)}
                             target="_blank"
                         >
                             <p className="flex gap-1 text-sm justify-center items-center">
@@ -170,7 +170,7 @@ const carImages = rawImages
                                 <div className="flex gap-3">
                                     <div>
                                         <h2 className="text-base font-semibold text-gray-900">
-                                            Download the Longdrivecarz App and Book Your Favourite Car
+                                            Download the Longdrivecars App and Book Your Favourite Car
                                         </h2>
                                         <ul className="mt-2 text-gray-600">
                                             <li>Scan the QR code to get the app from the Play Store or App Store.</li>
@@ -181,7 +181,7 @@ const carImages = rawImages
                                         </ul>
                                     </div>
                                     <Image
-                                        src={ldcqr}
+                                        src={'/qr.webp'}
                                         height={1000}
                                         width={1000}
                                         alt="Long Drive Cars App"

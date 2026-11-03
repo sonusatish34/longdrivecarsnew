@@ -2,7 +2,9 @@ import React from 'react'
 import ExploreCars from '../components/ExploreCars/ExploreCars'
 import Layout from '../components/Layout/Layout'
 import Head from 'next/head'
-function exploreselfdrivecars({ canonicalUrl }) {
+import { getCarsByLocation } from '../../utils/serverCars';
+
+function exploreselfdrivecars({ canonicalUrl, cars }) {
 
   return (
     <div>
@@ -16,7 +18,7 @@ function exploreselfdrivecars({ canonicalUrl }) {
       </Head>
       <Layout locname={'vizag'} phoneno={"9000-478-478"}>
 
-        <ExploreCars loc={'vizag'} phoneno={"9000478478"} />
+        <ExploreCars loc="vizag" phoneno="9000478478" initialCars={cars} />
       </Layout>
     </div>
 
@@ -25,15 +27,17 @@ function exploreselfdrivecars({ canonicalUrl }) {
 
 export default exploreselfdrivecars
 
-export async function getServerSideProps({ req }) {
-
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in/vizag/explore-self-drive-cars`
-    : `https://www.longdrivecars.com/vizag/explore-self-drive-cars`;
+export async function getServerSideProps() {
+  let cars = [];
+  try {
+    cars = await getCarsByLocation('vizag');
+  } catch (error) {
+    console.error('Unable to load Vizag car inventory:', error);
+  }
   return {
     props: {
-      canonicalUrl,
+      canonicalUrl: 'https://www.longdrivecars.com/vizag/explore-self-drive-cars',
+      cars,
     },
   };
 }

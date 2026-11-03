@@ -93,11 +93,7 @@ function hyderabadrentalcar({canonicalUrl}) {
 export default hyderabadrentalcar;
 
 export async function getServerSideProps({ req }) {
-  
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-      ? 'https://www.longdrivecars.in/branches/hyderabad-rental-car'
-      : 'https://www.longdrivecars.com/branches/hyderabad-rental-car';
+  const canonicalUrl = `https://www.longdrivecars.com/branches/hyderabad-rental-car`;
 
   return {
       props: {

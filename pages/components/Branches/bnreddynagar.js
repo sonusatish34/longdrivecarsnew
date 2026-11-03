@@ -26,7 +26,7 @@ const HIGHLIGHTS = [
   'Convenient starting hub for city travel, airport drives, and eastward routes towards Ramoji Film City',
   'Explore available rental vehicles within a 20 km radius around your location via the mobile app',
   'Total autonomy over departure times, multi-stop routes, and schedule changes without cab dependency',
-  'Key platform features include Choose Your Own Hours, Unlimited Kilometres, No Deposit, and 24/7 Breakdown Service'
+  'Key platform features include Choose Your Own Hours, Unlimited Kilometres, Zero Deposit Option, and 24/7 Breakdown Service'
 ];
 
 const VEHICLE_CATEGORIES = [
@@ -99,7 +99,7 @@ const FLEET_MODELS = [
 const LDC_FEATURES = [
   'Choose Your Own Hours',
   'Unlimited Kilometres',
-  'No Deposit option available',
+  'Zero Deposit Option  available',
   '24/7 Breakdown Service',
   'Check original car photos in app',
   'Explore cars within 20 km radius',
@@ -221,7 +221,7 @@ export default function BnReddyNagarGuidePage() {
               A self-drive rental can be useful when the journey involves several stops instead of one fixed destination. For example, a family may want to travel from BN Reddy Nagar to a shopping area, temple or tourist attraction and return later. A business traveller may need to visit multiple locations during the same day.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              Long Drive Cars currently promotes Choose Your Own Hours, Unlimited Kilometers, 24/7 Breakdown Service, No Deposit and checking original car photos before booking on its Hyderabad rental platform. The company's uploaded information also highlights cars available near customers through the app, faster pickup, and flexible rental durations.
+              Long Drive Cars currently promotes Choose Your Own Hours, Unlimited Kilometers, 24/7 Breakdown Service, Zero Deposit Option and checking original car photos before booking on its Hyderabad rental platform. The company's uploaded information also highlights cars available near customers through the app, faster pickup, and flexible rental durations.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">

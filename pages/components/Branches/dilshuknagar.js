@@ -183,7 +183,7 @@ const FAQS = [
     a: 'Long Drive Cars promotes 24/7 breakdown assistance, towing service and free car replacement, subject to the applicable service conditions.'
   },
   {
-    q: 'Is there a zero-deposit option?',
+    q: 'Is there a zero deposit option?',
     a: 'Yes. Long Drive Cars promotes a Zero Deposit option, subject to the vehicle and booking conditions.'
   },
   {
@@ -504,7 +504,7 @@ export default function DilsukhnagarGuidePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <SectionCard title="Why Choose Long Drive Cars for Self-Drive Travel in Dilsukhnagar?">
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Long Drive Cars focuses on self-drive rentals with flexible booking options. For customers travelling from Dilsukhnagar, features such as unlimited kilometres, choose-your-own-hours, zero-deposit options, quick booking, vehicle comparison and 24/7 breakdown assistance can be useful when the journey includes multiple destinations.
+                Long Drive Cars focuses on self-drive rentals with flexible booking options. For customers travelling from Dilsukhnagar, features such as unlimited kilometres, choose-your-own-hours, zero deposit options, quick booking, vehicle comparison and 24/7 breakdown assistance can be useful when the journey includes multiple destinations.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 The service also promotes exact car guarantee, ₹200 car-hold payment, national-highway toll benefits and customer protection options, subject to the applicable terms and conditions. Whether your journey is around Dilsukhnagar, Kothapet and Saroornagar or extends towards LB Nagar, Moosarambagh and other parts of Hyderabad, you can select a vehicle according to your travel requirements and availability.
@@ -550,7 +550,7 @@ export default function DilsukhnagarGuidePage() {
               Self Drive Car Rental in Dilsukhnagar gives you the flexibility to travel around Dilsukhnagar, Kothapet, Chaitanyapuri, Saroornagar, Moosarambagh, Gaddiannaram, LB Nagar and nearby parts of Hyderabad according to your own schedule.
             </p>
             <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-              Whether you need a car for office travel, shopping, college visits, family outings, airport travel or a weekend road trip, Long Drive Cars offers different vehicle options with features such as choose your own hours, unlimited kilometres, zero-deposit options and 24/7 breakdown assistance.
+              Whether you need a car for office travel, shopping, college visits, family outings, airport travel or a weekend road trip, Long Drive Cars offers different vehicle options with features such as choose your own hours, unlimited kilometres, zero deposit options and 24/7 breakdown assistance.
             </p>
             <p className="text-slate-900 font-semibold text-sm">
               Your favourite car is ready. Just book → pick up → drive! 🚗💨

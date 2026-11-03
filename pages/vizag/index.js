@@ -14,9 +14,8 @@ const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCa
 const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
-import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-import { decryptFernetData } from '@/utils/crypto';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 export default function Place({ cars, canonicalUrl,prices }) {
 
@@ -24,11 +23,11 @@ export default function Place({ cars, canonicalUrl,prices }) {
         <div>
             <Layout locname={'vizag'} phoneno={"9000-478-478"}>
                 <Head>
-                    <title>Self Drive Rentals in Vizag Available</title>
-                    <meta name="description" content="Rent self drive cars in Vizag at affordable prices. Quick booking, flexible durations & no driver required." />
+                    <title>Long Drive Cars App | Self Drive Car Rentals in Vizag Available</title>
+                    <meta name="description" content="Book Self Drive Cars in Vizag with the Long Drive Cars app. Enjoy flexible rental plans, unlimited kilometre options, a zero deposit option, and convenient car rentals for city trips and weekend getaways." />
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <meta property="og:title" content="Self Drive Rentals in Vizag Available" />
-                    <meta property="og:description" content="Rent self drive cars in Vizag at affordable prices. Quick booking, flexible durations & no driver required." />
+                    <meta property="og:description" content="Book Self Drive Cars in Vizag with the Long Drive Cars app. Enjoy flexible rental plans, unlimited kilometre options, a zero deposit option, and convenient car rentals for city trips and weekend getaways." />
                     <link rel="canonical" href={canonicalUrl} />
                 </Head>
                 <div className='pt-32 lg:pt-0'>
@@ -46,7 +45,7 @@ export default function Place({ cars, canonicalUrl,prices }) {
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9000478478'} />
-                    <PriceList city={'hyd'} prices={prices} />
+                    {/* <PriceList city={'hyd'} prices={prices} /> */}
                     <PopUp />
                 </div>
             </Layout>
@@ -54,45 +53,18 @@ export default function Place({ cars, canonicalUrl,prices }) {
     );
 }
 
-export async function getServerSideProps({ req }) {
-
-
-    
-
-    const response = await fetch('https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad');
-    const items = await response.json();
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-        const cars = decryptedCars;
-    // const cars = items?.data?.results;
-
-
-    const priceRes = await fetch('https://api.longdrivecars.com/l-site-dc/hyd-prices');
-    const priceData = await priceRes.json();
-    const decryptedPrices = decryptFernetData(priceData?.results, process.env.LDC_SECRET_KEY);
-    const finalPrices = decryptedPrices || {};
-
-    const filteredCars = cars?.map(car => ({
-        maker_model: car.maker_model,
-        price_24_hours: car.price_24_hours,
-        car_image_front_view: car.car_image_front_view_duplicate,
-        car_image_back_view: car.car_image_back_view_duplicate,
-        car_image_car_left_view: car.car_image_car_left_view_duplicate,
-        car_image_reading_view: car.car_image_reading_view_duplicate,
-        fuel_type: car.fuel_type,
-        transmission_type: car.transmission_type,
-        seater: car.seater,
-    }));
-
-    const host = req.headers.host;
-    const canonicalUrl = host.includes('.in')
-        ? 'https://www.longdrivecars.in/vizag'
-        : 'https://www.longdrivecars.com/vizag';
+export async function getServerSideProps() {
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('vizag');
+    } catch (error) {
+        console.error('Unable to load Vizag car inventory:', error);
+    }
 
     return {
         props: {
-            cars: filteredCars,  // Return only the filtered data
-            canonicalUrl,
-            prices:finalPrices
+            cars,
+            canonicalUrl: 'https://www.longdrivecars.com/vizag',
         },
     };
 }

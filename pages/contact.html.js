@@ -36,19 +36,19 @@ function Contact({ canonicalUrl }) {
   return (
     <Layout locname={""} phoneno={"9000-478-478"}>
       <Head>
-        <title>Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
+        <title>Contact Long Drive Cars App | Rental Support</title>
         <meta
           name="description"
-          content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery"
+          content="Contact Long Drive Cars App for booking assistance, rental enquiries and service questions. Use the available contact options to discuss your requirements."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:title"
-          content="Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans"
+          content="Contact Long Drive Cars App | Rental Support"
         />
         <meta
           property="og:description"
-          content="1 day Free Car @ New User - Self Drive Cars @ 1776/Day - Check Real Photos & Book - Home Delivery"
+          content="Contact Long Drive Cars App for booking assistance, rental enquiries and service questions. Use the available contact options to discuss your requirements."
         />
         <link rel="canonical" href={canonicalUrl} />
       </Head>
@@ -65,11 +65,8 @@ export default Contact;
 
 export async function getServerSideProps(context) {
   const { req } = context;
-  const host = req.headers.host;
 
-  const canonicalUrl = host.includes(".in")
-    ? "https://www.longdrivecars.in/contact.html"
-    : "https://www.longdrivecars.com/contact.html";
+  const canonicalUrl = `https://www.longdrivecars.com/contact.html`;
 
   return {
     props: {

@@ -85,7 +85,7 @@ const RandomPosts = ({ data, loc }) => {
           currentPosts.map((post, i) => (
             <Link
               key={i}
-              href={`${loc ? `/${loc}` : ""}/attach&earn/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
+              href={`${loc ? `/${loc}` : ""}/attach-and-earn/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
               className="group flex flex-col items-center text-center bg-white transition-all border rounded-lg p-5"
             >
               <div className="relative w-full aspect-[16/9] rounded-lg">

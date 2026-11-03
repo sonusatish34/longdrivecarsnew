@@ -1,4 +1,5 @@
 import React from 'react'
+import { getWhatsAppUrl } from '@/utils/whatsapp';
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
@@ -41,7 +42,7 @@ function GetInTouch({ city, phoneno, wspno }) {
         <p>CONTACT US</p>
         <div className='flex justify-around gap-3 pb-2 text-white'>
           <button onClick={() => trackEvent({ eventName: 'Contact', customData: { content_name: 'Whatsapp Button' } })} className='bg-green-500  rounded-full p-2 '>
-            <Link href={`https://api.whatsapp.com/send?phone=+91${wspno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking`} target='_blank'>
+            <Link href={getWhatsAppUrl(wspno)} target='_blank'>
               <p className=' flex items-center justify-center gap-1 text-sm text-white'><span><FaWhatsapp size={30} /></span> <span>Whatsapp</span></p>
             </Link>
           </button>

@@ -11,13 +11,13 @@ import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-export default function ExploreCars({ loc, phoneno, wspno, branch }) {
+export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars = [] }) {
 
 
     const [searchQuery, setSearchQuery] = useState('');
     const [debouncedQuery, setDebouncedQuery] = useState(searchQuery);
 
-    const [loader, setLoader] = useState(true);
+    const [loader, setLoader] = useState(false);
 
 
     useEffect(() => {
@@ -27,29 +27,7 @@ export default function ExploreCars({ loc, phoneno, wspno, branch }) {
 
         return () => clearTimeout(timer); // Clean up the timer on unmount or query change
     }, [searchQuery]);
-    const [locationG, setLocationG] = useState('')
-    const [carData, setCarData] = useState('')
-
-    useEffect(() => {
-        setLocationG(loc)
-        async function fetchCarDetails() {
-            setLoader(true);
-            try {
-                const response = await fetch(`/api/cars`);
-                const items = await response.json();
-                const cars = items?.data?.results;
-                setCarData(cars);
-            } catch (error) {
-                console.error('Error fetching car details:', error);
-            }
-            finally {
-                setLoader(false);
-            }
-        }
-
-        fetchCarDetails();
-
-    }, [loc]);
+    const carData = initialCars;
 
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedSeater, setSelectedSeater] = useState('');
@@ -160,6 +138,7 @@ export default function ExploreCars({ loc, phoneno, wspno, branch }) {
     return (
         <div>
             {loader ? <Loading /> : <div className="produvt-page flex flex-col lg:flex-row gap-10 bg-slate-100">
+                <h1 className="sr-only">Self-drive car rentals in {loc || 'Hyderabad'}</h1>
                 <div className='lg:pt-12 pt-40 bg-white'>
                     <div className="text-black-400 lg:px-20  text-black pl-10 pt-4">
                         <div>

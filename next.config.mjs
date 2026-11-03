@@ -3,18 +3,15 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/robots.txt",
-        destination: "/api/robots",
-      },
-      {
-        source: '/api/proxy/:path*',
-        destination: 'https://api.longdrivecars.com/:path*',
+        source: '/attach-and-earn/:path*',
+        destination: '/attach&earn/:path*',
       },
     ];
   },
   reactStrictMode: true,
 
   images: {
+    qualities: [70, 75],
     remotePatterns: [
       {
         protocol: 'https',
@@ -40,7 +37,6 @@ const nextConfig = {
 
     ],
     formats: ["image/avif", "image/webp"],
-    unoptimized:true,
   },
   compress: true
 

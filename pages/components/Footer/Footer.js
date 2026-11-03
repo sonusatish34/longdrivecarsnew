@@ -7,7 +7,7 @@ import { SiLinkedin, SiThreads } from 'react-icons/si'
 
 import imgs from '../../images/cretafoot_2_11zon-transformed.webp'
 import imgs2 from '../../images/EA2u65Ss0VJeJ2l1hfQc7-transformed (1).webp'
-import logo2 from '../../images/logo-white.webp'
+// import logo2 from '../../images/logo-white2.webp'
 
 const HIDDEN_LOCATIONS = ['warangal', 'vizag', 'vijayawada']
 
@@ -26,7 +26,7 @@ const LOCATIONS = [
     { name: 'Shamirpet', slug: 'shamirpet' },
     { name: 'Alwal', slug: 'alwal' },
     { name: 'ECIL', slug: 'ecil' },
-    //   { name: 'Nacharam', slug: 'nacharam' },
+    { name: 'Nacharam', slug: 'nacharam' },
     { name: 'Habsiguda', slug: 'habsiguda' },
     { name: 'Tarnaka', slug: 'tarnaka' },
     { name: 'Dilshuknagar', slug: 'dilshuknagar' },
@@ -175,8 +175,8 @@ function Footer({ locname, forblog }) {
                             <div className="flex flex-col p-1 rounded">
                                 <div className="py-4">
                                     <Image
-                                        className="lg:w-72 xl:w-full xl:h-32 lg:h-20 object-contain object-left"
-                                        src={logo2}
+                                        className="lg:w-72 xl:w-full xl:h-32 lg:h-20 object-cover object-left"
+                                        src={'/logo-white233.webp'}
                                         alt="Long Drive Cars app"
                                         width={1000}
                                         height={1000}
@@ -184,8 +184,8 @@ function Footer({ locname, forblog }) {
                                 </div>
                                 <div className="xl:text-lg lg:text-base text-xs max-w-2xl">
                                     <p>
-                                       <b>Long Drive Cars </b> is a <b>self drive car rental app in Hyderabad</b> offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City.
-                                    </p>
+  The <b>Long Drive Cars app</b> is a <b>self drive car rental app in Hyderabad</b> that offers flexible rental plans, including unlimited kilometres and zero deposit options. Customers can choose home delivery, airport delivery, or quick 5-minute pickup from branches in Kukatpally, Dilsukhnagar, and Hitech City.
+</p>
 
                                     <p className='font-bold pt-4'>Download the Long Drive Cars app to check live availability and book.</p>
 
@@ -262,10 +262,11 @@ function Footer({ locname, forblog }) {
 
                             {/* Head Office */}
                             <div>
-                                <p className="font-bold text-xl">Head Office</p>
-                                <p className="font-bold text-lg text-blue-500">Location</p>
+                                <p className="font-bold text-lg text-blue-500">Head Office</p>
+                                {/* <p className="font-bold text-lg text-blue-500">Location</p> */}
                                 <p className="w-40 text-xs">
-                                    Long Drive Cars, Pillar No 129, Main Road, beside Medipally, Medipally, Hyderabad, Telangana 500098
+                                    <Link href={'https://maps.app.goo.gl/VGBJ969GzikU746a8'}>Orbit, Plot No 30/C, Sy No 83/1, Hyderabad Knowledge City, Raidurg Panmaktha, Serilingampally Mandal, Hyderabad, Telangana 500032</Link>
+                                    
                                 </p>
                             </div>
                         </div>

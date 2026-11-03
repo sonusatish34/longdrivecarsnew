@@ -156,8 +156,8 @@ const CategoryPage = ({ canonicalUrl }) => {
                 <title> Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans</title>
                 <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="  No Deposit & Unlimited km - Self-Drive Car Rentalss" />
-                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
+                <meta property="og:title" content="  Zero Deposit Option & Unlimited km - Self-Drive Car Rentalss" />
+                <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1180 per 24 hours." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div >
@@ -177,7 +177,7 @@ const CategoryPage = ({ canonicalUrl }) => {
                         </div>
                     </div>
                     <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 ">
-                        <Link href={`/attach&earn/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
+                        <Link href={`/attach-and-earn/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
                             <span className="border-2 text-white rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
                                 <span>See more</span>
                                 <MdExpandMore className="text-lg" />
@@ -194,8 +194,6 @@ const CategoryPage = ({ canonicalUrl }) => {
 export default CategoryPage;
 export async function getServerSideProps(context) {
     const { req, params } = context; // Extract `params` if using dynamic routes
-
-    const host = req.headers.host || 'localhost';
     const category = params?.category || 'default-category'; // Example fallback for category
     const catQuerySnapshot = await getDocs(collection(fireDb, "catgforldcattachments"));
     const categoriesData = catQuerySnapshot.docs.map(doc => doc.data().name.toLowerCase());
@@ -206,9 +204,7 @@ export async function getServerSideProps(context) {
         };
     }
     // Ensure that the category is lowercase, as it's used in the URL
-    const canonicalUrl = host.includes('.in')
-        ? `https://www.longdrivecars.in/blog/${category}`
-        : `https://www.longdrivecars.com/blog/${category}`;
+    const canonicalUrl = `https://www.longdrivecars.com/attach-and-earn/${category}`;
 
     return {
         props: {
@@ -216,4 +212,3 @@ export async function getServerSideProps(context) {
         },
     };
 }
-

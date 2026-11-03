@@ -28,13 +28,13 @@ const CarImages = () => {
           <div className="px-2 space-y-2 lg:space-y-6  ">
             <p className="font-bold text-black lg:text-5xl text-xl">Innova Crysta</p>
             <div>
-              <p className="text-black font-semibold text-base lg:text-3xl">Monthly Fixed Payment</p>
+              <p className="text-black font-semibold text-base lg:text-3xl">Earn Upto 60k</p>
             </div>
 
             <div className="flex items-center   px-1 py-1 lg:text-5xl text-xl text-white ">
               <FaIndianRupeeSign  className="text-[#334B35]  lg:size-10 " size={20} />
 
-              <p className="text-[#334B35] font-bold" >50,000/</p>
+              <p className="text-[#334B35] font-bold" >60,000/</p>
             </div>
 
             <div className="flex items-center rounded-full bg-[#334B35] border-black border-[1px] px-1 py-1 lg:px-2 lg:py-2 lg:text-xl xl:text-2xl text-xs text-white w-fit">

@@ -1,119 +1,74 @@
-
-import { fireDb } from '../../public/firebase';
-import { getDocs, collection, where, query } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { GoDotFill } from "react-icons/go";
-import Loading from '../components/Loading';
+import React, { useState } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { GoDotFill } from 'react-icons/go';
 import PostsListing from './blogcomponents/PostsListing';
 import BlogLayout from './blogcomponents/BlogLayout';
-import RandomPosts from './blogcomponents/RandomPosts';
-import Link from 'next/link';
-import { MdExpandMore } from "react-icons/md";
-import Head from 'next/head';
+import { getActiveBlogPosts, getPageNumber, paginatePosts } from '../../utils/blogPosts';
 
-const ComponentName = ({canonicalUrl}) => {
+const PAGE_SIZE = 20;
 
-  const router = useRouter();
-  const [postlist, setPostlist] = useState([]);
-  const [sortedPostlist, setSortedPostlist] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // State for loader
+export default function BlogIndex({ posts, page, totalPages, canonicalUrl }) {
   const [searchQuery, setSearchQuery] = useState('');
-    const [filteredPosts, setFilteredPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const postsQuery = query(collection(fireDb, "blogPost"),
-          where("blog_state", "==", "active"),
-          where("blogfor", "==", "LDC")
-        );
-        const postsQuerySnapshot = await getDocs(postsQuery);
-        const posts = postsQuerySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        const sortedPosts = posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        setPostlist(posts);
-        setSortedPostlist(sortedPosts);
-      } catch (err) {
-        setError('Failed to load data');
-        console.error(err); // You can also log errors to an external service like Sentry
-      } finally {
-        setIsLoading(false); // Hide loader after data is fetched or error occurs
-      }
-
-
-    };
-
-    fetchPosts();
-  }, []);
-
-  useEffect(() => {
-    if (searchQuery) {
-      const filtered = sortedPostlist.filter(post =>
-        post.title.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setFilteredPosts(filtered);
-    } else {
-      setFilteredPosts(sortedPostlist);
-    }
-  }, [searchQuery, sortedPostlist]);
-
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Self Drive Car Rental Blog by Long Drive Cars</title>
-        <meta property="og:title" content="Self Drive Car Rental Blog by Long Drive Cars" />
-        <meta name="description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
-        <meta name="og:description" content="Read expert tips on self drive cars, car hire services, and rental guides to make your next self drive car trip smooth and stress-free." />
+        <title>Self-Drive Car Rental Tips &amp; Travel Guides | Long Drive Cars App</title>
+        <meta name="description" content="Read self-drive car rental tips and travel guides from Long Drive Cars." />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href={canonicalUrl} />
       </Head>
-      {isLoading ? (
-        <Loading />
-      ) :
-        <BlogLayout onSearch={setSearchQuery} catg={"Blog"}>
-          <div className='xl:px-32 lg:px-12 flex flex-col items-center '>
-            <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
-              <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">Blogs</p>
-              <ul className='flex justify-center items-center pt-2 gap-3'>
-                <li>Topic</li>
-                <li><GoDotFill /></li>
-                <li>{postlist?.length} stories</li>
-              </ul>
-            </div>
-            <div className='text-center flex justify-center lg:pt-10 pt-4'>
-              <PostsListing data={filteredPosts} />
-            </div>
-            <RandomPosts data={filteredPosts} />
+      <BlogLayout onSearch={setSearchQuery} catg="Blog">
+        <div className="xl:px-32 lg:px-12 flex flex-col items-center">
+          <div className="lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]">
+            <h1 className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">Blogs</h1>
+            <ul className="flex justify-center items-center pt-2 gap-3">
+              <li>Topic</li>
+              <li><GoDotFill /></li>
+              <li>{posts.length} stories</li>
+            </ul>
           </div>
-          <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-36 lg:pl-20 pl-3 ">
-            <Link href={`/blog/${'travel'}`} className="flex space-x-2">
-              <span className="border-2 text-white rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
-                <span>See more</span>
-                <MdExpandMore className="text-lg" />
-              </span>
+          <div className="text-center flex justify-center lg:pt-10 pt-4">
+            <PostsListing data={filteredPosts} />
+          </div>
+        </div>
+        <nav aria-label="Blog pages" className="flex justify-center gap-3 py-8">
+          {page > 1 && <Link href={`/blog?page=${page - 1}`}>Previous</Link>}
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+            <Link
+              key={pageNumber}
+              href={pageNumber === 1 ? '/blog' : `/blog?page=${pageNumber}`}
+              aria-current={pageNumber === page ? 'page' : undefined}
+            >
+              {pageNumber}
             </Link>
-          </div>
-        </BlogLayout>
-      }
+          ))}
+          {page < totalPages && <Link href={`/blog?page=${page + 1}`}>Next</Link>}
+        </nav>
+      </BlogLayout>
     </div>
   );
-};
+}
 
-export default ComponentName;
+export async function getServerSideProps({ query }) {
+  let allPosts = [];
+  try {
+    allPosts = await getActiveBlogPosts();
+  } catch (error) {
+    console.error('Unable to load blog posts:', error);
+  }
 
-export async function getServerSideProps({ req, query, params }) {
-
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in`
-    : `https://www.longdrivecars.com`;
-
+  const result = paginatePosts(allPosts, getPageNumber(query.page), PAGE_SIZE);
   return {
     props: {
-      canonicalUrl: canonicalUrl,
-    }
+      ...result,
+      canonicalUrl: result.page === 1
+        ? 'https://www.longdrivecars.com/blog'
+        : `https://www.longdrivecars.com/blog?page=${result.page}`,
+    },
   };
-} 
+}

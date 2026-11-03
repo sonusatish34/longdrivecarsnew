@@ -148,7 +148,7 @@ const LDC_FEATURES = [
   },
   {
     title: 'Zero Deposit Option',
-    desc: 'The company information states that a zero-deposit option is available, while its broader deposit information describes refundable deposit alternatives depending on the vehicle category.'
+    desc: 'The company information states that a zero deposit option is available, while its broader deposit information describes refundable deposit alternatives depending on the vehicle category.'
   },
   {
     title: '24/7 Breakdown Assistance',
@@ -220,8 +220,8 @@ const FAQS = [
     a: 'Yes, the company information includes different rental-duration and vehicle options. Check the current availability and applicable price in the app before booking.'
   },
   {
-    q: '4. Is there a zero-deposit option?',
-    a: 'The uploaded Long Drive Cars information states that a zero-deposit option is available. Other deposit options may apply depending on the selected vehicle category.'
+    q: '4. Is there a zero deposit option?',
+    a: 'The uploaded Long Drive Cars information states that a zero deposit option is available. Other deposit options may apply depending on the selected vehicle category.'
   },
   {
     q: '5. What happens if the car develops a problem during the trip?',
@@ -319,7 +319,7 @@ export default function RamanthapurGuidePage() {
               For example, you could start from Ramanthapur, drive towards Habsiguda, continue to NGRI, visit Uppal, spend some time around Saroornagar, or head toward Dilsukhnagar and Kothapet.
             </p>
             <p className="text-slate-700 font-medium text-sm sm:text-base bg-slate-50 p-4 rounded-xl border border-slate-200">
-              The Long Drive Cars information document highlights features such as choosing your own hours, unlimited kilometres, checking original car photos, exact-car availability, 24/7 breakdown assistance and zero-deposit options.
+              The Long Drive Cars information document highlights features such as choosing your own hours, unlimited kilometres, checking original car photos, exact-car availability, 24/7 breakdown assistance and zero deposit options.
             </p>
             <div className="pt-2">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-wide mb-3">Key Travel Advantages in Ramanthapur</h3>

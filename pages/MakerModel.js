@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { BsFuelPump } from 'react-icons/bs';
 import { TbManualGearbox } from 'react-icons/tb';
 import { MdOutlineAirlineSeatReclineExtra } from 'react-icons/md';
-import { useEffect, useState } from 'react';
 import customData from './components/car_desc.json';
 import { PiCarFill } from "react-icons/pi";
 import { BiPhoneCall } from "react-icons/bi";
@@ -14,17 +13,15 @@ import { GiTowTruck } from "react-icons/gi";
 import Head from 'next/head';
 import { trackEvent } from '@/utils/trackEvent';
 import { handleStoreRedirect } from '../utils/redirectUtils';
+import { getWhatsAppUrl } from '@/utils/whatsapp';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import "swiper/css/pagination";
 import Image from 'next/image'
-import { decryptFernetData } from '@/utils/crypto';
 
-const CarDetails = ({ city, phoneno, wspno }) => {
-  const [caritem, setCarItem] = useState(null);
-  const [loading, setLoading] = useState(true);
-
+const CarDetails = ({ city, phoneno, wspno, initialCar }) => {
+  const caritem = initialCar;
   const router = useRouter();
   const { maker_model } = router.query;
 
@@ -47,34 +44,6 @@ const CarDetails = ({ city, phoneno, wspno }) => {
   }
   const mdyfmaker_model = formatMakerModel(maker_model);
 
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-
-    async function fetchCarDetails() {
-      setLoading(true);
-      try {
-        const response = await fetch(`/api/cars`);
-        const items = await response.json();
-        const cars = items.data.results;
-        const car = cars?.find(i => i?.maker_model.toLowerCase() === mdyfmaker_model);
-        setCarItem(car);
-
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (maker_model) {
-      fetchCarDetails();
-      // fetchReviews(caritem?.car_owner_id);
-    }
-
-
-  }, [maker_model]);
-
   const replaceText = (str) => {
     return str?.includes("cdn")
       ? str
@@ -84,18 +53,35 @@ const CarDetails = ({ city, phoneno, wspno }) => {
   return (
     <div className='bg-white text-black'>
       <Head>
-        <title> Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans </title>
-        <meta id="meta-desc" name="Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
+        <title>{`${caritem?.maker_model || mdyfmaker_model} for Rent | Long Drive Cars`}</title>
+        <meta name="description" content={`Check ${caritem?.maker_model || mdyfmaker_model} rental price, seating, fuel type and transmission options with Long Drive Cars.`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content=" Long Drive Cars | Self Drive Car Rental in Hyderabad, Zero Deposit Option, Unlimited Km Plans " />
-        <meta property="og:Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City. Cars from ₹1084 per 24 hours." />
+        <meta property="og:title" content={`${caritem?.maker_model || mdyfmaker_model} for Rent | Long Drive Cars`} />
+        <meta property="og:description" content={`Check ${caritem?.maker_model || mdyfmaker_model} rental price and specifications with Long Drive Cars.`} />
+        {caritem && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: caritem.maker_model,
+                image: caritem.car_image_front_view,
+                description: `${caritem.maker_model} self-drive car rental`,
+                offers: {
+                  '@type': 'Offer',
+                  price: caritem.price_24_hours,
+                  priceCurrency: 'INR',
+                  availability: 'https://schema.org/InStock',
+                },
+              }).replace(/</g, '\\u003c'),
+            }}
+          />
+        )}
       </Head>
       <div className='xl:mx-16 mx-4'>
         <div className='flex flex-col mt-[10.2rem] md:mt-20 lg:mt-2 md:flex-row p-2 border-2  lg:pl-20 border-purple-500 lg:rounded  rounded-md'>
-          {loading && <div>Loading...</div>}
-          {!loading && (
-
-
+          {caritem ? (
             <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] w-full p-1 xl:pt-6 pt-8 border-1 border-gray-300 lg:h-[634px] h-[430px] overflow-hidden">
               <Swiper
                 modules={[Autoplay, Pagination]}
@@ -145,17 +131,19 @@ const CarDetails = ({ city, phoneno, wspno }) => {
               </Swiper>
             </div>
 
+          ) : (
+            <p className="p-6 text-center">Car specifications are temporarily unavailable.</p>
           )}
           <div className='flex flex-col xl:pl-40 '>
             <div className='lg:py-28'>
-              <p className='p-1 font-bold  text-3xl lg:pl-20 capitalize'>{mdyfmaker_model}</p>
+              <h1 className='p-1 font-bold text-3xl lg:pl-20 capitalize'>{caritem?.maker_model || mdyfmaker_model}</h1>
               <p className='p-1 font-bold md:text-3xl text-xl lg:pl-20'><span className='text-lg'>Starting from</span><span className='text-blue-400'> ₹{caritem?.price_24_hours}/day</span></p>
             </div>
             <div className='pt-6 flex flex-col xs:hidden lg:flex lg:pl-20'>
               <p className='font-semibold text-2xl '>Contact us  by</p>
               <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
                 <button onClick={() => trackEvent({ eventName: 'Contact', customData: { content_name: 'WhatsApp Button' } })} className='bg-green-500 rounded-full p-2 lg:p-3'>
-                  <Link href={`https://api.whatsapp.com/send?phone=+91${wspno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`} target='_blank'>
+                  <Link href={getWhatsAppUrl(wspno)} target='_blank'>
                     <p className=' flex items-center gap-1 text-base'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                   </Link>
                 </button>
@@ -172,7 +160,7 @@ const CarDetails = ({ city, phoneno, wspno }) => {
           <p className='font-semibold text-2xl'>Contact us by</p>
           <div className='flex justify-start lg:gap-5 xl:gap-8 xl:pt-4 pb-2 gap-6 pt-2 text-white'>
             <button onClick={() => trackEvent({ eventName: 'Contact', customData: { content_name: 'WhatsApp Button' } })} className='bg-green-500 rounded-full p-2 lg:p-3'>
-              <Link href={`https://api.whatsapp.com/send?phone=+91${wspno}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`} target='_blank'>
+              <Link href={getWhatsAppUrl(wspno)} target='_blank'>
                 <p className=' flex items-center gap-1 text-xl'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
               </Link>
             </button>
@@ -193,10 +181,6 @@ const CarDetails = ({ city, phoneno, wspno }) => {
           <div className='py-4'>
             <div className="flex gap-2 flex-col md:flex-row flex-wrap jus lg:justify-center lg:pt-12 xl:pt-8 pt-4 
                      font-semibold  lg:w-full">
-              {/* <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                <HiCurrencyRupee className="bg-blue-200 rounded-md p-1" size={40} />
-                <p className=" ml-2 text-xs">No Deposit</p>
-              </div> */}
               <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
                 <SlSpeedometer className="bg-blue-200 rounded-md p-1" size={40} />
                 <p className="  ml-2 text-xs">Unlimited Kilometers</p>

@@ -23,47 +23,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Shamirpet Travel Guide | Explore Nature with Self Driving Cars in Hyderabad',
-  description:
-    'Plan a scenic getaway to Shamirpet. Discover Shamirpet Lake, Jawahar Deer Park, luxury resorts, route details, and tips with self-driving cars in Hyderabad.',
-  keywords: [
-    'Self driving cars in Hyderabad',
-    'Rent Self Drive Cars Hyderabad',
-    'Premium self drive car rental services in Hyderabad',
-    'Shamirpet Travel Guide',
-    'Shamirpet Lake Road Trip',
-    'Self Drive Cars Hyderabad'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/shamirpet-travel-guide'
-  },
-  openGraph: {
-    title: 'Shamirpet Travel Guide: Explore Nature with Self Driving Cars in Hyderabad',
-    description:
-      'Escape city chaos with a scenic road trip to Shamirpet Lake and Jawahar Deer Park using self-driving cars in Hyderabad.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Shamirpet Travel Guide Self Drive Car Rental Hyderabad'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Shamirpet Travel Guide | Self Drive Cars Hyderabad',
-    description:
-      'Discover nature, lake views, and resorts in Shamirpet with flexible self-drive car rentals from Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

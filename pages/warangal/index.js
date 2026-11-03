@@ -12,14 +12,11 @@ const FeaturedCars = dynamic(() => import('../components/FeaturedCars/FeaturedCa
 const DynamicFaqComponent = dynamic(() => import('../components/FaqAccordian/FaqAccordian'));
 import DynWhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import Layout from '../components/Layout/Layout';
-import PriceList from '../components/PriceList/PriceList';
 import Head from 'next/head';
-import { decryptFernetData } from '@/utils/crypto';
+import { getCarsByLocation } from '@/utils/serverCars';
 export default function Place({ cars, canonicalUrl,prices }) {
 
     const [loading, setLoading] = useState(false);
-
-
 
     return (
         <div>
@@ -39,9 +36,7 @@ export default function Place({ cars, canonicalUrl,prices }) {
                 <div className='pt-32 lg:pt-0'>
                     <CarProducts data={cars} branch={"warangal"} wspno={'9000777665'} phoneno={'9000777665'} count={7} />
                     <DynImageChange locname={'warangal'} />
-                    <div>
-                        <DynNearByApi city={'warangal'} />
-                    </div>
+                    <div><DynNearByApi city={'warangal'} /></div>
                     <div><DynNearYou /></div>
                     <FeaturedCars data={cars} branch={"warangal"} />
                     <DynCallBackForm />
@@ -51,46 +46,24 @@ export default function Place({ cars, canonicalUrl,prices }) {
                         <DynamicFaqComponent />
                     </div>
                     <GetInTouch phoneno={'9000777665'} />
-                    <PriceList prices={prices} city={'hyd'} />
                 </div>
             </Layout>
         </div>
     );
 }
 
-export async function getServerSideProps({ req }) {
-    const response = await fetch('https://api.longdrivecars.com/l-site-dc/cars-info?location=hyderabad');
-    const items = await response.json();
-    const decryptedCars = decryptFernetData(items?.data?.results, process.env.LDC_SECRET_KEY)
-    const cars = decryptedCars;
-
-    const priceRes = await fetch('https://api.longdrivecars.com/l-site-dc/hyd-prices');
-    const priceData = await priceRes.json();
-    const decryptedPrices = decryptFernetData(priceData?.results, process.env.LDC_SECRET_KEY);
-    const finalPrices = decryptedPrices || {};
-
-    const filteredCars = cars?.map(car => ({
-        maker_model: car.maker_model,
-        price_24_hours: car.price_24_hours,
-        car_image_front_view: car.car_image_front_view_duplicate,
-        car_image_back_view: car.car_image_back_view_duplicate,
-        car_image_car_left_view: car.car_image_car_left_view_duplicate,
-        car_image_reading_view: car.car_image_reading_view_duplicate,
-        fuel_type: car.fuel_type,
-        transmission_type: car.transmission_type,
-        seater: car.seater,
-    }));
-
-    const host = req.headers.host;
-    const canonicalUrl = host.includes('.in')
-        ? 'https://www.longdrivecars.in/warangal'
-        : 'https://www.longdrivecars.com/warangal';
+export async function getServerSideProps() {
+    let cars = [];
+    try {
+        cars = await getCarsByLocation('warangal');
+    } catch (error) {
+        console.error('Unable to load Warangal car inventory:', error);
+    }
 
     return {
         props: {
-            cars: filteredCars,  // Return only the filtered data
-            canonicalUrl,
-            prices:finalPrices
+            cars,
+            canonicalUrl: 'https://www.longdrivecars.com/warangal',
         },
     };
 }

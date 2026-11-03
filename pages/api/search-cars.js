@@ -1,38 +1,36 @@
-import { decryptFernetData } from '@/utils/crypto';
+import { getCarsByLocation } from '@/utils/serverCars';
 
 export default async function handler(req, res) {
-  try {
-    const { search_key = "", location = "hyderabad" } = req.query;
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', 'GET');
+    return res.status(405).json({ results: [], error: 'Method not allowed' });
+  }
 
-    if (!search_key.trim()) {
+  try {
+    const searchKey = Array.isArray(req.query.search_key)
+      ? req.query.search_key[0]
+      : String(req.query.search_key || '');
+    const location = Array.isArray(req.query.location)
+      ? req.query.location[0]
+      : String(req.query.location || 'hyderabad');
+
+    if (!searchKey.trim()) {
+      res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
       return res.status(200).json({ results: [] });
     }
 
-    const response = await fetch(
-      `https://api.longdrivecars.com/l-site-dc/cars-info?location=${location}&search_key=${search_key}`,
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-        },
-      }
-    );
+    const cars = await getCarsByLocation(location);
+    const normalizedSearch = searchKey.trim().toLowerCase();
 
-    const data = await response.json();
-
-    // 🔐 Decrypt on server (SAFE)
-    const decryptedCars = decryptFernetData(
-      data?.data?.results,
-      process.env.LDC_SECRET_KEY
-    );
-
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=600');
     return res.status(200).json({
-      results: decryptedCars || [],
+      results: cars.filter((car) =>
+        car.maker_model.toLowerCase().includes(normalizedSearch)
+      ),
     });
-
   } catch (error) {
     console.error("API ERROR:", error);
-    return res.status(500).json({
+    return res.status(502).json({
       results: [],
       error: "Failed to fetch cars",
     });

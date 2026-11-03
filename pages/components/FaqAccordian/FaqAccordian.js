@@ -4,29 +4,29 @@ const FaqAccordion = ({ city }) => {
   const faqData = [
     // NEW FAQs - Keep these at the top
     {
-      question: 'What is Long Drive Cars?',
+      question: 'What Is the Long Drive Cars App?',
       answer:
-        '<p>Long Drive Cars is a self drive car rental app in Hyderabad offering unlimited kilometre plans, a zero deposit option, home and airport delivery, and 5-minute pickup from branches in Kukatpally, Dilsukhnagar and Hitech City.</p>',
+        '<p>The Long Drive Cars app is a self-drive car rental app in Hyderabad that offers flexible rental plans, including unlimited kilometres and zero deposit options. Customers can choose home delivery, airport delivery, or quick 5-minute pickup from branches in Kukatpally, Dilsukhnagar, and Hitech City.</p>',
     },
     {
-      question: 'Does Long Drive Cars ask for a security deposit?',
+      question: 'Does the Long Drive Cars App Ask for a Security Deposit?',
       answer:
-        '<p>Long Drive Cars offers a zero deposit option. You can also choose to leave a bike, a laptop, or a refundable deposit of ₹2,000 for premium cars or ₹5,000 for luxury cars.</p>',
+        '<p>The Long Drive Cars app offers a zero deposit option for self-drive car rentals in Hyderabad. Customers can also choose to leave a bike or a laptop or pay a refundable deposit of ₹2,000 for premium cars or ₹5,000 for luxury cars.</p>',
     },
     {
-      question: 'Does Long Drive Cars offer unlimited kilometres?',
+      question: 'Does the Long Drive Cars App Offer Unlimited Kilometres?',
       answer:
-        '<p>Yes. Long Drive Cars has hourly, 120 km per day, 300 km per day and unlimited kilometre plans, so you can pick the plan that fits your trip.</p>',
+        '<p>Yes. The Long Drive Cars app offers flexible self-drive car rental plans in Hyderabad, including hourly, 120 km per day, 300 km per day, and unlimited-kilometre options. Customers can choose the plan that best suits their travel needs.</p>',
     },
     {
-      question: 'What documents do I need to rent a car from Long Drive Cars?',
+      question: 'What Documents Do I Need to Rent a Car Through the Long Drive Cars App?',
       answer:
-        '<p>One ID (Aadhaar or passport) and your driving licence. From your second booking onwards, Long Drive Cars needs no documents.</p>',
+        '<p>To book a self-drive car through the Long Drive Cars app, first-time customers need one valid ID (Aadhaar or passport) and a driving licence. From the second booking onwards, customers can enjoy a simpler booking process without submitting documents again.</p>',
     },
     {
-      question: 'Does Long Drive Cars deliver to Hyderabad airport?',
+      question: 'Does the Long Drive Cars app offer delivery to Hyderabad Airport?',
       answer:
-        '<p>Yes. Long Drive Cars offers airport delivery at Shamshabad (RGIA) and home delivery across Hyderabad, or you can pick up in about 5 minutes from the Kukatpally, Dilsukhnagar or Hitech City branch.</p>',
+        '<p>Yes. The Long Drive Cars app offers self-drive car delivery to Hyderabad Airport at Shamshabad (RGIA), along with home delivery across Hyderabad. Customers can also pick up their cars in about 5 minutes from the Kukatpally, Dilsukhnagar, or Hitech City branches.</p>',
     },
 
     // EXISTING FAQs
@@ -53,8 +53,7 @@ const FaqAccordion = ({ city }) => {
       answer:
         '<p><strong>Cancellation policy :</strong></p><p>👉 No Refund After Pickup time</p><p>👉 Your Booking Will be Automatically Cancelled if you did not pickup Car Within 3hrs of Pickup Time & No Refund</p><p>👉 if your Late Change Pickup Time in App</p><p>👉 100% Refund before 12hr of Pickup time</p><p>👉 50% Refund before 6hr of Pickup Time</p><p>👉 25% Refund before Pickup Time</p><p>👉 No Refund for modified bookings</p><p>👉 Savings pass & ldc credits will be Refunded</p>',
     },
-  ];
-
+];
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {

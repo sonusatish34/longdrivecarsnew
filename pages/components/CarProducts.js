@@ -4,15 +4,22 @@ import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
 import { RiArrowDownWideLine } from "react-icons/ri";
 import dnf from '../images/datanotfound.webp';
-import disc1 from "@/public/oandd/3.webp";
-import ldcqr from '../images/ldcqr.png'
-import { MdOutlineCancel } from 'react-icons/md'
-
 
 import CardFragment from "./CardFragment/CardFragment";
 import { handleStoreRedirect } from "../../utils/redirectUtils";
-import { decryptFernetData } from "@/utils/crypto";
 function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
+
+    const bannerImageUrl =
+        typeof banner?.duplicate_banner_image_url === "string" &&
+        banner.duplicate_banner_image_url.trim()
+            ? banner.duplicate_banner_image_url
+            : null;
+    const cityName = {
+        hyderabad: 'Hyderabad',
+        vizag: 'Vizag',
+        warangal: 'Warangal',
+        vijayawada: 'Vijayawada',
+    }[String(branch || 'hyderabad').toLowerCase()] || 'Hyderabad';
 
     const [searchQuery, setSearchQuery] = useState("");
     const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -37,7 +44,10 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
             setLoading(true);
             try {
                 const res = await fetch(
-                    `/api/search-cars?location=hyderabad&search_key=${debouncedQuery}`
+                    `/api/search-cars?${new URLSearchParams({
+                        location: branch || 'hyderabad',
+                        search_key: debouncedQuery,
+                    }).toString()}`
                 );
 
                 const data = await res.json();
@@ -60,19 +70,28 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
         'SELTOS SUNROOF', 'MARUTHI ERTIGA', 'MAHINDRA THAR 2024 Diesel',
         'INNOVA CRYSTA Diesel', 'MAHINDRA XUV 700 Diesel'
     ];
+    var filteredItems=[]; 
 
     const sortedDefaultData = data?.sort((a, b) => a.price_24_hours - b.price_24_hours);
-    const filteredItems = carModels.flatMap((model) =>
-        sortedDefaultData?.filter((item) => item?.maker_model === model)
-    );
+    if(branch=='hyderabad'||branch=='')
+    {
+        filteredItems = carModels.flatMap((model) =>
+        sortedDefaultData?.filter((item) => item?.maker_model === model));
+    }
+    else
+    {
+        filteredItems = sortedDefaultData;
+    }
+     
+    
 
     return (
         <div className="bg-white">
-            <h1 className="text-blue-400  text-lg mxs:text-xl font-bold text-center py-4 capitalize">
-                Self Drive Car Rentals In Hyderabad | Long Drive Cars
+            <h1 className="px-1 text-blue-400 text-base mxs:text-lg font-bold text-center py-2 capitalize">
+                Self Drive Car Rentals In {cityName} | Long Drive Cars App
             </h1>
             <h2 className="text-black xl:text-5xl lg:text-4xl text-lg mxs:text-xl font-bold text-center py-7 capitalize">
-                Explore Car Rentals Near You
+                Self Drive Car Rentals Near You
             </h2>
 
             <div className="lg:mb-8 pl-3 flex items-center justify-center pt-2 lg:pb-2">
@@ -94,7 +113,6 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
                     ) : carResults.length > 0 ? (
                         carResults.map((item, index) => (
                             <CardFragment
-                                banner={a}
                                 key={`${item?.maker_model}-${index}`}
                                 item={item}
                                 wspno={wspno}
@@ -114,11 +132,11 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
                         <React.Fragment key={`${item?.maker_model}-${index}`}>
                             <CardFragment item={item} wspno={wspno} phoneno={phoneno} index={index} />
 
-                            {(index + 1 === 3 || index + 1 === 6 || index + 1 === 8) && (
+                            {bannerImageUrl && (index + 1 === 3 || index + 1 === 6 || index + 1 === 8) && (
                                 <div className="items-center block lg:hidden pb-5">
                                     <div className="lg:rounded-md items-center lg:w-72 flex flex-col relative">
                                         <Image
-                                            src={banner?.duplicate_banner_image_url}
+                                            src={bannerImageUrl}
                                             alt="Offer"
                                             width={1000}
                                             height={1000}
@@ -143,7 +161,7 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
                                                         </p>
                                                         <p className='animate-bounce'>
                                                             <span className='bg-gradient-to-r from-green-700 to-green-700 bg-clip-text text-transparent text-3xl animate-spin'>
-                                                                ₹ 250 off
+                                                                ₹ 200 off
                                                             </span>{' '}
                                                         </p>
                                                         <p className='capitalize'>on your first booking!</p>
@@ -195,7 +213,7 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
                                                     <p className='capitalize'>Scan QR to download the app</p>
                                                     <Image
                                                         className='lg:w-28 w-28'
-                                                        src={ldcqr}
+                                                        src={'/qr.webp'}
                                                         alt='Long Drive Cars'
                                                         width={500}
                                                         height={500}
@@ -216,10 +234,10 @@ function CarProducts({ data, branch, phoneno, count, wspno, banner }) {
                                 </div>
                             )}
 
-                            {(index + 1 === 2) && (
+                            {bannerImageUrl && index + 1 === 2 && (
                                 <div className="lg:block hidden pt-14 lg:pt-0 items-center md:w-72">
                                     <Image
-                                        src={banner?.duplicate_banner_image_url}
+                                        src={bannerImageUrl}
                                         height={1000}
                                         width={1000}
                                         alt="Long Drive Cars app"

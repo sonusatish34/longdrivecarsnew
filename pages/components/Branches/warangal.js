@@ -21,47 +21,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Rent a Best Self Drive Car in Hyderabad | Discover Warangal',
-  description:
-    'Plan a seamless road trip from Hyderabad to Warangal. Explore Warangal Fort, Thousand Pillar Temple, Ramappa Temple & Laknavaram Lake with self-drive car rentals.',
-  keywords: [
-    'Rent a Best Self Drive Car in Hyderabad',
-    'Self drive car rental services in Hyderabad',
-    'Hyderabad to Warangal road trip',
-    'Warangal travel guide',
-    'Car rental Hyderabad to Warangal',
-    'Self Drive Cars Hyderabad'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/hyderabad-to-warangal-self-drive'
-  },
-  openGraph: {
-    title: 'Rent a Best Self Drive Car in Hyderabad: Discover Warangal Like Never Before',
-    description:
-      'Experience the heritage and natural beauty of Warangal with the freedom of a self-drive car rental from Hyderabad.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Hyderabad to Warangal Road Trip Self Drive Car Rental'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Hyderabad to Warangal Self Drive Car Rental Guide',
-    description:
-      'Discover Warangal heritage, temples, and lakes with affordable self-drive car rentals from Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

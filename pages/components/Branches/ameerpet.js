@@ -19,47 +19,6 @@ import {
 // ============================================================================
 // SEO METADATA
 // ============================================================================
-export const metadata = {
-  title: 'Ameerpet Travel & Lifestyle Guide | Self Drive Cars for Rent in Ameerpet',
-  description:
-    'Explore the ultimate Ameerpet travel and lifestyle guide. Discover shopping streets, Maitrivanam, nearby getaways, and food spots with self drive cars for rent in Ameerpet.',
-  keywords: [
-    'Self Drive cars for rent in Ameerpet',
-    'Rent self drive cars in Ameerpet',
-    'Best self drive car services in Ameerpet',
-    'Ameerpet Travel Guide',
-    'Self Drive Cars Hyderabad',
-    'Car Rental Ameerpet'
-  ],
-  alternates: {
-    canonical: 'https://www.longdrivecars.com/ameerpet-travel-guide'
-  },
-  openGraph: {
-    title: 'Ameerpet Travel & Lifestyle Guide | Self Drive Car Rentals',
-    description:
-      'Plan your trip to Ameerpet with ease. Find top places to visit, dining hubs, and travel tips with flexible self-drive car rentals.',
-    url: 'https://www.longdrivecars.com',
-    siteName: 'Long Drive Cars',
-    images: [
-      {
-        url: '/locationpages/shamshabad.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Ameerpet Travel and Lifestyle Guide'
-      }
-    ],
-    locale: 'en_IN',
-    type: 'article'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Ameerpet Travel & Lifestyle Guide | Self Drive Cars for Rent',
-    description:
-      'Explore Ameerpet shopping, student hubs, and weekend getaways with affordable self-drive car rentals in Hyderabad.',
-    images: ['/locationpages/shamshabad.webp']
-  }
-};
-
 // ============================================================================
 // PAGE COMPONENT
 // ============================================================================

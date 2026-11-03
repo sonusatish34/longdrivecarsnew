@@ -32,7 +32,7 @@ const fddata = [
 
 
 function FeaturedCars({ data, branch }) {
-  
+  // if branch is hyderabad or 
   const swiperRef = useRef(null);
 
   return (
@@ -103,9 +103,9 @@ function FeaturedCars({ data, branch }) {
                         </div>
                         <p className='text-left text-lg pt-2 font-bold px-3 border-t-2 border-b-2 border-gray-200'>{item?.maker_model}</p>
                         <div className='flex flex-col gap-1'>
-                          <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {item?.price_24_hours}</span></p>
-                          <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {item?.price_24_hours * 4}</span></p>
-                          <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {(item?.price_24_hours * 10) - 2000}</span></p>
+                          <p className='flex justify-between px-4 font-semibold'><span>24hrs</span><span>₹ {(item?.price_24_hours)-600}</span></p>
+                          <p className='flex justify-between px-4 text-sm'><span>4 days</span><span>₹ {(item?.price_24_hours * 4) -1500}</span></p>
+                          <p className='flex justify-between px-4 text-sm pb-2'><span>10 days</span><span>₹ {(item?.price_24_hours * 10) - 5000}</span></p>
                         </div>
                         <div className="flex items-center justify-center gap-4 pt-1 border-t-2 border-gray-200">
                           <Link href={'https://apps.apple.com/in/app/long-drive-cars/id6466695391'}>

@@ -1,16 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout/Layout';
 import Head from 'next/head';
-import ecil from '../components/Branches/ecil';
-import dilshuknagar from '../components/Branches/dilshuknagar';
-import ramanthapur from '../components/Branches/ramanthapur';
 
 const components = {
-  ameerpet: dynamic(() => import('../components/Branches/ameerpet'), { ssr: false }),
-  balanagar: dynamic(() => import('../components/Branches/balanagar'), { ssr: false }),
+  ameerpet: dynamic(() => import('../components/Branches/ameerpet')),
   dilshuknagar: dynamic(() => import('../components/Branches/dilshuknagar')),
   ecil: dynamic(() => import('../components/Branches/ecil')),
   kukatpally: dynamic(() => import('../components/Branches/kukatpally')),
@@ -28,19 +22,18 @@ const components = {
   lbnagar: dynamic(() => import('../components/Branches/lbnagar')),
   shamirpet: dynamic(() => import('../components/Branches/shamirpet')),
   alwal: dynamic(() => import('../components/Branches/alwal')),
-  ecil: dynamic(() => import('../components/Branches/ecil')),
-  nacharam: dynamic(() => import('../components/Branches/nacharam')),
-  habsiguda: dynamic(() => import('../components/Branches/habsiguda')),
-  tarnaka: dynamic(() => import('../components/Branches/tarnaka')),
-  dilshuknagar: dynamic(() => import('../components/Branches/dilshuknagar')),
   bachupally: dynamic(() => import('../components/Branches/bachupally')),
+  balanagar: dynamic(() => import('../components/Branches/balanagar')),
+  bnreddynagar: dynamic(() => import('../components/Branches/bnreddynagar')),
   bowenpally: dynamic(() => import('../components/Branches/bowenpally')),
-  vanasthalipuram: dynamic(() => import('../components/Branches/vanasthalipuram')),
+  habsiguda: dynamic(() => import('../components/Branches/habsiguda')),
   hayatnagar: dynamic(() => import('../components/Branches/hayatnagar')),
+  kachiguda: dynamic(() => import('../components/Branches/kachiguda')),
+  nacharam: dynamic(() => import('../components/Branches/nacharam')),
   nampally: dynamic(() => import('../components/Branches/nampally')),
   saroornagar: dynamic(() => import('../components/Branches/saroornagar')),
-  kachiguda: dynamic(() => import('../components/Branches/kachiguda')),
-  bnreddynagar: dynamic(() => import('../components/Branches/bnreddynagar')),
+  tarnaka: dynamic(() => import('../components/Branches/tarnaka')),
+  vanasthalipuram: dynamic(() => import('../components/Branches/vanasthalipuram')),
 };
 
 const metadata = {
@@ -53,6 +46,7 @@ const metadata = {
   dilshuknagar: {
     title: 'Car Rentals Dilsukhnagar Without a Driver',
     description: 'Find the best self drive rentals in Dilsukhnagar for solo or group travel. Simple online booking and great customer support.'
+
   },
 
   ecil: {
@@ -118,16 +112,18 @@ const metadata = {
 export async function getServerSideProps(context) {
   const { req } = context;
   const { place } = context.params;
-  const { title = 'Default Title', description = 'Default Description', ogDescription = '' } = metadata[place.toLowerCase()] || {};
+  const normalizedPlace = place.toLowerCase();
 
-  const host = req.headers.host;
-  const canonicalUrl = host.includes('.in')
-    ? `https://www.longdrivecars.in/self-drive-car-rental/${place.toLowerCase()}`
-    : `https://www.longdrivecars.com/self-drive-car-rental/${place.toLowerCase()}`;
+  if (!components[normalizedPlace]) {
+    return { notFound: true };
+  }
+
+  const { title = 'Default Title', description = 'Default Description', ogDescription = '' } = metadata[normalizedPlace] || {};
+  const canonicalUrl = `https://www.longdrivecars.com/self-drive-car-rental/${normalizedPlace}`;
 
   return {
     props: {
-      place,
+      place: normalizedPlace,
       title,
       description,
       ogDescription,
@@ -136,16 +132,8 @@ export async function getServerSideProps(context) {
   };
 }
 
-function Place({ place, title, description, ogDescription, canonicalUrl }) {  // Include canonicalUrl here
-  const [Component, setComponent] = useState(null);
-  const router = useRouter();
-
-  useEffect(() => {
-    if (place) {
-      const component = components[place.toLowerCase()];
-      setComponent(component || null);
-    }
-  }, [place]);
+function Place({ place, title, description, ogDescription, canonicalUrl }) {
+  const Component = components[place];
 
   return (
     <Layout phoneno={'9000-478-478'} wspno={'9000478478'}>
@@ -157,11 +145,9 @@ function Place({ place, title, description, ogDescription, canonicalUrl }) {  //
         <meta property="og:description" content={description} />
         <link rel="canonical" href={canonicalUrl} />  {/* Use canonicalUrl here */}
       </Head>
-      <div>{Component ? <Component /> : <div>Loading...</div>}</div>
+      <div><Component /></div>
     </Layout>
   );
 }
 
 export default Place;
-
-

@@ -71,11 +71,7 @@ function privacypolicyhtml({ canonicalUrl }) {
 export default privacypolicyhtml
 export async function getServerSideProps(context) {
     const { req, params } = context; // Extract `params` if using dynamic routes
-
-    const host = req.headers.host;
-    const canonicalUrl = host.includes('.in')
-        ? `https://www.longdrivecars.in/vizag/privacy-policy.html`
-        : `https://www.longdrivecars.com/vizag/privacy-policy.html`;
+    const canonicalUrl = `https://www.longdrivecars.com/vizag/privacy-policy.html`;
 
     return {
         props: {
