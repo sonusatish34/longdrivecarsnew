@@ -6,10 +6,9 @@ import img4 from '../../changeimg/swift.webp'
 import img5 from '../../changeimg/i20.webp'
 import Loading from "../Loading";
 import CardFragment from '../CardFragment/CardFragment';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars = [] }) {
 
@@ -60,13 +59,14 @@ export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars =
         if (!Array.isArray(carData)) return [];
 
         return carData.filter(item => {
-            if (!item) return false;
+            if (!item || typeof item.maker_model !== "string") return false;
 
-            const matchesBrand = selectedBrand ? item.maker_model.toLowerCase().includes(selectedBrand.toLowerCase()) : true;
+            const makerModel = item.maker_model.toLowerCase();
+            const matchesBrand = selectedBrand ? makerModel.includes(selectedBrand.toLowerCase()) : true;
             const matchesSeater = selectedSeater ? item.seater === selectedSeater : true;
-            const matchesFuelType = selectedFuelType ? item.fuel_type.toLowerCase() === selectedFuelType.toLowerCase() : true;
-            const matchesTransType = selectedTransType ? item.transmission_type.toLowerCase() === selectedTransType.toLowerCase() : true;
-            const matchesSearch = item.maker_model.toLowerCase().includes(debouncedQuery.toLowerCase());
+            const matchesFuelType = selectedFuelType ? String(item.fuel_type ?? "").toLowerCase() === selectedFuelType.toLowerCase() : true;
+            const matchesTransType = selectedTransType ? String(item.transmission_type ?? "").toLowerCase() === selectedTransType.toLowerCase() : true;
+            const matchesSearch = makerModel.includes(debouncedQuery.toLowerCase());
 
             return matchesBrand && matchesSeater && matchesFuelType && matchesSearch && matchesTransType;
         });
@@ -123,16 +123,6 @@ export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars =
     const handleLoadMore = () => {
         setVisibleItems((prev) => prev + 9);
     };
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setDebouncedQuery(searchQuery);
-        }, 200); // Debounce delay (300ms)
-
-        return () => clearTimeout(timer); // Clean up the timer on unmount or query change
-    }, [searchQuery]);
-
-
 
     const [showDown, setShowDown] = useState(false)
     return (
@@ -316,7 +306,7 @@ export default function ExploreCars({ loc, phoneno, wspno, branch, initialCars =
                     </div>
                     <div className="lg:grid xl:grid-cols-3 lg:grid-cols-2 gap-x-8 gap-y-8 flex flex-col gap-2 items-center justify-center lg:max-w-7xl py-4">
                         {filteredData?.map((item, index) => (
-                            <CardFragment index={index} item={item} wspno={wspno} phoneno={phoneno} />
+                            <CardFragment key={`${item.maker_model}-${index}`} index={index+1} item={item} wspno={wspno} phoneno={phoneno} />
 
                         ))}
                     </div>
