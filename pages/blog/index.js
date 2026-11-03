@@ -29,7 +29,7 @@ export default function BlogIndex({ posts, page, totalPages, canonicalUrl }) {
             <ul className="flex justify-center items-center pt-2 gap-3">
               <li>Topic</li>
               <li><GoDotFill /></li>
-              <li>{posts.length} stories</li>
+              <li>{posts.length} storie.s</li>
             </ul>
           </div>
           <div className="text-center flex justify-center lg:pt-10 pt-4">
